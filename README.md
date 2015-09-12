@@ -1,8 +1,9 @@
 # aui
 AUI是为APICloud而打造的一个单纯UI框架，体积小，方便用户扩展和自由组合，摆脱繁琐的html标签布局。
 # 说明
-该包为AUI演示app源码，aui位于css目录下
+该包为AUI演示app源码，在APICloud中新建一个项目将代码覆盖，调试即可。
 
+aui位于css目录下
 html 为演示app中全部页面
 
 #下载使用
