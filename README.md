@@ -7,9 +7,10 @@ aui位于css目录下
 html 为演示app中全部页面
 
 #下载使用
+
 AUI使用方式就是加载一个css样式表的过程。
 
-在压缩包里面会有5个文件，分别对应如下
+css文件对应如下
 
 aui.css  —— 完整版
 
@@ -28,4 +29,4 @@ aui_iconfont.ttf —— 字体图标文件。
 <a href="http://www.auicss.com">www.auicss.com</a>
 
 #作者
-流浪男
+流浪男 QQ:343757327
