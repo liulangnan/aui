@@ -29,4 +29,4 @@ aui_iconfont.ttf —— 字体图标文件。
 <a href="http://www.auicss.com">www.auicss.com</a>
 
 #作者
-流浪男 QQ:343757327.
+流浪男 QQ:343757327
