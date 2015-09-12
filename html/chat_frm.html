@@ -1,0 +1,147 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <title>APP</title>
+    <link rel="stylesheet" type="text/css" href="../css/aui.css" />
+</head>
+<style>
+.history-date { font-size: 12px;}
+/*#message-content { overflow-y: auto;}*/
+</style>
+<body>
+    <div class="aui-content aui-content-padded" id="message-content">
+        <p class="aui-text-center history-date">7-16 20:00</p>
+        <div class="aui-chat-sender">
+            <div class="aui-chat-sender-avatar"><img src="../image/demo1.png"></div>
+            <div class="aui-chat-sender-cont">
+                <div class="aui-chat-right-triangle"></div>
+                <span>Hello!!</span>
+            </div>
+        </div>
+        <div class="aui-chat-receiver">
+            <div class="aui-chat-receiver-avatar"><img src="../image/demo2.png"></div>
+            <div class="aui-chat-receiver-cont">
+                <div class="aui-chat-left-triangle"></div>
+                <span>你好！</span>
+            </div>
+        </div>
+        <div class="aui-chat-sender">
+            <div class="aui-chat-sender-avatar"><img src="../image/demo1.png"></div>
+            <div class="aui-chat-sender-cont">
+                <div class="aui-chat-right-triangle"></div>
+                <span>nice to meet you!</span>
+            </div>
+        </div>
+        <div class="aui-chat-receiver">
+            <div class="aui-chat-receiver-avatar"><img src="../image/demo2.png"></div>
+            <div class="aui-chat-receiver-cont">
+                <div class="aui-chat-left-triangle"></div>
+                <span>很高兴见到你！</span>
+            </div>
+        </div>
+        <div class="aui-chat-sender">
+            <div class="aui-chat-sender-avatar"><img src="../image/demo1.png"></div>
+            <div class="aui-chat-sender-cont">
+                <div class="aui-chat-right-triangle"></div>
+                <span>如果文字太长了会是什么效果，再多一点再多一点</span>
+            </div>
+        </div>
+        <div class="aui-chat-receiver">
+            <div class="aui-chat-receiver-avatar"><img src="../image/demo2.png"></div>
+            <div class="aui-chat-receiver-cont">
+                <div class="aui-chat-left-triangle"></div>
+                <span>如果想自定义气泡颜色，修改aui-chat-receiver-cont背景和aui-chat-left-triangle的border-color</span>
+            </div>
+        </div>
+    </div>
+</body>
+<script type="text/javascript" src="../script/api.js" ></script>
+<script type="text/javascript">
+var sourcePath = "widget://image/emotion";//表情存放目录
+var emotionData;//存储表情
+function transText(text, imgWidth, imgHeight){
+    var imgWidth = imgWidth || 24;
+    var imgHeight = imgHeight || 24;
+    var regx= /\[(.*?)\]/gm;
+    var textTransed = text.replace(regx,function(match){
+        var imgSrc = emotionData[match];
+        if( !imgSrc){ /* 说明不对应任何表情,直接返回即可.*/
+            return match;
+        }
+        var img = "<img src='" + imgSrc+ "' width='" + imgWidth +  "' height ='" + imgHeight +"' />";
+        return img;
+    });
+    return textTransed;   
+}
+/*获取所有表情图片的名称和真实URL地址，以JSON对象形式返回。其中以表情文本为 属性名，以图片真实路径为属性值*/
+function getImgsPaths(sourcePathOfChatBox, callback){
+    var jsonPath = sourcePathOfChatBox + "/emotion.json";//表情的JSON数组
+    api.readFile({
+        path: jsonPath
+    },function(ret,err){
+        if(ret.status){
+            var emotionArray = JSON.parse(ret.data);
+            var emotion = {};
+            for(var i in emotionArray){
+                var emotionItem = emotionArray[i];
+                var emotionText = emotionItem["text"];
+                var emotionUrl = "../image/emotion/"+emotionItem["name"]+".png";
+                emotion[emotionText] = emotionUrl;
+            }
+            /*把emotion对象 回调出去*/
+            if("function" === typeof(callback)){
+                callback(emotion);
+            }
+        }
+    });
+}
+function chat(){
+    var obj = api.require('chatBox');
+    
+    obj.open({
+        switchButton:{
+            faceNormal : "widget://image/chatBox/face1.png",
+            faceHighlight : "widget://image/chatBox/face1.png",
+            //addNormal : "widget://image/chatBox/add1.png",
+            addHighlight : "widget://image/chatBox/add1.png",
+            keyboardNormal : "widget://image/chatBox/key1.png",
+            keyboardHighlight : "widget://image/chatBox/key1.png"
+        },
+        sourcePath:"widget://image/emotion"
+    },function(ret,err){
+        if(ret.eventType=='send'){
+            if(ret.msg){
+                var chatDom = $api.byId('message-content');
+                var frameHeight = api.frameHeight;
+                $api.css(chatDom,'height:'+frameHeight+'px;');
+                chatDom.scrollTop = chatDom.scrollHeight;
+                
+                obj.resignFirstResponder();
+            }
+            
+        }
+    });
+    obj.setInputFieldListener(function(ret,err){
+        var chatDom = $api.byId('message-content');
+        if(ret.chatViewH==0){
+            var frameHeight = api.frameHeight;
+        }else{
+            var frameHeight = api.frameHeight-ret.chatViewH;
+        }
+        
+        $api.css(chatDom,'height:'+frameHeight+'px;');
+        chatDom.scrollTop = chatDom.scrollHeight;
+
+    });
+    
+}
+apiready = function(){
+    /*getImgsPaths(sourcePath, function (emotion) {
+        emotionData = emotion;
+    });
+    chat();*/
+}
+</script>
+</html>

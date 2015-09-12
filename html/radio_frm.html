@@ -1,0 +1,58 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <title>APP</title>
+    <link rel="stylesheet" type="text/css" href="../css/aui.css" />
+</head>
+<style type="text/css">
+.aui-list-view-cell { line-height: 22px;}
+</style>
+<body>
+    <p class="aui-padded-10">
+        radio效果，新版本中定义在了.aui-form里面，可以通过.aui-pull-right控制位置
+    </p>
+    <div class="aui-content">
+        <div class="aui-form">
+            <div class="aui-input-row">
+                <label class="aui-input-addon">radio</label>
+                <input class="aui-pull-right aui-radio" type="radio" name="demo">
+            </div>
+            <div class="aui-input-row">
+                <label class="aui-input-addon">radio</label>
+                <input class="aui-pull-right aui-radio aui-radio-info" type="radio" name="demo">
+            </div>
+            <div class="aui-input-row">
+                <label class="aui-input-addon">radio</label>
+                <input class="aui-pull-right aui-radio aui-radio-success" type="radio" name="demo" checked>
+            </div>
+            <div class="aui-input-row">
+                <input class="aui-radio aui-radio-danger" type="radio" name="demo">
+                <label class="aui-input-addon">radio</label>
+            </div>
+            <div class="aui-input-row">
+                <input class="aui-radio aui-radio-warning" type="radio" name="demo">
+                <label class="aui-input-addon">radio</label>
+            </div>
+        </div>
+    </div>
+    <div class="aui-content aui-card">
+        <div class="aui-form">
+            <div class="aui-input-row">
+                <label class="aui-input-addon">radio</label>
+                <div class="aui-pull-right"><input class="aui-radio" type="radio" name="demo1"></div>
+            </div>
+            <div class="aui-input-row">
+                <label class="aui-input-addon">radio</label>
+                <div class="aui-pull-right"><input class="aui-radio" type="radio" name="demo2" disabled></div>
+            </div>
+        </div>
+    </div>
+</body>
+<script type="text/javascript" src="../script/api.js" ></script>
+<script type="text/javascript">
+    apiready = function () {
+    }
+</script>
+</html>
