@@ -391,6 +391,7 @@ button, .aui-btn {
 
 /*导航栏*/
 .aui-bar {
+	position: relative;
 	top: 0;
 	right: 0;
 	left: 0;
@@ -398,18 +399,16 @@ button, .aui-btn {
 	width: 100%;
 	background-color: #3498db;
 	color: #ffffff;
-	min-height: 45px;
 	display: table;
+	min-height: 45px;
 	line-height: 45px;
+	font-size: 18px;
+	text-align: center;
 }
 .aui-title {
 	position: absolute;
 	width: 100%;
 	margin: 0 -10px;
-	font-size: 18px;
-	height: 45px ;
-	line-height: 45px;
-	color: #ffffff;
 	text-align: center;
 	white-space: nowrap;
 }

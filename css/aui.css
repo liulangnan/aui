@@ -84,6 +84,7 @@ pre {
 	overflow: auto;
 }
 
+
 /*自动移动文字*/
 .aui-ellipsis-1 {
 	padding-right: 15px;
@@ -190,6 +191,7 @@ pre {
 	clear: both;
 }
 
+
 /*文字对齐*/
 .aui-text-left {
   text-align: left !important;
@@ -258,7 +260,7 @@ h4 small,h5 small,h6 small {
 	font-size: 75%;
 }
 
-/*文字、北京颜色*/
+/*文字、背景颜色*/
 .aui-text-default {
 	color: #666666 !important;
 }
@@ -315,6 +317,8 @@ h4 small,h5 small,h6 small {
 .aui-bg-pink {
 	background-color: #fbb8af !important;
 }
+
+
 /*对齐,显示，隐藏等*/
 .aui-pull-right {
 	float: right !important;
@@ -456,45 +460,7 @@ h4 small,h5 small,h6 small {
 	background-color: #fbb8af;
 }
 
-/*输入框*/
-textarea {
-  width: 100%;
-  -webkit-appearance: none;
-  padding: 10px 15px;
-  margin-bottom: 15px;
-  line-height: 21px;
-  -webkit-user-select: text;
-  background-color: #fff;
-  border: 1px solid rgba(0, 0, 0, .2);
-  border-radius: 3px;
-  outline: none;
-}
-select,
-input[type="text"],
-input[type="search"],
-input[type="password"],
-input[type="week"],
-input[type="number"],
-input[type="email"],
-input[type="url"],
-input[type="tel"],
-input[type="color"],
-input[type="datetime"],
-input[type="datetime-local"],
-input[type="date"],
-input[type="month"],
-input[type="time"] {
-	width: 100%;
-	-webkit-appearance: none;
-	padding: 10px 15px;
-	margin-bottom: 15px;
-	line-height: 21px;
-	-webkit-user-select: text;
-	background-color: #fff;
-	border: 1px solid rgba(0, 0, 0, .2);
-	border-radius: 3px;
-	outline: none;
-}
+
 
 /*按钮样式*/
 button, .aui-btn {
@@ -592,7 +558,47 @@ button, .aui-btn {
 	margin-left: 6px;
 }
 
-/*表单类*/
+/*
+*表单类\输入框\radio\checkbox
+**/
+textarea {
+	width: 100%;
+	-webkit-appearance: none;
+	padding: 10px 15px;
+	margin-bottom: 15px;
+	line-height: 21px;
+	-webkit-user-select: text;
+	background-color: #fff;
+	border: 1px solid rgba(0, 0, 0, .2);
+	border-radius: 3px;
+	outline: none;
+}
+select,
+input[type="text"],
+input[type="search"],
+input[type="password"],
+input[type="week"],
+input[type="number"],
+input[type="email"],
+input[type="url"],
+input[type="tel"],
+input[type="color"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="date"],
+input[type="month"],
+input[type="time"] {
+	width: 100%;
+	-webkit-appearance: none;
+	padding: 10px 15px;
+	margin-bottom: 15px;
+	line-height: 21px;
+	-webkit-user-select: text;
+	background-color: #fff;
+	border: 1px solid rgba(0, 0, 0, .2);
+	border-radius: 3px;
+	outline: none;
+}
 .aui-form {
 	position: relative;
 	background:#ffffff;
@@ -711,7 +717,7 @@ button, .aui-btn {
 	top: 1px;
 	font-size: 16px;
 	display: table;
-	font-family: "iconfont";
+	font-family: "auiicon";
 	content: "\e645";
 	color: #ffffff;
 }
@@ -721,7 +727,7 @@ button, .aui-btn {
 	top: 1px;
 	font-size: 16px;
 	display: table;
-	font-family: "iconfont";
+	font-family: "auiicon";
 	content: "\e645";
 	color: #ffffff;
 }
@@ -735,7 +741,7 @@ button, .aui-btn {
 	left: 5px;
 	top: 1px;
 	display: table;
-	font-family: "iconfont";
+	font-family: "auiicon";
 	content: "\e645";
 	font-size: 16px;
 	color: #ffffff;
@@ -745,7 +751,7 @@ button, .aui-btn {
 	left: 5px;
 	top: 1px;
 	display: table;
-	font-family: "iconfont";
+	font-family: "auiicon";
 	content: "\e645";
 	font-size: 16px;
 	color: #ffffff;
@@ -790,7 +796,7 @@ button, .aui-btn {
 	top: 1px;
 	font-size: 16px;
 	display: inline-block;
-	font-family: "iconfont";
+	font-family: "auiicon";
 	content: "\e645";
 	color: #ffffff;
 }
@@ -800,7 +806,7 @@ button, .aui-btn {
 	top: 1px;
 	font-size: 16px;
 	display: inline-block;
-	font-family: "iconfont";
+	font-family: "auiicon";
 	content: "\e645";
 	color: #ffffff;
 }
@@ -814,7 +820,7 @@ button, .aui-btn {
 	left: 5px;
 	top: 1px;
 	display: inline-block;
-	font-family: "iconfont";
+	font-family: "auiicon";
 	content: "\e645";
 	font-size: 16px;
 	color: #ffffff;
@@ -824,7 +830,7 @@ button, .aui-btn {
 	left: 5px;
 	top: 1px;
 	display: inline-block;
-	font-family: "iconfont";
+	font-family: "auiicon";
 	content: "\e645";
 	font-size: 16px;
 	color: #ffffff;
@@ -845,6 +851,7 @@ button, .aui-btn {
 	background-color: #f1c40f;
 	border: solid 1px #f1c40f;
 }
+
 
 /*列表*/
 .aui-content > .aui-list-view:last-child {
@@ -935,7 +942,7 @@ button, .aui-btn {
 
 /*带有箭头的列表*/
 .aui-arrow-right:after {
-	font-family: 'iconfont';
+	font-family: 'auiicon';
 	font-size: inherit;
 	line-height: 1;
 	color: #bbbbbb;
@@ -949,7 +956,7 @@ button, .aui-btn {
 }
 
 .aui-arrow-right:after {
-	font-family:"iconfont" !important;
+	font-family:"auiicon" !important;
 	right: 15px;
 	content: '\e6a3';
 }
@@ -1065,7 +1072,7 @@ button, .aui-btn {
 	margin-left: 0px;
 }
 .aui-user-view-cell .aui-img-body.aui-arrow-right:after {
-	font-family: 'iconfont';
+	font-family: 'auiicon';
 	font-size: inherit;
 	line-height: 1;
 	color: #bbbbbb;
@@ -1301,6 +1308,7 @@ button, .aui-btn {
 
 /*导航栏*/
 .aui-bar {
+	position: relative;
 	top: 0;
 	right: 0;
 	left: 0;
@@ -1308,18 +1316,16 @@ button, .aui-btn {
 	width: 100%;
 	background-color: #3498db;
 	color: #ffffff;
-	min-height: 45px;
 	display: table;
+	min-height: 45px;
 	line-height: 45px;
+	font-size: 18px;
+	text-align: center;
 }
 .aui-title {
 	position: absolute;
 	width: 100%;
 	margin: 0 -10px;
-	font-size: 18px;
-	height: 45px ;
-	line-height: 45px;
-	color: #ffffff;
 	text-align: center;
 	white-space: nowrap;
 }
@@ -1527,7 +1533,7 @@ input.aui-counter-input {
 	color: #999 !important;
 }
 .aui-counter-minus:before {
-	font-family: "iconfont";
+	font-family: "auiicon";
 	font-style: normal;
 	-webkit-font-smoothing: antialiased;
 	-webkit-text-stroke-width: 0.2px;
@@ -1536,7 +1542,7 @@ input.aui-counter-input {
 	line-height: 27px;
 }
 .aui-counter-plus:before {
-	font-family: "iconfont";
+	font-family: "auiicon";
 	font-style: normal;
 	-webkit-font-smoothing: antialiased;
 	-webkit-text-stroke-width: 0.2px;
@@ -1555,6 +1561,7 @@ input.aui-counter-input {
 	text-align: center;
 	padding: 0;
 }
+
 /*loading*/
 .aui-loading {
 	width: 48px;
@@ -1879,11 +1886,11 @@ input.aui-counter-input {
   	}
 }
 /*图标*/
-@font-face {font-family: "iconfont";
+@font-face {font-family: "auiicon";
 	src: url('aui_iconfont.ttf') format('truetype');
 }
 .aui-iconfont {
-	font-family:"iconfont" !important;
+	font-family:"auiicon" !important;
 	font-size:16px;
 	font-style:normal;
 	-webkit-font-smoothing: antialiased;
