@@ -420,7 +420,7 @@ h4 small,h5 small,h6 small {
 
 /*标签*/
 .aui-label {
-	display: inline;
+	display: table-cell;
 	padding: .3em .35em .2em .35em;
 	font-size: 12px;
 	line-height: 1;
@@ -1334,8 +1334,8 @@ input[type="time"] {
 	color: inherit;
 }
 .aui-bar .aui-title {
-	right: 40px;
-	left: 40px;
+	right: 80px;
+	left: 80px;
 	width: auto;
 	margin: 0;
 	overflow: hidden;
@@ -1424,21 +1424,18 @@ input[type="time"] {
 	background-color: #fff;
 	display: box;
 	display: -webkit-box;
+	box-sizing: border-box;
 	font-size: 12px;
 	height: 55px;
-	box-sizing: border-box;
 	overflow: hidden;
-
 }
 .aui-nav .aui-bar-tab li {
-	min-width: 70px;
-	box-flex: 1;
-	-webkit-box-flex: 1;
 	text-align: center;
 	color: #666;
-	box-sizing: border-box;
-	border-bottom: 2px solid transparent;
 	width: 100%;
+	box-flex: 1;
+	-webkit-box-flex: 1;
+	box-sizing: border-box;
 }
 .aui-nav .aui-bar-tab p {
 	font-size: 12px;
@@ -1794,6 +1791,38 @@ input.aui-counter-input {
             animation: fadeIn .5s ease both;
 }
 
+/*
+*瀑布流样式
+*/
+.aui-waterfall{
+    width: 100%;
+    position:relative;
+} 
+.aui-waterfall li{
+    width:100%;
+    border:1px solid #dfdfdf;
+    margin-bottom: 10px;
+} 
+.aui-waterfall .aui-waterfall-header {
+
+}
+.aui-waterfall .aui-waterfall-header img{
+    width: 100%;
+    margin: 0;
+    display: block;
+}
+.aui-waterfall .aui-waterfall-body {
+    background: #ffffff;
+    color: #666;
+    padding: 10px;
+    font-size: 0.8em;
+}
+.aui-waterfall .aui-waterfall-footer {
+    background: #f4f4f4;
+    padding: 10px;
+    font-size: 0.75em;
+    color: #666;
+}
 @-webkit-keyframes bounce {
 	0%, 100% {-webkit-transform: scale(0.0) }
 	50% {-webkit-transform: scale(1.0)}

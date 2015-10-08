@@ -417,8 +417,8 @@ button, .aui-btn {
 	color: inherit;
 }
 .aui-bar .aui-title {
-	right: 40px;
-	left: 40px;
+	right: 80px;
+	left: 80px;
 	width: auto;
 	margin: 0;
 	overflow: hidden;
@@ -507,21 +507,18 @@ button, .aui-btn {
 	background-color: #fff;
 	display: box;
 	display: -webkit-box;
+	box-sizing: border-box;
 	font-size: 12px;
 	height: 55px;
-	box-sizing: border-box;
 	overflow: hidden;
-
 }
 .aui-nav .aui-bar-tab li {
-	min-width: 70px;
-	box-flex: 1;
-	-webkit-box-flex: 1;
 	text-align: center;
 	color: #666;
-	box-sizing: border-box;
-	border-bottom: 2px solid transparent;
 	width: 100%;
+	box-flex: 1;
+	-webkit-box-flex: 1;
+	box-sizing: border-box;
 }
 .aui-nav .aui-bar-tab p {
 	font-size: 12px;
