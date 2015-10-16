@@ -1925,41 +1925,6 @@ input.aui-counter-input {
     from { opacity: 0.3; }
     to {  }
 }
-
-@media (-webkit-min-device-pixel-ratio:2), (min-device-pixel-ratio: 2){
-	.aui-card:after,
-	.aui-grid-nine:after,
-	.aui-grid-nine li:after,
-	.aui-grid-sixteen:after,
-	.aui-grid-sixteen li:after,
-	.aui-waterfall li:after {
-		right: -100%;
-		bottom: -100%;
-		-webkit-transform: scale(0.5);
-	}
-	.aui-list-view:before,
-	.aui-user-view:before,
-	.aui-form:before {
-  		-webkit-transform: scaleY(.5);
-      	-webkit-transform-origin: 0 0;
-      		transform: scaleY(.5);
-  	}
-
-	.aui-list-view:after,
-	.aui-list-view-cell:after,
-	.aui-user-view:after,
-	.aui-user-view-cell:before,
-	.aui-user-view-cell:after,
-	.aui-form:after,
-	.aui-form .aui-input-row:before,
-	.aui-form .aui-input-row:after,
-	.aui-form .aui-btn-row:before,
-	.aui-line-x:after{
-		-webkit-transform: scaleY(.333333);
-		-webkit-transform-origin: 100% 100%;
-      		transform: scaleY(.333333);
-  	}
-}
 @media (-webkit-min-device-pixel-ratio:1.5), (min-device-pixel-ratio: 1.5){
 	/*.aui-card:after,
 	.aui-grid-nine:after,
@@ -2028,6 +1993,41 @@ input.aui-counter-input {
       		transform: scaleY(.333);
   	}
 }
+@media screen and (-webkit-min-device-pixel-ratio: 2) {
+	.aui-card:after,
+	.aui-grid-nine:after,
+	.aui-grid-nine li:after,
+	.aui-grid-sixteen:after,
+	.aui-grid-sixteen li:after,
+	.aui-waterfall li:after {
+		right: -100%;
+		bottom: -100%;
+		-webkit-transform: scale(0.5);
+	}
+	.aui-list-view:before,
+	.aui-user-view:before,
+	.aui-form:before {
+  		-webkit-transform: scaleY(.5);
+      	-webkit-transform-origin: 0 0;
+      		transform: scaleY(.5);
+  	}
+
+	.aui-list-view:after,
+	.aui-list-view-cell:after,
+	.aui-user-view:after,
+	.aui-user-view-cell:before,
+	.aui-user-view-cell:after,
+	.aui-form:after,
+	.aui-form .aui-input-row:before,
+	.aui-form .aui-input-row:after,
+	.aui-form .aui-btn-row:before,
+	.aui-line-x:after{
+		-webkit-transform: scaleY(.333333);
+		-webkit-transform-origin: 100% 100%;
+      		transform: scaleY(.333333);
+  	}
+}
+
 /*图标*/
 @font-face {font-family: "auiicon";
 	src: url('aui_iconfont.ttf') format('truetype');
