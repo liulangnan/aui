@@ -1961,7 +1961,7 @@ input.aui-counter-input {
   	}
 }
 @media (-webkit-min-device-pixel-ratio:1.5), (min-device-pixel-ratio: 1.5){
-	.aui-card:after,
+	/*.aui-card:after,
 	.aui-grid-nine:after,
 	.aui-grid-nine li:after,
 	.aui-grid-sixteen:after,
@@ -1970,7 +1970,7 @@ input.aui-counter-input {
 		right: -100%;
 		bottom: -100%;
 		-webkit-transform: scale(0.5);
-	}
+	}*/
 	.aui-list-view:before,
 	.aui-user-view:before,
 	.aui-form:before {
@@ -1996,7 +1996,7 @@ input.aui-counter-input {
   	
 }
 @media (-webkit-device-pixel-ratio: 3){
-	.aui-card:after,
+	/*.aui-card:after,
 	.aui-grid-nine:after,
 	.aui-grid-nine li:after,
 	.aui-grid-sixteen:after,
@@ -2005,7 +2005,7 @@ input.aui-counter-input {
 		right: -100%;
 		bottom: -100%;
 		-webkit-transform: scale(0.333);
-	}
+	}*/
 	.aui-list-view:before,
 	.aui-user-view:before,
 	.aui-form:before {
