@@ -1,7 +1,7 @@
 /*
  * =========================================================================
  * AUI  APICLOUD UI 框架    流浪男  QQ：343757327  http://www.auicss.com
- * Verson 1.0.0
+ * Verson 1.1.0
  * =========================================================================
  * =========================================================================
  */
@@ -32,7 +32,6 @@ html,body,header,section,footer,div,ul,ol,li,img,a,span,em,del,legend,center,str
 	font-style:normal;
 }
 ul, li {
-	overflow: hidden;
 	list-style: none;
 }
 b,strong {
@@ -355,10 +354,29 @@ h4 small,h5 small,h6 small {
     margin: 0 10px;
     margin-bottom: 15px;
     position: relative;
-    border: 1px solid #dfdfdf;
-	border-radius: 3px;
+    background: #fff;
+    border-radius: 6px;
+}
+.aui-card:after {
+	display: block;
+	content: '';
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	-webkit-transform-origin: 0 0;
+	-webkit-transform: scale(1);
+	pointer-events: none;
+	border: 1px solid #c8c7cc;
+	border-radius: 6px;
 	overflow: hidden;
 }
+.aui-card.aui-noborder:after {
+	border: none;
+	overflow: hidden;
+}
+
 .aui-content-title {
 	position: relative;
 	overflow: hidden;
@@ -465,6 +483,7 @@ h4 small,h5 small,h6 small {
 
 /*按钮样式*/
 button, .aui-btn {
+	position: relative;
 	display: inline-block;
 	padding: 6px 12px;
 	margin-bottom: 0;
@@ -602,7 +621,7 @@ input[type="time"] {
 }
 .aui-form {
 	position: relative;
-	background:#ffffff;
+	background: #ffffff;
 }
 .aui-form:before{
 	border-top: 1px solid #c8c7cc;
@@ -693,7 +712,9 @@ input[type="time"] {
     top: 0;
     left: 0;
 }
-
+.aui-card .aui-form {
+	background: none;
+}
 /*表单中单选、多选*/
 .aui-radio {
 	width: 26px;
@@ -1124,6 +1145,7 @@ input[type="time"] {
 .aui-list-view .aui-img-body {
 	overflow: hidden;
 }
+
 .aui-list-view .aui-img-object {
 	max-width: 60px;
 	height: 60px;
@@ -1211,18 +1233,41 @@ input[type="time"] {
 
 /*9宫格*/
 .aui-grid-nine {
-	border: 1px solid #eee;
-	border-bottom: none;
+	overflow: auto;
 	background: #ffffff;
-	padding-left: 1px;
+	position: relative;
 }
-
+.aui-grid-nine:after {
+	display: block;
+	content: '';
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	-webkit-transform-origin: 0 0;
+	-webkit-transform: scale(1);
+	pointer-events: none;
+	border-top: 1px solid #c8c7cc;
+	border-left: 1px solid #c8c7cc;
+}
 .aui-grid-nine li {
 	float: left;
 	position: relative;
 	padding: 20px 10px;
-	border-right: 1px solid #eee;
-	border-bottom: 1px solid #eee;
+}
+.aui-grid-nine li:after {
+	display: block;
+	content: '';
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	-webkit-transform-origin: 0 0;
+	-webkit-transform: scale(1);
+	border-right: 1px solid #c8c7cc;
+	border-bottom: 1px solid #c8c7cc;
 }
 .aui-grid-nine li:nth-last-of-type(1),.aui-grid-nine li:nth-last-of-type(4),.aui-grid-nine li:nth-last-of-type(7){
 	border-right: 0px;
@@ -1242,18 +1287,41 @@ input[type="time"] {
 
 /*16宫格*/
 .aui-grid-sixteen {
-	border: 1px solid #eee;
-	border-bottom: none;
+	overflow: auto;
 	background: #ffffff;
-	padding-left: 1px;
+	position: relative;
 }
-
+.aui-grid-sixteen:after {
+	display: block;
+	content: '';
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	-webkit-transform-origin: 0 0;
+	-webkit-transform: scale(1);
+	pointer-events: none;
+	border-top: 1px solid #c8c7cc;
+	border-left: 1px solid #c8c7cc;
+}
 .aui-grid-sixteen li {
 	float: left;
 	position: relative;
 	padding: 15px 10px;
-	border-right: 1px solid #eee;
-	border-bottom: 1px solid #eee;
+}
+.aui-grid-sixteen li:after {
+	display: block;
+	content: '';
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	-webkit-transform-origin: 0 0;
+	-webkit-transform: scale(1);
+	border-right: 1px solid #c8c7cc;
+	border-bottom: 1px solid #c8c7cc;
 }
 .aui-grid-sixteen li:nth-last-of-type(1),.aui-grid-sixteen li:nth-last-of-type(5),.aui-grid-sixteen li:nth-last-of-type(9),.aui-grid-sixteen li:nth-last-of-type(13){
 	border-right: 0px;
@@ -1428,9 +1496,9 @@ input[type="time"] {
 	box-sizing: border-box;
 	font-size: 12px;
 	height: 55px;
-	overflow: hidden;
 }
 .aui-nav .aui-bar-tab li {
+	position: relative;
 	text-align: center;
 	color: #666;
 	width: 100%;
@@ -1801,9 +1869,22 @@ input.aui-counter-input {
 } 
 .aui-waterfall li{
     width:100%;
-    border:1px solid #dfdfdf;
+    position: relative;
     margin-bottom: 10px;
-} 
+}
+.aui-waterfall li:after {
+	display: block;
+	content: '';
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	-webkit-transform-origin: 0 0;
+	-webkit-transform: scale(1);
+	pointer-events: none;
+	border: 1px solid #c8c7cc;
+}
 .aui-waterfall .aui-waterfall-header {
 
 }
@@ -1824,6 +1905,7 @@ input.aui-counter-input {
     font-size: 0.75em;
     color: #666;
 }
+
 @-webkit-keyframes bounce {
 	0%, 100% {-webkit-transform: scale(0.0) }
 	50% {-webkit-transform: scale(1.0)}
@@ -1843,7 +1925,18 @@ input.aui-counter-input {
     from { opacity: 0.3; }
     to {  }
 }
+
 @media (-webkit-min-device-pixel-ratio:2), (min-device-pixel-ratio: 2){
+	.aui-card:after,
+	.aui-grid-nine:after,
+	.aui-grid-nine li:after,
+	.aui-grid-sixteen:after,
+	.aui-grid-sixteen li:after,
+	.aui-waterfall li:after {
+		right: -100%;
+		bottom: -100%;
+		-webkit-transform: scale(0.5);
+	}
 	.aui-list-view:before,
 	.aui-user-view:before,
 	.aui-form:before {
@@ -1868,6 +1961,16 @@ input.aui-counter-input {
   	}
 }
 @media (-webkit-min-device-pixel-ratio:1.5), (min-device-pixel-ratio: 1.5){
+	.aui-card:after,
+	.aui-grid-nine:after,
+	.aui-grid-nine li:after,
+	.aui-grid-sixteen:after,
+	.aui-grid-sixteen li:after,
+	.aui-waterfall li:after {
+		right: -100%;
+		bottom: -100%;
+		-webkit-transform: scale(0.5);
+	}
 	.aui-list-view:before,
 	.aui-user-view:before,
 	.aui-form:before {
@@ -1893,6 +1996,16 @@ input.aui-counter-input {
   	
 }
 @media (-webkit-device-pixel-ratio: 3){
+	.aui-card:after,
+	.aui-grid-nine:after,
+	.aui-grid-nine li:after,
+	.aui-grid-sixteen:after,
+	.aui-grid-sixteen li:after,
+	.aui-waterfall li:after {
+		right: -100%;
+		bottom: -100%;
+		-webkit-transform: scale(0.333);
+	}
 	.aui-list-view:before,
 	.aui-user-view:before,
 	.aui-form:before {
@@ -1920,6 +2033,7 @@ input.aui-counter-input {
 	src: url('aui_iconfont.ttf') format('truetype');
 }
 .aui-iconfont {
+	position: relative;
 	font-family:"auiicon" !important;
 	font-size:16px;
 	font-style:normal;
