@@ -3,6 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
     <title>APP</title>
     <link rel="stylesheet" type="text/css" href="../css/aui.css" />
 </head>
@@ -14,14 +15,17 @@
 <body>
     <div class="aui-content">
         <ul class="aui-list-view">
+            <li class="aui-list-view-cell" tapmode="active" onclick="openWin('alert')">
+                <a class="aui-arrow-right">自定义弹出层<span class="aui-badge aui-badge-danger">NEW</span></a>
+            </li>
             <li class="aui-list-view-cell" tapmode="active" onclick="openWin('waterfall')">
-                <a class="aui-arrow-right">瀑布流<span class="aui-badge aui-badge-danger">new</span></a>
+                <a class="aui-arrow-right">瀑布流<span class="aui-badge aui-badge-warning">优化</span></a>
             </li>
             <li class="aui-list-view-cell" tapmode="active" onclick="openWin('button')">
-                <a class="aui-arrow-right">按钮</a>
+                <a class="aui-arrow-right">按钮<span class="aui-badge aui-badge-success">新增</span></a>
             </li>
             <li class="aui-list-view-cell" tapmode="active" onclick="openWin('form')">
-                <a class="aui-arrow-right">表单</a>
+                <a class="aui-arrow-right">表单<span class="aui-badge aui-badge-warning">优化</span></a>
             </li>
             <li class="aui-list-view-cell" tapmode="active" onclick="openWin('switch')">
                 <a class="aui-arrow-right">switch开关</a>
@@ -33,7 +37,7 @@
                 <a class="aui-arrow-right">radio选择</a>
             </li>
             <li class="aui-list-view-cell" tapmode="active" onclick="openWin('list')">
-                <a class="aui-arrow-right">普通列表</a>
+                <a class="aui-arrow-right">普通列表<span class="aui-badge aui-badge-warning">优化</span></a>
             </li>
             <li class="aui-list-view-cell" tapmode="active" onclick="openWin('list_arrow')">
                 <a class="aui-arrow-right">带有角标和箭头的列表</a>
@@ -51,13 +55,13 @@
                 <a class="aui-arrow-right">导航栏<span class="aui-badge aui-badge-warning">优化</span></a>
             </li>
             <li class="aui-list-view-cell" tapmode="active" onclick="openWin('footer_tab')">
-                <a class="aui-arrow-right">底部工具栏<span class="aui-badge aui-badge-warning">优化</span></a>
+                <a class="aui-arrow-right">底部工具栏</a>
             </li>
             <li class="aui-list-view-cell" tapmode="active" onclick="openWin('list_nine')">
-                <a class="aui-arrow-right">九宫格</a>
+                <a class="aui-arrow-right">九宫格<span class="aui-badge aui-badge-warning">优化</span></a>
             </li>
             <li class="aui-list-view-cell" tapmode="active" onclick="openWin('list_sixteen')">
-                <a class="aui-arrow-right">十六宫格</a>
+                <a class="aui-arrow-right">十六宫格<span class="aui-badge aui-badge-warning">优化</span></a>
             </li>
             <li class="aui-list-view-cell" tapmode="active" onclick="openWin('loading')">
                 <a class="aui-arrow-right">个性loading</a>
@@ -69,7 +73,7 @@
                 <a class="aui-arrow-right">通讯录</a>
             </li>
             <li class="aui-list-view-cell" tapmode="active" onclick="openWin('chat')">
-                <a class="aui-arrow-right">聊天界面</a>
+                <a class="aui-arrow-right">聊天界面<span class="aui-badge aui-badge-warning">优化</span></a>
             </li>
             <li class="aui-list-view-cell" tapmode="active" onclick="openWin('iconfont')">
                 <a class="aui-arrow-right">图标</a>

@@ -1,0 +1,88 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <title>APP</title>
+    <link rel="stylesheet" type="text/css" href="../css/aui.css" />
+</head>
+<style type="text/css">
+body {
+    height: auto;
+}
+.aui-content-padded {
+    padding-top: 15px;
+}
+.aui-btn-block {
+    margin-bottom: 15px;
+}
+</style>
+<body>
+    <div class="aui-content-padded">
+        <div class="aui-btn aui-btn-block aui-btn-info" tapmode onclick="alertDefault()">默认弹出风格</div>
+        <div class="aui-btn aui-btn-block aui-btn-info" tapmode onclick="alertTxt()">简单自定义</div>
+        <div class="aui-btn aui-btn-block aui-btn-info" tapmode onclick="alertCustom()">自定义消息内容样式</div>
+    </div>
+</body>
+<script type="text/javascript" src="../script/api.js" ></script>
+<script type="text/javascript" src="../script/aui-alert.js" ></script>
+<script type="text/javascript">
+    function alertDefault() {
+        $aui.alert({
+            
+        },function(ret){
+            //处理回调函数
+            if(ret){
+               alert("你点击了第"+ret+"个按钮"); 
+            }
+        })
+    }
+    function alertTxt() {
+        $aui.alert({
+            title:'提示',
+            content:'你认为AUI是一个好框架吗',
+            buttons:['不是','是'],
+            radius:6,
+            titleColor:'#ff3300',
+            contColor:'#333',
+            btnColor:''
+        },function(ret){
+            //处理回调函数
+            if(ret){
+                if(ret==0){
+                    alert("AUI没有得到你的认可我们会继续努力")
+                }else{
+                    alert("感谢你对AUI的支持")
+                }
+            }
+        })
+    }
+    function alertCustom () {
+        var html = '';
+            html += '<div style="width:60px; height:60px;float:left; padding-right:15px;"><img src="../image/demo2.png" style="width:100%;border-radius:6px;" /></div>';
+            html += '<div><p>你认为AUI是一个好框架吗?</p><p>AUI是专门为APICloud用户打造的一款前端UI框架</p></div>';
+        $aui.alert({
+            title:'自定义消息内容',
+            content:html,
+            buttons:['确定','关闭'],
+            radius:1,
+            titleColor:'#333',
+            contColor:'#333',
+            btnColor:''
+        },function(ret){
+            //处理回调函数
+            if(ret){
+               if(ret==0){
+                    alert("AUI没有得到你的认可我们会继续努力")
+                }else{
+                    alert("感谢你对AUI的支持")
+                }
+            }
+        })
+    }
+    apiready = function(){
+
+    }
+        
+</script>
+</html>

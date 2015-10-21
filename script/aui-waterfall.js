@@ -1,6 +1,7 @@
 /*
  * AUI JAVASCRIPT PLUGIN
  * 瀑布流
+ * v 0.0.1
  * Copyright (c) 2015 auicss.com @流浪男  QQ：343757327  群：344869952
  */
 (function(window){
@@ -13,7 +14,7 @@
             padding=15,
             space=15;
     	if(!aui.isElement(el)){
-            console.warn('$aui.prev Function need el param, el param must be DOM Element');
+            console.warn('$api.prev Function need el param, el param must be DOM Element');
             return;
         }
         var _setting = function(){
