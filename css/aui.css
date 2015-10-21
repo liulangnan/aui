@@ -1891,6 +1891,62 @@ input.aui-counter-input {
 	color: #666;
 	-webkit-animation: rotate 1s infinite linear;
 }
+/*tab切换类*/
+.aui-tab {
+	width: 100%;
+	overflow: hidden;
+}
+.aui-tab-nav {
+	width: 100%;
+	display: box;
+	display: -webkit-box;
+	font-size: 16px;
+	height: 45px;
+	box-sizing: border-box;
+	overflow: hidden;
+	background-color: #fff;
+}
+.aui-tab-nav li {
+	height: 45px;
+	line-height: 45px;
+	min-width: 70px;
+	box-flex: 1;
+	-webkit-box-flex: 1;
+	text-align: center;
+	color: #666;
+	box-sizing: border-box;
+	border-bottom: 2px solid transparent;
+	width: 100%;
+}
+.aui-tab-nav li.active {
+	color: #1abc9c;
+	border-bottom: 2px #1abc9c solid;
+	-webkit-animation: fadeIn .5s ease both;
+            animation: fadeIn .5s ease both;
+}
+.aui-tab-nav.aui-tab-border {
+	background-color: transparent;
+	border: 1px solid #1abc9c;
+	border-radius: 3px;
+}
+.aui-tab-nav.aui-tab-border li {
+	width: 1%;
+	overflow: hidden;
+	line-height: 43px;
+	color: #1abc9c;
+	background-color: #ffffff;
+	border-color: #1abc9c;
+	border-left: 1px solid #1abc9c;
+}
+.aui-tab-nav.aui-tab-border li:first-child {
+	border-left: 0px solid #1abc9c;
+}
+.aui-tab-nav.aui-tab-border li.active {
+	background-color: #1abc9c;
+	color: #fff;
+	-webkit-animation: fadeIn .5s ease both;
+            animation: fadeIn .5s ease both;
+}
 /*
 *瀑布流样式
 */
