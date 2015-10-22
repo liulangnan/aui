@@ -27,9 +27,14 @@
             btnColor = opts.btnColor?opts.btnColor:btnColor;
         }
         var _init = function(){
+            if(api.winName=='root'){
+                frmUrl = 'html/aui_alert_frm.html';
+            }else{
+                frmUrl = 'aui_alert_frm.html';
+            }
             api.openFrame({
                 name:'aui_alert_frm',
-                url:'aui_alert_frm.html',
+                url:frmUrl,
                 rect:{
                     x:0,
                     y:0,
@@ -52,9 +57,10 @@
             api.addEventListener({
                 name: 'myEvent'
             }, function(ret){
-                if(ret && ret.value){
+
+                if(ret){
                     setTimeout(function(){
-                        callback(ret.value.buttonIndex);
+                        callback(''+ret.value.buttonIndex+'');
                     },150)
                     
                 }
