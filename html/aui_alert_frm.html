@@ -95,22 +95,6 @@ body.fadeOut {
         -webkit-transform: scale(0.5);
     }
 }
-@media only screen and (-webkit-min-device-pixel-ratio: 2) {
-    #aui-box-footer:after,
-    .aui-box-btn:after {
-        right: -100%;
-        bottom: -100%;
-        -webkit-transform: scale(0.5);
-    }
-}
-@media only screen and (-webkit-min-device-pixel-ratio: 3) {
-    #aui-box-footer:after,
-    .aui-box-btn:after {
-        right: -100%;
-        bottom: -100%;
-        -webkit-transform: scale(0.333333);
-    }
-}
 @-webkit-keyframes fadeIn {
     from { background: rgba(0,0,0,0);opacity: 0; }
     to { background: rgba(0,0,0,0.3);opacity: 1; }
@@ -124,7 +108,10 @@ body.fadeOut {
     <div id="aui-box">
         <div id="aui-box-header"></div>
         <div id="aui-box-body"></div>
-        <div id="aui-box-footer"></div>
+        <div id="aui-box-footer">
+            <div class="aui-box-btn" data-index="1" data-status="1" tapmode style="width:50%">确定</div>
+            <div class="aui-box-btn" data-index="1" data-status="1" tapmode style="width:50%">确定</div>
+        </div>
     </div>
 </body>
 <script type="text/javascript" src="../script/api.js" ></script>
@@ -144,7 +131,7 @@ body.fadeOut {
         var btnHtml = '';
         var btnWidth = 100/buttons.length;
         for(var i in buttons){
-            btnHtml += '<div class="aui-box-btn" data-index="'+i+'" data-status="1" tapmode style="color:'+btnColor+';width:'+btnWidth+'%">'+buttons[i]+'</div>';
+            btnHtml += '<div class="aui-box-btn" id="btn-'+i+'" data-status="1" tapmode onclick="btnClick('+i+')" style="color:'+btnColor+';width:'+btnWidth+'%">'+buttons[i]+'</div>';
         }
         $api.html($api.byId("aui-box-footer"),btnHtml);
 
@@ -163,27 +150,21 @@ body.fadeOut {
         
         $api.css($api.byId("aui-box-body"),"max-height:"+contMaxHeight+"px;color:"+contColor+"");
         $api.css($api.byId("aui-box"),"top:"+boxTop+"px;opacity:1;border-radius:"+radius+"px");
-
-        var btnDom = $api.domAll('.aui-box-btn');
-        if(btnDom){
-            for(var ii in btnDom){
-                $api.addEvt(btnDom[ii], 'click', function(){
-                    if($api.attr(this,'data-status')=='1'){
-                        api.sendEvent({
-                            name: 'myEvent',
-                            extra: {buttonIndex:$api.attr(this,'data-index')}
-                        });
-                        $api.addCls($api.dom("body"),"fadeOut");
-                        $api.attr(this,'data-status',0)
-                        setTimeout(function(){
-                            api.closeFrame();
-                        },150)
-                    }
-                    
-                });
-            }
+        api.parseTapmode();
+    }
+    function btnClick(index){
+        var btnDom = $api.byId("btn-"+index);
+        if($api.attr(btnDom,'data-status')=='1'){
+            api.sendEvent({
+                name: 'myEvent',
+                extra: {buttonIndex:index}
+            });
+            $api.addCls($api.dom("body"),"fadeOut");
+            $api.attr(btnDom,'data-status',0)
+            setTimeout(function(){
+                api.closeFrame();
+            },150)
         }
-        
     }
 </script>
 </html>

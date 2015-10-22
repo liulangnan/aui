@@ -8,7 +8,7 @@
 </head>
 <body>
     <header class="aui-bar aui-bar-nav aui-bar-warning" id="aui-header">
-        <a class="aui-btn aui-btn-warning aui-pull-left" id="back">
+        <a class="aui-btn aui-btn-warning aui-pull-left" tapmode onclick="closeWin()">
             <span class="aui-iconfont aui-icon-left"></span>
         </a>
         <div class="aui-title">switch开关</div>
@@ -17,7 +17,11 @@
 </body>
 <script type="text/javascript" src="../script/api.js"></script>
 <script type="text/javascript">
+    function closeWin(){
+        api.closeWin();
+    }
     apiready = function(){
+        api.parseTapmode();
         var header = $api.byId('aui-header');
         $api.fixStatusBar(header); 
         var headerPos = $api.offset(header);
@@ -32,10 +36,7 @@
                 w: headerPos.w,
                 h: 'auto'
             }
-        });
-        $api.addEvt($api.byId('back'), 'click', function(){
-            api.closeWin();
-        });
+        })
     };
 </script>
 </html>
