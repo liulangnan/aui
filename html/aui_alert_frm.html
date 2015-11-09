@@ -7,7 +7,6 @@
     <link rel="stylesheet" type="text/css" href="../css/aui.css" />
 </head>
 <style>
-
 * {
     margin:0;
 }
@@ -19,11 +18,7 @@ a {
 }
 body{
     background: rgba(0,0,0,0.3);
-    -webkit-animation: fadeIn .15s ease both;
     overflow: hidden;
-}
-body.fadeOut {
-    -webkit-animation: fadeOut .15s ease both;
 }
 #aui-box {
     position: absolute;
@@ -33,8 +28,7 @@ body.fadeOut {
     left: 50%;
     margin-left: -40%;
     background: #ffffff;
-    opacity: 1;
-    overflow: hidden;
+    -webkit-animation: fadeIn .3s;
 }
 #aui-box-header {
     padding: 10px 15px 0 15px;
@@ -51,7 +45,15 @@ body.fadeOut {
     overflow: hidden;
     font-size: 1em;
 }
-#aui-box-footer:after {
+.aui-box-btn {
+    float: left;
+    text-align: center;
+    position: relative;
+    padding: 15px 0;
+    z-index: 999;
+}
+.aui-box-btn:after {
+    border-right: 1px solid #dbdbdb;
     border-top: 1px solid #dbdbdb;
     display: block;
     content: '';
@@ -64,27 +66,7 @@ body.fadeOut {
     -webkit-transform: scale(1);
     pointer-events: none;
 }
-#aui-box-footer .aui-box-btn,
-#aui-box-footer .aui-box-btn {
-    float: left;
-    text-align: center;
-    position: relative;
-    padding: 15px 0;
-}
-.aui-box-btn:after {
-    border-right: 1px solid #dbdbdb;
-    display: block;
-    content: '';
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    -webkit-transform-origin: 0 0;
-    -webkit-transform: scale(1);
-    pointer-events: none;
-}
-.aui-alert-btn:last-child:after {
+.aui-box-btn:last-child:after {
     border-right: 0;
 }
 @media only screen and (-webkit-min-device-pixel-ratio: 1.5) {
@@ -97,21 +79,14 @@ body.fadeOut {
 }
 @-webkit-keyframes fadeIn {
     from { background: rgba(0,0,0,0);opacity: 0; }
-    to { background: rgba(0,0,0,0.3);opacity: 1; }
-}
-@-webkit-keyframes fadeOut {
-    from {}
-    to {opacity: 0;background: rgba(0,0,0,0);}
+    to { opacity: 1; }
 }
 </style>
 <body>
     <div id="aui-box">
         <div id="aui-box-header"></div>
         <div id="aui-box-body"></div>
-        <div id="aui-box-footer">
-            <div class="aui-box-btn" data-index="1" data-status="1" tapmode style="width:50%">确定</div>
-            <div class="aui-box-btn" data-index="1" data-status="1" tapmode style="width:50%">确定</div>
-        </div>
+        <div id="aui-box-footer"></div>
     </div>
 </body>
 <script type="text/javascript" src="../script/api.js" ></script>
@@ -134,7 +109,6 @@ body.fadeOut {
             btnHtml += '<div class="aui-box-btn" id="btn-'+i+'" data-status="1" tapmode onclick="btnClick('+i+')" style="color:'+btnColor+';width:'+btnWidth+'%">'+buttons[i]+'</div>';
         }
         $api.html($api.byId("aui-box-footer"),btnHtml);
-
         var frameHeight = api.frameHeight;
         var boxHeight = $api.offset($api.byId("aui-box")).h;
         if(frameHeight - boxHeight > 100){
@@ -147,24 +121,16 @@ body.fadeOut {
             var contMaxHeight = frameHeight/3;
             var boxTop = (frameHeight-contMaxHeight)/3;
         }
-        
         $api.css($api.byId("aui-box-body"),"max-height:"+contMaxHeight+"px;color:"+contColor+"");
         $api.css($api.byId("aui-box"),"top:"+boxTop+"px;opacity:1;border-radius:"+radius+"px");
         api.parseTapmode();
     }
     function btnClick(index){
-        var btnDom = $api.byId("btn-"+index);
-        if($api.attr(btnDom,'data-status')=='1'){
-            api.sendEvent({
-                name: 'auiAlertEvent',
-                extra: {buttonIndex:index}
-            });
-            $api.addCls($api.dom("body"),"fadeOut");
-            $api.attr(btnDom,'data-status',0)
-            setTimeout(function(){
-                api.closeFrame();
-            },150)
-        }
+        api.sendEvent({
+            name: 'auiAlertEvent',
+            extra: {buttonIndex:index}
+        });
+        api.closeFrame();
     }
 </script>
 </html>

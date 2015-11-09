@@ -23,6 +23,9 @@ body {
         <div class="aui-btn aui-btn-block aui-btn-info" tapmode onclick="alertTxt()">简单自定义</div>
         <div class="aui-btn aui-btn-block aui-btn-info" tapmode onclick="alertCustom()">自定义消息内容样式</div>
     </div>
+    <div class="aui-content-padded">
+        <p>结果：<span id="result"></span></p>
+    </div>
 </body>
 <script type="text/javascript" src="../script/api.js" ></script>
 <script type="text/javascript" src="../script/aui-alert.js" ></script>
@@ -33,7 +36,7 @@ body {
         },function(ret){
             //处理回调函数
             if(ret){
-               alert("你点击了第"+ret+"个按钮"); 
+               $api.text($api.byId("result"),"你点击了第"+ret+"个按钮");
             }
         })
     }
@@ -50,9 +53,9 @@ body {
             //处理回调函数
             if(ret){
                 if(ret==0){
-                    alert("AUI没有得到你的认可我们会继续努力");
+                    $api.text($api.byId("result"),"AUI没有得到你的认可我们会继续努力");
                 }else{
-                    alert("感谢你对AUI的支持");
+                    $api.text($api.byId("result"),"感谢你对AUI的支持");
                 }
             }
         })
@@ -73,7 +76,7 @@ body {
             //处理回调函数
             if(ret){
                if(ret==0){
-                    alert("感谢支持");
+                    $api.text($api.byId("result"),"感谢支持");
                 }
             }
         })
