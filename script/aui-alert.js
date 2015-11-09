@@ -27,7 +27,7 @@
             btnColor = opts.btnColor?opts.btnColor:btnColor;
         }
         var _init = function(){
-            if(api.winName=='root'){
+            if(api.winName=='root' && !api.frameName){
                 frmUrl = 'html/aui_alert_frm.html';
             }else{
                 frmUrl = 'aui_alert_frm.html';
@@ -61,7 +61,6 @@
                     setTimeout(function(){
                         callback(''+ret.value.buttonIndex+'');
                     },150)
-                    
                 }
             });
         }
