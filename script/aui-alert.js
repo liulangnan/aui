@@ -55,9 +55,8 @@
                 hScrollBarEnabled:false
             })
             api.addEventListener({
-                name: 'myEvent'
+                name: 'auiAlertEvent'
             }, function(ret){
-
                 if(ret){
                     setTimeout(function(){
                         callback(''+ret.value.buttonIndex+'');

@@ -1,7 +1,7 @@
 /*
  * =========================================================================
  * AUI  APICLOUD UI 框架    流浪男  QQ：343757327  http://www.auicss.com
- * Verson 1.1.2  兼容版
+ * Verson 1.1.3
  * =========================================================================
  */
  /*初始化类*/
@@ -56,7 +56,6 @@ a {
 a:hover {
 	outline: 0;
 }
-
 textarea {
 	overflow: hidden;
 	resize: none;
@@ -72,7 +71,6 @@ button,input,optgroup,select,textarea {
 	font: inherit;
 	color: inherit;
 }
-
 hr {
 	height: 0;
 	-webkit-box-sizing: content-box;
@@ -82,9 +80,7 @@ hr {
 pre {
 	overflow: auto;
 }
-
-
-/*自动移动文字*/
+/*自动隐藏文字*/
 .aui-ellipsis-1 {
 	padding-right: 15px;
 	overflow: hidden;
@@ -108,7 +104,6 @@ pre {
 	-webkit-tap-highlight-color: transparent;
 	outline: none;
 }
-
 /*水平线*/
 .aui-line-x {
 	width: 100%;
@@ -128,10 +123,7 @@ pre {
 	-webkit-transform: scale(1);
 	pointer-events: none;
 }
-
-
-
-/*内边距,结合aui-row使用*/
+/*内边距*/
 .aui-row-5 {
 	margin-right: -5px;
 	margin-left: -5px;
@@ -186,30 +178,24 @@ pre {
 .aui-clearfix:after {
 	clear: both;
 }
-
-
 /*文字对齐*/
 .aui-text-left {
   text-align: left !important;
 }
-
 .aui-text-center {
   text-align: center !important;
 }
-
 .aui-text-justify {
   text-align: justify !important;
 }
-
 .aui-text-right {
   text-align: right !important;
 }
-/*文字类*/
+/*文字、背景颜色*/
 h1,h2,h3,h4,h5,h6 {
 	font-size: 100%;
 	font-weight: 400
 }
-
 h1 {
 	font-size: 18px;
 }
@@ -217,21 +203,17 @@ h1 {
 h2 {
 	font-size: 17px;
 }
-
 h3 {
 	font-size: 16px;
 }
-
 h4 {
 	font-size: 16px;
 }
-
 h5 {
 	font-size: 14px;
 	font-weight: normal;
 	color: #8f8f94;
 }
-
 h6 {
 	font-size: 12px;
 	font-weight: normal;
@@ -247,35 +229,27 @@ h5 small,h6 small {
 	line-height: 1;
 	color: #8f8f94;
 }
-
 h1 small,h2 small,h3 small {
 	font-size: 65%;
 }
-
 h4 small,h5 small,h6 small {
 	font-size: 75%;
 }
-
-/*文字、背景颜色*/
 .aui-text-default {
 	color: #666666 !important;
 }
 .aui-text-primary {
 	color: #1abc9c !important;
 }
-
 .aui-text-success {
 	color: #2ecc71 !important;
 }
-
 .aui-text-info {
 	color: #3498db !important;
 }
-
 .aui-text-warning {
 	color: #f1c40f !important;
 }
-
 .aui-text-danger {
 	color: #e74c3c !important;
 }
@@ -291,19 +265,15 @@ h4 small,h5 small,h6 small {
 .aui-bg-primary {
 	background-color: #1abc9c !important;
 }
-
 .aui-bg-success {
 	background-color: #2ecc71 !important;
 }
-
 .aui-bg-info {
 	background-color: #3498db !important;
 }
-
 .aui-bg-warning {
 	background-color: #f1c40f !important;
 }
-
 .aui-bg-danger {
 	background-color: #e74c3c !important;
 }
@@ -313,8 +283,6 @@ h4 small,h5 small,h6 small {
 .aui-bg-pink {
 	background-color: #fbb8af !important;
 }
-
-
 /*对齐,显示，隐藏等*/
 .aui-pull-right {
 	float: right !important;
@@ -335,7 +303,6 @@ h4 small,h5 small,h6 small {
 	display: inline-block;
 	vertical-align: top;
 }
-
 /*基本容器*/
 .aui-content {
 	-webkit-overflow-scrolling: touch;
@@ -388,7 +355,25 @@ h4 small,h5 small,h6 small {
 .aui-card.aui-noborder .aui-user-view {
 	border-radius: 6px;
 }
-
+/*容器内列表相关处理*/
+.aui-card .aui-form {
+	background: none;
+}
+.aui-card .aui-list-view-cell:first-child:after,
+.aui-card .aui-user-view-cell:first-child:after,
+.aui-card .aui-input-row:first-child:after,
+.aui-content-padded .aui-list-view-cell:first-child:after,
+.aui-content-padded .aui-user-view-cell:first-child:after{
+	border-top: 0;
+}
+.aui-card .aui-list-view-cell:last-child:after,
+.aui-card .aui-user-view-cell:last-child:after,
+.aui-card .aui-btn-row:after,
+.aui-card .aui-input-row:last-child:after,
+.aui-content-padded .aui-list-view-cell:last-child:after,
+.aui-content-padded .aui-user-view-cell:last-child:after {
+	border-bottom: 0;
+}
 /*栅格类*/
 .aui-col-xs-1,.aui-col-xs-2,.aui-col-xs-3,.aui-col-xs-4,.aui-col-xs-5,.aui-col-xs-6,.aui-col-xs-7,.aui-col-xs-8,.aui-col-xs-9,.aui-col-xs-10,.aui-col-xs-11,.aui-col-5 {
 	position: relative;
@@ -434,8 +419,6 @@ h4 small,h5 small,h6 small {
 .aui-col-5 {
 	width: 20%;
 }
-
-
 /*标签*/
 .aui-label {
 	display: table-cell;
@@ -459,15 +442,12 @@ h4 small,h5 small,h6 small {
 .aui-label-success {
 	background-color: #2ecc71;
 }
-
 .aui-label-info {
 	background-color: #3498db;
 }
-
 .aui-label-warning {
 	background-color: #f1c40f;
 }
-
 .aui-label-danger {
 	background-color: #e74c3c;
 }
@@ -477,9 +457,6 @@ h4 small,h5 small,h6 small {
 .aui-label-pink {
 	background-color: #fbb8af;
 }
-
-
-
 /*按钮样式*/
 button, .aui-btn {
 	position: relative;
@@ -512,7 +489,6 @@ button, .aui-btn {
 	background-color: #bdc3c7;
 	border: 1px solid #bdc3c7;
 }
-
 .aui-btn-primary {
 	color: #ffffff;
 	background-color: #1abc9c;
@@ -597,7 +573,6 @@ button, .aui-btn {
 .aui-btn-danger.aui-btn-outlined {
 	color: #c0392b;
 }
-
 .aui-btn-default.aui-btn-outlined:active {
 	background: #bdc3c7;
 	color: #ffffff;
@@ -667,14 +642,11 @@ input[type="time"] {
 	position: relative;
 	background: #ffffff;
 }
-
-
 .aui-input-row {
 	position: relative;
     display: table;
     padding: 6px 0;
 }
-
 .aui-input-row:after {
 	border-bottom: 1px solid #c8c7cc;
 	display: block;
@@ -726,7 +698,6 @@ input[type="time"] {
     border:none;
     border-radius: 0;
 }
-
 .aui-btn-row {
 	position: relative;
 	text-align: center;
@@ -745,21 +716,7 @@ input[type="time"] {
 	-webkit-transform: scale(1);
 	pointer-events: none;
 }
-.aui-card .aui-form {
-	background: none;
-}
-.aui-card .aui-input-row:first-child:after{
-	border-top: 0;
-}
-.aui-card .aui-input-row:last-child:after{
-	border-bottom: 0;
-}
-.aui-card .aui-btn-row:after {
-	border-bottom: 0;
-}
-
-
-/*表单中单选、多选*/
+/*单选、多选*/
 .aui-radio {
 	width: 26px;
 	height: 26px;
@@ -773,18 +730,23 @@ input[type="time"] {
 	-webkit-appearance: none;
 			transition: background-color ease 0.1s;
 }
+.aui-radio:after {
+	pointer-events: none;
+}
 .aui-radio-name {
 	height: 26px;
 	line-height: 26px;
 	margin: 8px 10px 8px -5px;
 	float: left;
 }
-.aui-radio:checked {
+.aui-radio:checked,
+.aui-radio.aui-checked {
 	background-color: #1abc9c;
 	border: solid 1px #1abc9c;
 	text-align: center;
 }
-.aui-radio:checked:before {
+.aui-radio:checked:before,
+.aui-radio.aui-checked:before {
 	position: absolute;
 	left: 5px;
 	top: 1px;
@@ -794,7 +756,8 @@ input[type="time"] {
 	content: "\e645";
 	color: #ffffff;
 }
-.aui-radio:checked:after {
+.aui-radio:checked:after,
+.aui-radio.aui-checked:after {
 	position: absolute;
 	left: 5px;
 	top: 1px;
@@ -803,13 +766,15 @@ input[type="time"] {
 	font-family: "auiicon";
 	content: "\e645";
 	color: #ffffff;
+	pointer-events: none;
 }
-
-.aui-radio:disabled {
+.aui-radio:disabled,
+.aui-radio.aui-disabled {
 	background-color: #d9d9d9;
 	border: solid 1px #d9d9d9;
 }
-.aui-radio:disabled:before {
+.aui-radio:disabled:before,
+.aui-radio.aui-disabled:before {
 	position: absolute;
 	left: 5px;
 	top: 1px;
@@ -819,7 +784,8 @@ input[type="time"] {
 	font-size: 16px;
 	color: #ffffff;
 }
-.aui-radio:disabled:after {
+.aui-radio:disabled:after,
+.aui-radio.aui-disabled:after {
 	position: absolute;
 	left: 5px;
 	top: 1px;
@@ -829,23 +795,26 @@ input[type="time"] {
 	font-size: 16px;
 	color: #ffffff;
 }
-.aui-radio.aui-radio-info:checked {
+.aui-radio.aui-radio-info:checked,
+.aui-radio.aui-radio-info.aui-checked {
 	background-color: #3498db;
 	border: solid 1px #3498db;
 }
-.aui-radio.aui-radio-success:checked {
+.aui-radio.aui-radio-success:checked,
+.aui-radio.aui-radio-success.aui-checked {
 	background-color: #2ecc71;
 	border: solid 1px #2ecc71;
 }
-.aui-radio.aui-radio-danger:checked {
+.aui-radio.aui-radio-danger:checked,
+.aui-radio.aui-radio-danger.aui-checked {
 	background-color: #e74c3c;
 	border: solid 1px #e74c3c;
 }
-.aui-radio.aui-radio-warning:checked {
+.aui-radio.aui-radio-warning:checked,
+.aui-radio.aui-radio-warning.aui-checked {
 	background-color: #f1c40f;
 	border: solid 1px #f1c40f;
 }
-
 .aui-checkbox {
 	width: 26px;
 	height: 26px;
@@ -859,18 +828,23 @@ input[type="time"] {
 	-webkit-appearance: none;
 			transition: background-color ease 0.1s;
 }
+.aui-checkbox:after {
+	pointer-events: none;
+}
 .aui-checkbox-name {
 	height: 26px;
 	line-height: 26px;
 	margin: 8px 10px 8px -5px;
 	float: left;
 }
-.aui-checkbox:checked {
+.aui-checkbox:checked,
+.aui-checkbox.aui-checked {
 	background-color: #1abc9c;
 	border: solid 1px #1abc9c;
 	text-align: center;
 }
-.aui-checkbox:checked:before {
+.aui-checkbox:checked:before,
+.aui-checkbox.aui-checked:before {
 	position: absolute;
 	left: 5px;
 	top: 1px;
@@ -880,7 +854,8 @@ input[type="time"] {
 	content: "\e645";
 	color: #ffffff;
 }
-.aui-checkbox:checked:after {
+.aui-checkbox:checked:after,
+.aui-checkbox.aui-checked:after {
 	position: absolute;
 	left: 5px;
 	top: 1px;
@@ -889,13 +864,15 @@ input[type="time"] {
 	font-family: "auiicon";
 	content: "\e645";
 	color: #ffffff;
+	pointer-events: none;
 }
-
-.aui-checkbox:disabled {
+.aui-checkbox:disabled,
+.aui-checkbox.aui-disabled {
 	background-color: #d9d9d9;
 	border: solid 1px #d9d9d9;
 }
-.aui-checkbox:disabled:before {
+.aui-checkbox:disabled:before,
+.aui-checkbox.aui-disabled:before {
 	position: absolute;
 	left: 5px;
 	top: 1px;
@@ -905,7 +882,8 @@ input[type="time"] {
 	font-size: 16px;
 	color: #ffffff;
 }
-.aui-checkbox:disabled:after {
+.aui-checkbox:disabled:after,
+.aui-checkbox.aui-disabled:after {
 	position: absolute;
 	left: 5px;
 	top: 1px;
@@ -915,24 +893,26 @@ input[type="time"] {
 	font-size: 16px;
 	color: #ffffff;
 }
-.aui-checkbox.aui-checkbox-info:checked {
+.aui-checkbox.aui-checkbox-info:checked,
+.aui-checkbox.aui-checkbox-info.aui-checked {
 	background-color: #3498db;
 	border: solid 1px #3498db;
 }
-.aui-checkbox.aui-checkbox-success:checked {
+.aui-checkbox.aui-checkbox-success:checked,
+.aui-checkbox.aui-checkbox-success.aui-checked {
 	background-color: #2ecc71;
 	border: solid 1px #2ecc71;
 }
-.aui-checkbox.aui-checkbox-danger:checked {
+.aui-checkbox.aui-checkbox-danger:checked,
+.aui-checkbox.aui-checkbox-danger.aui-checked {
 	background-color: #e74c3c;
 	border: solid 1px #e74c3c;
 }
-.aui-checkbox.aui-checkbox-warning:checked {
+.aui-checkbox.aui-checkbox-warning:checked,
+.aui-checkbox.aui-checkbox-warning.aui-checked {
 	background-color: #f1c40f;
 	border: solid 1px #f1c40f;
 }
-
-
 /*列表*/
 .aui-content > .aui-list-view:last-child {
   	margin-bottom: 15px;
@@ -954,7 +934,6 @@ input[type="time"] {
 	-webkit-touch-callout: none;
 
 }
-
 .aui-list-view-cell:after {
 	border-bottom: 1px solid #c8c7cc;
 	display: block;
@@ -984,19 +963,6 @@ input[type="time"] {
 .aui-list-view-cell:last-child:after {
   	border-bottom: 1px solid #c8c7cc;
 }
-.aui-card .aui-list-view-cell:first-child:after{
-	border-top: 0;
-}
-.aui-card .aui-list-view-cell:last-child:after {
-	border-bottom: 0;
-}
-.aui-content-padded .aui-list-view-cell:first-child:after{
-	border-top: 0;
-}
-.aui-content-padded .aui-list-view-cell:last-child:after {
-	border-bottom: 0;
-}
-
 .aui-list-view-cell > a{
   	position: relative;
   	padding: inherit;
@@ -1013,18 +979,30 @@ input[type="time"] {
 .aui-list-view-cell > a.aui-active{
   	background-color: #eee;
 }
-
 .aui-list-view-cell > a.aui-ellipsis-1,
 .aui-list-view-cell > a.aui-ellipsis-2 {
 	padding-bottom: -4px;
 	padding-right: 30px;
 }
-
 .aui-list-view-cell p {
   	margin-bottom: 0;
 }
-
-
+/*列表页角标靠右*/
+.aui-list-view-cell > .aui-badge,
+.aui-list-view-cell > a > .aui-badge {
+	position: absolute;
+	top: 50%;
+	right: 15px;
+	-webkit-transform: translateY(-50%);
+	      transform: translateY(-50%);
+}
+.aui-list-view-cell > a.aui-arrow-right > .aui-badge {
+	position: absolute;
+	top: 50%;
+	right: 30px;
+	-webkit-transform: translateY(-50%);
+	      transform: translateY(-50%);
+}
 /*带有箭头的列表*/
 .aui-arrow-right:after {
 	font-family: 'auiicon';
@@ -1039,13 +1017,11 @@ input[type="time"] {
 	      transform: translateY(-50%);
 	-webkit-font-smoothing: antialiased;
 }
-
 .aui-arrow-right:after {
 	font-family:"auiicon" !important;
 	right: 15px;
 	content: '\e6a3';
 }
-
 /*会员列表～通讯录～消息列表*/
 .aui-user-view {
 	position: relative;
@@ -1055,13 +1031,11 @@ input[type="time"] {
 	list-style: none;
 	background-color: #fff;
 }
-
 .aui-user-view-cell {
 	position: relative;
 	padding: 11px 15px;
 	overflow: hidden;
 }
-
 .aui-user-view-cell:after {
 	border-bottom: 1px solid #c8c7cc;
 	display: block;
@@ -1090,19 +1064,6 @@ input[type="time"] {
 }
 .aui-user-view-cell:last-child:after {
   	border-bottom: 1px solid #c8c7cc;
-}
-
-.aui-card .aui-user-view-cell:first-child:after{
-	border-top: 0;
-}
-.aui-card .aui-user-view-cell:last-child:after {
-	border-bottom: 0;
-}
-.aui-content-padded .aui-user-view-cell:first-child:after{
-	border-top: 0;
-}
-.aui-content-padded .aui-user-view-cell:last-child:after {
-	border-bottom: 0;
 }
 .aui-user-view-cell:active {
 	background: #f4f4f4;
@@ -1148,7 +1109,6 @@ input[type="time"] {
 	line-height: 48px !important;
 	border-radius: 50%;
 }
-
 .aui-user-view-cell .aui-img-object.aui-pull-left {
 	margin-right: 15px;
 }
@@ -1168,48 +1128,11 @@ input[type="time"] {
 	right: 15px;
 	content: '\e6a3';
 }
-
-
-
-/*列表处理*/
-.aui-content-padded > .aui-list-view:last-child , .aui-card > .aui-list-view:last-child {
-	margin-bottom: 0;
-}
-.aui-content-padded > .aui-list-view:last-child:after, .aui-card > .aui-list-view:last-child:after {
-	border-top: 0;
-}
-.aui-content-padded > .aui-list-view .aui-list-view-cell:after, .aui-card > .aui-list-view .aui-list-view-cell:after {
-	left: 0;
-}
-.aui-content-padded .aui-list-view:before, .aui-card .aui-list-view:before {
-	border-top: 0;
-}
-
-
-/*列表页角标靠右*/
-.aui-list-view-cell > .aui-badge,
-.aui-list-view-cell > a > .aui-badge {
-	position: absolute;
-	top: 50%;
-	right: 15px;
-	-webkit-transform: translateY(-50%);
-	      transform: translateY(-50%);
-}
-.aui-list-view-cell > a.aui-arrow-right > .aui-badge {
-	position: absolute;
-	top: 50%;
-	right: 30px;
-	-webkit-transform: translateY(-50%);
-	      transform: translateY(-50%);
-}
-
-
 /*图文列表类*/
 .aui-list-view .aui-img,
 .aui-list-view .aui-img-body {
 	overflow: hidden;
 }
-
 .aui-list-view .aui-img-object {
 	max-width: 60px;
 	height: 60px;
@@ -1228,7 +1151,6 @@ input[type="time"] {
 	font-size: 0;
 	white-space: normal;
 }
-
 .aui-list-view.aui-grid-view .aui-list-view-cell {
 	display: table-cell;
 	padding: 10px 0 0 10px;
@@ -1266,7 +1188,6 @@ input[type="time"] {
 .aui-list-view.aui-grid-view .aui-list-view-cell:after {
 	border-top: 0;
 }
-
 .aui-thumb-view {
 	overflow: hidden;
 	padding: 10px 8px 5px 8px;
@@ -1297,7 +1218,6 @@ input[type="time"] {
 .aui-thumb-view .aui-list-view-cell:after {
 	border-top: 0;
 }
-
 /*9宫格*/
 .aui-grid-nine {
 	overflow: auto;
@@ -1352,7 +1272,6 @@ input[type="time"] {
 .aui-grid-nine li:active {
 	background: #f4f4f4;
 }
-
 /*16宫格*/
 .aui-grid-sixteen {
 	overflow: auto;
@@ -1406,7 +1325,9 @@ input[type="time"] {
 .aui-grid-sixteen li:active {
 	background: #f4f4f4;
 }
+.aui-dot {
 
+}
 /*角标*/
 .aui-badge {
 	display: inline-block;
@@ -1417,33 +1338,26 @@ input[type="time"] {
 	background-color: #bdc3c7;
 	border-radius: 100px;
 }
-
 .aui-badge-primary {
-  color: #ffffff;
-  background-color: #1abc9c;
+	color: #ffffff;
+	background-color: #1abc9c;
 }
-
 .aui-badge-success {
-  color: #ffffff;
-  background-color: #2ecc71;
+	color: #ffffff;
+	background-color: #2ecc71;
 }
-
 .aui-badge-info {
   color: #ffffff;
   background-color: #3498db;
 }
-
 .aui-badge-warning {
-  color: #ffffff;
-  background-color: #f1c40f;
+	color: #ffffff;
+	background-color: #f1c40f;
 }
-
 .aui-badge-danger {
-  color: #ffffff;
-  background-color: #e74c3c;
+	color: #ffffff;
+	background-color: #e74c3c;
 }
-
-
 /*导航栏*/
 .aui-bar {
 	position: relative;
@@ -1467,7 +1381,6 @@ input[type="time"] {
 	text-align: center;
 	white-space: nowrap;
 }
-
 .aui-title a {
 	color: inherit;
 }
@@ -1482,7 +1395,6 @@ input[type="time"] {
 .aui-bar a {
 	color: #ffffff;
 }
-
 .aui-bar-dark {
 	background-color: #34495e;
 }
@@ -1542,7 +1454,6 @@ input[type="time"] {
 	margin: 0;
 	color: #ffffff;
 }
-
 .aui-bar-nav {
 	top: 0;
 }
@@ -1647,17 +1558,14 @@ input.aui-counter-input {
 .aui-counter.aui-success .aui-counter-plus {
 	color: #2ecc71;
 }
-
 .aui-counter.aui-info .aui-counter-minus,
 .aui-counter.aui-info .aui-counter-plus {
 	color: #3498db;
 }
-
 .aui-counter.aui-warning .aui-counter-minus,
 .aui-counter.aui-warning .aui-counter-plus {
 	color: #f1c40f;
 }
-
 .aui-counter.aui-danger .aui-counter-minus,
 .aui-counter.aui-danger .aui-counter-plus {
 	color: #e74c3c;
@@ -1714,7 +1622,6 @@ input.aui-counter-input {
 	line-height: 48px;
 	font-size: 20px;
 }
-
 .aui-loading-1, .aui-loading-2 {
 	width: 100%;
 	height: 100%;
@@ -1727,14 +1634,11 @@ input.aui-counter-input {
 	-webkit-animation: bounce 2.0s infinite ease-in-out;
 			animation: bounce 2.0s infinite ease-in-out;
 }
- 
 .aui-loading-2 {
 	background-color: #ffcc00;
 	-webkit-animation-delay: -1.0s;
 			animation-delay: -1.0s;
 }
- 
-
 /*switch开关*/
 .aui-switch-title {
 	float: left;
@@ -1801,7 +1705,6 @@ input.aui-counter-input {
 	left: 20px;
 	transition: left 0.2s;
 }
-
 /*聊天 会话*/
 .aui-chat-receiver{
     clear:both;
@@ -1840,7 +1743,6 @@ input.aui-counter-input {
     line-height: 30px;
     border-radius: 15px;
 }
-
 .aui-chat-sender{
     clear:both;
 }
@@ -1851,7 +1753,6 @@ input.aui-counter-input {
 .aui-chat-sender .aui-chat-sender-avatar{
     float: right;
 }
-
 .aui-chat-sender .aui-chat-sender-avatar img { 
     width: 50px; 
     height: 50px;

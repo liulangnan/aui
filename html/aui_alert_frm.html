@@ -156,7 +156,7 @@ body.fadeOut {
         var btnDom = $api.byId("btn-"+index);
         if($api.attr(btnDom,'data-status')=='1'){
             api.sendEvent({
-                name: 'myEvent',
+                name: 'auiAlertEvent',
                 extra: {buttonIndex:index}
             });
             $api.addCls($api.dom("body"),"fadeOut");
