@@ -18,14 +18,8 @@ a {
 }
 body{
     background: transparent;
-    overflow: hidden;
-}
-.aui-mark {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    z-index: 1;
     background: rgba(0,0,0,0.3);
+    overflow: hidden;
 }
 #aui-box {
     position: absolute;
@@ -36,7 +30,12 @@ body{
     margin-left: -40%;
     background: #ffffff;
     z-index: 2;
-    -webkit-animation: fadeIn .3s;
+    overflow: hidden;
+    opacity: 0;
+}
+#aui-box.fadeIn {
+    opacity: 1;
+    /*-webkit-animation: fadeIn .3s;*/
 }
 #aui-box-header {
     padding: 10px 15px 0 15px;
@@ -86,12 +85,11 @@ body{
     }
 }
 @-webkit-keyframes fadeIn {
-    from { background: rgba(0,0,0,0);opacity: 0; }
-    to { opacity: 1; }
+    0% { background: rgba(0,0,0,0);opacity: 0;}
+    100% { opacity: 1; }
 }
 </style>
 <body>
-    <div class="aui-mark"></div>
     <div id="aui-box">
         <div id="aui-box-header"></div>
         <div id="aui-box-body"></div>
@@ -132,6 +130,7 @@ body{
         }
         $api.css($api.byId("aui-box-body"),"max-height:"+contMaxHeight+"px;color:"+contColor+"");
         $api.css($api.byId("aui-box"),"top:"+boxTop+"px;opacity:1;border-radius:"+radius+"px");
+        $api.addCls($api.byId("aui-box"),"fadeIn");
         api.parseTapmode();
     }
     function btnClick(index){

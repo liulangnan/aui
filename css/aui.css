@@ -1,7 +1,7 @@
 /*
  * =========================================================================
  * AUI  APICLOUD UI 框架    流浪男  QQ：343757327  http://www.auicss.com
- * Verson 1.1.4
+ * Verson 1.1.5
  * =========================================================================
  */
  /*初始化类*/
@@ -79,6 +79,19 @@ hr {
 }
 pre {
 	overflow: auto;
+}
+.aui-inline {
+    display: inline-block;
+    vertical-align: top;
+}
+.aui-block {
+    display: block !important;
+}
+.aui-visibility {
+    visibility: visible !important;
+}
+.aui-hidden {
+    display: none !important;
 }
 /*自动隐藏文字*/
 .aui-ellipsis-1 {
@@ -2058,6 +2071,62 @@ input.aui-counter-input {
         bottom: -100%;
         -webkit-transform: scale(0.5);
     }
+}
+/*滑块*/
+.aui-range {
+    position: relative;
+}
+.aui-range input[type='range']{
+    width: 100%;
+    height: 4px;
+    margin: 18px 0;
+    border: 0;
+    border-radius: 2px;
+    background-color: #c8c7cc;
+    position: relative;
+    -webkit-appearance: none !important;
+}
+.aui-range input[type='range']::-webkit-slider-thumb {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    border-color: #1abc9c;
+    background-color: #1abc9c;
+    -webkit-appearance: none !important;
+}
+.aui-range input[type='range'].aui-range-info::-webkit-slider-thumb{
+    background-color: #3498db;
+    border-color: #3498db;
+}
+.aui-range input[type='range'].aui-range-warning::-webkit-slider-thumb{
+    background-color: #f1c40f;
+    border-color: #f1c40f;
+}
+.aui-range input[type='range'].aui-range-danger::-webkit-slider-thumb{
+    background-color: #e74c3c;
+    border-color: #e74c3c;
+}
+.aui-range input[type='range'].aui-range-primary::-webkit-slider-thumb{
+    background-color: #1abc9c;
+    border-color: #1abc9c;
+}
+.aui-range .aui-range-tip {
+    font-size: 20px;
+    position: absolute;
+    z-index: 999;
+    top: -30px;
+    width: 48px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    color: #666666;
+    border: 1px solid #dddddd;
+    border-radius: 6px;
+    background-color: #ffffff;
+}
+.aui-input-row .aui-range input[type='range'] {
+	width: 90%;
+	margin-left: 5%;
 }
 /*
 *瀑布流样式

@@ -31,10 +31,17 @@
                 <span class="aui-input-addon">url</span>
                 <input type="url" class="aui-input" placeholder="http://"/>
             </div>
+            <div class="aui-input-row">
+                <span class="aui-input-addon">age</span>
+                <div class="aui-range">
+                    <input type="range" class="aui-range-primary" value="30" max="100" min="1" step="1" id="range" />
+                </div>
+            </div>
             <div class="aui-btn-row">
                 <div class="aui-btn aui-btn-success" onclick="return false;">确认</div>&nbsp;&nbsp;
                 <div class="aui-btn aui-btn-warning" onclick="return false;">取消</div>
             </div>
+
         </div>
 
     </div>
@@ -115,8 +122,12 @@
     </div>
 </body>
 <script type="text/javascript" src="../script/api.js" ></script>
+<script type="text/javascript" src="../script/aui-range.js" ></script>
 <script type="text/javascript">
+    $aui.range($api.byId("range"),function(ret){
+    })
     apiready = function () {
+
     }
 </script>
 </html>

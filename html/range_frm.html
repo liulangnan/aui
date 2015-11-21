@@ -1,0 +1,58 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <title>APP</title>
+    <link rel="stylesheet" type="text/css" href="../css/aui.css" />
+</head>
+<style type="text/css">
+.aui-content {
+    background: #ffffff;
+    overflow: hidden;
+    padding: 15px;
+}
+p {
+    margin: 10px 0;
+    overflow: hidden;
+}
+
+</style>
+<body>
+    <div class="aui-content">
+        <p>带有提示的滑块：<span id="value-1">30</span></p>
+        <div class="aui-range" style="margin-top:30px;">
+            <input type="range" class="aui-range-danger" value="30" max="100" min="1" step="1" id="range" />
+        </div>
+    </div>
+    <div class="aui-content">
+        <p>带有提示的滑块：<span id="value-2">40</span></p>
+        <div class="aui-range" style="margin-top:30px;">
+            <input type="range" value="40" max="100" min="1" step="1" id="range2" />
+        </div>
+    </div>
+    <div class="aui-content">
+        <p>普通滑块：<span id="value">50</span></p>
+        <div class="aui-range"><input type="range" value="50" max="100" min="1" class="aui-range-primary demo" /></div>
+        <div class="aui-range"><input type="range" value="50" max="100" min="1" class="aui-range-info demo" /></div>
+        <div class="aui-range"><input type="range" value="50" max="100" min="1" class="aui-range-warning demo" /></div>
+    </div>
+</body>
+<script type="text/javascript" src="../script/api.js" ></script>
+<script type="text/javascript" src="../script/aui-range.js" ></script>
+<script type="text/javascript">
+$aui.range($api.byId("range"),function(ret){
+    $api.text($api.byId("value-1"),ret);
+})
+$aui.range($api.byId("range2"),function(ret){
+    $api.text($api.byId("value-2"),ret);
+})
+var demo = $api.domAll(".demo");
+for(var i=0,len=demo.length;i<len;i++){
+    demo[i].addEventListener("change",function(){
+        $api.text($api.byId("value"),this.value);
+    });
+}
+
+</script>
+</html>
