@@ -58,9 +58,11 @@
                 name: 'auiAlertEvent'
             }, function(ret){
                 if(ret){
-                    setTimeout(function(){
+                    
+                    callback(''+ret.value.buttonIndex+'');
+                    /*setTimeout(function(){
                         callback(''+ret.value.buttonIndex+'');
-                    },150)
+                    },150)*/
                 }
             });
         }
