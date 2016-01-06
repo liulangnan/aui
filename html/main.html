@@ -15,24 +15,32 @@
 <body>
     <div class="aui-content">
         <ul class="aui-list-view">
+            <li class="aui-list-view-cell" tapmode onclick="openWin('tips')">
+                <a class="aui-arrow-right">信息提示条<span class="aui-badge aui-badge-danger">新增</span></a>
+            </li>
+            <li class="aui-list-view-cell" tapmode onclick="openWin('searchbar')">
+                <a class="aui-arrow-right">搜索条<span class="aui-badge aui-badge-danger">新增</span></a>
+            </li>
             <li class="aui-list-view-cell" tapmode onclick="openWin('range')">
-                <a class="aui-arrow-right">滑块<span class="aui-badge aui-badge-danger">新增</span></a>
+                <a class="aui-arrow-right">滑块</a>
             </li>
             <li class="aui-list-view-cell" tapmode onclick="openWin('timeline')">
-                <a class="aui-arrow-right">时间轴<span class="aui-badge aui-badge-danger">新增</span></a>
+                <a class="aui-arrow-right">时间轴</a>
             </li>
             <li class="aui-list-view-cell" tapmode onclick="openWin('progress')">
-                <a class="aui-arrow-right">进度条<span class="aui-badge aui-badge-danger">新增</span></a>
+                <a class="aui-arrow-right">进度条</a>
             </li>
             <li class="aui-list-view-cell" tapmode onclick="openWin('alert')">
-                <a class="aui-arrow-right">自定义弹出层<span class="aui-badge aui-badge-warning">优化</span></a>
+                <a class="aui-arrow-right">自定义弹出层</a>
             </li>
-            
+            <li class="aui-list-view-cell" tapmode onclick="openWin('waterfall')">
+                <a class="aui-arrow-right">瀑布流<span class="aui-badge aui-badge-warning">优化</span></a>
+            </li>
             <li class="aui-list-view-cell" tapmode onclick="openWin('button')">
                 <a class="aui-arrow-right">按钮</a>
             </li>
             <li class="aui-list-view-cell" tapmode onclick="openWin('form')">
-                <a class="aui-arrow-right">表单<span class="aui-badge aui-badge-danger">新增滑块</span></a>
+                <a class="aui-arrow-right">表单</a>
             </li>
             <li class="aui-list-view-cell" tapmode onclick="openWin('switch')">
                 <a class="aui-arrow-right">switch开关</a>
@@ -44,7 +52,7 @@
                 <a class="aui-arrow-right">radio选择</a>
             </li>
             <li class="aui-list-view-cell" tapmode onclick="openWin('list')">
-                <a class="aui-arrow-right">普通列表</a>
+                <a class="aui-arrow-right">普通列表<span class="aui-badge aui-badge-warning">优化/新增</span></a>
             </li>
             <li class="aui-list-view-cell" tapmode onclick="openWin('list_arrow')">
                 <a class="aui-arrow-right">带有角标和箭头的列表</a>
@@ -77,7 +85,7 @@
                 <a class="aui-arrow-right">TAB菜单</a>
             </li>
             <li class="aui-list-view-cell" tapmode onclick="openWin('contact_book')">
-                <a class="aui-arrow-right">通讯录</a>
+                <a class="aui-arrow-right">通讯录<span class="aui-badge aui-badge-warning">优化</span></a>
             </li>
             <li class="aui-list-view-cell" tapmode onclick="openWin('chat')">
                 <a class="aui-arrow-right">聊天界面</a>
@@ -85,9 +93,7 @@
             <li class="aui-list-view-cell" tapmode onclick="openWin('iconfont')">
                 <a class="aui-arrow-right">图标</a>
             </li>
-            <li class="aui-list-view-cell" tapmode onclick="openWin('waterfall')">
-                <a class="aui-arrow-right">瀑布流</a>
-            </li>
+            
             <li class="aui-list-view-cell" tapmode onclick="openWin('demo_form')">
                 <a class="aui-arrow-right">案例：表单样式</a>
             </li>
@@ -111,13 +117,27 @@
 <script type="text/javascript">
     apiready = function () {
         api.parseTapmode();
+        api.openWin({
+            name: 'ad_win',
+            url: 'ad_win.html',
+            bounces:false,
+            vScrollBarEnabled:false,
+            hScrollBarEnabled:false,
+            animation:{
+                type:"fade"
+            }
+        });
     }
     function openWin(name){
+        var delay = 0;
+        if(api.systemType != 'ios'){
+            delay = 300;
+        }
         api.openWin({
             name: ''+name+'',
             url: ''+name+'_win.html',
             bounces:false,
-            delay: 300
+            delay: delay
         });
     }
 </script>

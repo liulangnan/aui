@@ -1,7 +1,7 @@
 /*
  * =========================================================================
- * AUI  APICLOUD UI 框架    流浪男  QQ：343757327  http://www.auicss.com
- * Verson 1.1.5
+ * APIClud - AUI UI 框架    流浪男  QQ：343757327  http://www.auicss.com
+ * Verson 1.1.6
  * =========================================================================
  */
  /*初始化类*/
@@ -372,12 +372,13 @@ h4 small,h5 small,h6 small {
 .aui-card .aui-form {
 	background: none;
 }
+.aui-card .aui-list-view:after,
 .aui-card .aui-list-view-cell:first-child:after,
 .aui-card .aui-user-view-cell:first-child:after,
 .aui-card .aui-input-row:first-child:after,
-.aui-content-padded .aui-list-view-cell:first-child:after,
+.aui-content-padded .aui-list-view:after,
 .aui-content-padded .aui-user-view-cell:first-child:after{
-	border-top: 0;
+	border-top: 0!important;
 }
 .aui-card .aui-list-view-cell:last-child:after,
 .aui-card .aui-user-view-cell:last-child:after,
@@ -790,7 +791,7 @@ input[type="time"] {
 .aui-radio.aui-disabled:before {
 	position: absolute;
 	left: 5px;
-	top: 1px;
+	top: 0px;
 	display: table;
 	font-family: "auiicon";
 	content: "\e645";
@@ -801,7 +802,7 @@ input[type="time"] {
 .aui-radio.aui-disabled:after {
 	position: absolute;
 	left: 5px;
-	top: 1px;
+	top: 0px;
 	display: table;
 	font-family: "auiicon";
 	content: "\e645";
@@ -860,7 +861,7 @@ input[type="time"] {
 .aui-checkbox.aui-checked:before {
 	position: absolute;
 	left: 5px;
-	top: 1px;
+	top: 0px;
 	font-size: 16px;
 	display: inline-block;
 	font-family: "auiicon";
@@ -871,7 +872,7 @@ input[type="time"] {
 .aui-checkbox.aui-checked:after {
 	position: absolute;
 	left: 5px;
-	top: 1px;
+	top: 0px;
 	font-size: 16px;
 	display: inline-block;
 	font-family: "auiicon";
@@ -938,6 +939,19 @@ input[type="time"] {
 	list-style: none;
 	background-color: #fff;
 }
+.aui-list-view:after {
+  	border-top: 1px solid #c8c7cc;
+	display: block;
+	content: '';
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	-webkit-transform-origin: 0 0;
+	-webkit-transform: scale(1);
+	pointer-events: none;
+}
 .aui-list-view-cell {
 	position: relative;
 	padding: 12px 15px;
@@ -945,7 +959,6 @@ input[type="time"] {
 	-webkit-transform-style: preserve-3d;
 	      transform-style: preserve-3d;
 	-webkit-touch-callout: none;
-
 }
 .aui-list-view-cell:after {
 	border-bottom: 1px solid #c8c7cc;
@@ -960,19 +973,7 @@ input[type="time"] {
 	-webkit-transform: scale(1);
 	pointer-events: none;
 }
-.aui-list-view-cell:first-child:after {
-  	border-top: 1px solid #c8c7cc;
-	display: block;
-	content: '';
-	position: absolute;
-	top: 0;
-	right: 0;
-	bottom: 0;
-	left: 0;
-	-webkit-transform-origin: 0 0;
-	-webkit-transform: scale(1);
-	pointer-events: none;
-}
+
 .aui-list-view-cell:last-child:after {
   	border-bottom: 1px solid #c8c7cc;
 }
@@ -999,6 +1000,20 @@ input[type="time"] {
 }
 .aui-list-view-cell p {
   	margin-bottom: 0;
+}
+
+.aui-list-view.aui-in .aui-list-view-cell:last-child:after {
+  	left:0;
+}
+.aui-list-view.aui-in .aui-list-view-cell:after {
+	left: 15px;
+}
+.aui-list-view i.aui-iconfont {
+    padding: 5px;
+    border-radius: 4px;
+    margin-right: 10px;
+    color: #ffffff;
+    font-size: 1.125em;
 }
 /*列表页角标靠右*/
 .aui-list-view-cell > .aui-badge,
@@ -1044,6 +1059,19 @@ input[type="time"] {
 	list-style: none;
 	background-color: #fff;
 }
+.aui-user-view:after {
+  	border-top: 1px solid #c8c7cc;
+	display: block;
+	content: '';
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	-webkit-transform-origin: 0 0;
+	-webkit-transform: scale(1);
+	pointer-events: none;
+}
 .aui-user-view-cell {
 	position: relative;
 	padding: 11px 15px;
@@ -1062,19 +1090,7 @@ input[type="time"] {
 	-webkit-transform: scale(1);
 	pointer-events: none;
 }
-.aui-user-view-cell:first-child:after {
-  	border-top: 1px solid #c8c7cc;
-	display: block;
-	content: '';
-	position: absolute;
-	top: 0;
-	right: 0;
-	bottom: 0;
-	left: 0;
-	-webkit-transform-origin: 0 0;
-	-webkit-transform: scale(1);
-	pointer-events: none;
-}
+
 .aui-user-view-cell:last-child:after {
   	border-bottom: 1px solid #c8c7cc;
 }
@@ -1141,6 +1157,12 @@ input[type="time"] {
 	right: 15px;
 	content: '\e6a3';
 }
+.aui-user-view.aui-in .aui-user-view-cell:last-child:after {
+  	left:0;
+}
+.aui-user-view.aui-in .aui-user-view-cell:after {
+	left: 15px;
+}
 /*图文列表类*/
 .aui-list-view .aui-img,
 .aui-list-view .aui-img-body {
@@ -1163,6 +1185,9 @@ input[type="time"] {
 	padding: 0 10px 10px 0;
 	font-size: 0;
 	white-space: normal;
+}
+.aui-list-view.aui-grid-view:after {
+	border-top:0;
 }
 .aui-list-view.aui-grid-view .aui-list-view-cell {
 	display: table-cell;
@@ -1835,29 +1860,28 @@ input.aui-counter-input {
 	width: 100%;
 	display: box;
 	display: -webkit-box;
+	box-sizing: border-box;
 	font-size: 16px;
 	height: 45px;
-	box-sizing: border-box;
-	overflow: hidden;
 	background-color: #fff;
+	overflow: hidden;
 }
 .aui-tab-nav li {
 	height: 45px;
 	line-height: 45px;
-	min-width: 70px;
 	box-flex: 1;
 	-webkit-box-flex: 1;
+	box-sizing: border-box;
 	text-align: center;
 	color: #666;
-	box-sizing: border-box;
 	border-bottom: 2px solid transparent;
 	width: 100%;
 }
 .aui-tab-nav li.active {
 	color: #1abc9c;
 	border-bottom: 2px #1abc9c solid;
-	-webkit-animation: fadeIn .5s ease both;
-            animation: fadeIn .5s ease both;
+	/*-webkit-animation: fadeIn .5s ease both;
+            animation: fadeIn .5s ease both;*/
 }
 .aui-tab-nav.aui-tab-border {
 	background-color: transparent;
@@ -1865,7 +1889,7 @@ input.aui-counter-input {
 	border-radius: 3px;
 }
 .aui-tab-nav.aui-tab-border li {
-	width: 1%;
+	/*width: 1%;*/
 	overflow: hidden;
 	line-height: 43px;
 	color: #1abc9c;
@@ -1874,13 +1898,13 @@ input.aui-counter-input {
 	border-left: 1px solid #1abc9c;
 }
 .aui-tab-nav.aui-tab-border li:first-child {
-	border-left: 0px solid #1abc9c;
+	border-left: 0px;
 }
 .aui-tab-nav.aui-tab-border li.active {
 	background-color: #1abc9c;
 	color: #fff;
-	-webkit-animation: fadeIn .5s ease both;
-            animation: fadeIn .5s ease both;
+	/*-webkit-animation: fadeIn .5s ease both;
+            animation: fadeIn .5s ease both;*/
 }
 /*
 *进度条
@@ -2138,7 +2162,9 @@ input.aui-counter-input {
 .aui-waterfall li{
     width:100%;
     position: relative;
+    display: inline-block;
     margin-bottom: 10px;
+    -webkit-column-break-inside:avoid;
 }
 .aui-waterfall li:after {
 	display: block;
@@ -2170,16 +2196,147 @@ input.aui-counter-input {
     font-size: 0.75em;
     color: #666;
 }
+
+/*搜索条*/
+.aui-searchbar-wrap {
+    display: -webkit-box;
+    -webkit-box-pack: center;
+    -webkit-box-align: center;
+    background-color: #ebeced;
+    height: 50px;
+}
+.aui-searchbar-wrap.focus {
+    -webkit-box-pack: start;
+}
+.aui-searchbar {
+    margin: 0 10px;
+    background: #ffffff;
+    border-radius: 5px;
+    height: 32px;
+    line-height: 32px;
+    color: #c8c7cc;
+    font-size: 14px;
+	width: 100%;
+    position: relative;
+    padding-left: 4px;
+    -webkit-box-flex: 1;
+    display: -webkit-box;
+    -webkit-box-pack: center;
+    -webkit-box-align: center;
+}
+.aui-searchbar input {
+    color: #333333;
+    width: 100%;
+    padding: 5px 0;
+    border: 0;
+    -webkit-appearance: none;
+}
+.aui-searchbar .aui-icon-search {
+    line-height: 30px;
+    margin-right: 5px;
+}
+.aui-searchbar-wrap .aui-searchbar-input,
+.aui-searchbar-wrap .aui-searchbar-cancel,
+.aui-searchbar-wrap .aui-icon-roundclosefill {
+    display: none;
+}
+.aui-searchbar-input {
+    -webkit-box-flex: 1;
+}
+.aui-searchbar-wrap .aui-searchbar-cancel {
+    font-size: 16px;
+    padding: 5px 15px 5px 0;
+}
+.aui-searchbar-wrap.focus .aui-searchbar-input,
+.aui-searchbar-wrap.focus .aui-searchbar-cancel,
+.aui-searchbar-wrap.focus .aaui-icon-roundclosefill{
+    display: block;
+}
+.aui-searchbar-wrap.focus .aui-searchbar-text {
+    display: none;
+}
+
+/*信息提示条*/
+.aui-tips {
+    width: 100%;
+    position: relative;
+    z-index: 99;
+    overflow: hidden;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.aui-tips-content {
+    line-height: 45px;
+    height: 45px;
+    padding-left: 10px;
+    padding-right: 30px;
+    width: 100%;
+    overflow: hidden;
+    background-color: rgba(0,0,0,.8);
+    color: #fff;
+}
+.aui-tips-content i {
+    display: inline-block;
+    width: 30px;
+    height: 45px;
+    vertical-align: top;
+}
+.aui-tips-content i:before {
+    font-size: 22px;
+    line-height: 45px;
+    display: block;
+    color: #ffffff;
+}
+.aui-tips-content .aui-icon-roundclosefill {
+    position: absolute;
+    right: 5px;
+    top: 0;
+}
+.aui-tips-warning .aui-tips-content {
+    background-color: rgba(255,242,183,.9);
+    color: #000;
+}
+.aui-tips-warning i:before {
+    color: #f76249;
+}
+.aui-tips-info .aui-tips-content {
+    background-color: rgba(52,152,219,.9);
+    color: #fff;
+}
+.aui-tips-success .aui-tips-content {
+    background-color: rgba(46,204,113,.9);
+    color: #fff;
+}
+.aui-tips-danger .aui-tips-content {
+    background-color: rgba(231,76,60,.9);
+    color: #fff;
+}
+.aui-tips-primary .aui-tips-content {
+    background-color: rgba(26,188,156,.9);
+    color: #fff;
+}
+.aui-tips-info i:before,
+.aui-tips-success i:before,
+.aui-tips-danger i:before,
+.aui-tips-primary i:before {
+    color: #fff;
+}
+.aui-tips-primary .aui-arrow-right:after,
+.aui-tips-info .aui-arrow-right:after,
+.aui-tips-success .aui-arrow-right:after,
+.aui-tips-danger .aui-arrow-right:after {
+	color: #ffffff;
+}
 @media only screen and (-webkit-min-device-pixel-ratio: 1.5) {
+	.aui-list-view:first-child:after,
 	.aui-line-x:after,
 	.aui-card:after,
 	.aui-input-row:first-child:after,
 	.aui-input-row:after,
 	.aui-btn-row:after,
-	.aui-list-view-cell:first-child:after,
 	.aui-list-view-cell:last-child:after,
 	.aui-list-view-cell:after,
-	.aui-user-view-cell:first-child:after,
+	.aui-user-view:after,
 	.aui-user-view-cell:last-child:after,
 	.aui-user-view-cell:after,
 	.aui-grid-nine:after,
@@ -2192,6 +2349,7 @@ input.aui-counter-input {
 		-webkit-transform: scale(0.5);
 	}
 }
+
 @-webkit-keyframes rotate {
     0%   { -webkit-transform: rotate(0deg); }
     100% { -webkit-transform: rotate(360deg); }
@@ -2214,6 +2372,7 @@ input.aui-counter-input {
     from { opacity: 0.3; }
     to {  }
 }
+
 /*图标*/
 @font-face {font-family: "auiicon";
 	src: url('aui_iconfont.ttf') format('truetype');

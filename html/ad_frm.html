@@ -1,0 +1,73 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <link rel="stylesheet" type="text/css" href="../css/aui.css" />
+    <style type="text/css">
+	.ad {
+		width: 100%;
+		height: 100%;
+		position: relative;
+	}
+	.ad img {
+		width: 100%;
+		height: 100%;
+		display: inherit;
+	}
+	.time {
+		position: absolute;
+		top: 30px;
+		right: 15px;
+		padding: 5px 10px;
+		background-color: rgba(0,0,0,0.6);
+		color: #ffffff;
+		font-size: 14px;
+		border-radius: 30px;
+	}
+    </style>
+</head>
+<body>
+	<div class="ad" tapmode onclick="openAd()">
+		<img src="../image/ad-apicloud-20150106.jpg" />
+		<div class="time">倒计时：<strong id="time">5</strong></div>
+	</div>
+</body>
+<script type="text/javascript" src="../script/api.js" ></script>
+<script type="text/javascript">
+	var times = 5;
+	apiready = function(){
+		api.parseTapmode();
+		if(times>=0){
+			setInterval("CountDown()",1000);
+		}
+		
+	}
+	function CountDown(){
+        if (times < 1) {
+            api.closeWin({
+                name: 'ad_win',
+                animation:{
+	                type:"fade"
+	            }
+            });
+        }
+        var getVerify = $api.byId('time');
+        $api.html(getVerify,''+times+'');
+        times--;
+    }
+    function openAd(){
+        times = 0;
+        var delay = 0;
+        if(api.systemType != 'ios'){
+            delay = 300;
+        }
+        api.openWin({
+            name: 'ad_url_win',
+            url: 'ad_url_win.html',
+            bounces:false,
+            delay: delay
+        });
+    }
+</script>
+</html>
