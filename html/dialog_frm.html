@@ -1,0 +1,65 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <title>APP</title>
+    <link rel="stylesheet" type="text/css" href="../css/aui.css" />
+</head>
+<body>
+    <p class="aui-padded-10 aui-text-center">Dialog样式</p>
+    <div class="aui-content-padded">
+        <div class="aui-btn aui-btn-block aui-btn-success" tapmode onclick="show()">弹出Dialog</div>
+    </div>
+    <div class="aui-dialog aui-hidden" id="dialog">
+        <div class="aui-dialog-header">弹出提示</div>
+        <div class="aui-dialog-body aui-text-left">
+            自定义弹出框样式
+        </div>
+        <div class="aui-dialog-footer">
+            <div class="aui-dialog-btn aui-text-danger" tapmode onclick="cancel()">取消</div>
+            <div class="aui-dialog-btn aui-text-info" tapmode onclick="confirm()">确定</div>
+        </div>
+    </div>
+</body>
+<script type="text/javascript" src="../script/api.js" ></script>
+<script type="text/javascript" src="../script/aui-range.js" ></script>
+<script type="text/javascript">
+    apiready = function () {
+        api.parseTapmode();
+    }
+    function show(){
+        $api.append($api.dom("body"),'<div class="aui-mask"></div>');
+        $api.removeCls($api.dom(".aui-dialog.aui-hidden"),"aui-hidden");
+        api.sendEvent({
+            name: 'dialogEvent',
+            extra: {type:'show'}
+        });
+    }
+    function cancel(){
+        $api.remove($api.dom(".aui-mask"));
+        $api.addCls($api.dom(".aui-dialog"),"aui-hidden");
+        api.sendEvent({
+            name: 'dialogEvent',
+            extra: {type:'hidden'}
+        });
+        api.alert({
+            title: '提示', 
+            msg: '您点击了取消'
+        });
+
+    }
+    function confirm(){
+        $api.remove($api.dom(".aui-mask"));
+        $api.addCls($api.dom(".aui-dialog"),"aui-hidden");
+        api.sendEvent({
+            name: 'dialogEvent',
+            extra: {type:'hidden'}
+        });
+        api.alert({
+            title: '提示', 
+            msg: '您点击了确定'
+        });
+    }
+</script>
+</html>

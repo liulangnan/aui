@@ -1,7 +1,7 @@
 /*
  * =========================================================================
  * APIClud - AUI UI 框架    流浪男  QQ：343757327  http://www.auicss.com
- * Verson 1.1.6
+ * Verson 1.1.7
  * =========================================================================
  */
  /*初始化类*/
@@ -702,6 +702,9 @@ input[type="time"] {
     vertical-align: middle;
     padding: 5px;
 }
+.aui-input-row .aui-input-addon.aui-iconfont {
+	font-size: 18px;
+}
 .aui-input-row .aui-input {
     font-size: 14px;
     margin: 0;
@@ -730,6 +733,7 @@ input[type="time"] {
 	-webkit-transform: scale(1);
 	pointer-events: none;
 }
+
 /*单选、多选*/
 .aui-radio {
 	width: 26px;
@@ -2327,7 +2331,140 @@ input.aui-counter-input {
 .aui-tips-danger .aui-arrow-right:after {
 	color: #ffffff;
 }
+/*新增警告、成功颜色*/
+.aui-warning,
+.aui-warning label,
+.aui-warning .aui-input,
+.aui-warning .aui-iconfont {
+	color: #e74c3c !important;
+}
+.aui-success,
+.aui-success label,
+.aui-success .aui-input,
+.aui-success .aui-iconfont {
+	color: #2ecc71 !important;
+}
+/*toast*/
+.aui-toast {
+	background: rgba(0, 0, 0, 0.6);
+	text-align: center;
+	border-radius: 5px;
+	color: #ffffff;
+	position: fixed;
+	z-index: 3;
+	top: 180px;
+	left: 50%;
+	width: 7.5em;
+	min-height: 7.5em;
+	margin-left: -3.25em;
+}
+.aui-toast .aui-iconfont {
+	display: block;
+	font-size: 55px;
+}
+.aui-toast-content {
+  margin: 0 0 15px;
+}
+.aui-toast .aui-toast-loading {
+    background-color: #fff;
+    border-radius: 100%;
+    margin: 15px 0;
+    -webkit-animation-fill-mode: both;
+        animation-fill-mode: both;
+    border: 2px solid #fff;
+    border-bottom-color: transparent;
+    height: 45px;
+    width: 45px;
+    background: transparent !important;
+    display: inline-block;
+    -webkit-animation: rotate 1s 0s linear infinite;
+        animation: rotate 1s 0s linear infinite;
+}
+@keyframes rotate {
+    0% {
+        -webkit-transform: rotate(0deg) scale(1);
+            transform: rotate(0deg) scale(1); 
+    }
+    50% {
+        -webkit-transform: rotate(180deg) scale(1);
+            transform: rotate(180deg) scale(1);
+    }
+    100% {
+        -webkit-transform: rotate(360deg) scale(1);
+            transform: rotate(360deg) scale(1);
+    }
+}
+/*dialog*/
+.aui-dialog {
+    position: fixed;
+	z-index: 12;
+	width: 85%;
+	top: 40%;
+	left: 50%;
+	-webkit-transform: translate(-50%, -50%);
+	      transform: translate(-50%, -50%);
+	background-color: #FAFAFC;
+	text-align: center;
+	border-radius: 3px;
+}
+.aui-dialog-header {
+    padding: 10px 15px 0 15px;
+    text-align: center;
+    font-size: 1em;
+}
+.aui-dialog-body {
+    padding: 15px;
+    overflow: hidden;
+    font-size: 0.875em;
+    color: #8f8f94;
+}
+.aui-dialog-footer {
+    position: relative;
+    font-size: 1em;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+}
+.aui-dialog-btn {
+	position: relative;
+    text-align: center;
+    padding: 15px 0;
+    display: block;
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+}
+.aui-dialog-btn:after {
+    border-left: 1px solid #dbdbdb;
+    border-top: 1px solid #dbdbdb;
+    display: block;
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    -webkit-transform-origin: 0 0;
+    -webkit-transform: scale(1);
+    pointer-events: none;
+}
+.aui-dialog-btn:first-child:after {
+    border-left: 0;
+}
+.aui-mask {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 11;
+}
 @media only screen and (-webkit-min-device-pixel-ratio: 1.5) {
+	.aui-dialog-footer:after,
+    .aui-dialog-btn:after,
 	.aui-list-view:first-child:after,
 	.aui-line-x:after,
 	.aui-card:after,

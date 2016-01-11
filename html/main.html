@@ -15,11 +15,20 @@
 <body>
     <div class="aui-content">
         <ul class="aui-list-view">
+            <li class="aui-list-view-cell" tapmode onclick="openWin('dialog')">
+                <a class="aui-arrow-right">弹出提示样式(dialog)<span class="aui-badge aui-badge-danger">新增</span></a>
+            </li>
+            <li class="aui-list-view-cell" tapmode onclick="openWin('status')">
+                <a class="aui-arrow-right">带状态的表单／列表<span class="aui-badge aui-badge-danger">新增</span></a>
+            </li>
+            <li class="aui-list-view-cell" tapmode onclick="openWin('toast')">
+                <a class="aui-arrow-right">Toast<span class="aui-badge aui-badge-danger">新增</span></a>
+            </li>
             <li class="aui-list-view-cell" tapmode onclick="openWin('tips')">
-                <a class="aui-arrow-right">信息提示条<span class="aui-badge aui-badge-danger">新增</span></a>
+                <a class="aui-arrow-right">信息提示条</a>
             </li>
             <li class="aui-list-view-cell" tapmode onclick="openWin('searchbar')">
-                <a class="aui-arrow-right">搜索条<span class="aui-badge aui-badge-danger">新增</span></a>
+                <a class="aui-arrow-right">搜索条</a>
             </li>
             <li class="aui-list-view-cell" tapmode onclick="openWin('range')">
                 <a class="aui-arrow-right">滑块</a>
@@ -34,7 +43,7 @@
                 <a class="aui-arrow-right">自定义弹出层</a>
             </li>
             <li class="aui-list-view-cell" tapmode onclick="openWin('waterfall')">
-                <a class="aui-arrow-right">瀑布流<span class="aui-badge aui-badge-warning">优化</span></a>
+                <a class="aui-arrow-right">瀑布流</a>
             </li>
             <li class="aui-list-view-cell" tapmode onclick="openWin('button')">
                 <a class="aui-arrow-right">按钮</a>
@@ -52,7 +61,7 @@
                 <a class="aui-arrow-right">radio选择</a>
             </li>
             <li class="aui-list-view-cell" tapmode onclick="openWin('list')">
-                <a class="aui-arrow-right">普通列表<span class="aui-badge aui-badge-warning">优化/新增</span></a>
+                <a class="aui-arrow-right">普通列表</a>
             </li>
             <li class="aui-list-view-cell" tapmode onclick="openWin('list_arrow')">
                 <a class="aui-arrow-right">带有角标和箭头的列表</a>
@@ -85,7 +94,7 @@
                 <a class="aui-arrow-right">TAB菜单</a>
             </li>
             <li class="aui-list-view-cell" tapmode onclick="openWin('contact_book')">
-                <a class="aui-arrow-right">通讯录<span class="aui-badge aui-badge-warning">优化</span></a>
+                <a class="aui-arrow-right">通讯录</a>
             </li>
             <li class="aui-list-view-cell" tapmode onclick="openWin('chat')">
                 <a class="aui-arrow-right">聊天界面</a>
@@ -117,16 +126,16 @@
 <script type="text/javascript">
     apiready = function () {
         api.parseTapmode();
-        api.openWin({
-            name: 'ad_win',
-            url: 'ad_win.html',
-            bounces:false,
-            vScrollBarEnabled:false,
-            hScrollBarEnabled:false,
-            animation:{
-                type:"fade"
-            }
-        });
+        // api.openWin({
+        //     name: 'ad_win',
+        //     url: 'ad_win.html',
+        //     bounces:false,
+        //     vScrollBarEnabled:false,
+        //     hScrollBarEnabled:false,
+        //     animation:{
+        //         type:"fade"
+        //     }
+        // });
     }
     function openWin(name){
         var delay = 0;

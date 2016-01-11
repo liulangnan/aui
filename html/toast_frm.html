@@ -1,0 +1,51 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <title>APP</title>
+    <link rel="stylesheet" type="text/css" href="../css/aui.css" />
+    <style type="text/css">
+    .aui-btn {
+        margin: 20px 0;
+    }
+    p {
+        margin-top: 25px;
+    }
+    </style>
+</head>
+<body>
+    <div class="aui-toast" style="display:none" id="default">
+        <i class="aui-iconfont aui-icon-check"></i>
+        <div class="aui-toast-content">提交成功</div>
+    </div>
+    <div class="aui-toast"  style="display:none" id="loading">
+        <div class="aui-toast-loading"></div>
+        <div class="aui-toast-content">加载中</div>
+    </div>
+    <p class="aui-text-center">TOAST</p>
+    <div class="aui-content-padded">
+        <div class="aui-btn aui-btn-block aui-btn-success" tapmode onclick="showDefault()">默认样式（toast）</div>
+        <div class="aui-btn aui-btn-block aui-btn-success" tapmode onclick="showLoading()">弹出loading样式（toast）</div>
+    </div>
+</body>
+<script type="text/javascript" src="../script/api.js" ></script>
+<script type="text/javascript">
+    apiready = function(){
+        api.parseTapmode();
+    }
+    function showDefault(){
+        $api.css($api.byId("default"),"display:block");
+        setTimeout(function(){
+            $api.css($api.byId("default"),"display:none");
+        },2000)
+    }
+    function showLoading(){
+        $api.css($api.byId("loading"),"display:block");
+        setTimeout(function(){
+            $api.css($api.byId("loading"),"display:none");
+        },2000)
+    }
+        
+</script>
+</html>

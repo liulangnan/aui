@@ -1,0 +1,55 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <title>APP</title>
+    <link rel="stylesheet" type="text/css" href="../css/aui.css" />
+</head>
+<body>
+    <p class="aui-padded-10">针对表单及列表提供了aui-warning(警告)、aui-success(正确)处理，</p>
+    <div class="aui-content">
+        <p class="aui-text-center">表单aui-input-row aui-warning</p>
+        <div class="aui-form">
+            <div class="aui-input-row aui-warning">
+                <label class="aui-input-addon">name</label>
+                <input type="text" class="aui-input" value="错误警告"/>
+                <i class="aui-input-addon aui-iconfont aui-icon-warnfill"></i>
+            </div>
+            <div class="aui-input-row aui-success">
+                <label class="aui-input-addon">name</label>
+                <input type="text" class="aui-input" value="输入"/>
+                <i class="aui-input-addon aui-iconfont aui-icon-roundcheckfill"></i>
+            </div>
+            <div class="aui-btn-row">
+                <div class="aui-btn aui-btn-success" onclick="return false;">确认</div>&nbsp;&nbsp;
+                <div class="aui-btn aui-btn-warning" onclick="return false;">取消</div>
+            </div>
+        </div>
+        
+    </div>
+    <p class="aui-text-center">列表aui-list-view-cell aui-warning</p>
+    <div class="aui-content">
+        <ul class="aui-list-view">
+            <li class="aui-list-view-cell aui-warning">
+                单行列表标题效果
+            </li>
+            <li class="aui-list-view-cell aui-success">
+                单行列表标题效果
+            </li>
+            <li class="aui-list-view-cell">
+                单行列表标题效果
+            </li>
+        </ul>
+    </div>
+</body>
+<script type="text/javascript" src="../script/api.js" ></script>
+<script type="text/javascript" src="../script/aui-range.js" ></script>
+<script type="text/javascript">
+    $aui.range($api.byId("range"),function(ret){
+    })
+    apiready = function () {
+
+    }
+</script>
+</html>
