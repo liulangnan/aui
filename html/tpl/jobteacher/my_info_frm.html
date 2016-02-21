@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>资料</title>
+    <link rel="stylesheet" type="text/css" href="../../../css/aui.css"/>
+    <style>
+    	body{
+    		height: auto;
+    	}
+        .aui-card {
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="aui-content aui-card aui-noborder">       
+        <div class="aui-form">
+            <div class="aui-input-row">
+                <span class="aui-input-addon">手机</span>
+                <input type="text" class="aui-input" id="mobile" value="" readonly />
+            </div>
+            <div class="aui-input-row">
+                <span class="aui-input-addon">姓名</span>
+                <input type="text" class="aui-input" id="nickname" placeholder="姓名"/>
+            </div>
+
+            <div class="aui-input-row">
+                <span class="aui-input-addon">性别</span>
+                <div class="aui-pull-left">
+                    <input class="aui-radio aui-radio-info" type="radio" name="sex" id="man" value="man"> <span class="aui-radio-name">男</span>
+                    <input class="aui-radio aui-radio-warning" type="radio" name="sex" id="woman" value="women"> <span class="aui-radio-name">女</span>
+                </div>
+                
+            </div>
+            <div class="aui-input-row">
+                <span class="aui-input-addon">生日</span>
+                <input type="text" class="aui-input" placeholder="年/月/日" id="birthday" readonly tapmode onclick="openPicker()" />
+            </div>
+            <div class="aui-input-row">
+                <span class="aui-input-addon">地址</span>
+                <input type="text" class="aui-input" placeholder="地址" id="address"/>
+            </div>
+        </div>
+    </div>
+    <div class="aui-content-padded">
+        <div class="aui-btn aui-btn-block aui-btn-info" onclick="return false;">确认</div>
+    </div>
+</body>
+<script type="text/javascript" src="../../../script/api.js"></script>
+<script type="text/javascript">
+    function openPicker(){
+        api.openPicker({
+            type: 'date',
+            date: '1990-01-01',
+            title:'选择日期'
+        },function(ret,err){
+            var year = ret.year;
+            var month = ret.month;
+            var day = ret.day;
+            $api.val($api.byId("birthday"),''+year+'/'+month+'/'+day+'');
+        });
+    }
+	apiready = function(){
+        api.parseTapmode();
+    }
+        
+</script>
+</html>

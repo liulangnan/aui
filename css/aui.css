@@ -1,7 +1,7 @@
 /*
  * =========================================================================
  * APIClud - AUI UI 框架    流浪男  QQ：343757327  http://www.auicss.com
- * Verson 1.1.7
+ * Verson 1.1.8
  * =========================================================================
  */
  /*初始化类*/
@@ -998,7 +998,7 @@ input[type="time"] {
   	background-color: #eee;
 }
 .aui-list-view-cell > a.aui-ellipsis-1,
-.aui-list-view-cell > a.aui-ellipsis-2 {
+.aui-list-view-cell > a.aui-ellipsis-2  {
 	padding-bottom: -4px;
 	padding-right: 30px;
 }
@@ -1028,7 +1028,8 @@ input[type="time"] {
 	-webkit-transform: translateY(-50%);
 	      transform: translateY(-50%);
 }
-.aui-list-view-cell > a.aui-arrow-right > .aui-badge {
+.aui-list-view-cell > a.aui-arrow-right > .aui-badge, 
+.aui-list-view-cell > div.aui-arrow-right > .aui-badge {
 	position: absolute;
 	top: 50%;
 	right: 30px;
@@ -1460,7 +1461,7 @@ input[type="time"] {
 	z-index: 20;
 	font-size: 20px;
 	color: #ffffff;
-	font-size: 400;
+	font-weight: 400;
 	line-height: 45px;
 }
 .aui-bar .aui-pull-left {
@@ -1889,7 +1890,8 @@ input.aui-counter-input {
 }
 .aui-tab-nav.aui-tab-border {
 	background-color: transparent;
-	border: 1px solid #1abc9c;
+	border: 1px solid;
+	border-color: #1abc9c;
 	border-radius: 3px;
 }
 .aui-tab-nav.aui-tab-border li {
@@ -1899,7 +1901,7 @@ input.aui-counter-input {
 	color: #1abc9c;
 	background-color: #ffffff;
 	border-color: #1abc9c;
-	border-left: 1px solid #1abc9c;
+	border-left: 1px solid;
 }
 .aui-tab-nav.aui-tab-border li:first-child {
 	border-left: 0px;
@@ -1909,6 +1911,72 @@ input.aui-counter-input {
 	color: #fff;
 	/*-webkit-animation: fadeIn .5s ease both;
             animation: fadeIn .5s ease both;*/
+}
+.aui-tab-success .aui-tab-nav li.active {
+	color: #2ecc71;
+	border-bottom: 2px #2ecc71 solid;
+}
+.aui-tab-danger .aui-tab-nav li.active {
+	color: #e74c3c;
+	border-bottom: 2px #e74c3c solid;
+}
+.aui-tab-warning .aui-tab-nav li.active {
+	color: #f1c40f;
+	border-bottom: 2px #f1c40f solid;
+}
+.aui-tab-info .aui-tab-nav li.active {
+	color: #3498db;
+	border-bottom: 2px #3498db solid;
+}
+.aui-tab-dark .aui-tab-nav li.active {
+	color: #34495e;
+	border-bottom: 2px #34495e solid;
+}
+
+.aui-tab-success .aui-tab-nav.aui-tab-border,
+.aui-tab-success .aui-tab-border li {
+	border-color: #2ecc71;
+	color: #2ecc71;
+}
+.aui-tab-success .aui-tab-border li.active {
+	background-color: #2ecc71;
+	color: #fff;
+}
+.aui-tab-info .aui-tab-nav.aui-tab-border,
+.aui-tab-info .aui-tab-border li {
+	border-color: #3498db;
+	color: #3498db;
+}
+.aui-tab-info .aui-tab-border li.active {
+	background-color: #3498db;
+	color: #fff;
+}
+.aui-tab-danger .aui-tab-nav.aui-tab-border,
+.aui-tab-danger .aui-tab-border li {
+	border-color: #e74c3c;
+	color: #e74c3c;
+}
+.aui-tab-danger .aui-tab-border li.active {
+	background-color: #e74c3c;
+	color: #fff;
+}
+.aui-tab-warning .aui-tab-nav.aui-tab-border,
+.aui-tab-warning .aui-tab-border li {
+	border-color: #f1c40f;
+	color: #f1c40f;
+}
+.aui-tab-warning .aui-tab-border li.active {
+	background-color: #f1c40f;
+	color: #fff;
+}
+.aui-tab-dark .aui-tab-nav.aui-tab-border,
+.aui-tab-dark .aui-tab-border li {
+	border-color: #34495e;
+	color: #34495e;
+}
+.aui-tab-dark .aui-tab-border li.active {
+	background-color: #34495e;
+	color: #fff;
 }
 /*
 *进度条
@@ -2253,13 +2321,16 @@ input.aui-counter-input {
 }
 .aui-searchbar-wrap.focus .aui-searchbar-input,
 .aui-searchbar-wrap.focus .aui-searchbar-cancel,
-.aui-searchbar-wrap.focus .aaui-icon-roundclosefill{
+.aui-searchbar-wrap.focus .aui-icon-roundclosefill{
     display: block;
 }
 .aui-searchbar-wrap.focus .aui-searchbar-text {
     display: none;
 }
-
+.aui-searchbar-wrap .aui-icon-roundclosefill {
+	margin-right: 5px;
+	font-size: 20px;
+}
 /*信息提示条*/
 .aui-tips {
     width: 100%;
@@ -2356,7 +2427,7 @@ input.aui-counter-input {
 	left: 50%;
 	width: 7.5em;
 	min-height: 7.5em;
-	margin-left: -3.25em;
+	margin-left: -3.75em;
 }
 .aui-toast .aui-iconfont {
 	display: block;

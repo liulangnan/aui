@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+ <html>
+ <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>成为帮主</title>
+    <link rel="stylesheet" type="text/css" href="../../../css/aui.css">
+    <style type="text/css">
+        body{
+            background: #f4f4f4;
+            width: 100%;
+            height: 100%;
+        }
+        p.title {
+            margin: 10px 0 5px 0;
+        }
+        p.title-sl {
+            font-size: 12px;
+            margin-bottom: 10px;
+        }
+        textarea.content{
+            width: 100%;
+            border: none;
+            height: 180px;
+            font-size: 14px;
+            margin-bottom: 0;
+        }
+        .image {
+            width: 100%;
+        }
+        .image img {
+            width: 100%;
+            display: table;
+        }
+    </style>
+ </head>
+ <body>
+    <section class="aui-content">
+        <p class="aui-text-center title">形象照片</p>
+        <p class="aui-text-center title-sl">请上传一张横幅</p>
+        <div class="aui-line-x"></div>
+        <div class="image">
+            <img src="image/noxingxiang.png" id="avatarImg" tapmode onclick="getPicture()" />
+        </div>
+        <div class="aui-line-x"></div>
+        <p class="aui-text-center title">个人介绍</p>
+        <div class="aui-form">
+            <textarea placeholder="尽可能详细的介绍一下自己" class="content" id="introduce"></textarea>
+        </div>
+    </section>
+    <section class="aui-content-padded">
+        <div class="aui-btn aui-btn-block aui-btn-info" tapmode onclick="next()" id="nextBtn" status="1">提交审核</div>
+    </section>
+ </body>
+ <script type="text/javascript" src="../../../script/api.js"></script>
+ <script type="text/javascript">
+    function next(){
+        api.execScript({
+            name:'my_to_helper_win',
+            script:'setGroupIndex(2)'
+        })
+        
+    }
+    function getPicture(){
+        api.getPicture({
+            sourceType: 'library',
+            encodingType: 'jpg',
+            mediaValue: 'pic',
+            destinationType: 'url',
+            allowEdit: true,
+            quality: 80,
+            targetWidth:200,
+            targetHeight:200,
+            saveToPhotoAlbum: false
+        }, function(ret, err){ 
+            if (ret.data) {
+                $api.attr($api.byId("avatarImg"),'src',ret.data);
+            }
+        })
+    }
+    apiready = function(){
+        api.parseTapmode();
+    }
+ </script>
+ </html>

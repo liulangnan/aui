@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+ <html>
+ <head>
+ 	<meta charset="UTF-8">
+	<meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+	<meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+	<title>余额不足</title>
+	<link rel="stylesheet" type="text/css" href="../css/aui.css">
+	<style type="text/css">
+		body{
+			background: rgba(0,0,0,0.6);
+			position: relative;
+			-webkit-animation: bodyFadeIn .8s ease both;
+                	animation: bodyFadeIn .8s ease both;
+		}
+		.close {
+			position: absolute;
+			top: 15px;
+			left: 15px;
+			color: #ffffff;
+		}
+		.close .aui-iconfont {
+			font-size: 2em;
+		}
+		.tip {
+			opacity: 0;
+			position: absolute;
+			top: 0;
+			left: 50%;
+			width: 70%;
+			margin-left: -35%;
+			background: #ffffff;
+			-webkit-animation: downIn .4s ease both;
+                	animation: downIn .4s ease both;
+		}
+		.tip-header {
+			padding: 15px 0;
+			text-align: center;
+		}
+		.tip-header img {
+			width: 60%;
+		}
+		.tip-body {
+			background: #4bacc2;
+			padding: 30px 0 15px 0;
+			text-align: center;
+			color: #ffffff;
+			font-size: 0.8em;
+		}
+		.tip-footer {
+			background: #4bacc2;
+			padding: 10px 0;
+			text-align: center;
+		}
+		.tip-footer img {
+			width: 60%;
+		}
+		@-webkit-keyframes bodyFadeIn {
+	        from { opacity: 0}
+	        to { opacity: 1}
+	    }
+	    @-webkit-keyframes downIn {
+	        from { opacity: 0; top: 0%;}
+	        to { opacity: 1; top: 20%;}
+	    }
+	</style>
+ </head>
+ <body>
+ 	<div class="close" tapmode onclick="back()">
+ 		<i class="aui-iconfont aui-icon-roundclose"></i>
+ 	</div>
+	<section class="tip">
+		<div class="tip-header">
+			<img src="../image/yuebuzu.png" />
+		</div>
+		<div class="tip-body">
+			当前帐户余额为88.88元
+		</div>
+		<div class="tip-footer">
+			<img src="../image/chongzhi-btn.png" />
+		</div>
+	</section>
+ </body>
+ <script type="text/javascript" src="../script/api.js"></script>
+ <script type="text/javascript">
+ 	apiready = function(){
+ 	    api.parseTapmode();
+ 	}
+ 	function back(){
+ 		api.execScript({
+ 			name:'helper_buy_win',
+ 			script:'back()'
+ 		});
+ 	}
+ </script>
+ </html>

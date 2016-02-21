@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>成为帮主</title>
+    <link rel="stylesheet" type="text/css" href="../../../css/aui.css"/>
+    <style>
+    	body{
+    		height: auto;
+    	}
+        .aui-card {
+            margin-top: 15px;
+        }
+        .aui-content {
+            margin-bottom: 0;
+        }
+        p {
+            padding: 0 10px;
+        }
+        p.padded {
+            padding: 10px;
+        }
+        .year-list {
+            background: none;
+            text-align: center;
+            overflow: hidden;
+            padding:10px 5px;
+        }
+        .year {
+            text-align: center;
+            font-size: 12px;
+            margin: 0 5px;
+            background: #fff;
+            height: 32px;
+            line-height: 32px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            color: #333;
+            overflow: hidden;
+        }
+
+        .year.active {
+            background: #ff9900;
+            border: 1px solid #ff9900;
+            color: #ffffff;
+            -webkit-animation: fadeIn .5s ease both;
+                    animation: fadeIn .5s ease both;
+        }
+        .year.disabled{
+            background: #eeeeee;
+            border-color: #eeeeee;
+            color: #666;
+        }
+        .price-list .amount strong {
+            font-size: 18px;
+            font-weight: 400;
+        }
+        .basic-info {
+            margin-bottom: 15px;
+        }
+        @-webkit-keyframes fadeIn {
+            from { background: #ffffff;border: 1px solid #ddd;}
+            to { background: #ff9900; border: 1px solid #ff9900;}
+        }
+        .aui-content-padded {
+            margin-top: 15px;
+        }
+        .full {
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <p class="padded">基本信息</p>
+    <div class="aui-content basic-info">       
+        <div class="aui-form">
+            <div class="aui-input-row">
+                <span class="aui-input-addon">真实姓名</span>
+                <input type="text" class="aui-input" placeholder="姓名" id="name"/>
+            </div>
+            <div class="aui-input-row">
+                <span class="aui-input-addon">常用手机</span>
+                <input type="number" class="aui-input" placeholder="请填写常用手机号码" id="mobile"/>
+            </div>
+            <div class="aui-input-row">
+                <span class="aui-input-addon">任职机构</span>
+                <input type="text" class="aui-input" placeholder="请填写当前任职机构" id="post_office"/>
+            </div>
+            <div class="aui-input-row">
+                <span class="aui-input-addon">头衔职位</span>
+                <input type="text" class="aui-input" placeholder="请填写您的头衔职位" id="job_position"/>
+            </div>
+            <div class="aui-input-row">
+                <span class="aui-input-addon">常用邮箱</span>
+                <input type="email" class="aui-input" placeholder="请填写您的常用邮箱" id="email"/>
+            </div>
+        </div>
+    </div>
+    <p>工作年限</p>
+    <div class="aui-content year-list">
+        <div class="">
+            <div class="aui-col-xs-3">
+                <div class="year active" year-data="0-3" data-status="1" tapmode>3年以下</div>
+            </div>
+            <div class="aui-col-xs-3">
+                <div class="year" year-data="3-5" data-status="1" tapmode>3-5年</div>
+            </div>    
+            <div class="aui-col-xs-3">
+                <div class="year" year-data="5-10" data-status="1" tapmode>5-10年</div>
+            </div>    
+            <div class="aui-col-xs-3">
+                <div class="year" year-data="10+" data-status="1" tapmode>10年以上</div>
+            </div>    
+        </div>
+    </div>
+    <p class="padded">常驻城市</p>
+    <div class="aui-content">       
+        <div class="aui-form">
+            <div class="aui-input-row full">
+                <input type="text" class="aui-input" placeholder="如：北京、上海" id="city" />
+            </div>
+        </div>
+    </div>
+    <p class="padded">所在常驻城市经常活动的区域</p>
+    <div class="aui-content">       
+        <div class="aui-form">
+            <div class="aui-input-row full">
+                <input type="text" class="aui-input" placeholder="如：中关村、国贸" id="activity_area" />
+            </div>
+        </div>
+    </div>
+    <div class="aui-content-padded">
+        <div class="aui-btn aui-btn-block aui-btn-info" tapmode onclick="next()" status="0" id="nextBtn">下一步</div>
+    </div>
+</body>
+<script type="text/javascript" src="../../../script/api.js"></script>
+<script type="text/javascript">
+    function next(){
+        api.execScript({
+            name:'my_to_helper_win',
+            script:'setGroupIndex(1)'
+        })
+    }
+	apiready = function(){
+        api.parseTapmode();
+        var userid = $api.getStorage('userid');
+        var encrypt = $api.getStorage('encrypt');
+        var yearList = $api.domAll(".year");
+        for(var i in yearList){
+            $api.addEvt(yearList[i], 'click', function(){
+                $api.removeCls($api.dom(".year.active"),'active');
+                $api.addCls(this,'active');
+            });
+        }
+        
+    }
+        
+</script>
+</html>

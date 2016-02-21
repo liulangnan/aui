@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>成为帮主</title>
+    <link rel="stylesheet" type="text/css" href="../../../css/aui-win.css"/>
+    <style>
+    	.aui-bar {
+            background: #3bafda;
+            color: #ffffff
+        }
+        .aui-content {
+            background: #fff;
+            height: 50px;
+            position: relative;
+            overflow: hidden;
+            border-bottom: 1px solid #ddd;
+        }
+        .line {
+            height: 2px;
+            width: 100%;
+            background: #eee;
+            position: absolute;
+            left: 0;
+            top:15px;
+        }
+        .dot {
+            position: absolute;
+            top: 3px;
+            color: #ddd;
+            text-align: center;
+        }
+        .dot p {
+            margin: 0 !important;
+            font-size: 12px;
+            color: #ccc;
+        }
+        .dot .aui-iconfont {
+            background: #fff;
+        }
+        .dot-0 {
+            left: 15%;
+        }
+        .dot-1 {
+            left: 50%;
+            margin-left: -26px; 
+        }
+        .dot-2 {
+            right: 15%;
+        }
+        .dot.active, .dot.active p {
+            color: #ff9900;
+        }
+
+    </style>
+</head>
+<body>
+	<header class="aui-bar aui-bar-nav" id="aui-header">
+        <a class="aui-pull-left" tapmode onclick="closeWin()">
+            <span class="aui-iconfont aui-icon-left"></span>我的
+        </a>
+        <div class="aui-title">成为帮主</div>
+    </header>
+    <section class="aui-content" id="tab">
+        <div class="line"></div>
+        <div class="dot dot-0 active" id="dot-0" tapmode>
+            <i class="aui-iconfont aui-icon-radiobox"></i>
+            <p>基本信息</p>
+        </div>
+        <div class="dot dot-1" id="dot-1" tapmode>
+            <i class="aui-iconfont aui-icon-radiobox"></i>
+            <p>个人介绍</p>
+        </div>
+        <div class="dot dot-2" id="dot-2" tapmode>
+            <i class="aui-iconfont aui-icon-radiobox"></i>
+            <p>等待审核</p>
+        </div>
+    </section>
+</body>
+<script type="text/javascript" src="../../../script/api.js"></script>
+<script type="text/javascript">
+    function closeWin(){
+        api.closeWin();
+    }
+	apiready = function(){
+        api.parseTapmode();
+		var header = $api.byId('aui-header');
+        $api.fixStatusBar(header);
+        var headerPos = $api.offset(header);
+        var tab = $api.byId('tab');
+        var tabPos = $api.offset(tab);
+        var body_h = $api.offset($api.dom('body')).h;
+        api.openFrameGroup ({
+            name: 'my_to_helper_frm',
+            scrollEnabled:false,
+            rect:{x:0, y:headerPos.h+tabPos.h, w:'auto', h:body_h - headerPos.h - tabPos.h},
+            index:0,
+            frames:
+            [{
+                name: 'my_to_helper_one_frm', 
+                url: 'my_to_helper_one_frm.html',
+                bounces:false,
+                vScrollBarEnabled: false,
+                hScrollBarEnabled: false
+            },{
+                name: 'my_to_helper_two_frm', 
+                url: 'my_to_helper_two_frm.html',
+                bounces:false,
+                vScrollBarEnabled: false,
+                hScrollBarEnabled: false
+            },{
+                name: 'my_to_helper_three_frm', 
+                url: 'my_to_helper_three_frm.html',
+                bounces:false,
+                vScrollBarEnabled: false,
+                hScrollBarEnabled: false
+            }]
+        }, function(ret, err){
+            var name = ret.name;
+            var index = ret.index;
+        });
+	};
+    function setGroupIndex(index){
+        $api.removeCls($api.dom(".dot.active"),'active');
+        $api.addCls($api.byId('dot-'+index+''),'active');
+        api.setFrameGroupIndex({
+            name: 'my_to_helper_frm',
+            index:index,
+            scroll:true
+        });
+        var beforeIndex = index-1;
+        $api.attr($api.byId('dot-'+index+''),'onclick',"setGroupIndex("+index+")");
+        $api.attr($api.byId('dot-'+beforeIndex+''),'onclick',"setGroupIndex("+beforeIndex+")");
+        api.parseTapmode();
+    }
+</script>
+</html>

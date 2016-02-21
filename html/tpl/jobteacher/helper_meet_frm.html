@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+ <html>
+ <head>
+ 	<meta charset="UTF-8">
+	<meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+	<meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+	<title>帮主约见</title>
+	<link rel="stylesheet" type="text/css" href="../../../css/aui.css">
+	<style type="text/css">
+		body{
+			background: #f4f4f4;
+			width: 100%;
+			height: 100%;
+			padding-top: 15px;
+		}
+		/*.buy-box{
+			padding: 10px 8px;
+			background-color: #f2f2f2;
+		}
+		.buy-box:after{
+			border-top: none;
+		}
+		.aui-input-row:before{
+			border-top: none !important;
+		}*/
+		.buy-show-box{
+			display: block;
+			background-color: #f2f2f2;
+		}
+		p.title {
+			margin: 10px 0;
+		}
+		textarea.buy-show{
+			width: 100%;
+			border: none;
+			height: 200px;
+			font-size: 14px;
+			margin-bottom: 0;
+		}
+	</style>
+ </head>
+ <body>
+ 	<section class="aui-card">
+ 		<div class="buy-box aui-form">
+	 		<div class="aui-input-row">
+	 			<label class="aui-input-addon">时间</label>
+	 			<input type="text" class="aui-input" placeholder="月/日 时/分" />
+	 		</div>
+	 		<div class="aui-input-row">
+	 			<label class="aui-input-addon">地点</label>
+	 			<input type="text" class="aui-input" placeholder="约见地点" />
+	 			<span class="aui-input-addon"><i class="aui-iconfont aui-icon-locationfill"></i></span>
+	 		</div>
+	 		<div class="aui-input-row">
+	 			<label class="aui-input-addon">问题</label>
+	 			<input type="text" class="aui-input" placeholder="请输入你约见帮主的问题！" />
+	 		</div>
+	 		<div class="aui-input-row">
+	 			<label class="aui-input-addon">价格</label>
+	 			<input type="text" class="aui-input" value="300.00" readonly />
+	 			<span class="aui-input-addon">元/次</span>
+	 		</div>
+	 	</div>
+	 	<div class="aui-line-x"></div>
+	 	<p class="aui-text-center title">详细描述</p>
+	 	<div class="aui-line-x"></div>
+	 	<div class="aui-form">
+	 		<textarea placeholder="详细的描述问题有助于帮主有的放矢！" class="buy-show"></textarea>
+	 	</div>
+ 	</section>
+ 	
+ </body>
+ <script type="text/javascript" src="../../../script/api.js"></script>
+ <script type="text/javascript">
+ 	var helperId;
+ 	apiready = function(){
+ 	    helperId = api.pageParam.helperId;
+ 	    api.parseTapmode();
+ 	}
+ </script>
+ </html>

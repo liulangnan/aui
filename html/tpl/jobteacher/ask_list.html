@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>问答</title>
+    <link rel="stylesheet" type="text/css" href="../../../css/aui.css"/>
+    <style>
+    	.aui-content {
+    		background: #ffffff;
+    		overflow: hidden;
+    	}
+    	.aui-ask-header {
+    		width: 100%;
+    		padding: 10px 15px;
+    		color: #999;
+    		font-size: 14px;
+    		overflow: hidden;
+    		line-height: 32px;
+    	}
+    	.ask-avatar {
+    		float: left;
+    		width: 32px;
+    		height: 32px;
+    		border-radius: 50%;
+    	}
+    	.ask-nickname {
+    		float: left;
+    		font-size: 14px;
+    		line-height: 32px;
+    		margin-left: 10px;
+    	}
+    	.ask-time {
+    		font-size: 12px;
+    	}
+    	.aui-ask-body {
+    		width: 100%;
+    		padding: 10px 15px;
+    	}
+    	.aui-ask-title {
+    		font-size: 16px;
+    		color: #333;
+    		margin-bottom: 5px;
+    	}
+    	.aui-ask-footer {
+    		padding: 0 15px 15px 15px;
+    		overflow: hidden;
+    		line-height: 20px;
+    	}
+    	.aui-ask-footer, .comment {
+    		font-size: 12px;
+    		color: #999;
+    	}
+    </style>
+</head>
+<body>
+	<div class="aui-content" tapmode onclick="openFrm();">
+        <div class="aui-ask-header">
+    		<img src="image/a1.jpeg" class="ask-avatar"/>
+        	<div class="aui-text-info ask-nickname">流浪男</div>
+        	<span class="aui-pull-right ask-time">今天 8:50</span>
+    	</div>
+    	<div class="aui-line-x"></div>
+        <div class="aui-ask-body">
+            <div class="aui-ask-title aui-ellipsis-1">没有基础怎么开始系统地学习PPT开始系统地学习PPT?</div>
+            <p class='aui-ellipsis-2'>学习ppt制作主要是2个方面:1.基础的制作技巧,比如如何插入动画,调整文字格式等,这方面市场上任意一本PPT学习ppt制作主要是2个方面</p>
+        </div>
+        <div class="aui-ask-footer">
+        	<span class="aui-pull-left aui-text-warning">
+				<i class="aui-iconfont aui-icon-rechargefill"></i>
+				<strong>88.88</strong>元
+        	</span>
+        	<span class="aui-pull-right comment">
+        		<i class="aui-iconfont aui-icon-commentfill"></i> 99
+        	</span>
+        </div>
+    </div>
+    <div class="aui-content" tapmode onclick="openFrm()">
+        <div class="aui-ask-header">
+    		<img src="image/a1.jpeg" class="ask-avatar"/>
+        	<div class="aui-text-info ask-nickname">流浪男</div>
+        	<span class="aui-pull-right ask-time">今天 8:50</span>
+    	</div>
+    	<div class="aui-line-x"></div>
+        <div class="aui-ask-body">
+            <div class="aui-ask-title aui-ellipsis-1">没有基础怎么开始系统地学习PPT?</div>
+            <p class='aui-ellipsis-2'>学习ppt制作主要是2个方面:1.基础的制作技巧,比如如何插入动画,调整文字格式等,这方面市场上任意一本PPT学习ppt制作主要是2个方面</p>
+        </div>
+        <div class="aui-ask-footer">
+        	<span class="aui-pull-left ask-price aui-text-warning">
+				<i class="aui-iconfont aui-icon-rechargefill"></i>
+				<strong>88.88</strong>元
+        	</span>
+        	<span class="aui-pull-right comment">
+        		<i class="aui-iconfont aui-icon-commentfill"></i> 99
+        	</span>
+        </div>
+    </div>
+</body>
+<script type="text/javascript" src="../../../script/api.js"></script>
+<script type="text/javascript">
+	function openFrm(){
+        var delay = 0;
+        if(api.systemType != 'ios'){
+            delay = 300;
+        }
+		api.openWin({
+	        name: 'ask_show_win',
+	        url: 'ask_show_win.html',
+	        delay:delay
+        });
+	}
+    apiready = function(){
+        api.parseTapmode();   
+    }
+        
+</script>
+</html>

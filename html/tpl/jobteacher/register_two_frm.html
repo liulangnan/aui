@@ -1,0 +1,112 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>注册</title>
+    <link rel="stylesheet" type="text/css" href="../../../css/aui.css" />
+    <style type="text/css">
+    body {
+        height: auto;
+    }
+    .aui-card {
+        margin-top: 15px;
+    }
+    .avatar-box {
+        width: 100%;
+        padding: 15px 0;
+        text-align: center;
+        font-size: 12px;
+    }
+    .avatar-box p {
+        margin-bottom: 0;
+        font-size: 12px;
+    }
+    .avatar-box img {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+    }
+    </style>
+</head>
+<body>
+    <div class="aui-content aui-card aui-noborder">
+        <div class="avatar-box">
+            <img src="image/noavatar.gif" id="avatarImg" tapmode onclick="getPicture()" />
+            <p>选择头像</p>
+        </div>
+        <input type="hidden" id="avatar" />
+        <div class="aui-form">
+            <div class="aui-input-row">
+                <label class="aui-input-addon">昵称</label>
+                <input type="text" class="aui-input" id="nickname" placeholder="昵称"/>
+            </div>
+            <div class="aui-input-row">
+                <label class="aui-input-addon">性别</label>
+                <div class="aui-pull-right">
+                    <input class="aui-radio aui-radio-info" type="radio" name="sex" value="man" checked><div class="aui-radio-name">男</div>
+                    <input class="aui-radio aui-radio-warning" type="radio" name="sex" value="woman"><div class="aui-radio-name">女</div>
+                </div>
+            </div>
+            <div class="aui-input-row">
+                <label class="aui-input-addon">生日</label>
+                <input type="text" class="aui-input" id="birthday" placeholder="年／月／日" readonly tapmode onclick="openPicker()" />
+            </div>
+            <div class="aui-input-row">
+                <label class="aui-input-addon">地址</label>
+                <input type="text" class="aui-input" id="address" placeholder="所在地区"/>
+            </div>
+            <div class="aui-btn-row">
+                <div class="aui-btn aui-btn-default" tapmode onclick="setGroupIndex()">上一步</div>
+                <div class="aui-btn aui-btn-warning" tapmode onclick="confirm()">提交</div>
+            </div>
+        </div>
+    </div>
+</body>
+<script type="text/javascript" src="../../../script/api.js" ></script>
+<script type="text/javascript">
+    function confirm(){
+        api.closeWin({});
+    }
+    function getPicture(){
+        api.getPicture({
+            sourceType: 'library',
+            encodingType: 'jpg',
+            mediaValue: 'pic',
+            destinationType: 'url',
+            allowEdit: true,
+            quality: 80,
+            targetWidth:200,
+            targetHeight:200,
+            saveToPhotoAlbum: false
+        }, function(ret, err){ 
+            if (ret.data) {
+                $api.attr($api.byId("avatarImg"),'src',ret.data);
+            }
+        })
+    }
+    function openPicker(){
+        api.openPicker({
+            type: 'date',
+            date: '1990-01-01',
+            title:'选择日期'
+        },function(ret,err){
+            var year = ret.year;
+            var month = ret.month;
+            var day = ret.day;
+            $api.val($api.byId("birthday"),''+year+'/'+month+'/'+day+'');
+        });
+    }
+    function setGroupIndex(){
+        api.setFrameGroupIndex({
+            name: 'register_frm',
+            index:0,
+            scroll:true
+        });
+    }
+    apiready = function () {
+        api.parseTapmode();
+    }
+</script>
+</html>

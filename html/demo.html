@@ -7,106 +7,60 @@
     <link rel="stylesheet" type="text/css" href="../css/aui.css" />
 </head>
 <style type="text/css">
-    /*下面开始简单的修改下样式*/
-    body { background: #f4f4f4}
-    .aui-grid-sixteen li .aui-iconfont {
+    #demo {
         background: #ff9900;
-        color: #fff;
-        width: 38px;
-        height: 38px;
-        line-height: 38px;
-        border-radius: 50%;
-        font-size: 20px;
-    }
-    .aui-list-view {
-        border: 1px solid #eee;
-        border-radius: 3px;
-    }
-    .aui-list-view:before, .aui-list-view:after {
-        height: 0;
-    }
-    /*自定义几个样式*/
-    .image img {
-        width: 100%;
-    }
-    p {
-        font-size: 12px;
-        margin-bottom: 5px;
-    }
-    .content {
-        font-size: 12px;
+        background: url('../image/l1.png') no-repeat;
+        background-position: center;
+        background-size: 100%;
+        height: 200px;
     }
 </style>
 <body>
-    <div class="aui-content-padded">
-        <ul class="aui-grid-sixteen">
-            <li class="aui-col-xs-3 aui-text-center">
-                <span class="aui-iconfont aui-icon-my aui-text-primary"></span>
-                <p>测试栏目</p>
-            </li>
-            <li class="aui-col-xs-3 aui-text-center">
-                <span class="aui-iconfont aui-icon-my aui-text-primary"></span>
-                <p>测试栏目</p>
-            </li>
-            <li class="aui-col-xs-3 aui-text-center">
-                <span class="aui-iconfont aui-icon-my aui-text-primary"></span>
-                <p>测试栏目</p>
-            </li>
-            <li class="aui-col-xs-3 aui-text-center">
-                <span class="aui-iconfont aui-icon-my aui-text-primary"></span>
-                <p>测试栏目</p>
-            </li>
-            <li class="aui-col-xs-3 aui-text-center">
-                <span class="aui-iconfont aui-icon-my aui-text-primary"></span>
-                <p>测试栏目</p>
-            </li>
-            <li class="aui-col-xs-3 aui-text-center">
-                <span class="aui-iconfont aui-icon-my aui-text-primary"></span>
-                <p>测试栏目</p>
-            </li>
-            <li class="aui-col-xs-3 aui-text-center">
-                <span class="aui-iconfont aui-icon-my aui-text-primary"></span>
-                <p>测试栏目</p>
-            </li>
-            <li class="aui-col-xs-3 aui-text-center">
-                <span class="aui-iconfont aui-icon-my aui-text-primary"></span>
-                <p>测试栏目</p>
-            </li>
-        </ul>
-    </div>
-    <div class="aui-content-padded">
-        <ul>
-            <li class="aui-list-view">
-                <div class="aui-col-xs-12 aui-padded-5">
-                    用AUI快速完成你的APP布局
-                </div>
-                <div class="aui-col-xs-12 image">
-                    <img src="../image/ad1.jpg">
-                </div>
-                <div class="aui-col-xs-12 aui-ellipsis-2 aui-padded-5 content">
-                    当使用AUI完成基本布局后我们可以通过简单的自定义样式来达到想要的效果
-                </div>
-                <p class="aui-padded-5">
-                    <span class="aui-pull-left">流浪男 2015/08/16 00:20</span>
-                    <span class="aui-pull-right">浏览：8888</span>
-                </p>
-            </li>
-            <li class="aui-list-view">
-                <div class="aui-col-xs-12 aui-padded-5">
-                    用AUI快速完成你的APP布局
-                </div>
-                <div class="aui-col-xs-12 image">
-                    <img src="../image/ad1.jpg">
-                </div>
-                <div class="aui-col-xs-12 aui-ellipsis-2 aui-padded-5 content">
-                    当使用AUI完成基本布局后我们可以通过简单的自定义样式来达到想要的效果
-                </div>
-                <p class="aui-padded-5">
-                    <span class="aui-pull-left">流浪男 2015/08/16 00:20</span>
-                    <span class="aui-pull-right">浏览：8888</span>
-                </p>
-            </li>
-        </ul>
-    </div>
+    <div class="aui-content" id="demo"></div>
 </body>
+<script type="text/javascript" src="../script/api.js" ></script>
+<script type="text/javascript">
+    apiready = function(){
+        
+    }
+    var i=1;
+    var startX,
+        startY,
+        moveEndX,
+        moveEndY;
+    $api.addEvt($api.byId("demo"), 'touchstart', function(event){
+        console.log(event);
+        startX = event.touches[0].pageX,
+        startY = event.touches[0].pageY;
+
+    });
+    $api.addEvt($api.byId("demo"), 'touchmove', function(event){
+        // console.log(event);
+        
+        i++;
+        console.log(event.touches[0].pageY);
+        console.log(moveEndY);
+        moveEndX = event.touches[0].pageX;
+        moveEndY = event.touches[0].pageY;
+        X = moveEndX - startX;
+        Y = moveEndY - startY;
+        // console.log(Y);
+        if(Math.abs(Y) > Math.abs(X) && Y > 0){
+            var demoH = $api.offset($api.byId("demo")).h;
+            var _demoH = demoH+1;
+            var bgSize = 100+i;
+            $api.css($api.byId("demo"),"height:"+_demoH+"px;background-size:"+bgSize+"%;");
+            if(_demoH>260){
+                console.log("do something");
+            }
+        }else if(Math.abs(Y) > Math.abs(X) && Y < 0){
+            i = 1;
+            $api.css($api.byId("demo"),"height:200px;background-size:100%;");
+        }
+    });
+    $api.addEvt($api.byId("demo"), 'touchend', function(event){
+        i = 1;
+        $api.css($api.byId("demo"),"height:200px;background-size:100%;");
+    });
+</script>
 </html>

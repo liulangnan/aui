@@ -1,0 +1,126 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <link rel="stylesheet" type="text/css" href="../../../css/aui.css" />
+</head>
+<style type="text/css">
+/*重新定义*/
+.aui-list-view { border-radius: 6px;}
+.aui-list-view:after { border-top: 0;}
+.aui-list-view:before { border-top: 0;}
+.aui-grid-sixteen li .aui-iconfont {
+    background: #ff9900;
+    color: #ffffff;
+    width: 38px;
+    height: 38px;
+    line-height: 38px;
+    border-radius: 50%;
+    font-size: 20px;
+}
+.aui-grid-sixteen:after,
+.aui-grid-sixteen li:after {
+    border-color: #ddd;
+}
+/*自定义*/
+.image img { width: 100%}
+p { font-size: 12px; margin-bottom: 5px;}
+.content { font-size: 12px; color: #999999;}
+.aui-iconfont {
+    color: #ffffff;
+}
+</style>
+<body>
+    <div class="aui-content">
+        <ul class="aui-grid-sixteen">
+            <li class="aui-col-xs-3 aui-text-center">
+                <span class="aui-iconfont aui-icon-pic"></span>
+                <p>版块分类</p>
+            </li>
+            <li class="aui-col-xs-3 aui-text-center">
+                <span class="aui-iconfont aui-icon-service"></span>
+                <p>版块分类</p>
+            </li>
+            <li class="aui-col-xs-3 aui-text-center">
+                <span class="aui-iconfont aui-icon-service"></span>
+                <p>版块分类</p>
+            </li>
+            <li class="aui-col-xs-3 aui-text-center">
+                <span class="aui-iconfont aui-icon-like"></span>
+                <p>版块分类</p>
+            </li>
+            <li class="aui-col-xs-3 aui-text-center">
+                <span class="aui-iconfont aui-icon-home"></span>
+                <p>版块分类</p>
+            </li>
+            <li class="aui-col-xs-3 aui-text-center">
+                <span class="aui-iconfont aui-icon-mark"></span>
+                <p>版块分类</p>
+            </li>
+            <li class="aui-col-xs-3 aui-text-center">
+                <span class="aui-iconfont aui-icon-mark"></span>
+                <p>版块分类</p>
+            </li>
+            <li class="aui-col-xs-3 aui-text-center">
+                <span class="aui-iconfont aui-icon-mark"></span>
+                <p>版块分类</p>
+            </li>
+        </ul>
+    </div>
+    <div class="aui-content-padded">
+        <ul>
+            <li class="aui-list-view" tapmode onclick="openWin()">
+                <div class="aui-col-xs-12 aui-padded-5">［版块分类］帖子标题帖子帖子标题帖子标题</div>
+                <div class="aui-col-xs-12 image">
+                    <img src="../image/ad.png">
+                </div>
+                <div class="aui-col-xs-12 aui-ellipsis-2 aui-padded-5 content">
+                    帖子描述帖子描述帖子描述帖子描述帖子描述帖子描述帖子描述帖子描述帖子描述帖子描述帖子描述帖子描述
+                </div>
+                <p class="aui-padded-5">
+                    <span class="aui-pull-left">流浪男  2015/7/16 20:00</span>
+                    <span class="aui-pull-right">118</span>
+                </p>
+            </li>
+            <li class="aui-list-view" tapmode onclick="openWin()">
+                <div class="aui-col-xs-12 aui-padded-5">［版块分类］帖子标题帖题帖子标题帖子标题</div>
+                <div class="aui-col-xs-12 aui-ellipsis-2 aui-padded-5 content">
+                    帖子描述帖子描述帖子描述帖子描述帖子描述帖子描述帖子描述帖子描述帖子描述帖子描述帖子描述帖子描述
+                </div>
+                <p class="aui-padded-5">
+                    <span class="aui-pull-left">流浪男  2015/7/16 20:00</span>
+                    <span class="aui-pull-right">118</span>
+                </p>
+            </li>
+            <li class="aui-list-view" tapmode onclick="openWin()">
+                <div class="aui-col-xs-12 aui-padded-5">［版块分类］帖子标题帖题帖子标题帖子标题</div>
+                <div class="aui-col-xs-12 image">
+                    <img src="../image/ad.png">
+                </div>
+                <div class="aui-col-xs-12 aui-ellipsis-2 aui-padded-5 content">
+                    帖子描述帖子描述帖子描述帖子描述帖子描述帖子描述帖子描述帖子描述帖子描述帖子描述帖子描述帖子描述
+                </div>
+                <p class="aui-padded-5">
+                    <span class="aui-pull-left">流浪男  2015/7/16 20:00</span>
+                    <span class="aui-pull-right">118</span>
+                </p>
+            </li>
+        </ul>
+    </div>
+</body>
+<script type="text/javascript" src="../../../script/api.js" ></script>
+<script type="text/javascript">
+    apiready = function () {
+        api.parseTapmode();
+    }
+    function openWin(){
+        api.openWin({
+            name: 'thread_win',
+            url: 'thread_win.html',
+            bounces: false
+        });
+    }
+</script>
+</html>

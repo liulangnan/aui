@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>title</title>
+    <link rel="stylesheet" type="text/css" href="../../../css/aui.css"/>
+    <style>
+    	body{
+    		width: 100%;
+    		height: 100%;
+    		overflow: hidden;
+    		position: absolute;
+    	}
+    	.aui-bar-warning {
+			background-color: #3bafda;
+		}
+    </style>
+</head>
+<body>
+	<header class="aui-bar aui-bar-nav aui-bar-warning" id="aui-header">
+	    <a class="aui-pull-left" id="back">
+	        <span class="aui-iconfont aui-icon-left"></span>
+	    </a>
+	    <div class="aui-title">发表评论</div>
+	     <a class="aui-pull-right">
+	        <span class="btn">提交</span>
+	    </a>
+	</header>
+</body>
+<script type="text/javascript" src="../../../script/api.js"></script>
+<script type="text/javascript">
+	function closeWin(){
+        api.closeWin();
+    }
+	apiready = function(){
+		api.parseTapmode();
+		var header = $api.byId('aui-header');
+        $api.fixStatusBar(header);
+        var headerPos = $api.offset(header);
+		api.openFrame({
+	        name: 'ask_answer_frm',
+	        url: 'ask_answer_frm.html',
+	        rect: {
+		        x:0,
+		        y:headerPos.h,
+		        w:'auto',
+		        h:'auto'
+	        }
+        });
+	};
+</script>
+</html>

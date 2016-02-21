@@ -1,0 +1,62 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>注册</title>
+    <link rel="stylesheet" type="text/css" href="../../../css/aui.css" />
+    <style type="text/css">
+    .aui-bar {
+        /*background:#5b5a55;*/
+        background: #3bafda;
+        color: #ffffff
+    }
+    </style>
+</head>
+<body>
+    <header class="aui-bar aui-bar-nav" id="aui-header">
+        <a class="aui-pull-left" tapmode onclick="closeWin()">
+            <span class="aui-iconfont aui-icon-close"></span>
+        </a>
+        <div class="aui-title" id="title">注册</div>
+    </header>
+    
+</body>
+<script type="text/javascript" src="../../../script/api.js" ></script>
+<script type="text/javascript">
+    function closeWin(){
+        api.closeWin({});
+    }
+    apiready = function () {
+        api.parseTapmode();
+        var header = $api.byId('aui-header');
+        $api.fixStatusBar(header);
+        var headerPos = $api.offset(header);
+        var body_h = $api.offset($api.dom('body')).h;
+        api.openFrameGroup ({
+            name: 'register_frm',
+            scrollEnabled:false,
+            rect:{x:0, y:headerPos.h, w:'auto', h:body_h - headerPos.h},
+            index:0,
+            frames:
+            [{
+                name: 'register_one_frm', 
+                url: 'register_one_frm.html',
+                bounces:false,
+                vScrollBarEnabled: false,
+                hScrollBarEnabled: false
+            },{
+                name: 'register_two_frm', 
+                url: 'register_two_frm.html',
+                bounces:false,
+                vScrollBarEnabled: false,
+                hScrollBarEnabled: false
+            }]
+        }, function(ret, err){
+            var name = ret.name;
+            var index = ret.index;
+        });
+    }
+</script>
+</html>

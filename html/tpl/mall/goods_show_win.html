@@ -1,0 +1,104 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <link rel="stylesheet" type="text/css" href="../../../css/aui.css" />
+    <style type="text/css">
+    .aui-nav .aui-bar-tab {
+        background: #34495E;
+    }
+    .aui-nav .aui-bar-tab li .aui-iconfont,
+    .aui-nav .aui-bar-tab li p {
+        color: #fff;
+    }
+    .aui-nav .aui-bar-tab li.active .aui-iconfont,
+    .aui-nav .aui-bar-tab li.active p {
+        color: #14bd7c;
+    }
+    .aui-nav {
+        background: #ff9900;
+        font-size: 18px;
+        color: #fff;
+        text-align: center;
+    }
+    .aui-nav  div {
+        height: 55px;
+    }
+    .aui-nav .buy {
+        line-height: 55px;
+    }
+    .aui-nav p {
+        color: #fff;
+    }
+    .aui-nav .aui-iconfont {
+        font-size: 20px;
+        color: #ffffff;
+    }
+    .blue {
+        background: #eee;
+    }
+    .blue .aui-iconfont,
+    .blue p {
+        color: #999;
+    }
+    .service {
+        background: #eec363;
+    }
+    </style>
+</head>
+<body>
+    <header class="aui-bar aui-bar-nav aui-bar-danger" id="aui-header">
+        <span class="aui-iconfont aui-icon-left aui-pull-left" tapmode onclick="closeWin();"></span>
+        <div class="aui-title">商品详情</div>
+    </header>
+    <footer class="aui-nav" id="aui-footer">
+        <div class="aui-col-xs-4 buy" id="main" tapmode >
+            立即购买 <span class="aui-iconfont aui-icon-cart"></span>
+        </div>
+        <div class="aui-col-xs-8">
+            <div class="aui-col-xs-4 blue" id="collection-btn" tapmode >
+                <span class="aui-iconfont aui-icon-favor"></span>
+                <p id="collection-title">收藏</p>
+            </div>
+            <div class="aui-col-xs-4 blue" tapmode >
+                <span class="aui-iconfont aui-icon-service"></span>
+                <p>咨询</p>
+            </div>
+            <div class="aui-col-xs-4 blue" tapmode >
+                <span class="aui-iconfont aui-icon-comment"></span>
+                <p>点评</p>
+            </div>
+        </div>
+
+    </footer>
+</body>
+<script type="text/javascript" src="../../../script/api.js"></script>
+<script type="text/javascript">
+    apiready = function(){
+		api.parseTapmode();
+        var header = $api.byId('aui-header');
+        $api.fixStatusBar(header);
+        var headerPos = $api.offset(header);
+        var body_h = $api.offset($api.dom('body')).h;
+        var footer_h = $api.offset($api.byId("aui-footer")).h;
+        api.openFrame({
+            name: 'goods_show_frm',
+            url: 'goods_show_frm.html',
+            bounces: true,
+            vScrollBarEnabled:false,
+            hScrollBarEnabled:false,
+            rect: {
+                x: 0,
+                y: headerPos.h,
+                w: 'auto',
+                h: body_h - headerPos.h - footer_h
+            }
+        });
+    }
+    function closeWin(){
+        api.closeWin();
+    }
+</script>
+</html>

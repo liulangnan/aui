@@ -1,0 +1,213 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <link rel="stylesheet" type="text/css" href="../../../css/aui.css" />
+	<style>
+		.topmenu {
+			background: #e74c3c;
+			overflow: hidden;
+			padding: 10px 0;
+			margin-bottom: 0;
+		}
+		.topmenu .aui-iconfont,
+		.topmenu p {
+			color: #ffffff;
+		}
+		.topmenu .aui-iconfont {
+			font-size: 1.6em;
+		}
+		.slider img {
+			width: 100%;
+			height: 120px;
+			display: inherit;
+		}
+        .aui-content.box{
+            background: #fff;
+        }
+        .box {
+            /*padding-top: 15px;*/
+        }
+        .box-title {
+            margin: 15px 10px 5px 10px;
+            /*margin-bottom: 5px;*/
+            height: 20px;
+            line-height: 20px;
+            border-left: 5px solid #ff9900;
+            color: #666;
+            font-weight: 700;
+            padding-left: 10px;
+        }
+        .box .aui-list-view {
+            margin-bottom: 0;
+        }
+        .aui-list-view i.aui-iconfont {
+            margin-right: 0;
+        }
+	</style>
+</head>
+<body>
+    <div class="aui-content topmenu aui-text-center">
+    	<div class="aui-col-xs-4">
+    		<span class="aui-iconfont aui-icon-write"></span>
+    		<p>签到</p>
+    	</div>
+    	
+    	<div class="aui-col-xs-4">
+    		<span class="aui-iconfont aui-icon-list"></span>
+    		<p>订单</p>
+    	</div>
+    	<div class="aui-col-xs-4">
+    		<span class="aui-iconfont aui-icon-sponsor"></span>
+    		<p>提现</p>
+    	</div>
+    </div>
+    <div class="aui-content">
+        <ul class="aui-grid-sixteen">
+            <li class="aui-col-xs-3 aui-text-center" tapmode onclick="openClassify('news','栏目一')">
+                <span class="aui-iconfont aui-icon-form aui-text-info"></span>
+                <p>栏目一</p>
+            </li>
+            <li class="aui-col-xs-3 aui-text-center" tapmode onclick="openClassify('news','栏目二')">
+                <span class="aui-iconfont aui-icon-creativefill aui-text-success"></span>
+                <p>栏目二</p>
+            </li>
+            <li class="aui-col-xs-3 aui-text-center" tapmode onclick="openClassify('news','栏目三')">
+                <span class="aui-iconfont aui-icon-similar aui-text-warning"></span>
+                <p>栏目三</p>
+            </li>
+            <li class="aui-col-xs-3 aui-text-center" tapmode onclick="openClassify('news','栏目四')">
+                <span class="aui-iconfont aui-icon-countdownfill aui-text-info"></span>
+                <p>栏目四</p>
+            </li>
+            <li class="aui-col-xs-3 aui-text-center" tapmode onclick="openClassify('news','栏目五')">
+                <span class="aui-iconfont aui-icon-taoxiaopu aui-text-danger"></span>
+                <p>栏目五</p>
+            </li>
+            
+            <li class="aui-col-xs-3 aui-text-center" tapmode onclick="openClassify('news','栏目六')">
+                <span class="aui-iconfont aui-icon-shopfill aui-text-info"></span>
+                <p>栏目六</p>
+            </li>
+            <li class="aui-col-xs-3 aui-text-center" tapmode onclick="openClassify('news','栏目七')">
+                <!-- <img src="../image/muchang.png" class="muchang" /> -->
+                <span class="aui-iconfont aui-icon-activityfill aui-text-success"></span>
+                <p>栏目七</p>
+            </li>
+            <li class="aui-col-xs-3 aui-text-center" tapmode onclick="openClassify('news','栏目八')">
+                <span class="aui-iconfont aui-icon-all aui-text-warning"></span>
+                <p>栏目八</p>
+            </li>
+            
+        </ul>
+    </div>
+    <div class="aui-content slider">
+    	<img src="./image/d5.png" />
+    </div>
+    <div class="aui-content box">
+        <div class="aui-line-x"></div>
+        <div class="box-title">今日特惠</div>
+        
+        <ul class="aui-list-view aui-grid-view">
+            <li class="aui-list-view-cell aui-img aui-col-xs-4" tapmode onclick="openGoods()">
+                <img class="aui-img-object" src="../../../image/demo1.png">
+                <div class="aui-img-body aui-text-left">
+                    <!-- 商品名称商品名称商品名称商品名称 -->
+                    <p>
+                        <span class="goods-price aui-text-danger">¥<strong>88.88</strong>元</span>
+                    </p>
+                </div>
+            </li>
+            <li class="aui-list-view-cell aui-img aui-col-xs-4" tapmode onclick="openGoods()">
+                <img class="aui-img-object" src="../../../image/demo2.png">
+                <div class="aui-img-body aui-text-left">
+                    <!-- 商品名称商品名称商品名称商品名称 -->
+                    <p>
+                        <span class="goods-price aui-text-danger">¥<strong>88.88</strong>元</span>
+                    </p>
+                </div>
+            </li>
+            <li class="aui-list-view-cell aui-img aui-col-xs-4" tapmode onclick="openGoods()">
+                <img class="aui-img-object" src="../../../image/demo3.png">
+                <div class="aui-img-body aui-text-left">
+                    <!-- 商品名称商品名称商品名称商品名称 -->
+                    <p>
+                        <span class="goods-price aui-text-danger">¥<strong>88.88</strong>元</span>
+                    </p>
+                </div>
+            </li>
+        </ul>
+        <div class="aui-line-x"></div>
+    </div>
+    <div class="aui-content box">
+        <div class="aui-line-x"></div>
+        <div class="box-title">热门商品</div>
+        
+        <ul class="aui-list-view aui-grid-view">
+            <li class="aui-list-view-cell aui-img aui-col-xs-4" tapmode onclick="openGoods()">
+                <img class="aui-img-object" src="../../../image/demo1.png">
+                <div class="aui-img-body aui-text-left">
+                    <!-- 商品名称商品名称商品名称商品名称 -->
+                    <p>
+                        <span class="goods-price aui-text-danger">¥<strong>88.88</strong>元</span>
+                    </p>
+                </div>
+            </li>
+            <li class="aui-list-view-cell aui-img aui-col-xs-4" tapmode onclick="openGoods()">
+                <img class="aui-img-object" src="../../../image/demo5.png">
+                <div class="aui-img-body aui-text-left">
+                    <!-- 商品名称商品名称商品名称商品名称 -->
+                    <p>
+                        <span class="goods-price aui-text-danger">¥<strong>88.88</strong>元</span>
+                    </p>
+                </div>
+            </li>
+            <li class="aui-list-view-cell aui-img aui-col-xs-4" tapmode onclick="openGoods()">
+                <img class="aui-img-object" src="../../../image/demo2.png">
+                <div class="aui-img-body aui-text-left">
+                    <!-- 商品名称商品名称商品名称商品名称 -->
+                    <p>
+                        <span class="goods-price aui-text-danger">¥<strong>88.88</strong>元</span>
+                    </p>
+                </div>
+            </li>
+        </ul>
+        <div class="aui-line-x"></div>
+    </div>
+</body>
+<script type="text/javascript" src="../../../script/api.js"></script>
+<script type="text/javascript">
+    apiready = function(){
+		api.parseTapmode();
+    };
+    function openClassify(name,title){
+        var delay = 0;
+        if(api.systemType != 'ios'){
+            delay = 300;
+        }
+        api.openWin({
+            name: ''+name+'_win',
+            url: ''+name+'_win.html',
+            bounces: false,
+            delay:delay,
+            pageParam:{
+                title:title
+            }
+        });
+    }
+    function openGoods(){
+        var delay = 0;
+        if(api.systemType != 'ios'){
+            delay = 300;
+        }
+        api.openWin({
+            name: 'goods_show_win',
+            url: 'goods_show_win.html',
+            bounces: false,
+            delay:delay
+        });
+    }
+</script>
+</html>

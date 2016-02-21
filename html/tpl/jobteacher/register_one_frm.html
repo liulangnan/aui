@@ -1,0 +1,79 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>注册</title>
+    <link rel="stylesheet" type="text/css" href="../../../css/aui.css" />
+    <style type="text/css">
+    body {
+        height: auto;
+    }
+    .aui-card {
+        margin-top: 15px;
+    }
+    .aui-input-addon.aui-iconfont {
+        font-size: 20px;
+    }
+    </style>
+</head>
+<body>
+    <div class="aui-content aui-card aui-noborder">       
+        <div class="aui-form">
+            <div class="aui-input-row">
+                <i class="aui-input-addon aui-iconfont aui-icon-mobilefill aui-text-warning"></i>
+                <input type="text" id="mobile" class="aui-input" placeholder="手机号"/>
+            </div>
+            <div class="aui-input-row">
+                <input type="number" class="aui-input" id="code" placeholder="请输入收到的验证码"/>
+                <span class="aui-input-addon">
+                    <div class="aui-btn" id="sendVerify" status="1" tapmode>获取验证码</div>
+                </span>
+            </div>
+            
+            <div class="aui-input-row">
+                <i class="aui-input-addon aui-iconfont aui-icon-lock aui-text-warning"></i>
+                <input type="password" id="password" class="aui-input" placeholder="密码"/>
+                <i class="aui-input-addon aui-iconfont aui-icon-attention aui-text-default" tapmode onclick="showPassword();" id="showpass-btn"></i>
+            </div>
+            <div class="aui-input-row">
+                <i class="aui-input-addon aui-iconfont aui-icon-lock aui-text-warning"></i>
+                <input type="password" id="password2" class="aui-input" placeholder="确认密码"/>
+            </div>
+            <div class="aui-btn-row">
+                <div class="aui-btn aui-btn-warning" tapmode onclick="setGroupIndex()">下一步</div>
+            </div>
+        </div>
+    </div>
+</body>
+<script type="text/javascript" src="../../../script/api.js" ></script>
+<script type="text/javascript">
+    function setGroupIndex(){
+        api.setFrameGroupIndex({
+            name: 'register_frm',
+            index:1,
+            scroll:true
+        });
+    }
+    var isinerval,times;
+    apiready = function () {
+        api.parseTapmode();
+    }
+    function showPassword(){
+        $api.attr($api.byId('password'),'type','text');
+        $api.removeCls($api.byId('showpass-btn'),'aui-icon-attention');
+        $api.addCls($api.byId('showpass-btn'),'aui-icon-attentionfill');
+        $api.attr($api.byId('showpass-btn'),'onclick','hidePassword();');
+        api.parseTapmode();
+    }
+    function hidePassword(){
+        $api.attr($api.byId('password'),'type','password');
+        $api.removeCls($api.byId('showpass-btn'),'aui-icon-attentionfill');
+        $api.addCls($api.byId('showpass-btn'),'aui-icon-attention');
+        $api.attr($api.byId('showpass-btn'),'onclick','showPassword();');
+        api.parseTapmode();
+    }
+    
+</script>
+</html>

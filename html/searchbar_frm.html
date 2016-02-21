@@ -12,8 +12,9 @@
             <i class="aui-iconfont aui-icon-search"></i>
             <div class="aui-searchbar-text">请输入搜索内容</div>
             <div class="aui-searchbar-input">
-            	<input type="text" placeholder="请输入搜索内容" autocapitalize="off">
+            	<input type="text" placeholder="请输入搜索内容" id="search-input">
             </div>
+            <i class="aui-iconfont aui-icon-roundclosefill" tapmode onclick="clearInput()"></i>
         </div>
         <div class="aui-searchbar-cancel aui-text-info" tapmode onclick="cancelSearch()">取消</div>
     </div>
@@ -22,25 +23,18 @@
 <script type="text/javascript">
 	apiready = function(){
 		api.parseTapmode();
-		// $api.addEvt($api.dom(".aui-searchbar"), 'click', function(){
-		// 	$api.addCls($api.dom(".aui-searchbar-wrap"),"focus");
-		// 	$api.dom('.aui-searchbar-input input').focus();
-		// });
-		// $api.addEvt($api.dom(".aui-searchbar-cancel"), 'click', function(){
-		// 	if($api.dom(".aui-searchbar-wrap.focus")){
-		// 		$api.removeCls($api.dom(".aui-searchbar-wrap.focus"),"focus");
-		// 	}
-			
-		// });
 	}
 	function doSearch(){
 		$api.addCls($api.dom(".aui-searchbar-wrap"),"focus");
 		$api.dom('.aui-searchbar-input input').focus();
 	}
 	function cancelSearch(){
-		$api.addEvt($api.dom(".aui-searchbar-cancel"), 'click', function(){
-			$api.removeCls($api.dom(".aui-searchbar-wrap.focus"),"focus");
-		});
+		$api.removeCls($api.dom(".aui-searchbar-wrap.focus"),"focus");
+		$api.val($api.byId("search-input"),'');
+		$api.dom('.aui-searchbar-input input').blur();
+	}
+	function clearInput(){
+		$api.val($api.byId("search-input"),'');
 	}
 </script>
 </html>

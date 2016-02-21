@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+	<meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+	<title>问答</title>
+	<link rel="stylesheet" type="text/css" href="../../../css/aui.css"/>
+	<style>
+	.aui-ask-header {
+		padding: 15px;
+		width: 100%;
+		background: #eee;
+		overflow: hidden;
+		line-height: 32px;
+	}
+
+	.ask-avatar {
+		float: left;
+		width: 32px;
+		height: 32px;
+		border-radius: 50%;
+	}
+	.ask-nickname {
+		float: left;
+		font-size: 14px;
+		margin-left: 10px;
+	}
+	.ask-time {
+		font-size: 12px;
+		color: #666;
+	}
+	.aui-content {
+		padding: 15px;
+		background: #ffffff;
+		margin-bottom: 0;
+	}
+	.ask-title {
+		font-size: 18px;
+		margin-bottom: 5px;
+	}
+	.ask-body {
+		width: 100%;
+		display: table;
+		font-size: 14px;
+		color: #666;
+		line-height: 24px;
+	}
+	.ask-status {
+		width: 100%;
+		display: table;
+		color: #999;
+		line-height: 20px;
+		margin: 10px 0;
+	}
+	.ask-price {
+		color: #ff9900;
+		font-size: 12px;
+		margin-right: 10px;
+	}
+	.ask-price strong {
+		font-size: 14px;
+		padding: 0 2px;
+		font-weight: 400;
+	}
+	.aui-nav {
+		border-top:1px solid #eee;
+
+	}
+	.ask-input {
+		height: 32px;
+		line-height: 32px;
+		margin: 10px;
+		border: 1px solid #ddd;
+		border-radius: 5px;
+		font-size: 14px;
+		color: #999;
+		padding-left: 5px;
+	}
+	.ask-text {
+		height: 120px;
+		line-height: 30px;
+		margin-bottom: 10px;
+		border: 1px solid #ddd;
+		border-radius: 5px;
+		font-size: 14px;
+		color: #666;
+		overflow: hidden;
+	}
+	.ask-text textarea {
+		height: 100%;
+		padding: 5px;
+		margin: 0;
+
+		border:none;
+	}
+	.mark {
+		background: rgba(0,0,0,0.5);
+		position: absolute;
+		left: 0;
+		top: 0;
+		width: 100%;
+		height: 100%;
+		display: none;
+		z-index: 1;
+	}
+	.ask-reply-btn {
+		padding: 8px 0;
+	}
+	#ask-reply-box {
+		padding: 10px;
+	}
+	#aui-footer {
+		background: rgba(255,255,255,0.5);
+	}
+	#aui-footer.show {
+		-webkit-animation: showIn .5s ease both;
+		animation: showIn .5s ease both;
+	}
+	@-webkit-keyframes showIn {
+		form { height: 55px;background: rgba(255,255,255,0.5);}
+		to { height: 200px; background: rgba(255,255,255,1);}
+	}
+	@-webkit-keyframes hideIn {
+		from { opacity: 1;top: 8px;}
+		to { opacity: 0;top: -20px;}
+	}
+	</style>
+</head>
+<body>
+	<div class="mark" id="mark"></div>
+	<div class="aui-ask-header">
+		<img src="image/a1.jpeg" class="ask-avatar"/>
+		<div class="aui-text-info ask-nickname">流浪男</div>
+		<span class="aui-pull-right ask-time">今天 8:50</span>
+	</div>
+	<div class="aui-line-x"></div>
+	<div class="aui-content">
+		<div class="ask-title">
+			没有基础怎么开始系统地学习PPT?
+		</div>
+		<div class="ask-body ask-status">
+			<span class="aui-pull-left ask-price">
+				<i class="aui-iconfont aui-icon-rechargefill"></i>
+				<strong>88.88</strong>元
+			</span>
+		<span class="aui-label aui-label-info aui-pull-left">待解决</span>
+		</div>
+		<div class="ask-body">
+		学习ppt制作主要是2个方面:1.基础的制作技巧,比如如何插入动画,调整文字格式等,这方面市场上任意一本PPT学习ppt制作主要是2个方面:1.基础的制作技巧,比如如何插入动画,调整文字格式等,这方面市场上任意一本PPT学习ppt制作主要是2个方面:1.基础的制作技巧,比如如何插入动画,调整文字格式等,这方面市场上任意一本PPT
+		</div>
+	</div>
+	<div class="aui-line-x"></div>
+	<footer class="aui-nav" id="aui-footer">
+		<div class="ask-input" tapmode onclick="showReply()" id="ask-input">回复问答</div>
+		<div id="ask-reply-box">
+			<div class="ask-text" id="ask-text">
+				<textarea placeholder="请输入你的回复，提问者确认后可获得奖励"></textarea>
+			</div>
+			<div class="aui-btn aui-btn-block aui-btn-info ask-reply-btn">提交</div>
+		</div>
+	</footer>
+</body>
+<script type="text/javascript" src="../../../script/api.js"></script>
+<script type="text/javascript">
+function showReply(){
+	$api.css($api.dom(".mark"),"display:block");
+	$api.css($api.byId("ask-input"),"display:none");
+	$api.css($api.byId("ask-reply-box"),"display:block");
+	$api.addCls($api.byId("aui-footer"),"show");
+}
+function openAnswer(){
+	api.openWin({
+		name: 'ask_answer_win',
+		url: 'ask_answer_win.html'
+	});
+}
+apiready = function(){
+	$api.addEvt($api.byId('mark'), 'click', function(){
+		$api.css($api.dom(".mark"),"display:none");
+		$api.css($api.byId("ask-input"),"display:block");
+		$api.css($api.byId("ask-reply-box"),"display:none");
+		$api.removeCls($api.byId("aui-footer"),"show");
+	});
+}
+
+</script>
+</html>

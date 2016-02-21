@@ -1,0 +1,126 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <link rel="stylesheet" type="text/css" href="../../../css/aui.css" />
+    <style type="text/css">
+    .aui-content,
+    .aui-content-padded {
+        background: #ffffff;
+
+    }
+    .thumb {
+        position: relative;
+        max-height: 280px;
+        overflow: hidden;
+        margin-bottom: 0;
+    }
+    .thumb > img {
+        width: 100%;
+    }
+    .price-info {
+        width: 100%;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        background: #ff9900;
+        height: 55px;
+        
+    }
+    .price {
+        margin-left: 15px;
+        color: #ffffff;
+        font-size: 16px;
+        line-height: 55px;
+    }
+    .price strong {
+        font-size: 26px;
+        margin: 0 5px;
+        font-weight: 400;
+    }
+    .price-info .aui-pull-right {
+        height: 55px;
+        width: 35%;
+        background: #ffcc00;
+        padding-top: 10px;
+        text-align: center;
+    }
+    .price-info .aui-pull-right p {
+        color: #ff6600;
+        font-size: 12px;
+        margin-bottom: 0px;
+    }
+    .goods-basic-info {
+        padding: 10px;
+        overflow: hidden;
+    }
+    .goods-title {
+        margin-bottom: 5px;
+    }
+    .aui-tab-nav li.active {
+        color: #ff9900;
+        border-bottom: 2px #ff9900 solid;
+    }
+    .info {
+        padding: 10px;
+        overflow: hidden;
+        margin-bottom: 0;
+    }
+    .info img {
+        width: 100%;
+    }
+    .info p {
+        color: #666;
+    }
+    </style>
+</head>
+<body>
+    <section class="aui-content thumb">
+        <img src="../../../image/demo1.png">
+        <div class="price-info">
+            <span class="price">¥<strong>88.88</strong>元</span>
+            <div class="aui-pull-right">
+                <p style="text-decoration:line-through">原价：66.66 元</p>
+                <p>2016件已售</p>
+            </div>
+        </div>
+    </section>
+    
+    <section class="aui-content goods-basic-info">
+        <div class="goods-title">商品测试名称商品测试名称商品测试名称商品测试名称商品测试名称商品测试名称</div>
+        <p>
+            <span class="aui-pull-left">快递：0.00元</span>
+            <span class="aui-pull-right">北京海淀</span>
+        </p>
+    </section>
+    <section class="aui-content">
+        <ul class="aui-user-view">
+            <li class="aui-user-view-cell aui-img">
+                <img class="aui-img-object aui-pull-left" src="../../../image/demo3.png">
+                <div class="aui-img-body aui-arrow-right">
+                    <span>店铺名称</span>
+                    <p class='aui-ellipsis-1'>共售出888件</p>
+                </div>
+            </li>
+        </ul>
+    </section>
+    <section class="aui-tab">
+        <ul class="aui-tab-nav" id="demo1">
+            <li class="active">产品详情</li>
+            <li>热门点评</li>
+        </ul>
+    </section>
+    <section class="aui-content info">
+        <p>商品描述商品描述商品描述商品描述商品描述商品描述商品描述商品描述沙拉汁不够的，可联系客服购买~新鲜非洲冰草3斤装顺丰包邮，偏远地区除外。亲们：现在发货会加冰袋的哦 保证新鲜的哦。</p>
+        <img class="aui-img-object aui-pull-left" src="./image/d4.jpg">
+    </section>
+</body>
+<script type="text/javascript" src="../../../script/api.js"></script>
+<script type="text/javascript">
+    apiready = function(){
+		api.parseTapmode();
+    }
+</script>
+</html>

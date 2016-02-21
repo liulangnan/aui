@@ -1,23 +1,31 @@
-<!doctype html>
+ <!doctype html>
 <html>
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
-    <title>Hello APP</title>
-    <link rel="stylesheet" type="text/css" href="./css/aui-win.css" />
+    <title>AUI</title>
+    <link rel="stylesheet" type="text/css" href="./css/aui.css" />
 </head>
+<style>
+.aui-iconfont {
+    font-size: 22px !important;
+}
+.aui-bar {
+    background: url('./image/yuanxiao.png') no-repeat #e74c3c;
+    background-size: auto 30px;
+    background-position: 10px bottom;
+}
+</style>
 <body>
-    <header id="aui-header" class="aui-bg-warning">
-        <div class="aui-bar aui-bar-nav aui-bar-warning">
-            <div class="aui-title">AUI</div>
-        </div>
-    </header>
+    <div class="aui-bar aui-bar-nav aui-bar-danger" id="aui-header">AUI</div>
 </body>
 <script type="text/javascript" src="./script/api.js"></script>
+<script type="text/javascript" src="./script/aui-alert.js" ></script>
 <script type="text/javascript">
     apiready = function(){
+        api.parseTapmode();
         var header = $api.byId('aui-header');
-        $api.fixStatusBar(header); 
+        $api.fixStatusBar(header);
         var headerPos = $api.offset(header);
         var body_h = $api.offset($api.dom('body')).h;
         api.openFrame({
@@ -31,6 +39,22 @@
                 h: 'auto'
             }
         });
-    };
+    }
+    function about() {
+        var html = '<p>当前版本 <span class="aui-text-info">V1.1.8</span></p><p>AUI是专门为APICloud用户打造的一款前端UI框架</p>';
+        $aui.alert({
+            title:'AUI',
+            content:html,
+            buttons:['确定'],
+            radius:6,
+            titleColor:'#ff3300',
+            contColor:'#333',
+            btnColor:''
+        },function(ret){
+            //处理回调函数
+            if(ret){
+            }
+        })
+    }
 </script>
 </html>

@@ -1,0 +1,101 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <title>APP</title>
+    <link rel="stylesheet" type="text/css" href="../../../css/aui.css" />
+    <style type="text/css">
+    .aui-card {
+        margin-top: 15px;
+    }
+    .aui-input-addon.aui-iconfont {
+        font-size: 20px !important;
+    }
+    .aui-input-row {
+        width: 100% !important;
+    }
+    </style>
+</head>
+<body>
+    <div class="aui-content aui-card">       
+        <div class="aui-form">
+            <div class="aui-input-row">
+                <i class="aui-input-addon aui-iconfont aui-icon-people aui-text-info"></i>
+                <input type="text" class="aui-input" placeholder="用户名"/>
+            </div>
+
+            <div class="aui-input-row">
+                <i class="aui-input-addon aui-iconfont aui-icon-lock aui-text-warning"></i>
+                <input type="password" id="password" class="aui-input" placeholder="密码"/>
+                <i class="aui-input-addon aui-iconfont aui-icon-attention aui-text-default" tapmode onclick="showPassword();" id="showpass-btn"></i>
+            </div>
+            <div class="aui-input-row">
+                <i class="aui-input-addon aui-iconfont aui-icon-lock aui-text-warning"></i>
+                <input type="password" class="aui-input" placeholder="确认密码"/>
+            </div>
+            <div class="aui-input-row">
+                <input type="number" class="aui-input" id="code" placeholder="请输入收到的验证码"/>
+                <span class="aui-input-addon">
+                    <div class="aui-btn" id="sendVerify" status="1" tapmode onclick="getVerify()">获取验证码</div>
+                </span>
+            </div>
+            
+            <div class="aui-btn-row">
+                <div class="aui-btn aui-btn-block aui-btn-warning" onclick="return false;">确认</div>
+            </div>
+        </div>
+    </div>
+</body>
+<script type="text/javascript" src="../../../script/api.js" ></script>
+<script type="text/javascript">
+    var isinerval,times;
+    apiready = function () {
+        api.parseTapmode();
+    }
+    function showPassword(){
+        $api.attr($api.byId('password'),'type','text');
+        $api.removeCls($api.byId('showpass-btn'),'aui-icon-attention');
+        $api.addCls($api.byId('showpass-btn'),'aui-icon-attentionfill');
+        $api.attr($api.byId('showpass-btn'),'onclick','hidePassword();');
+        api.parseTapmode();
+    }
+    function hidePassword(){
+        $api.attr($api.byId('password'),'type','password');
+        $api.removeCls($api.byId('showpass-btn'),'aui-icon-attentionfill');
+        $api.addCls($api.byId('showpass-btn'),'aui-icon-attention');
+        $api.attr($api.byId('showpass-btn'),'onclick','showPassword();');
+        api.parseTapmode();
+    }
+    function getVerify() {
+        var sendVerify = $api.byId('sendVerify');
+        var status = $api.attr(sendVerify,'status');
+        if(status!=1){
+            return;
+        }
+        $api.removeAttr(sendVerify,'onclick');
+        api.parseTapmode();
+        $api.html(sendVerify,'<span id="GetVerify">120</span>S');
+        times = 119;
+        isinerval = setInterval("CountDown()", 1000);
+        setTimeout(function(){
+            $api.val($api.byId("code"),'888888');
+        },500)
+        
+    }
+    function CountDown() {
+        if (times < 1) {
+            var sendVerify = $api.byId('sendVerify');
+            $api.attr(sendVerify,'onclick','get_verify()');
+            $api.attr(sendVerify,'status','1');
+            api.parseTapmode();
+            $api.html(sendVerify,'重新获取');
+            clearInterval(isinerval);
+            return;
+        }
+        var getVerify = $api.byId('GetVerify');
+        $api.html(getVerify,''+times+'');
+        times--;
+    }
+</script>
+</html>

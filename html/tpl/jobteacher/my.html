@@ -1,0 +1,106 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>APP</title>
+    <link rel="stylesheet" type="text/css" href="../../../css/aui.css" />
+    <style>
+    .my-header {
+        background: #3bafda;
+        position: relative;
+    }
+    #header {
+        position: relative;
+        padding: 30px 0;
+        width: 100%;
+        bottom: 0;
+        text-align: center;
+        vertical-align: center;
+        margin-bottom: 0;
+    }
+    #header img {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+    }
+    .my-info p.nickname {
+        margin-top: 5px;
+        color: #ffffff;
+        font-size: 18px;
+    }
+    .aui-list-view-cell {
+        line-height: 26px;
+    }
+    </style>
+</head>
+
+<body>
+    <section class="aui-content my-header" id="header">
+        <div class="my-info">
+            <img src="image/noavatar.gif" id="avatar" />
+            <p class="nickname" id="nickname"></p>
+        </div>
+    </section>
+    <section class="aui-content">
+        <ul class="aui-list-view">
+            <li class="aui-list-view-cell" tapmode onclick="openWin('my_info_win')">
+                <a class="aui-arrow-right">个人资料</a>
+            </li>
+            <li class="aui-list-view-cell" tapmode onclick="openWin('my_ask_win')">
+                <a class="aui-arrow-right">我的问答</a>
+            </li>
+            <li class="aui-list-view-cell" tapmode onclick="openWin('my_helper_win')">
+                <a class="aui-arrow-right">我的预约</a>
+            </li>
+            <li class="aui-list-view-cell" tapmode onclick="openWin('my_to_helper_win')">
+                <a class="aui-arrow-right">成为帮主</a>
+            </li>
+            
+        </ul>
+    </section>
+    <section class="aui-content">
+        <ul class="aui-list-view">
+            <li class="aui-list-view-cell" tapmode onclick="login()">
+                <a class="aui-arrow-right">登录</a>
+            </li>
+            <li class="aui-list-view-cell" tapmode onclick="register()">
+                <a class="aui-arrow-right">注册</a>
+            </li>
+        </ul>
+    </section>
+</body>
+<script type="text/javascript" src="../../../script/api.js" ></script>
+<script type="text/javascript">
+    function openWin(name){
+        api.openWin({
+            name:''+name+'',
+            url:''+name+'.html',
+            delay:delay
+        })
+    }
+    function register(){
+        api.openWin({
+            name: 'register_win',
+            url: 'register_win.html',
+            delay:delay
+        });
+    }
+    function login(){
+        api.openWin({
+            name: 'login',
+            url: 'login.html',
+            delay:delay
+        });
+    }
+    var delay = 0;
+    apiready = function () {
+        api.parseTapmode();
+        
+        if(api.systemType != 'ios'){
+            delay = 300;
+        }
+    }
+</script>
+</html>

@@ -1,0 +1,71 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <link rel="stylesheet" type="text/css" href="../../css/aui.css" />
+</head>
+<body>
+    <div class="aui-content">
+        <ul class="aui-list-view">
+            <li class="aui-list-view-cell" tapmode onclick="tplShow('jobteacher')">
+                <div class="aui-arrow-right">
+                    导师(帮主)咨询类APP
+                    <p>一款导师咨询类的模板，介入了少量css3动画效果及framegroup申请流程页面</p>
+                </div>
+            </li>
+            <li class="aui-list-view-cell" tapmode onclick="tplShow('mall')">
+                <div class="aui-arrow-right">
+                    简单商城类<span class="aui-badge aui-badge-danger aui-pull-right">部分</span>
+                    <p>提供了简单的几页商城类模板，后续会更新完善</p>
+                </div>
+            </li>
+            <li class="aui-list-view-cell" tapmode onclick="openWin('demo_form')">
+                <div class="aui-arrow-right">
+                    案例：表单样式
+                </div>
+            </li>
+            <li class="aui-list-view-cell" tapmode onclick="openWin('demo_qinghuwai')">
+                <a class="aui-arrow-right">案例：仿轻户外动态列表效果</a>
+            </li>
+            <li class="aui-list-view-cell" tapmode onclick="openWin('demo_list')">
+                <a class="aui-arrow-right">案例：仿华为花粉俱乐部首页</a>
+            </li>
+            <li class="aui-list-view-cell" tapmode onclick="openWin('my')">
+                <a class="aui-arrow-right">案例：会员中心</a>
+            </li>
+        </ul>
+    </div>
+</body>
+<script type="text/javascript" src="../../script/api.js"></script>
+<script type="text/javascript">
+    apiready = function(){
+        api.parseTapmode();
+    };
+    function tplShow(path){
+        var delay = 0;
+        if(api.systemType != 'ios'){
+            delay = 300;
+        }
+        api.openWin({
+            name: path+'/index',
+            url: path+'/index.html',
+            bounces:false,
+            delay: delay
+        });
+    }
+    function openWin(name){
+        var delay = 0;
+        if(api.systemType != 'ios'){
+            delay = 300;
+        }
+        api.openWin({
+            name: 'demo/'+name+'',
+            url: 'demo/'+name+'_win.html',
+            bounces:false,
+            delay: delay
+        });
+    }
+</script>
+</html>

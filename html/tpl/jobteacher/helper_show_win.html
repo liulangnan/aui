@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+	<meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+	<title>帮主详情窗口</title>
+	<link rel="stylesheet" type="text/css" href="../../../css/aui-win.css">
+	<style type="text/css">
+		.bar-bgcolor {
+			background-color: none;
+            color: #ffffff;
+		}
+		.aui-nav{
+			background-color: #3e6491;
+            color: #ffffff;
+            text-align: center;
+            line-height: 55px;
+		}
+		.buy {
+			background: #df9c63;
+			height: 55px;
+		}
+		.ask {
+			height: 55px;
+			background: #797571;
+		}
+	</style>
+</head>
+<body>
+	
+	<footer class="aui-nav" id="aui-footer">
+        <div class="aui-col-xs-7 buy" tapmode onclick="meet()">立即约见</div>
+        <div class="aui-col-xs-5 ask" tapmode onclick="ask()">在线咨询</div>
+    </footer>
+</body>
+<script type="text/javascript" src="../../../script/api.js"></script>
+<script type="text/javascript">
+	function ask(){
+		var delay = 0;
+        if(api.systemType != 'ios'){
+            delay = 300;
+        }
+        api.openWin({
+            name:'ask_add_win',
+            url:'ask_add_win.html',
+            delay:delay
+        })
+    } 
+	function meet(){
+		var delay = 0;
+        if(api.systemType != 'ios'){
+            delay = 300;
+        }
+ 		api.openWin({
+ 			name:'helper_meet_win',
+ 			url:'helper_meet_win.html',
+ 			delay:delay
+ 		})
+ 	}
+	apiready = function(){
+		api.parseTapmode();
+        var body_h = $api.offset($api.dom('body')).h;
+        var footer_h = $api.offset($api.byId('aui-footer')).h;
+		var id = api.pageParam.helperId;
+	 	api.openFrame({
+	 		name:'helper_show_frm',
+	 		url:'helper_show_frm.html',
+	 		pageParam:{'helperId':id},
+	 		rect:{x:0, y:0, w:'auto', h:body_h - footer_h},
+	 		bounces:false,
+	 		vScrollBarEnabled: false,
+	 		hScrollBarEnabled: false
+	 	})
+	}
+
+	function back(){
+		api.closeWin();
+	}
+</script>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+ <html>
+ <head>
+ 	<meta charset="UTF-8">
+	<meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+	<meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+	<title>帮主约见</title>
+	<link rel="stylesheet" type="text/css" href="../../../css/aui.css">
+	<style type="text/css">
+		body{
+			background: #f4f4f4;
+			width: 100%;
+			height: 100%;
+			padding-top: 15px;
+		}
+		.ask-show-box{
+			display: block;
+			background-color: #f2f2f2;
+		}
+		p.title {
+			background: #f4f4f4;
+			padding: 10px 0;
+		}
+		textarea.ask-text{
+			width: 100%;
+			border: none;
+			height: 180px;
+			font-size: 14px;
+			margin-bottom: 0;
+		}
+		.helper {
+			width: 100%;
+			padding: 10px 5px !important;
+			line-height: 32px;
+			font-size: 14px;
+		}
+		#helper-avatar {
+			width: 32px;
+			height: 32px;
+			border-radius: 50%;
+			padding: 0;
+			display: table;
+		}
+		#helper-name {
+			color: #ff9900;
+			margin-right: 5px;
+		}
+		.aui-content-padded {
+			padding-bottom: 0;
+		}
+		.amount {
+			color: #999;
+		}
+		.amount strong {
+			font-weight: 400;
+			color: #ff9900;
+		}
+	</style>
+ </head>
+ <body>
+ 	<section class="aui-card">
+ 		<div class="ask-box aui-form">
+ 			<div class="aui-input-row helper">
+	 			<div class="aui-pull-left">当在正在咨询的帮主</div>
+	 			<div class="aui-pull-right">
+	 				<img src="./image/a1.jpeg" id="helper-avatar"/>
+	 			</div>
+	 			<div class="aui-pull-right" id="helper-name">
+	 				流浪男
+	 			</div>
+	 		</div>
+	 		<div class="aui-input-row">
+	 			<label class="aui-input-addon">悬赏金额</label>
+	 			<input type="number" class="aui-input" value="" placeholder="0.00" />
+	 			<span class="aui-input-addon">元<span class="amount">(余额<strong>88.88</strong>元)</span></span>
+	 		</div>
+	 	</div>
+	 	<div class="aui-line-x"></div>
+	 	<p class="aui-text-center title">问题描述</p>
+	 	<div class="aui-line-x"></div>
+	 	<div class="aui-form">
+	 		<textarea placeholder="详细的描述问题有助于帮主有的放矢！" class="ask-text"></textarea>
+	 	</div>
+ 	</section>
+ 	<section class="aui-content-padded">
+ 		<div class="aui-btn aui-btn-block aui-btn-info">提交问题</div>
+ 	</section>
+ </body>
+ <script type="text/javascript" src="../../../script/api.js"></script>
+ <script type="text/javascript">
+ 	apiready = function(){
+ 	    api.parseTapmode();
+ 	}
+ </script>
+ </html>

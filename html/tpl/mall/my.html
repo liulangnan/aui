@@ -1,0 +1,131 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <link rel="stylesheet" type="text/css" href="../../../css/aui.css" />
+</head>
+<style>
+.my-header {
+    background-color: #e74c3c;
+    position: relative;
+    margin-bottom: 0;
+}
+.my-info {
+    position: relative;
+    padding: 20px 0;
+    width: 100%;
+    bottom: 0;
+    text-align: center;
+    vertical-align: center;
+}
+.my-info img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+}
+.my-info p.nickname {
+    margin-top: 5px;
+    color: #ffffff;
+    font-size: 18px;
+}
+.aui-list-view-cell {
+    line-height: 26px;
+}
+.amount-info {
+    background-color: #ffffff;
+    overflow: hidden;
+}
+.amount-info p {
+    font-size: 0.75em;
+}
+.amount-info p strong {
+    font-size: 18px;
+}
+.aui-list-view-cell {
+    line-height: 26px;
+}
+.amount-info .aui-col-xs-4 {
+    padding: 15px 0;
+    position: relative;
+    height: 80px;
+}
+.amount-info .aui-col-xs-4:after {
+    border-left: 1px solid #ddd;
+    display: block;
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    -webkit-transform-origin: 0 0;
+    -webkit-transform: scale(1);
+    pointer-events: none;
+}
+.amount-info .aui-col-xs-4:first-child:after {
+    border:none;
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5) {
+    .amount-info .aui-col-xs-4:after {
+        right: -100%;
+        bottom: -100%;
+        -webkit-transform: scale(0.5);
+    }
+}
+</style>
+<body>
+    <div class="aui-content my-header">
+        <div class="my-info">
+            <img src="../../../image/noavatar.gif" />
+            <p class="nickname">流浪男</p>
+        </div>
+    </div>
+    <div class="aui-content aui-text-center amount-info">
+        <div class="aui-col-xs-4">
+            <p class="aui-text-danger"><strong id="amount">88.00</strong>元</p>
+            <p>我的资金</p>
+        </div>
+        <div class="aui-col-xs-4">
+            <p class="aui-text-warning"><strong>999</strong>个</p>
+            <p>我的积分</p>
+        </div>
+        <div class="aui-col-xs-4">
+            <strong class="aui-iconfont aui-icon-write aui-text-info"></strong>
+            <p>每日签到</p>
+        </div>
+    </div>
+    <div class="aui-content">
+        <ul class="aui-list-view aui-in">
+            <li class="aui-list-view-cell">
+                <i class="aui-iconfont aui-icon-profile aui-bg-info"></i>个人资料
+            </li>
+            <li class="aui-list-view-cell">
+                <i class="aui-iconfont aui-icon-pay aui-bg-danger"></i>我的钱包
+            </li>
+            <li class="aui-list-view-cell">
+                <i class="aui-iconfont aui-icon-edit aui-bg-success"></i>我的发布
+            </li>
+            <li class="aui-list-view-cell">
+                <i class="aui-iconfont aui-icon-shop aui-bg-warning"></i>创建店铺
+            </li>
+            <li class="aui-list-view-cell">
+                <i class="aui-iconfont aui-icon-form aui-bg-danger"></i>我的订单
+            </li>
+            <li class="aui-list-view-cell">
+                <i class="aui-iconfont aui-icon-favor aui-bg-info"></i>我的收藏
+            </li>
+            <li class="aui-list-view-cell">
+                <i class="aui-iconfont aui-icon-sponsor aui-bg-warning"></i>申请结算
+            </li>
+        </ul>
+    </div>
+</body>
+<script type="text/javascript" src="../../../script/api.js" ></script>
+<script type="text/javascript">
+    apiready = function () {
+        api.parseTapmode();
+    }
+</script>
+</html>

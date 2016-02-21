@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<widget id="A6981420008335" version="0.0.1"> 
+  <name>AUI</name>  
+  <description/>  
+  <author email="343757327@qq.com" href="http://www.apicloud.com">流浪男</author>  
+  <content src="index.html"/>  
+  <preference name="pageBounce" value="false"/>  
+  <preference name="appBackground" value="rgba(0,0,0,0.0)"/>  
+  <preference name="windowBackground" value="rgba(0,0,0,0.0)"/>  
+  <preference name="frameBackgroundColor" value="rgba(0,0,0,0.0)"/>  
+  <preference name="hScrollBarEnabled" value="true"/>  
+  <preference name="vScrollBarEnabled" value="true"/>  
+  <preference name="autoLaunch" value="true"/>  
+  <preference name="fullScreen" value="false"/>  
+  <preference name="autoUpdate" value="true"/>  
+  <preference name="smartUpdate" value="true"/>  
+  <preference name="debug" value="false"/>  
+  <preference name="iOS7StatusBarAppearance" value="true"/>  
+  <preference name="statusBarAppearance" value="true"/>  
+  <preference name="softInputMode" value="resize"/>  
+  <permission name="readPhoneState"/>  
+  <access origin="*"/> 
+</widget>

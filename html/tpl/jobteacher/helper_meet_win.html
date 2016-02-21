@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+	<meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+	<title>帮主约见窗口</title>
+	<link rel="stylesheet" type="text/css" href="../../../css/aui-win.css">
+	<style type="text/css">
+		body{
+			background-color: #f4f4f4;
+		}
+		.bar-bgcolor{
+			background-color: #3bafda;
+		}
+	</style>
+</head>
+<body>
+	<header class="aui-bar aui-bar-nav bar-bgcolor" id="aui-header">
+		<a class="aui-pull-left" tapmode onclick="closeWin()">
+			<span class="aui-iconfont aui-icon-left"></span>
+		</a>
+		<div class="aui-title">约见帮主</div>
+		<a class="aui-pull-right" onclick="clickSubmit()">提交</a>
+	</header>
+</body>
+<script type="text/javascript" src="../../../script/api.js"></script>
+<script type="text/javascript">
+	apiready = function(){
+		api.parseTapmode();
+		api.parseTapmode();
+        var header = $api.byId('aui-header');
+        $api.fixStatusBar(header);
+        var headerPos = $api.offset(header);
+        var body_h = $api.offset($api.dom('body')).h;
+	 	api.openFrame({
+	 		name:'helper_meet_frm',
+	 		url:'helper_meet_frm.html',
+	 		rect:{
+	 			x:0,
+	 			y:headerPos.h,
+	 			w:'auto',
+	 			h:'auto'
+	 		},
+	 		bounces:false,
+	 		vScrollBarEnabled: false,
+	 		hScrollBarEnabled: false
+	 	})
+	}
+
+	function closeWin(){
+		api.closeWin();
+	}
+</script>
+</html>

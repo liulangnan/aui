@@ -1,0 +1,93 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <link rel="stylesheet" type="text/css" href="../../../css/aui.css" />
+    <style type="text/css">
+    .aui-nav .aui-bar-tab {
+        background: #fff;
+    }
+    </style>
+</head>
+<body>
+<header class="aui-bar aui-bar-nav aui-bar-danger" id="aui-header">
+    <div class="aui-iconfont aui-icon-left aui-pull-left" tapmode onclick="closeWin()"></div>
+    <div class="aui-title">mall</div>
+    <div class="aui-iconfont aui-icon-search aui-pull-right"></div>
+</header>
+<footer class="aui-nav" id="aui-footer">
+    <ul class="aui-bar-tab">
+        <li class="active-danger" id="main" tapmode onclick="randomSwitchBtn(0,'main')">
+            <span class="aui-iconfont aui-icon-homefill"></span>
+            <p>首页</p>
+        </li>
+        <li id="mall" tapmode onclick="randomSwitchBtn(1,'mall')">
+            <span class="aui-iconfont aui-icon-cartfill"></span>
+            <p>商城</p>
+        </li>
+        <li id="my" tapmode onclick="randomSwitchBtn(2,'my')">
+            <span class="aui-iconfont aui-icon-peoplefill"></span>
+            <p>我的</p>
+        </li>
+    </ul>
+</footer>
+</body>
+<script type="text/javascript" src="../../../script/api.js"></script>
+<script type="text/javascript">
+    apiready = function(){
+		api.parseTapmode();
+        var header = $api.byId('aui-header');
+        $api.fixStatusBar(header); 
+        openGroup();
+    };
+    function closeWin(){
+        api.closeWin({});
+    }
+    function openGroup(){
+        var header = $api.byId('aui-header');
+        var headerPos = $api.offset(header);
+        var body_h = $api.offset($api.dom('body')).h;
+        var footer_h = $api.offset($api.byId('aui-footer')).h;
+        api.openFrameGroup({
+            name: 'indexGroup',
+            scrollEnabled: true,
+            rect:{x:0, y:headerPos.h, w:'auto', h:body_h - headerPos.h - footer_h},
+            index: 0,
+            frames: [{
+                name:'main',
+                url:'main.html',
+                vScrollBarEnabled:false,
+                hScrollBarEnabled:false,
+                bounces:false
+            },{
+                name:'mall',
+                url:'mall.html',
+                vScrollBarEnabled:false,
+                hScrollBarEnabled:false,
+                bounces:false
+            },{
+                name:'my',
+                url:'my.html',
+                vScrollBarEnabled:false,
+                hScrollBarEnabled:false,
+                bounces:false
+            }]
+        }, function (ret, err) {
+            $api.removeCls($api.dom('#aui-footer li.active-danger'),'active-danger');
+            $api.addCls($api.byId(''+ret.name+''),'active-danger');
+        });
+    }
+
+    // 随意切换按钮
+    function randomSwitchBtn(index,name) {
+        $api.removeCls($api.dom('#aui-footer li.active-danger'),'active-danger');
+        $api.addCls($api.byId(''+name+''),'active-danger');
+        api.setFrameGroupIndex({
+            name: 'indexGroup',
+            index: index
+        });
+    }
+</script>
+</html>
