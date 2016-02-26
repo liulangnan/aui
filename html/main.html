@@ -162,5 +162,17 @@
             delay: delay
         });
     }
+    function openDemo(){
+        var delay = 0;
+        if(api.systemType != 'ios'){
+            delay = 300;
+        }
+        api.openWin({
+            name: 'demo',
+            url: 'demo.html',
+            bounces:false,
+            delay: delay
+        });
+    }
 </script>
 </html>

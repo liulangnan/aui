@@ -9,7 +9,7 @@
 <style type="text/css">
     #demo {
         background: #ff9900;
-        background: url('../image/l1.png') no-repeat;
+        background: url('../image/demo1.png') no-repeat;
         background-position: center;
         background-size: 100%;
         height: 200px;
@@ -47,7 +47,7 @@
         // console.log(Y);
         if(Math.abs(Y) > Math.abs(X) && Y > 0){
             var demoH = $api.offset($api.byId("demo")).h;
-            var _demoH = demoH+1;
+            var _demoH = demoH+2;
             var bgSize = 100+i;
             $api.css($api.byId("demo"),"height:"+_demoH+"px;background-size:"+bgSize+"%;");
             if(_demoH>260){
