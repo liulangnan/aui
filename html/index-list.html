@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <link rel="stylesheet" type="text/css" href="../css/aui.css" />
+	<style type="text/css">
+	#box {
+		font-size: 16px;
+	}
+	h2 {
+		background: #eeeeee;
+		padding: 5px;
+		margin: 0;
+		color: #666;
+		font-size: 20px;
+	}
+	#box-r {
+		position: fixed;
+		right: 0;
+		top: 0;
+		height: 100%;
+		width: 30px;
+		background: #eeeeee;
+	    height: 100%;
+	    z-index: 10;
+	    /*-webkit-transition: .2s;*/
+	    padding: 20px 0;
+	}
+	#box-r a {
+		display: block;
+	    text-align: center;
+	    font-size: 14px;
+	    padding: 0;
+	    margin: 0;
+	    line-height: 15px;
+	    color: #666;
+	}
+	p {
+		border-bottom: 1px solid #f4f4f4;
+		padding: 10px 5px;
+		margin: 0;
+	}
+	</style>
+</head>
+<body>
+	<div id="box"></div>
+	<div id="box-r">
+		<a>A</a>
+		<a>B</a>
+		<a>C</a>
+		<a>D</a>
+		<a>E</a>
+		<a>F</a>
+		<a>G</a>
+		<a>H</a>
+		<a>I</a>
+		<a>J</a>
+		<a>K</a>
+		<a>L</a>
+		<a>M</a>
+		<a>N</a>
+		<a>O</a>
+		<a>P</a>
+		<a>Q</a>
+		<a>R</a>
+		<a>S</a>
+		<a>T</a>
+		<a>U</a>
+		<a>V</a>
+		<a>W</a>
+		<a>X</a>
+		<a>Y</a>
+		<a>Z</a>
+	</div>
+	<!-- <div id="box-r" class="indexed-list-bar"></div> -->
+	<div class="aui-toast aui-hide" id="toast">
+        <i class="aui-iconfont aui-icon-check"></i>
+    </div>
+	<script type="text/javascript" src="../script/api.js" ></script>
+	<script type="text/javascript">
+		var bodyHieght = $api.offset($api.byId("box-r")).h;
+
+		var barList = $api.domAll("#box-r a");
+		var aHeight = (bodyHieght-40)/barList.length;
+		// console.log(aHeight);
+		for (var i = 0; i < barList.length; i++) {
+			// console.log(barList[i]);
+			barList[i].style.height = aHeight;
+			$api.css(barList[i],"height:"+aHeight+"px;line-height:"+aHeight+"px");
+		}
+		// barList.forEach(function(item) {
+		// 	item.style.height = aHeight;
+		// 	console.log(item);
+		// });
+		var d = pySegSort(["山东","北京","上海","河北","内蒙古","江苏","浙江","山西","陕西","湖北","U",'D']);
+		var html = '',html_r = '';
+		for (var i = 0; i < d.length; i++) {
+			html += '<h2>'+d[i].letter+'</h2>';
+			// html_r += '<a>'+d[i].letter+'</a>';
+			if(d[i].data.length){
+				for (var ii = 0; ii < d[i].data.length; ii++) {
+					html += '<p>'+d[i].data[ii]+'</p>';
+				}
+			}
+		}
+		document.getElementById("box").innerHTML = html;
+		// document.getElementById("box-r").innerHTML = html_r;
+		// console.log(html);
+
+		var self = this;
+		var pointElement = null;
+
+		$api.addEvt($api.byId("box-r"), 'touchstart', function(event){
+			$api.removeCls($api.byId("toast"),'aui-hide');
+	    });
+	    $api.addEvt($api.byId("box-r"), 'touchmove', function(event){
+	    	self.el.bar = self.box.querySelector(classSelector('indexed-list-bar'));
+			$api.removeCls($api.byId("toast"),'aui-hide');
+			// console.log(event);
+			if (pointElement) {
+				pointElement.classList.remove('active');
+				pointElement = null;
+			}
+			// console.log(self.el.bar);
+
+			// self.el.bar.classList.add('active');
+
+			var point = event.changedTouches ? event.changedTouches[0] : event;
+				pointElement = document.elementFromPoint(point.pageX, point.pageY);
+
+			if (pointElement) {
+				var group = pointElement.innerText;
+				if (group && group.length == 1) {
+					// console.log(this);
+					// pointElement.classList.add('active');
+					self.el.alert.innerText = group;
+					self.el.alert.classList.add('active');
+					// self.scrollTo(group);
+				}
+			}
+			event.preventDefault();
+
+	    });
+	    $api.addEvt($api.byId("box-r"), 'touchend', function(event){
+	        $api.addCls($api.byId("toast"),'aui-hide');
+	    });
+		//
+		var a = "a";
+		var b = "AA";
+		var bb = b.substr(0,1);
+		// console.log(bb);
+		// console.log(a.localeCompare(bb));
+		function pySegSort(arr) {
+			if(!String.prototype.localeCompare){
+				return null;
+			}
+			var letters ="*ABCDEFGHIJKLMNOPQRSTUVWXYZ".split('');
+			var zh ="啊把差大额发噶哈I级卡啦吗那哦爬器然啥他UV哇西呀咋".split('');
+			var segs = [];
+			var curr;
+			for (var i = 0; i < letters.length; i++) {
+				curr = {letter: letters[i], data:[]};
+
+				for (var ii = 0; ii < arr.length; ii++) {
+					// zh[i-1].charCodeAt() > 256
+					if(letters[i] == 'U'){
+
+					}
+					var _a = arr[ii].substr(0,1);
+					// console.log(_a);
+					if((!zh[i-1] || zh[i-1].localeCompare(_a) <= 0) && arr[ii].localeCompare(zh[i]) == -1){
+						// console.log(arr[ii].localeCompare(zh[i]));
+						// console.log(arr[ii]);
+						// console.log(letters[i]);
+						// console.log(zh[i-1]);
+						// console.log('------');
+						curr.data.push(arr[ii]);
+					}
+				}
+				console.log(JSON.stringify(curr.data));
+				if(curr.data.length){
+					segs.push(curr);
+					curr.data.sort(function(a,b){
+						return a.localeCompare(b);
+					});
+				}
+			}
+			// console.log(segs);
+			return segs;
+		}
+	</script>
+</body>
+</html>

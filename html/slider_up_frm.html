@@ -1,0 +1,58 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	 <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <link rel="stylesheet" href="../css/aui.css"/>
+	<link rel="stylesheet" href="../css/aui-slider-up.css" />
+	<style type="text/css">
+		.first h1 {
+			margin-top: 180px;
+			color: #ffffff;
+			font-size: 30px;
+		}
+		.first p {
+			color: #ffffff;
+		}
+	</style>
+</head>
+<body>
+	<div class="aui-slider-close" tapmode onclick="closeWin()">关闭</div>
+	<div class="aui-slider-nav" id="sliderNav">
+		<ul>
+			<li class="aui-bg-primary first aui-text-center">
+				<h1>AUI</h1>
+				<p>让移动布局更简单</p>
+				<p>—— { www.auicss.com } ——</p>
+			</li>
+			<li>
+				<img src="../image/2.png" alt=""/>
+			</li>
+			<li>
+				<img src="../image/1.png" alt=""/>
+			</li>
+		</ul>
+		<span class="aui-up-slide">
+			<i class="aui-iconfont aui-icon-fold"></i>
+		</span>
+	</div>
+	<script src="../script/api.js"></script>
+	<script src="../script/aui-slider-up.js"></script>
+	<script type="text/javascript">
+		apiready = function(){
+			api.parseTapmode();
+		    $aui.sliderUp($api.byId("sliderNav"));
+		}
+		function closeWin(){
+	        api.closeWin({
+	        	name:'slider_up_win',
+	        	animation:{
+	        		type:'push',
+	                subType:'from_top'
+	            }
+	        });
+	    }
+	</script>
+</body>
+</html>

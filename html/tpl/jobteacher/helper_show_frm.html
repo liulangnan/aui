@@ -36,6 +36,7 @@
 	}
 	#aui-header.white {
 		background: #3bafda;
+        opacity: 0.1;
         -webkit-animation: fadeIn .8s ease both;
                 animation: fadeIn .8s ease both;
 	}
@@ -178,25 +179,57 @@
 			name:'helper_show_win'
 		});
 	}
- 	window.onscroll = function(){
- 		if(document.body.scrollTop>=60){
- 			$api.addCls($api.dom("#aui-header img.avatar"),'show');
- 			$api.removeCls($api.dom("#aui-header img.avatar"),'hide');
+ 	// window.onscroll = function(){
+ 	// 	if(document.body.scrollTop>=60){
+ 	// 		$api.addCls($api.dom("#aui-header img.avatar"),'show');
+ 	// 		$api.removeCls($api.dom("#aui-header img.avatar"),'hide');
 
- 			$api.removeCls($api.byId('aui-header'),"nowhite");
- 			$api.addCls($api.byId('aui-header'),"white");
- 		}else{
- 			if($api.dom(".white")){
- 				$api.addCls($api.dom("#aui-header img.avatar"),'hide');
- 				$api.removeCls($api.dom("#aui-header img.avatar"),'show');
+ 	// 		$api.removeCls($api.byId('aui-header'),"nowhite");
+ 	// 		$api.addCls($api.byId('aui-header'),"white");
+ 	// 	}else{
+ 	// 		if($api.dom(".white")){
+ 	// 			$api.addCls($api.dom("#aui-header img.avatar"),'hide');
+ 	// 			$api.removeCls($api.dom("#aui-header img.avatar"),'show');
 
- 				$api.addCls($api.byId('aui-header'),"nowhite");
- 				$api.removeCls($api.byId('aui-header'),"white");
- 			}
+ 	// 			$api.addCls($api.byId('aui-header'),"nowhite");
+ 	// 			$api.removeCls($api.byId('aui-header'),"white");
+ 	// 		}
  			
- 		}
- 	}
- 
+ 	// 	}
+ 	// }
+    var startX,
+        startY,
+        i=1;
+    $api.addEvt($api.dom("body"), 'touchstart', function(event){
+        
+    });
+
+    $api.addEvt($api.dom("body"), 'touchmove', function(event){
+        // console.log(event);
+        // console.log(document.body.scrollTop);
+        // console.log(event.touches[0].pageY);
+        i++;
+        if(document.body.scrollTop>=40){
+            var opacity = i/10;
+            if(opacity>=1){
+                opacity = 1;
+            }
+            $api.addCls($api.byId('aui-header'),"white");
+            $api.removeCls($api.byId('aui-header'),"nowhite");
+            $api.css($api.byId('aui-header'),"opacity: "+opacity+";");
+            $api.addCls($api.dom("#aui-header img.avatar"),'show');
+            $api.removeCls($api.dom("#aui-header img.avatar"),'hide');
+        }else{
+            if($api.dom(".white")){
+                $api.addCls($api.dom("#aui-header img.avatar"),'hide');
+                $api.removeCls($api.dom("#aui-header img.avatar"),'show');
+                // $api.addCls($api.byId('aui-header'),"nowhite");
+                $api.removeCls($api.byId('aui-header'),"white");
+                $api.css($api.byId('aui-header'),"opacity: 0;");
+            }
+            
+        }
+    });
  	apiready = function(){
  	    api.parseTapmode();
 		var header = $api.byId('aui-header');

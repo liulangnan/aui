@@ -18,20 +18,27 @@
             <li class="aui-list-view-cell" tapmode onclick="openTplIndexWin()">
                 <div class="aui-arrow-right">
                     <i class="aui-iconfont aui-icon-clothes aui-bg-warning"></i>模板
-                    <span class="aui-badge aui-badge-danger aui-pull-right">NEW</span>
                 </div>
             </li>
             <li class="aui-list-view-cell" tapmode onclick="openWin('explain')">
                 <div class="aui-arrow-right aui-text-danger">
                     <i class="aui-iconfont aui-icon-sort aui-bg-danger"></i>更新说明
-                    <span class="aui-badge aui-badge-danger aui-pull-right">V 1.1.8</span>
+                    <span class="aui-badge aui-badge-danger aui-pull-right">V 1.1.8+</span>
                 </div>
             </li>
         </ul>
     </div>
     <div class="aui-content">
         <ul class="aui-list-view">
-            
+            <li class="aui-list-view-cell" tapmode onclick="openSlider()">
+                <a class="aui-arrow-right">上下滑动全屏展示<span class="aui-badge aui-badge-danger">新增</span></a>
+            </li>
+            <li class="aui-list-view-cell" tapmode onclick="openWin('calendar')">
+                <a class="aui-arrow-right">日历<span class="aui-badge aui-badge-danger">新增</span></a>
+            </li>
+            <li class="aui-list-view-cell" tapmode onclick="openWin('calendar_slide')">
+                <a class="aui-arrow-right">日历上下滑动展示<span class="aui-badge aui-badge-danger">新增</span></a>
+            </li>
             <li class="aui-list-view-cell" tapmode onclick="openWin('button')">
                 <a class="aui-arrow-right">按钮</a>
             </li>
@@ -56,7 +63,7 @@
             <li class="aui-list-view-cell" tapmode onclick="openWin('list_thumb')">
                 <a class="aui-arrow-right">缩略图列表</a>
             </li>
-            
+
             <li class="aui-list-view-cell" tapmode onclick="openWin('list_image')">
                 <a class="aui-arrow-right">图片列表布局</a>
             </li>
@@ -76,7 +83,7 @@
                 <a class="aui-arrow-right">个性loading</a>
             </li>
             <li class="aui-list-view-cell" tapmode onclick="openWin('tab')">
-                <a class="aui-arrow-right">TAB菜单<span class="aui-badge aui-badge-danger">新增主题色</span></a>
+                <a class="aui-arrow-right">TAB菜单</a>
             </li>
             <li class="aui-list-view-cell" tapmode onclick="openWin('contact_book')">
                 <a class="aui-arrow-right">通讯录</a>
@@ -148,6 +155,22 @@
             url: ''+name+'_win.html',
             bounces:false,
             delay: delay
+        });
+    }
+    function openSlider(){
+        var delay = 0;
+        if(api.systemType != 'ios'){
+            delay = 300;
+        }
+        api.openWin({
+            name: 'slider_up_win',
+            url: 'slider_up_win.html',
+            bounces:false,
+            delay: delay,
+            animation:{
+                type:'push',
+                subType:'from_bottom'
+            }
         });
     }
     function openTplIndexWin(){

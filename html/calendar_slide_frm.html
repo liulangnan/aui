@@ -1,0 +1,54 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <link rel="stylesheet" type="text/css" href="../css/aui.css" />
+    <link rel="stylesheet" type="text/css" href="../css/aui-calendar-slide.css" />
+    <title>calendar</title>
+    </head>
+<body>    <div id="calendar" class="aui-calendar"></div>
+</body>
+<script type="text/javascript" src="../script/api.js"></script>
+<script type="text/javascript" src="../script/aui-tap.js"></script>
+<script type="text/javascript" src="../script/aui-calendar-slide.js"></script>
+<script type="text/javascript">
+    apiready = function(){
+        /**
+        * 日历
+        * $aui.calendar(el,opts,callback);
+        * startDate = '2016-03-20'开始日期，不传时为今天，当没有天传入时，默认从当月开始日期
+        * endDate = '2016-04-28' 结束日期
+        * beforeStartDateClick 默认false，开始日期之前的当月是否允许点击
+        * 当开始日期和结束日期都为空时,默认显示当月日历
+        * 返回数据为点击某天后结果，格式 {status:'success',date:'2016-01-01'}
+        **
+        $aui.calendar($api.byId("calendar"),{
+            startDate:'2016-03',
+            endDate:'2016-08',
+            beforeStartDateClick : false
+        },function(ret){
+            if(ret){
+                // 返回点击的日期
+                // alert(JSON.stringify(ret));
+            }
+        })
+        */
+        var todayDate = new Date();
+        var startDate = todayDate.getFullYear()+'-'+(todayDate.getMonth()+1)+'-'+todayDate.getDate();
+        var endDate = (todayDate.getFullYear())+'-'+(todayDate.getMonth()+5);
+        $aui.calendar($api.byId("calendar"),{
+            startDate : startDate,
+            endDate : endDate,
+            beforeStartDateClick : false // 是否允许开始日期之前的可以点击，默认为false
+        },function(ret){
+            if(ret){
+                // 返回点击的日期
+                // alert(JSON.stringify(ret));
+                $api.text($api.byId("result"),ret.date);
+            }
+        })
+    }
+</script>
+</html>

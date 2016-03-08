@@ -21,7 +21,7 @@
 <script type="text/javascript" src="../script/api.js" ></script>
 <script type="text/javascript">
     apiready = function(){
-        
+
     }
     var i=1;
     var startX,
@@ -32,11 +32,10 @@
         console.log(event);
         startX = event.touches[0].pageX,
         startY = event.touches[0].pageY;
-
     });
     $api.addEvt($api.byId("demo"), 'touchmove', function(event){
         // console.log(event);
-        
+
         i++;
         console.log(event.touches[0].pageY);
         console.log(moveEndY);

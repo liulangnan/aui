@@ -12,7 +12,9 @@
             <i class="aui-iconfont aui-icon-search"></i>
             <div class="aui-searchbar-text">请输入搜索内容</div>
             <div class="aui-searchbar-input">
-            	<input type="text" placeholder="请输入搜索内容" id="search-input">
+            	<form action="javascript:search();">
+            	<input type="search" placeholder="请输入搜索内容" id="search-input">
+            	</form>
             </div>
             <i class="aui-iconfont aui-icon-roundclosefill" tapmode onclick="clearInput()"></i>
         </div>
@@ -35,6 +37,21 @@
 	}
 	function clearInput(){
 		$api.val($api.byId("search-input"),'');
+	}
+	function search(){
+		var content = $api.val($api.byId("search-input"));
+		if(content){
+			api.alert({
+			    title: '搜索提示',
+			    msg: '您输入的内容为：'+content
+			});
+		}else{
+			api.alert({
+			    title: '搜索提示',
+			    msg: '您没有输入任何内容'
+			});
+		}
+		cancelSearch();
 	}
 </script>
 </html>

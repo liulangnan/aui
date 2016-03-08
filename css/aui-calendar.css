@@ -1,0 +1,113 @@
+/*
+ * =========================================================================
+ * APIClud - AUI UI 框架    流浪男  QQ：343757327  http://www.auicss.com
+ * 日历样式表
+ * Verson 0.0.1
+ * =========================================================================
+ */
+table {
+    border-spacing: 0;
+    border-collapse: collapse;
+    width: 100%;
+    max-width: 100%;
+    text-align: center;
+}
+td,
+th {
+    padding: 0;
+    font-weight: 400;
+    display: table-cell;
+    vertical-align: inherit;
+}
+tr {
+    display: table-row;
+    vertical-align: inherit;
+    border-color: inherit;
+}
+.aui-calendar {
+    padding: 15px;
+    background: #ffffff;
+    color: #999999;
+
+}
+.aui-calendar > table {
+    margin-bottom: 15px;
+    /*-webkit-animation: flipInX 0.3s;
+        animation: flipInX 0.3s;*/
+}
+.aui-calendar th {
+    padding: 5px 0;
+}
+.aui-calendar .aui-calendar-body td {
+    padding: 15px 0;
+    position: relative;
+    touch-action: none;
+}
+.aui-calendar td p {
+    font-size: 10px;
+}
+.aui-calendar .aui-calendar-header {
+    position: relative;
+    border-bottom: 1px solid #eeeeee;
+}
+.aui-calendar .aui-calendar-header > tr:first-child {
+    font-size: 1.2em;
+}
+.aui-calendar .today {
+    border: 1px solid #e74c3c;
+    border-radius: 50%;
+    width: 3em;
+    height: 3em;
+    left: 50%;
+    top: 50%;
+    margin-left: -1.5em;
+    margin-top: -1.5em;
+    position: absolute;
+    background: transparent;
+}
+.aui-calendar .bandge {
+    width: 6px;
+    height: 6px;
+    background: #ff9900;
+    border-radius: 50%;
+    position: absolute;
+    top: 14px;
+    left: 50%;
+    margin-left: -3px;
+}
+.aui-calendar .active {
+    border-radius: 50%;
+    width: 3em;
+    height: 3em;
+    left: 50%;
+    top: 50%;
+    margin-left: -1.5em;
+    margin-top: -1.5em;
+    position: absolute;
+    background: rgba(102,102,102,0.1);
+    -webkit-animation: flipInX 0.3s;
+        animation: flipInX 0.3s;
+
+}
+.aui-calendar .before-day,
+.aui-calendar .before-day p {
+    color: #ccc !important;
+    /*background: #fafafa;*/
+}
+.aui-calendar .before-day .today {
+    border-color: #ffcc00 !important;
+}
+
+@-webkit-keyframes flipInX {
+    from {
+        -webkit-transform: perspective(400px) rotate3d(1, 0, 0, 90deg);
+        transform: perspective(400px) rotate3d(1, 0, 0, 90deg);
+        -webkit-animation-timing-function: ease-in;
+        animation-timing-function: ease-in;
+        opacity: 0.8;
+    }
+    to {
+        -webkit-transform: perspective(400px);
+        transform: perspective(400px);
+    }
+}

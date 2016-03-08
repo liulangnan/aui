@@ -1,0 +1,73 @@
+/*
+ * =========================================================================
+ * APIClud - AUI UI 框架    流浪男  QQ：343757327  http://www.auicss.com
+ * 全屏上下滑动组件
+ * Verson 0.0.1
+ * =========================================================================
+ */
+.aui-slider-nav {
+	position: relative;
+	background: #000;
+}
+.aui-slider-nav ul {
+	position: relative;
+}
+.aui-slider-nav ul,
+.aui-slider-nav li {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	height: 100%;
+	width: 100%;
+	overflow: hidden;
+	background: #000000;
+	color: #ffffff;
+}
+.aui-slider-nav li {
+	position: absolute;
+	-webkit-backface-visibility: hidden;
+}
+.aui-slider-nav li img {
+	width: 100%;
+	height: 100%;
+}
+.aui-up-slide {
+	position: absolute;
+	bottom: 10px;
+	left: 50%;
+	width: 20px;
+	height: 20px;
+	z-index: 999999999;
+	margin-left: -10px;
+	color: #ffffff;
+	text-align: center;
+	font-weight: 700;
+}
+.aui-up-slide .aui-iconfont {
+	font-size: 28px;
+}
+.aui-slider-close {
+	background: rgba(102,102,102,0.7);
+	top: 30px;
+	right: 10px;
+	padding: 5px 10px;
+	color: #ffffff;
+	position: fixed;
+	z-index: 999999;
+	border-radius: 30px;
+	font-size: 12px;
+}
+@keyframes zoomIn {
+	from {
+		opacity: 0;
+		-webkit-transform: scale3d(.3, .3, .3);
+		transform: scale3d(.3, .3, .3);
+	}
+	50% {
+		opacity: 1;
+	}
+}
+.zoomIn {
+	-webkit-animation: zoomIn 1s;
+			animation: zoomIn 1s;
+}
