@@ -1,0 +1,49 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <title>APP</title>
+    <link rel="stylesheet" type="text/css" href="../css/aui.css" />
+    <style type="text/css">
+    body {
+        background: #ffffff;
+    }
+    .aui-content > div {
+        width: 100%;
+        height: 50px;
+        line-height: 50px;
+        text-align: center;
+        margin-bottom: 15px;
+    }
+    </style>
+</head>
+<body>
+    <div class="aui-content aui-padded-15">
+        <p>新增边框样式，aui-border-* 边框样式解决了移动端1px边框变粗问题</p>
+        <p><mark>.aui-border-t</mark> 上边框</p>
+        <p><mark>.aui-border-b</mark> 下边框</p>
+        <p><mark>.aui-border-l</mark> 左边框</p>
+        <p><mark>.aui-border-r</mark> 右边框</p>
+        <p><mark>.aui-border-tb</mark> 上下边框</p>
+        <p><mark>.aui-border</mark> 边框</p>
+        <p><mark>.aui-border.aui-border-radius</mark> 边框</p>
+    </div>
+    <div class="aui-content aui-padded-15">
+        <div class="aui-border-t">上边框</div>
+        <div class="aui-border-b">下边框</div>
+        <div class="aui-border-l">左边框</div>
+        <div class="aui-border-r">右边框</div>
+        <div class="aui-border-tb">上下边框</div>
+        <div class="aui-border">边框</div>
+        <div class="aui-border aui-border-radius">圆角边框</div>
+    </div>
+</body>
+<script type="text/javascript" src="../script/api.js" ></script>
+<script type="text/javascript">
+    apiready = function(){
+        api.parseTapmode();
+    }
+
+</script>
+</html>

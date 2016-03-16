@@ -1,0 +1,148 @@
+<!DOCTYPE HTML> 
+<html>
+<head>
+<meta charset="utf-8">
+<title>TouchSlider</title>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no'/> 
+<link href='style.css' rel='stylesheet'/>
+<script type="text/javascript" src="./src/touchslider.js"></script>
+</head>
+<body>
+
+<h1>TouchSlider</h1>
+
+
+<h2>full-width 类型：容器宽度自适应，幻灯宽度不固定，居中对齐（iphone版appStore上截图展现方式） <br/>
+调用方式：new TouchSlider('slider',{duration:800, interval:3000, direction:0, autoplay:true, align:'center', mousewheel:false, mouse:true, <font color="red">fullsize:false</font>});</h2>
+
+<div class='swipe' style='margin:10px;'>
+  <ul id='slider'>
+    <li style='display:block'><div>1</div></li>
+    <li><div>2</div></li>
+    <li><div>3</div></li>
+    <li><div>4</div></li>
+    <li><div>5</div></li>
+  </ul>
+</div>
+
+<button onclick="t1.pause();">暂停</button>
+<button onclick="t1.play();">播放</button>
+<button onclick="t1.prev();">上一张</button>
+<button onclick="t1.next();">下一张</button>
+
+<h2>full-width 类型：容器宽度自适应，幻灯宽度不固定，靠左对齐（ipad版appStore上截图展现方式） <br/>
+调用方式：new TouchSlider('slider',{duration:800, interval:3000, direction:0, autoplay:true, <font color="red">align:'left'</font>, mousewheel:false, mouse:true, <font color="red">fullsize:false</font>});</h2>
+
+<div class='swipe' style='margin:10px;'>
+  <ul id='slider1'>
+    <li style='display:block'><div>1</div></li>
+    <li><div>2</div></li>
+    <li><div>3</div></li>
+    <li><div>4</div></li>
+    <li><div>5</div></li>
+  </ul>
+</div>
+
+<button onclick="t11.pause();">暂停</button>
+<button onclick="t11.play();">播放</button>
+<button onclick="t11.prev();">上一张</button>
+<button onclick="t11.next();">下一张</button>
+<button style="background:red;color:#fff;" onclick="var li=document.createElement('li');li.innerHTML='<div>'+(t11.pages.length+1)+'</div>';t11.append(li);">增加</button>
+<button style="background:red;color:#fff;" onclick="t11.remove(0);">删除</button>
+
+<h2>250px-width 类型：容器宽度250px，固定宽度幻灯，方向向上滚动 <br/>
+调用方式：new TouchSlider('slider2',{duration:600, interval:3000,  <font color="red">direction:1</font>, autoplay:true, align:'middle', <font color="red">mousewheel:true</font>, mouse:true, fullsize:true});</h2>
+
+<div class='swipe' style='height:143px;width:250px'>
+  <ul id='slider2'>
+    <li class="a" style='display:block'><div>1</div></li>
+    <li class="a" style='display:none'><div>2</div></li>
+    <li class="a" style='display:none'><div>3</div></li>
+    <li class="a" style='display:none'><div>4</div></li>
+    <li class="a" style='display:none'><div>5</div></li>
+  </ul>
+</div>
+
+<button onclick="t2.pause();">暂停</button>
+<button onclick="t2.play();">播放</button>
+<button onclick="t2.prev();">上一张</button>
+<button onclick="t2.next();">下一张</button>
+
+<h2>Full-width 类型：容器宽度自适应，幻灯宽度固定<br/>
+调用方式：new TouchSlider('slider',{duration:1000, direction:0, interval:3000, fullsize:true})</h2>
+
+<div class='swipe' style="height:123px;">
+  <ul id='slider3'>
+    <li style='display:block'><div>1</div></li>
+    <li style='display:none;width:200px;'><div>2   <a href="http://www.qiqiboy.com" target="_blank">qiqiboy</a></div></li>
+    <li style='display:none;width:300px;'><div>3</div></li>
+    <li style='display:none;width:100px;'><div>4</div></li>
+    <li style='display:none;width:500px;'><div>5</div></li>
+  </ul>
+</div>
+
+<button onclick="t3.pause();">暂停</button>
+<button onclick="t3.play();">播放</button>
+<button onclick="t3.prev();">上一张</button>
+<button onclick="t3.next();">下一张</button>
+
+
+<h2>image slider new TouchSlider('slider4',{speed:1000, direction:0, interval:6000, fullsize:true})</h2>
+
+<div class='swipe'>
+  <ul id='slider4'>
+    <li style='display:block'><a href="http://boy.im"><img src="imgs/1.jpg" alt="" /></a></li>
+    <li><img src="imgs/2.jpg" alt="" /></li>
+    <li><img src="imgs/3.jpg" alt="" /></li>
+    <li><img src="imgs/4.jpg" alt="" /></li>
+  </ul>
+</div>
+<div>页码实现方式一(未加状态标识)：
+	<a href="#" onclick="t4.slide(0);return false;"> 1 </a>
+	<a href="#" onclick="t4.slide(1);return false;"> 2 </a>
+	<a href="#" onclick="t4.slide(2);return false;"> 3 </a>
+	<a href="#" onclick="t4.slide(3);return false;"> 4 </a>
+</div>
+<br/>
+<div id="pagenavi">页码实现方式二：
+	<a href="#" class="active">1</a>
+	<a href="#">2</a>
+	<a href="#">3</a>
+	<a href="#">4</a>
+</div>
+<br>
+<button onclick="t4.pause();">暂停</button>
+<button onclick="t4.play();">播放</button>
+<button onclick="t4.prev();">上一张</button>
+<button onclick="t4.next();">下一张</button>
+
+<br><br>
+<div id="copyright">Copyright 2012 <a href="http://www.qiqiboy.com">www.qiqiboy.com</a></div>
+
+
+<script type="text/javascript">
+console=window.console || {dir:new Function(),log:new Function()};
+var active=0,
+	as=document.getElementById('pagenavi').getElementsByTagName('a');
+for(var i=0;i<as.length;i++){
+	(function(){
+		var j=i;
+		as[i].onclick=function(){
+			t4.slide(j);
+			return false;
+		}
+	})();
+}
+var t1=new TouchSlider('slider',{duration:800, interval:3000, direction:0, autoplay:true, align:'center', mousewheel:false, mouse:true, fullsize:false});
+var t11=new TouchSlider('slider1',{duration:800, interval:3000, direction:0, autoplay:true, align:'left', mousewheel:false, mouse:true, fullsize:false});
+var t2=new TouchSlider('slider2',{duration:600, interval:3000, direction:1, autoplay:true, align:'middle', mousewheel:true, mouse:true, fullsize:true});
+var t3=new TouchSlider('slider3',{duration:1000, direction:0, interval:3000, fullsize:true});
+var t4=new TouchSlider('slider4',{speed:1000, direction:0, interval:6000, fullsize:true});
+t4.on('before',function(m,n){
+    as[m].className='';
+	as[n].className='active';
+})
+</script>
+
+</body> 
+</html> 

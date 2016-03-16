@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <link rel="stylesheet" type="text/css" href="../css/aui.css" />
+	<style type="text/css">
+	.aui-searchbar-wrap.fixed {
+		position: fixed;
+		top: 0;
+		left: 0;
+		z-index: 11;
+		width: 100%;
+	}
+	.aui-indexed-list {
+		position: relative;
+		width: 100%;
+		top: 50px;
+		overflow-y: auto;
+		-webkit-overflow-scrolling: touch;
+	}
+	.aui-indexed-list::-webkit-scrollbar {
+		width: 0px;
+		height: 0px;
+		visibility: hidden;
+	}
+	.aui-indexed-list-bar {
+		position: fixed;
+		right: 0;
+		top: 0;
+		height: 100%;
+		width: 30px;
+	    z-index: 10;
+	    opacity: 0.6;
+	}
+	.aui-indexed-list-bar a {
+		display: block;
+	    text-align: center;
+	    font-size: 11px;
+	    font-weight: 700;
+	    padding: 0;
+	    margin: 0;
+	    color: #666666;
+	    height: 14px;
+	    line-height: 14px;
+	}
+	.aui-indexed-list-bar a .aui-iconfont {
+		font-size: 12px;
+	}
+	.aui-list-view {
+		margin-bottom: 0;
+	}
+	.aui-indexed-list-toast {
+	    position: fixed;
+	    top: 0;
+	    right: 0;
+	    background-color: rgba(0, 0, 0, 0.5);
+	    width: 100px;
+	    height: 40px;
+	    line-height: 40px;
+	    border-top-left-radius: 20px;
+	    border-bottom-left-radius: 20px;
+	    padding-left: 20px;
+	    font-size: 26px;
+	    color: #fff;
+	    display: none;
+	    z-index: 0;
+	}
+	.aui-indexed-list-toast.active {
+		display: block;
+		-webkit-animation: fadeInRight 0.3s;
+        animation: fadeInRight 0.3s;
+	}
+	.aui-indexed-list-view {
+		position: relative;
+		background-color: #ffffff;
+	}
+	.aui-indexed-list-view-group {
+		background: #f4f4f4;
+		padding: 5px 15px;
+		font-weight: 400;
+		font-size: 14px;
+		color: #999;
+		margin-top: -1px;
+		position: relative;
+	}
+	.aui-indexed-list-view-group:before {
+		border-top: 1px solid #c8c7cc;
+		display: block;
+		content: '';
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		-webkit-transform-origin: 0 0;
+		-webkit-transform: scale(1);
+		pointer-events: none;
+	}
+	.aui-indexed-list-view.aui-in .aui-indexed-list-view-group:after {
+	  	left:0;
+	}
+	@media only screen and (-webkit-min-device-pixel-ratio: 1.5) {
+	    .aui-indexed-list-view-group:before {
+	        right: -100%;
+	        bottom: -100%;
+	        -webkit-transform: scale(0.5);
+	    }
+	}
+	@-webkit-keyframes fadeInRight {
+        from {
+            opacity: 0;
+            -webkit-transform: translate3d(100%, 0, 0);
+            transform: translate3d(100%, 0, 0);
+        }
+
+        to {
+            opacity: 1;
+            -webkit-transform: none;
+            transform: none;
+        }
+    }
+    @keyframes fadeInRight {
+        from {
+            opacity: 0;
+            -webkit-transform: translate3d(100%, 0, 0);
+            transform: translate3d(100%, 0, 0);
+        }
+        to {
+            opacity: 1;
+            -webkit-transform: none;
+            transform: none;
+        }
+    }
+	#loading {
+		width: 80px;
+		height: 30px;
+		position: absolute;
+		top: 20px;
+		left: 50%;
+		margin-left: -40px;
+		background: #ff9900;
+		font-size: 12px;
+		color: #ffffff;
+		text-align: center;
+		line-height: 30px;
+	}
+	.donghua {
+		-webkit-animation: load .8s infinite ease-in-out;
+  			animation: load .8s infinite ease-in-out;
+	}
+	@-webkit-keyframes load {
+	  0%,
+	  80%,
+	  100% {
+	    background: #ffcc00;
+	  }
+	  40% {
+	    background: #ff9900;
+	  }
+	}
+	@keyframes load {
+	  0%,
+	  80%,
+	  100% {
+	    background: #ff9900;
+	  }
+	  40% {
+	    background: #ffcc00;
+	  }
+	}
+	</style>
+</head>
+<body>
+	<div id="loading">dd</div>
+	<div class="aui-searchbar-wrap fixed" id="group-search">
+        <div class="aui-searchbar aui-border-radius">
+            <i class="aui-iconfont aui-icon-search"></i>
+            <div class="aui-searchbar-text">输入首字母</div>
+            <div class="aui-searchbar-input">
+            	<form action="javascript:search();">
+            	<input type="text" placeholder="输入首字母" id="aui-searchbar-input">
+            	</form>
+            </div>
+            <i class="aui-iconfont aui-icon-roundclosefill" id="aui-searchbar-clear"></i>
+        </div>
+        <div class="aui-searchbar-cancel aui-text-info" id="aui-searchbar-cancel">取消</div>
+    </div>
+    <div class="aui-indexed-list">
+
+	    <ul class="aui-list-view aui-indexed-list-view aui-in" id="group-*" data-group="*">
+	    	<li class="aui-list-view-cell aui-indexed-list-view-group">
+	    		<span class="aui-iconfont aui-icon-favorfill" data-value="*"></span>星标朋友
+	    	</li>
+            <li class="aui-list-view-cell">
+                <i class="aui-iconfont aui-icon-myfill aui-bg-info"></i>张三
+            </li>
+            <li class="aui-list-view-cell">
+                <i class="aui-iconfont aui-icon-myfill aui-bg-success"></i>李四
+            </li>
+            <li class="aui-list-view-cell">
+                <i class="aui-iconfont aui-icon-myfill aui-bg-danger"></i>王五
+            </li>
+            <li class="aui-list-view-cell">
+                <i class="aui-iconfont aui-icon-myfill aui-bg-warning"></i>张飞
+            </li>
+			<li class="aui-list-view-cell aui-indexed-list-view-group" id="group-#" data-group="#">#</li>
+			<li class="aui-list-view-cell"> ^.^</li>
+			<li class="aui-list-view-cell">!!*_*!!</li>
+			<li class="aui-list-view-cell aui-indexed-list-view-group" id="group-A" data-group="A">A</li>
+			<li class="aui-list-view-cell">阿拉善盟</li>
+			<li class="aui-list-view-cell">安庆</li>
+			<li class="aui-list-view-cell" data-tags="anyang">安阳</li>
+			<li class="aui-list-view-cell" data-tags="aba">阿坝藏族羌族自治州</li>
+			<li class="aui-list-view-cell" data-tags="anshun">安顺</li>
+			<li class="aui-list-view-cell aui-indexed-list-view-group" id="group-B" data-group="B">B</li>
+			<li class="aui-list-view-cell" data-tags="beijing">北京</li>
+			<li class="aui-list-view-cell" data-tags="baoding">保定</li>
+			<li class="aui-list-view-cell" data-tags="baotou">包头</li>
+			<li class="aui-list-view-cell" data-tags="benxi">本溪</li>
+			<li class="aui-list-view-cell" data-tags="baishan">白山</li>
+			<li class="aui-list-view-cell" data-tags="baicheng">白城</li>
+			<li class="aui-list-view-cell" data-tags="haozhou">毫州</li>
+			<li class="aui-list-view-cell" data-tags="binzhou">滨州</li>
+			<li class="aui-list-view-cell" data-tags="binhai">滨海</li>
+			<li class="aui-list-view-cell" data-tags="beihai">北海</li>
+			<li class="aui-list-view-cell" data-tags="baise">百色</li>
+			<li class="aui-list-view-cell" data-tags="baoshan">保山</li>
+			<li class="aui-list-view-cell" data-tags="baoji">宝鸡</li>
+			<li class="aui-list-view-cell" data-tags="baiyin">白银</li>
+			<li class="aui-list-view-cell aui-indexed-list-view-group" id="group-C" data-group="C">C</li>
+			<li class="aui-list-view-cell" data-tags="chengde">承德</li>
+			<li class="aui-list-view-cell" data-tags="cangzhou">沧州</li>
+			<li class="aui-list-view-cell" data-tags="chifeng">赤峰</li>
+			<li class="aui-list-view-cell" data-tags="chaoyang">朝阳</li>
+			<li class="aui-list-view-cell" data-tags="cangzhou">常州</li>
+			<li class="aui-list-view-cell" data-tags="chizhou">池州</li>
+			<li class="aui-list-view-cell" data-tags="changsha">长沙</li>
+			<li class="aui-list-view-cell" data-tags="changde">常德</li>
+			<li class="aui-list-view-cell aui-indexed-list-view-group" id="group-D" data-group="D">D</li>
+			<li class="aui-list-view-cell" data-tags="datong">大同</li>
+			<li class="aui-list-view-cell" data-tags="dalian">大连</li>
+			<li class="aui-list-view-cell" data-tags="daqing">大庆</li>
+			<li class="aui-list-view-cell" data-tags="dongying">东营</li>
+			<li class="aui-list-view-cell" data-tags="dezhou">德州</li>
+			<li class="aui-list-view-cell" data-tags="dongguan">东莞</li>
+			<li class="aui-list-view-cell" data-tags="deyang">德阳</li>
+			<li class="aui-list-view-cell" data-tags="dingxi">定西</li>
+			<li class="aui-list-view-cell aui-indexed-list-view-group" id="group-E" data-group="E">E</li>
+			<li class="aui-list-view-cell" data-tags="eerduosi">鄂尔多斯</li>
+			<li class="aui-list-view-cell" data-tags="ezhou">鄂州</li>
+			<li class="aui-list-view-cell aui-indexed-list-view-group" id="group-F" data-group="F">F</li>
+			<li class="aui-list-view-cell" data-tags="fushun">抚顺</li>
+			<li class="aui-list-view-cell" data-tags="fuxin">阜新</li>
+			<li class="aui-list-view-cell" data-tags="fuzhou">福州</li>
+			<li class="aui-list-view-cell" data-tags="fuzhou">抚州</li>
+			<li class="aui-list-view-cell" data-tags="foshan">佛山</li>
+		</ul>
+	</div>
+	<div class="aui-indexed-list-toast"></div>
+	<div class="aui-indexed-list-bar">
+		<a>
+			<i class="aui-iconfont aui-icon-search" data-value="search"></i>
+		</a>
+		<a>
+			<i class="aui-iconfont aui-icon-favorfill" data-value="*"></i>
+		</a>
+		<a data-value="#">#</a>
+		<a data-value="A">A</a>
+		<a data-value="B">B</a>
+		<a data-value="C">C</a>
+		<a data-value="D">D</a>
+		<a data-value="E">E</a>
+		<a data-value="F">F</a>
+		<a data-value="G">G</a>
+		<a data-value="H">H</a>
+		<a data-value="I">I</a>
+		<a data-value="J">J</a>
+		<a data-value="K">K</a>
+		<a data-value="L">L</a>
+		<a data-value="M">M</a>
+		<a data-value="N">N</a>
+		<a data-value="O">O</a>
+		<a data-value="P">P</a>
+		<a data-value="Q">Q</a>
+		<a data-value="R">R</a>
+		<a data-value="S">S</a>
+		<a data-value="T">T</a>
+		<a data-value="U">U</a>
+		<a data-value="V">V</a>
+		<a data-value="W">W</a>
+		<a data-value="X">X</a>
+		<a data-value="Y">Y</a>
+		<a data-value="Z">Z</a>
+	</div>
+	<script type="text/javascript" src="../script/api.js" ></script>
+	<script type="text/javascript" src="../script/aui-tap.js" ></script>
+	<script type="text/javascript">
+	var listArr = document.querySelectorAll(".aui-indexed-list li");
+	var indexedWrap = document.querySelector(".aui-indexed-list");
+	// 搜索类
+	var searchWrap = document.querySelector(".aui-searchbar-wrap");
+	var searchBar = document.querySelector(".aui-searchbar");
+	var clearBtn = document.getElementById("aui-searchbar-clear");
+	var searchInput = document.getElementById("aui-searchbar-input");
+	var searchCancel = document.getElementById("aui-searchbar-cancel");
+	// alert(searchWrap.offsetHeight);
+	indexedWrap.style.height = (window.innerHeight-searchWrap.offsetHeight)+"px";
+	searchBar.addEventListener("tap",function(){
+		searchWrap.classList.add("focus");
+		searchInput.focus();
+	}, false)
+	clearBtn.addEventListener("tap",function(){
+		searchInput.value = '';
+	}, false)
+	searchCancel.addEventListener("tap",function(){
+		searchWrap.classList.remove("focus");
+		searchInput.value = '';
+		searchInput.blur();
+	}, false)
+	searchInput.addEventListener("input",function(){
+		var keyword = searchInput.value;
+		keyword = (keyword || '').toUpperCase();
+		setTimeout(function(){
+			var groupElement = indexedWrap.querySelector('[data-group="' + keyword + '"]');
+			if (groupElement) {
+				console.log(groupElement.offsetTop);
+				indexedWrap.scrollTop = groupElement.offsetTop;
+			}
+		},100)
+	},false)
+
+	// 右侧bar
+	var bar = document.querySelector(".aui-indexed-list-bar");
+	// 重置bar高度
+	var barList = document.querySelectorAll(".aui-indexed-list-bar a");
+	var barH = bar.offsetHeight;
+	var newBarH = barList.length*15;
+	bar.style.height = newBarH+"px";
+	bar.style.top = "50%";
+	bar.style.marginTop = "-"+((newBarH-searchWrap.offsetHeight)/2)+"px";
+	//
+	//
+	var a,b;
+	indexedWrap.addEventListener('touchstart',function(event){
+		a = event.changedTouches[0].pageY;
+		b = event.changedTouches[0].pageX;
+	},false)
+	indexedWrap.addEventListener('touchmove',function(event){
+		var ddd = indexedWrap.getBoundingClientRect().top;
+		var endPos = {x:event.changedTouches[0].pageX - b,y:event.changedTouches[0].pageY - a};
+		var c = Math.abs(endPos.x) < Math.abs(endPos.y) ? 1:0;
+		if(c==1 && event.changedTouches[0].pageY > b){
+			// event.preventDefault();
+				var loading = document.getElementById("loading");
+			// console.log(event.changedTouches[0].pageY-a);
+			if(event.changedTouches[0].pageY < indexedWrap.offsetHeight){
+				// loading.style.top = event.changedTouches[0].pageY-a+20+"px";
+				loading.style.webkitTransform = 'translate3d(0, '+(event.changedTouches[0].pageY-a)+'px, 0) scale(1) translateZ(8px)';
+				// loading.style.transform = "rotateZ("+(event.changedTouches[0].pageY-a*10)+"deg)";
+				// console.log(event.changedTouches[0].pageY-a);
+				var loadingTop = loading.offsetTop;
+				if(event.changedTouches[0].pageY-a > 200){
+					loading.classList.add("donghua");
+					// loading.style.webkitTransform = 'translate3d(0, 70px, 0)';
+					loading.textContent = "松手加载";
+					// return;
+				}
+				indexedWrap.style.webkitTransform = 'translate3d(0, '+((event.changedTouches[0].pageY-a)/2)+'px, 0)';
+			}
+			// if(ddd==50){
+
+				// console.log(event.changedTouches[0].pageY);
+				// $api.text($api.byId("demo"),ddd);
+				// indexedWrap.style.top = event.changedTouches[0].pageY+"px";
+
+			// }
+		}
+
+
+	},false)
+	indexedWrap.addEventListener('touchend',function(event){
+		// if(event.changedTouches[0].pageY > 300){
+			indexedWrap.style.webkitTransform = 'translate3d(0, 0, 0)';
+		// }
+	},false)
+	//
+	//
+	bar.addEventListener('touchstart', function(event) {
+		bar.style.opacity = "1";
+		scrollTop(event);
+	}, false);
+	// 监听bar滑动
+	bar.addEventListener('touchmove', function(event) {
+		scrollTop(event);
+	}, false);
+	document.body.addEventListener('touchend', function(event) {
+		removeToast(event);
+	}, false);
+	document.body.addEventListener('touchcancel', function(event) {
+		removeToast(event);
+	}, false);
+	function scrollTop(event){
+		event.preventDefault();
+		var clientX = event.changedTouches[0].clientX;
+		var clientY = event.changedTouches[0].clientY;
+		var _thisBar = document.elementFromPoint(clientX, clientY);
+		if(clientX < window.innerWidth & clientY < window.innerHeight & clientY > 0){
+			var thisValue = _thisBar.getAttribute("data-value");
+			if(thisValue){
+				var groupElement = indexedWrap.querySelector('[data-group="' + thisValue + '"]');
+				if(thisValue != 'search' & thisValue != '*'){
+					document.querySelector(".aui-indexed-list-toast").textContent = thisValue;
+					document.querySelector(".aui-indexed-list-toast").classList.add("active");
+					document.querySelector(".aui-indexed-list-toast").style.top = clientY+'px';
+				}
+				if (groupElement) {
+					indexedWrap.scrollTop = groupElement.offsetTop;
+				}
+			}else{
+				document.querySelector(".aui-indexed-list-toast").textContent = '';
+				document.querySelector(".aui-indexed-list-toast").classList.remove("active");
+			}
+		}
+	}
+	function removeToast(event){
+		bar.style.opacity = "0.6";
+		document.querySelector(".aui-indexed-list-toast").classList.remove("active");
+		bar.classList.remove('active');
+	}
+	</script>
+</body>
+</html>

@@ -2,7 +2,7 @@
  * =========================================================================
  * APIClud - AUI UI 框架    流浪男  QQ：343757327  http://www.auicss.com
  * 日历样式表
- * Verson 0.0.1
+ * Verson 0.0.2
  * =========================================================================
  */
 table {
@@ -28,12 +28,9 @@ tr {
     padding: 15px;
     background: #ffffff;
     color: #999999;
-
 }
 .aui-calendar > table {
     margin-bottom: 15px;
-    /*-webkit-animation: flipInX 0.3s;
-        animation: flipInX 0.3s;*/
 }
 .aui-calendar th {
     padding: 5px 0;
@@ -41,7 +38,6 @@ tr {
 .aui-calendar .aui-calendar-body td {
     padding: 15px 0;
     position: relative;
-    touch-action: none;
 }
 .aui-calendar td p {
     font-size: 10px;

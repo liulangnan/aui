@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <link rel="stylesheet" type="text/css" href="../css/aui.css" />
+    <link rel="stylesheet" type="text/css" href="../css/aui-indexed-list.css" />
+</head>
+<body>
+	<div class="aui-searchbar-wrap fixed" id="group-search">
+        <div class="aui-searchbar aui-border-radius">
+            <i class="aui-iconfont aui-icon-search"></i>
+            <div class="aui-searchbar-text">输入首字母</div>
+            <div class="aui-searchbar-input">
+            	<form action="javascript:search();">
+            	<input type="text" placeholder="输入首字母" id="aui-searchbar-input">
+            	</form>
+            </div>
+            <i class="aui-iconfont aui-icon-roundclosefill" id="aui-searchbar-clear"></i>
+        </div>
+        <div class="aui-searchbar-cancel aui-text-info" id="aui-searchbar-cancel">取消</div>
+    </div>
+    <div class="aui-indexed-list">
+
+	    <ul class="aui-list-view aui-indexed-list-view aui-in" id="group-*" data-group="*">
+	    	<li class="aui-list-view-cell aui-indexed-list-view-group">
+	    		<span class="aui-iconfont aui-icon-favorfill" data-value="*"></span>星标朋友
+	    	</li>
+            <li class="aui-list-view-cell">
+                <i class="aui-iconfont aui-icon-myfill aui-bg-info"></i>张三
+            </li>
+            <li class="aui-list-view-cell">
+                <i class="aui-iconfont aui-icon-myfill aui-bg-success"></i>李四
+            </li>
+            <li class="aui-list-view-cell">
+                <i class="aui-iconfont aui-icon-myfill aui-bg-danger"></i>王五
+            </li>
+            <li class="aui-list-view-cell">
+                <i class="aui-iconfont aui-icon-myfill aui-bg-warning"></i>张飞
+            </li>
+			<li class="aui-list-view-cell aui-indexed-list-view-group" id="group-A" data-group="A">A</li>
+			<li class="aui-list-view-cell">阿拉善盟</li>
+			<li class="aui-list-view-cell">安庆</li>
+			<li class="aui-list-view-cell" data-tags="anyang">安阳</li>
+			<li class="aui-list-view-cell" data-tags="aba">阿坝藏族羌族自治州</li>
+			<li class="aui-list-view-cell" data-tags="anshun">安顺</li>
+			<li class="aui-list-view-cell aui-indexed-list-view-group" id="group-B" data-group="B">B</li>
+			<li class="aui-list-view-cell" data-tags="beijing">北京</li>
+			<li class="aui-list-view-cell" data-tags="baoding">保定</li>
+			<li class="aui-list-view-cell" data-tags="baotou">包头</li>
+			<li class="aui-list-view-cell" data-tags="benxi">本溪</li>
+			<li class="aui-list-view-cell" data-tags="baishan">白山</li>
+			<li class="aui-list-view-cell" data-tags="baicheng">白城</li>
+			<li class="aui-list-view-cell" data-tags="haozhou">毫州</li>
+			<li class="aui-list-view-cell" data-tags="binzhou">滨州</li>
+			<li class="aui-list-view-cell" data-tags="binhai">滨海</li>
+			<li class="aui-list-view-cell" data-tags="beihai">北海</li>
+			<li class="aui-list-view-cell" data-tags="baise">百色</li>
+			<li class="aui-list-view-cell" data-tags="baoshan">保山</li>
+			<li class="aui-list-view-cell" data-tags="baoji">宝鸡</li>
+			<li class="aui-list-view-cell" data-tags="baiyin">白银</li>
+			<li class="aui-list-view-cell aui-indexed-list-view-group" id="group-C" data-group="C">C</li>
+			<li class="aui-list-view-cell" data-tags="chengde">承德</li>
+			<li class="aui-list-view-cell" data-tags="cangzhou">沧州</li>
+			<li class="aui-list-view-cell" data-tags="chifeng">赤峰</li>
+			<li class="aui-list-view-cell" data-tags="chaoyang">朝阳</li>
+			<li class="aui-list-view-cell" data-tags="cangzhou">常州</li>
+			<li class="aui-list-view-cell" data-tags="chizhou">池州</li>
+			<li class="aui-list-view-cell" data-tags="changsha">长沙</li>
+			<li class="aui-list-view-cell" data-tags="changde">常德</li>
+			<li class="aui-list-view-cell aui-indexed-list-view-group" id="group-D" data-group="D">D</li>
+			<li class="aui-list-view-cell" data-tags="datong">大同</li>
+			<li class="aui-list-view-cell" data-tags="dalian">大连</li>
+			<li class="aui-list-view-cell" data-tags="daqing">大庆</li>
+			<li class="aui-list-view-cell" data-tags="dongying">东营</li>
+			<li class="aui-list-view-cell" data-tags="dezhou">德州</li>
+			<li class="aui-list-view-cell" data-tags="dongguan">东莞</li>
+			<li class="aui-list-view-cell" data-tags="deyang">德阳</li>
+			<li class="aui-list-view-cell" data-tags="dingxi">定西</li>
+			<li class="aui-list-view-cell aui-indexed-list-view-group" id="group-E" data-group="E">E</li>
+			<li class="aui-list-view-cell" data-tags="eerduosi">鄂尔多斯</li>
+			<li class="aui-list-view-cell" data-tags="ezhou">鄂州</li>
+			<li class="aui-list-view-cell aui-indexed-list-view-group" id="group-F" data-group="F">F</li>
+			<li class="aui-list-view-cell" data-tags="fushun">抚顺</li>
+			<li class="aui-list-view-cell" data-tags="fuxin">阜新</li>
+			<li class="aui-list-view-cell" data-tags="fuzhou">福州</li>
+			<li class="aui-list-view-cell" data-tags="fuzhou">抚州</li>
+			<li class="aui-list-view-cell" data-tags="foshan">佛山</li>
+			<li class="aui-list-view-cell aui-indexed-list-view-group" id="group-#" data-group="#">#</li>
+			<li class="aui-list-view-cell"> ^.^</li>
+			<li class="aui-list-view-cell">!!*_*!!</li>
+		</ul>
+	</div>
+	<div class="aui-indexed-list-toast"></div>
+	<div class="aui-indexed-list-bar">
+		<a>
+			<i class="aui-iconfont aui-icon-search" data-value="search"></i>
+		</a>
+		<a>
+			<i class="aui-iconfont aui-icon-favorfill" data-value="*"></i>
+		</a>
+		<a data-value="A">A</a>
+		<a data-value="B">B</a>
+		<a data-value="C">C</a>
+		<a data-value="D">D</a>
+		<a data-value="E">E</a>
+		<a data-value="F">F</a>
+		<a data-value="G">G</a>
+		<a data-value="H">H</a>
+		<a data-value="I">I</a>
+		<a data-value="J">J</a>
+		<a data-value="K">K</a>
+		<a data-value="L">L</a>
+		<a data-value="M">M</a>
+		<a data-value="N">N</a>
+		<a data-value="O">O</a>
+		<a data-value="P">P</a>
+		<a data-value="Q">Q</a>
+		<a data-value="R">R</a>
+		<a data-value="S">S</a>
+		<a data-value="T">T</a>
+		<a data-value="U">U</a>
+		<a data-value="V">V</a>
+		<a data-value="W">W</a>
+		<a data-value="X">X</a>
+		<a data-value="Y">Y</a>
+		<a data-value="Z">Z</a>
+		<a data-value="#">#</a>
+	</div>
+	<script type="text/javascript" src="../script/api.js" ></script>
+	<script type="text/javascript" src="../script/aui-tap.js" ></script>
+	<script type="text/javascript" src="../script/aui-indexed-list.js" ></script>
+	<script type="text/javascript">
+	</script>
+</body>
+</html>

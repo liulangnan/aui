@@ -49,7 +49,7 @@
                 if (self.offsetY > 0) {//down
                     for(i; i < m; i++){
                         //当前移动时不要动画
-                        lis[i] && (lis[i].style.webkitTransition = '-webkit-transform 0s ease-out');
+                        lis[i] && (lis[i].style.webkitTransition = '-webkit-transform 0st'); // ease-ou
                         if (i == self.initIndex + 1) {
                             lis[i] && (lis[i].style.zIndex = 887);
                             lis[i] && (lis[i].style.webkitTransform = 'translate3d(0, '+((i-self.initIndex)*self.winH + self.offsetY)+'px, 0)');
@@ -60,7 +60,7 @@
                         }
                         if (i == self.initIndex - 1) {
                             lis[i] && (lis[i].style.zIndex = 889);
-                            lis[i] && (lis[i].style.webkitTransition = '-webkit-transform 0.1s ease-out');
+                            lis[i] && (lis[i].style.webkitTransition = '-webkit-transform 0.1s');
                             lis[i] && (lis[i].style.webkitTransform = 'translate3d(0, '+((i-self.initIndex)*self.winH + self.offsetY + 50)+'px, 0)');
                         }
                     }
@@ -68,10 +68,10 @@
                     //当前移动时不要动画
                     for(i; i < m; i++){
                         //当前移动时不要动画
-                        lis[i] && (lis[i].style.webkitTransition = '-webkit-transform 0s ease-out');
+                        lis[i] && (lis[i].style.webkitTransition = '-webkit-transform 0s');
                         if (i == self.initIndex + 1) {
                             lis[i] && (lis[i].style.zIndex = 889);
-                            lis[i] && (lis[i].style.webkitTransition = '-webkit-transform 0.1s ease-out');
+                            lis[i] && (lis[i].style.webkitTransition = '-webkit-transform 0.1s');
                             lis[i] && (lis[i].style.webkitTransform = 'translate3d(0, '+((i-self.initIndex)*self.winH + self.offsetY - 50)+'px, 0)');
                         }
                         if (i == self.initIndex) {
@@ -133,9 +133,9 @@
             //保留当前索引值
             this.initIndex = currIndex;
             //改变过渡的方式，从无动画变为有动画
-            lis[currIndex].style.webkitTransition = '-webkit-transform 0.2s ease-out';
-            lis[currIndex-1] && (lis[currIndex-1].style.webkitTransition = '-webkit-transform 0.2s ease-out');
-            lis[currIndex+1] && (lis[currIndex+1].style.webkitTransition = '-webkit-transform 0.2s ease-out');
+            lis[currIndex].style.webkitTransition = '-webkit-transform 0.2s';
+            lis[currIndex-1] && (lis[currIndex-1].style.webkitTransition = '-webkit-transform 0.2s');
+            lis[currIndex+1] && (lis[currIndex+1].style.webkitTransition = '-webkit-transform 0.2s');
 
             //改变动画后所应该的位移值
             lis[currIndex].style.webkitTransform = 'translate3d(0, 0, 0)';

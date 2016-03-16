@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
-    <title>Hello APP</title>
+    <title>索引列表</title>
     <link rel="stylesheet" type="text/css" href="../css/aui-win.css" />
 </head>
 <body>
@@ -11,8 +11,7 @@
         <a class="aui-btn aui-btn-warning aui-pull-left" tapmode onclick="closeWin()">
             <span class="aui-iconfont aui-icon-left"></span>
         </a>
-        <div class="aui-title">日历</div>
-        <a class="aui-iconfont aui-icon-menu aui-pull-right"></a>
+        <div class="aui-title">索引列表</div>
     </header>
 </body>
 <script type="text/javascript" src="../script/api.js"></script>
@@ -27,18 +26,16 @@
         var headerPos = $api.offset(header);
         var body_h = $api.offset($api.dom('body')).h;
         api.openFrame({
-            name: 'calendar_frm',
-            url: 'calendar_frm.html',
+            name: 'indexed_list_frm',
+            url: 'indexed_list_frm.html',
             bounces: false,
-            vScrollBarEnabled:false,
-            hScrollBarEnabled:false,
             rect: {
                 x: 0,
                 y: headerPos.h,
-                w: 'auto',
+                w: headerPos.w,
                 h: 'auto'
             }
-        })
+        });
     };
 </script>
 </html>
