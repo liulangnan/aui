@@ -24,13 +24,5 @@ AUI遵循MIT License;
 #开发工具
 APICloud 云端一体 重新定义移动应用开发;一站式高效APP开发和管理平台,使用标准WEB技术开发跨平台APP；覆盖APP全生命周期，包括开发、API集成、测试、渠道打包、运营管理等。<a href="http://www.apicloud.com" target="_blank">www.apicloud.com</a>
 
-
-#License
-AUI遵循MIT License;
-
-#开发工具
-APICloud 云端一体 重新定义移动应用开发;一站式高效APP开发和管理平台,使用标准WEB技术开发跨平台APP；覆盖APP全生命周期，包括开发、API集成、测试、渠道打包、运营管理等。<a href="http://www.apicloud.com">www.apicloud.com</a>
-
-
 #作者
 流浪男 QQ:343757327
