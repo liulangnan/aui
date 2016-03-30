@@ -1,0 +1,124 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <title>APP</title>
+    <link rel="stylesheet" type="text/css" href="../css/aui.css" />
+    <link rel="stylesheet" type="text/css" href="../css/aui-accordion.css" />
+    <link rel="stylesheet" type="text/css" href="../css/aui-slide.css" />
+</head>
+<style>
+.aui-content {
+	padding-top: 15px;
+}
+</style>
+<body>
+	<div class="aui-content">
+	    <div class="aui-card">
+	        <ul class="aui-list-view">
+	        	<li class="aui-list-view-cell aui-fold">
+	                <div class="aui-arrow-right">通讯录</div>
+					<div class="aui-fold-content">
+						<ul class="aui-user-view">
+				            <li class="aui-user-view-cell aui-img">
+				                <img class="aui-img-object aui-pull-left" src="../image/demo4.png">
+				                <div class="aui-img-body">
+				                    <span>流浪男<em>11.1KM</em></span>
+				                    <p class='aui-ellipsis-1'>AUI - 移动端快速布局</p>
+				                </div>
+				            </li>
+				            <li class="aui-user-view-cell aui-img">
+				                <img class="aui-img-object aui-pull-left" src="../image/demo1.png">
+				                <div class="aui-img-body">
+				                    <span>张三<em>11.1KM</em></span>
+				                    <p class='aui-ellipsis-1'>山东 潍坊</p>
+				                </div>
+				            </li>
+				        </ul>
+					</div>
+	            </li>
+	            <li class="aui-list-view-cell aui-fold">
+	                <div class="aui-arrow-right aui-text-info">列表</div>
+					<div class="aui-fold-content">
+						<!-- <div class="aui-content"> -->
+					        <ul class="aui-list-view">
+					            <li class="aui-list-view-cell">
+					                <a class="aui-arrow-right">带有角标和箭头的列表</a>
+					            </li>
+					            <li class="aui-list-view-cell">
+					                <a class="aui-arrow-right">带有角标和箭头的列表</a>
+					            </li>
+					            <li class="aui-list-view-cell">
+					                <a class="aui-arrow-right">带有角标和箭头的列表</a>
+					            </li>
+					        </ul>
+					    <!-- </div> -->
+					</div>
+	            </li>
+	            <li class="aui-list-view-cell aui-fold">
+	                <div class="aui-arrow-right aui-text-warning">表单</div>
+	                <div class="aui-fold-content">
+						<div class="aui-form">
+				            <div class="aui-input-row">
+				                <span class="aui-input-addon  aui-iconfont aui-icon-people"></span>
+				                <input type="text" class="aui-input" placeholder="name"/>
+				            </div>
+				            <div class="aui-input-row">
+				            <input type="password" class="aui-input" placeholder="password"/>
+				                <span class="aui-input-addon  aui-iconfont aui-icon-lock"></span>
+				            </div>
+				            <div class="aui-btn-row">
+				                <div class="aui-btn aui-btn-success" onclick="return false;">确认</div>&nbsp;&nbsp;
+				                <div class="aui-btn aui-btn-warning" onclick="return false;">取消</div>
+				            </div>
+				        </div>
+					</div>
+	            </li>
+	            <li class="aui-list-view-cell aui-fold" data="slide">
+	                <div class="aui-arrow-right aui-text-danger">幻灯片</div>
+	                <div class="aui-fold-content">
+	                	<div id="aui-slide" class="aui-fold-ccontent-full">
+							<div class="aui-slide-wrap">
+								<div class="aui-slide-node bg-dark aui-slide-node-middle aui-slide-node-center">
+									<img src="../image/l1.png" />
+								</div>
+								<div class="aui-slide-node bg-dark aui-slide-node-middle aui-slide-node-center">
+									<img src="../image/l2.png" />
+								</div>
+								<div class="aui-slide-node bg-dark aui-slide-node-middle aui-slide-node-center">
+									<img src="../image/l3.png" />
+								</div>
+							</div>
+							<div class="aui-slide-page-wrap"><!--分页容器--></div>
+						</div>
+	                </div>
+	            </li>
+	        </ul>
+	    </div>
+    </div>
+</body>
+<script type="text/javascript" src="../script/aui-accordion.js"></script>
+<script type="text/javascript" src="../script/aui-tap.js" ></script>
+<script type="text/javascript" src="../script/aui-slide.js"></script>
+<script type="text/javascript">
+	var fold = new auiAccordion({
+		callback:loadCallBack
+	});
+	function loadCallBack (event) {
+		if(event.currentTarget.getAttribute("data") && event.currentTarget.getAttribute("data") == 'slide'){
+			var slide = new auiSlide({
+				container:document.getElementById("aui-slide"),
+				// "width":300,
+				"height":240,
+				"speed":500,
+				autoPlay: 0, //自动播放
+				"pageShow":true,
+				"pageStyle":'dot',
+				'dotPosition':'center'
+			})
+		}
+	}
+
+</script>
+</html>

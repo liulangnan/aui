@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+		<link rel="stylesheet" type="text/css" href="../css/aui.css" />
+		<link rel="stylesheet" type="text/css" href="../css/aui-pull-refresh.css" />
+	</head>
+	<body>
+		<div class="aui-load-container">
+			<div class="aui-load-wrap">
+				<div class="aui-loading-dot"></div>
+				<div class="aui-loading-circle"></div>
+				<div class="aui-loading-title"></div>
+			</div>
+			<div class="aui-content">
+		        <ul class="aui-list-view" id="list">
+		            <li class="aui-list-view-cell">
+		                单行列表标题效果
+		            </li>
+		            <li class="aui-list-view-cell">
+		                单行列表标题效果
+		            </li>
+		            <li class="aui-list-view-cell">
+		                单行列表标题效果
+		            </li>
+		            <li class="aui-list-view-cell">
+		                单行列表标题效果
+		            </li>
+		            <li class="aui-list-view-cell">
+		                单行列表标题效果
+		            </li>
+		        </ul>
+		    </div>
+		    <p class="aui-text-center">新增 下划线缩进 15px .aui-in</p>
+		    <div class="aui-content">
+		        <ul class="aui-list-view aui-in">
+		            <li class="aui-list-view-cell">
+		                单行列表标题效果
+		            </li>
+		            <li class="aui-list-view-cell">
+		                单行列表标题效果
+		            </li>
+		        </ul>
+		    </div>
+		    <p class="aui-text-center">新增 i.aui-iconfont</p>
+		    <div class="aui-content">
+		        <ul class="aui-list-view aui-in">
+		            <li class="aui-list-view-cell">
+		                <i class="aui-iconfont aui-icon-edit aui-bg-info"></i>单行列表标题效果
+		            </li>
+		            <li class="aui-list-view-cell">
+		                <i class="aui-iconfont aui-icon-emoji aui-bg-success"></i>单行列表标题效果
+		            </li>
+		            <li class="aui-list-view-cell">
+		                <i class="aui-iconfont aui-icon-favor aui-bg-danger"></i>单行列表标题效果
+		            </li>
+		            <li class="aui-list-view-cell">
+		                <i class="aui-iconfont aui-icon-like aui-bg-warning"></i>单行列表标题效果
+		            </li>
+		            <li class="aui-list-view-cell">
+		                <i class="aui-iconfont aui-icon-shop aui-bg-success"></i>单行列表标题效果
+		            </li>
+		        </ul>
+		    </div>
+		    <p class="aui-text-center">一条数据列表效果</p>
+		    <div class="aui-content">
+		        <ul class="aui-list-view">
+		            <li class="aui-list-view-cell" data-win="list_arrow">
+		                单行列表标题效果
+		            </li>
+		        </ul>
+		    </div>
+		    <p class="aui-text-center">.aui-content-padded</p>
+		    <div class="aui-content-padded">
+		        <ul class="aui-list-view">
+		            <li class="aui-list-view-cell" data-win="list_arrow">
+		                卡片式单行列表标题效果
+		            </li>
+		            <li class="aui-list-view-cell" data-win="list_thumb">
+		                卡片式单行列表标题效果
+		            </li>
+		            <li class="aui-list-view-cell" data-win="list-image">
+		                卡片式单行列表标题效果
+		            </li>
+		        </ul>
+		    </div>
+		    <p class="aui-text-center">.aui-card 圆角卡片有边框</p>
+		    <div class="aui-card">
+		        <ul class="aui-list-view">
+		            <li class="aui-list-view-cell" data-win="list_arrow">
+		                卡片式单行列表标题效果
+		            </li>
+		            <li class="aui-list-view-cell" data-win="list_thumb">
+		                卡片式单行列表标题效果
+		            </li>
+		            <li class="aui-list-view-cell" data-win="list-image">
+		                卡片式单行列表标题效果
+		            </li>
+		        </ul>
+		    </div>
+		    <p class="aui-text-center">.aui-card .aui-noborder 圆角卡片无边框</p>
+		    <div class="aui-card aui-noborder">
+		        <ul class="aui-list-view">
+		            <li class="aui-list-view-cell" data-win="list_arrow">
+		                卡片式单行列表标题效果
+		            </li>
+		            <li class="aui-list-view-cell" data-win="list_thumb">
+		                卡片式单行列表标题效果
+		            </li>
+		            <li class="aui-list-view-cell" data-win="list-image">
+		                卡片式单行列表标题效果
+		            </li>
+		        </ul>
+		    </div>
+		</div>
+	</body>
+	<script src="../script/aui-pull-refresh.js"></script>
+	<script type="text/javascript">
+		var pullRefresh = new auiPullToRefresh({
+			callback: loadingCallback,
+			textDown:'下拉刷新'
+		})
+		function loadingCallback(status) {
+			if(status=='success'){
+				setTimeout(function(){
+					var wrap = document.getElementById("list")
+					var lis = wrap.querySelectorAll('li');
+					for (var i = lis.length, length = i + 10; i < length; i++) {
+						var html = '<li class="aui-list-view-cell">新加载'+(i+1)+'</li>';
+						wrap.insertAdjacentHTML('afterbegin', html);
+					}
+					pullRefresh.cancelLoading(); //刷新成功后调用此方法隐藏
+				},1500)
+			}
+		}
+	</script>
+</html>

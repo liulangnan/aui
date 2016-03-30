@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+	<meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+	<title>QQ游戏社区</title>
+	<link rel="stylesheet" type="text/css" href="../../../css/aui.css" />
+	<link rel="stylesheet" type="text/css" href="../../../css/aui-flex.css" />
+	<style type="text/css">
+	.aui-ellipsis-1  { padding: 0; margin: 0; }
+	.aui-btn {color: #333333; font-size: 14px; background: #fdfdfd; border: none;}
+	.bg-white { background: #ffffff; }
+	.aui-bar { background: #12b7f5; }
+	.corner { position: absolute; left: 0; top: 0; width: 15%; }
+	.corner img { width: 100% }
+
+	#banner { margin-bottom: 0; }
+	#banner img { width: 100%; display: block;}
+
+	#classify { padding: 10px 0 5px 0; margin-bottom: 10px;}
+	#classify img { width: 30%; }
+
+	#recommend { margin-bottom: 10px; position: relative;}
+	#recommend img.left-img { width: 100%; display: block;}
+	#recommend big { font-size: 18px; color: #333333;}
+
+	.title { font-size: 16px; color: #333333; }
+	.title span { font-size: 12px; color: #999999; }
+	.title span .aui-iconfont { font-size: 14px; color: #999999; }
+
+	#hot-list { position: relative; }
+	#hot-list img { width: 50%; display: block; margin: 0 auto 5px; }
+	#hot-list .aui-flex-item-4 { padding: 10px 5px; }
+	#hot-list big { font-size: 14px;}
+	#hot-list p { font-size: 12px;}
+	#hot-list .corner { left: -15px; width: 50%; }
+	#hot-list .aui-btn { margin-top: 5px; }
+
+	.all-game-btn { margin: 0 auto; padding: 2px 10px; font-size: 14px; color: #999999;}
+	.all-game-btn:after { border-radius: 30px; }
+
+	#good {}
+	#good img { width: 100%; }
+	#good-list > div{ position: relative; }
+	#good-list .good-title { position: absolute; left: 10px; top: 50%; margin-top: -15px; font-size: 14px; }
+
+	#good-box {}
+	.good-box-title { padding: 10px; background: url('image/good-4.jpg') no-repeat; background-position: right bottom; background-size: contain; background-color: #ffffff; font-size: 14px; }
+	#good-box .all-game-btn { color: #333333; display: inline; font-size: 12px; padding: 4px 8px; }
+	#good-box-list { background: #ffffff; padding: 10px 0 5px;}
+	#good-box-list img { width: 60%; }
+	#good-box-list big { font-size: 14px; }
+	#good-box-list p { font-size: 12px; margin: 0; }
+	#good-box-list > div { margin-bottom: 10px; }
+	#good-box-list .aui-flex-item-9 { padding-bottom: 10px; }
+	</style>
+</head>
+<body>
+	<!-- <header class="aui-bar aui-bar-nav">
+	    <div class="aui-title">QQ游戏中心</div>
+	    <a class="aui-pull-right">搜索</a>
+	</header> -->
+	<section class="aui-content" id="banner">
+		<img src="image/g-1.jpg" />
+	</section>
+	<section class="aui-flex-col aui-text-center bg-white" id="classify">
+		<div class="aui-flex-item-3">
+			<img src="image/classify-1.png" />
+			<p>新游</p>
+		</div>
+		<div class="aui-flex-item-3">
+			<img src="image/classify-2.png" />
+			<p>排行</p>
+		</div>
+		<div class="aui-flex-item-3">
+			<img src="image/classify-3.png" />
+			<p>分类</p>
+		</div>
+		<div class="aui-flex-item-3">
+			<img src="image/classify-4.png" />
+			<p>棋牌</p>
+		</div>
+	</section>
+	<section class="aui-flex-col bg-white" id="recommend">
+		<div class="corner"><img src="image/recommend.png" /></div>
+		<div class="aui-flex-item-4">
+			<img src="image/game-ren.png" class="left-img" />
+		</div>
+		<div class="aui-flex-item-5 aui-flex-row aui-flex-middle" >
+			<big>战斗吧剑灵</big>
+			<p>近7日有65.4万次下载</p>
+		</div>
+		<div class="aui-flex-item-3 aui-flex-row aui-flex-middle aui-flex-center">
+			<div class="aui-btn aui-border aui-border-radius">进入</div>
+		</div>
+	</section>
+	<section class="aui-content bg-white" id="hot">
+		<div class="title aui-border-b aui-padded-10">
+			热游推荐
+			<span class="aui-pull-right">全部游戏 <i class="aui-iconfont aui-icon-right"></i></span>
+		</div>
+		<div class="aui-flex-col aui-border-b aui-text-center" id="hot-list">
+			<div class="aui-flex-item-4 aui-border-b">
+				<div class="corner"><img src="image/hot.png" /></div>
+				<img src="image/icon-1.png" />
+				<big class="aui-ellipsis-1">战斗吧精灵</big>
+				<p class="aui-ellipsis-1">剑灵正版卡牌手游</p>
+				<div class="aui-flex-col aui-flex-center">
+					<div class="aui-btn aui-border aui-border-radius">进入</div>
+				</div>
+			</div>
+			<div class="aui-flex-item-4 aui-border-l aui-border-b">
+				<div class="corner"><img src="image/hot.png" /></div>
+				<img src="image/icon-2.png" />
+				<big class="aui-ellipsis-1">战斗吧精灵</big>
+				<p class="aui-ellipsis-1">剑灵正版卡牌手游</p>
+				<div class="aui-flex-col aui-flex-center">
+					<div class="aui-btn aui-border aui-border-radius">进入</div>
+				</div>
+			</div>
+			<div class="aui-flex-item-4 aui-border-l aui-border-b">
+				<img src="image/icon-3.png" />
+				<big class="aui-ellipsis-1">战斗吧精灵</big>
+				<p class="aui-ellipsis-1">剑灵正版卡牌手游</p>
+				<div class="aui-flex-col aui-flex-center">
+					<div class="aui-btn aui-border aui-border-radius">进入</div>
+				</div>
+			</div>
+			<div class="aui-flex-item-4 aui-border-b">
+				<img src="image/icon-4.png" />
+				<big class="aui-ellipsis-1">战斗吧精灵</big>
+				<p class="aui-ellipsis-1">剑灵正版卡牌手游</p>
+				<div class="aui-flex-col aui-flex-center">
+					<div class="aui-btn aui-border aui-border-radius">进入</div>
+				</div>
+			</div>
+			<div class="aui-flex-item-4 aui-border-l aui-border-b">
+				<img src="image/icon-5.png" />
+				<big class="aui-ellipsis-1">战斗吧精灵</big>
+				<p class="aui-ellipsis-1">剑灵正版卡牌手游</p>
+				<div class="aui-flex-col aui-flex-center">
+					<div class="aui-btn aui-border aui-border-radius">进入</div>
+				</div>
+			</div>
+			<div class="aui-flex-item-4 aui-border-l aui-border-b">
+				<img src="image/icon-6.png" />
+				<big class="aui-ellipsis-1">战斗吧精灵</big>
+				<p class="aui-ellipsis-1">剑灵正版卡牌手游</p>
+				<div class="aui-flex-col aui-flex-center">
+					<div class="aui-btn aui-border aui-border-radius">进入</div>
+				</div>
+			</div>
+			<div class="aui-flex-item-4">
+				<img src="image/icon-7.png" />
+				<big class="aui-ellipsis-1">战斗吧精灵</big>
+				<p class="aui-ellipsis-1">剑灵正版卡牌手游</p>
+				<div class="aui-flex-col aui-flex-center">
+					<div class="aui-btn aui-border aui-border-radius">进入</div>
+				</div>
+			</div>
+			<div class="aui-flex-item-4 aui-border-l">
+				<img src="image/icon-8.png" />
+				<big class="aui-ellipsis-1">战斗吧精灵</big>
+				<p class="aui-ellipsis-1">剑灵正版卡牌手游</p>
+				<div class="aui-flex-col aui-flex-center">
+					<div class="aui-btn aui-border aui-border-radius">进入</div>
+				</div>
+			</div>
+			<div class="aui-flex-item-4 aui-border-l">
+				<img src="image/icon-2.png" />
+				<big class="aui-ellipsis-1">战斗吧精灵</big>
+				<p class="aui-ellipsis-1">剑灵正版卡牌手游</p>
+				<div class="aui-flex-col aui-flex-center">
+					<div class="aui-btn aui-border aui-border-radius">进入</div>
+				</div>
+			</div>
+		</div>
+		<div class="aui-flex-col aui-flex-center aui-padded-15 aui-text-center all-game">
+			<div class="all-game-btn aui-border">全部游戏<i class="aui-iconfont aui-icon-right"></i></div>
+		</div>
+	</section>
+	<section class="aui-content bg-white" id="good">
+		<div class="title aui-padded-10">
+			分类精选
+			<span class="aui-pull-right">全部分类 <i class="aui-iconfont aui-icon-right"></i></span>
+		</div>
+		<div class="aui-flex-col aui-padded-10" id="good-list">
+			<div class="aui-flex-item-4">
+				<div class="good-title aui-text-danger">站怒之国</div>
+				<img src="image/good-1.jpg" />
+			</div>
+			<div class="aui-flex-item-4">
+				<div class="good-title aui-text-info">琅琊榜</div>
+				<img src="image/good-2.jpg" />
+			</div>
+			<div class="aui-flex-item-4">
+				<div class="good-title aui-text-primary">风暴大陆</div>
+				<img src="image/good-3.jpg" />
+			</div>
+		</div>
+	</section>
+	<section class="aui-content" id="good-box">
+		<div class="good-box-title aui-border-b">
+			软妹妹都爱兵哥哥
+			<p><div class="all-game-btn aui-border">查看全部</div></p>
+		</div>
+		<div id="good-box-list">
+			<div class="aui-flex-col aui-flex-middle">
+				<div class="aui-flex-item-3 aui-text-center"><img src="image/icon-1.png" /></div>
+				<div class="aui-flex-item-9 aui-border-b">
+					<div class="aui-flex-item-8">
+						<big>穿越火线：枪王之战</big>
+						<p>三亿兄弟在等你</p>
+					</div>
+					<div class="aui-flex-item-4 aui-text-center">
+						<div class="aui-btn aui-border aui-border-radius">进入</div>
+					</div>
+				</div>
+			</div>
+			<div class="aui-flex-col aui-flex-middle">
+				<div class="aui-flex-item-3 aui-text-center"><img src="image/icon-3.png" /></div>
+				<div class="aui-flex-item-9 aui-border-b">
+					<div class="aui-flex-item-8">
+						<big>全民突击</big>
+						<p>全民激情射击游戏</p>
+					</div>
+					<div class="aui-flex-item-4 aui-text-center">
+						<div class="aui-btn aui-border aui-border-radius">进入</div>
+					</div>
+				</div>
+			</div>
+			<div class="aui-flex-col aui-flex-middle">
+				<div class="aui-flex-item-3 aui-text-center"><img src="image/icon-4.png" /></div>
+				<div class="aui-flex-item-9 aui-border-b">
+					<div class="aui-flex-item-8">
+						<big>星河战神</big>
+						<p>3D对战飞行射击</p>
+					</div>
+					<div class="aui-flex-item-4 aui-text-center">
+						<div class="aui-btn aui-border aui-border-radius">进入</div>
+					</div>
+				</div>
+			</div>
+			<div class="aui-flex-col aui-flex-middle">
+				<div class="aui-flex-item-3 aui-text-center"><img src="image/icon-5.png" /></div>
+				<div class="aui-flex-item-9">
+					<div class="aui-flex-item-8">
+						<big>战斗吧剑灵</big>
+						<p>剑灵正版卡牌手游</p>
+					</div>
+					<div class="aui-flex-item-4 aui-text-center">
+						<div class="aui-btn aui-border aui-border-radius">进入</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+</body>
+</html>

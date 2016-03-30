@@ -1,4 +1,13 @@
-.aui-fold-active {
+/**
+ * aui-accordion.css 手风琴
+ * verson 0.0.1
+ * @author 流浪男 && Beck
+ * http://www.auicss.com
+ * @todo more things to abstract, e.g. Loading css etc.
+ * Licensed under the MIT license.
+ * http://www.opensource.org/licenses/mit-license.php
+ */
+ .aui-fold-active {
 	background: #f4f4f4;
 }
 .aui-fold-active .aui-fold-content {

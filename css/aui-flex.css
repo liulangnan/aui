@@ -2,7 +2,7 @@
  * =========================================================================
  * APIClud - AUI UI 框架    流浪男  QQ：343757327  http://www.auicss.com
  * AUI Flex
- * Verson 0.0.1
+ * Verson 0.0.2
  * =========================================================================
  */
  /*容器*/
@@ -10,9 +10,11 @@
 .aui-flex-row {
     display: -webkit-box;
     display: -webkit-flex;
+    display: -ms-flexbox;
     display: flex;
     -webkit-flex-wrap: wrap;
-          flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
 }
 .aui-flex-col:before,
 .aui-flex-row:before,
@@ -21,6 +23,7 @@
     content: " ";
     display: -webkit-box;
     display: -webkit-flex;
+    display: -ms-flexbox;
     display: flex;
     box-sizing: border-box;
 }
@@ -32,13 +35,15 @@
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
     -webkit-flex-direction: row;
-          flex-direction: row;
+    -ms-flex-direction: row;
+        flex-direction: row;
 }
 .aui-flex-row {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
     -webkit-flex-direction: column;
-          flex-direction: column;
+    -ms-flex-direction: column;
+        flex-direction: column;
 }
 /*栅格*/
 .aui-flex-item-1 {
@@ -124,8 +129,8 @@
     margin-left: 91.66666667%;
 }
 .aui-flex-item-12 {
-      float: left;
-      width: 100%;
+    float: left;
+    width: 100%;
 }
 .aui-flex-offset-12 {
     margin-left: 100%;
@@ -139,57 +144,68 @@
 .aui-flex-between {
     -webkit-box-pack: justify;
     -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
           justify-content: space-between;
 }
 /*对齐*/
 .aui-flex-col.aui-flex-left {
     -webkit-box-pack: start;
     -webkit-justify-content: flex-start;
+    -ms-flex-pack: start;
         justify-content: flex-start;
 }
 .aui-flex-col.aui-flex-right {
-      -webkit-box-pack: end;
-      -webkit-justify-content: flex-end;
+    -webkit-box-pack: end;
+    -webkit-justify-content: flex-end;
+    -ms-flex-pack: end;
         justify-content: flex-end;
 }
 .aui-flex-col.aui-flex-top {
     -webkit-box-align: start;
     -webkit-align-items: flex-start;
+    -ms-flex-align: start;
         align-items: flex-start;
 }
 .aui-flex-col.aui-flex-bottom {
     -webkit-box-align: end;
     -webkit-align-items: flex-end;
+    -ms-flex-align: end;
         align-items: flex-end;
 }
 .aui-flex-col.aui-flex-center {
     -webkit-box-pack: center;
     -webkit-justify-content: center;
+    -ms-flex-pack: center;
         justify-content: center;
 }
 .aui-flex-col.aui-flex-middle {
     -webkit-box-align: center;
     -webkit-align-items: center;
+    -ms-flex-align: center;
         align-items: center;
 }
 .aui-flex-row.aui-flex-left {
     -webkit-box-align: start;
     -webkit-align-items: flex-start;
+    -ms-flex-align: start;
         align-items: flex-start;
 }
 .aui-flex-row.aui-flex-right {
     -webkit-box-align: end;
     -webkit-align-items: flex-end;
+    -ms-flex-align: end;
         align-items: flex-end;
 }
 .aui-flex-row.aui-flex-top {
     -webkit-box-pack: start;
     -webkit-justify-content: flex-start;
+    -ms-flex-align: start;
         justify-content: flex-start;
 }
 .aui-flex-row.aui-flex-bottom {
     -webkit-box-pack: end;
     -webkit-justify-content: flex-end;
+    -ms-flex-align: end;
         justify-content: flex-end;
 }
 .aui-flex-row.aui-flex-center {
@@ -201,6 +217,9 @@
       -webkit-box-pack: center;
       -webkit-justify-content: center;
             justify-content: center;
+}
+[class*=aui-flex-item-]{
+    position: relative;
 }
 [class*=aui-flex-auto].aui-flex-left {
     margin-right: auto;

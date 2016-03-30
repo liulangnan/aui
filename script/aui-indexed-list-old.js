@@ -1,13 +1,11 @@
 /**
 * AUI JAVASCRIPT PLUGIN
 * aui-indexid-list.js 索引列表
-* version 0.0.2
+* version 0.0.1
 * Copyright (c) 2015 auicss.com @流浪男  QQ：343757327  群：344869952
 */
 (function(window){
-	var IndexedList = function(){
-		_init();
-	}
+	var  aui = {};
 	var listArr = document.querySelectorAll(".aui-indexed-list li");
 	var indexedWrap = document.querySelector(".aui-indexed-list");
 	// 搜索类
@@ -97,5 +95,6 @@
 		document.querySelector(".aui-indexed-list-toast").classList.remove("active");
 		bar.classList.remove('active');
 	}
-	window.auiIndexedList = IndexedList;
+	_init();
+	window.$aui = aui;
 })(window);

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+	<meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+	<link rel="stylesheet" type="text/css" href="../css/aui.css" />
+	<link rel="stylesheet" type="text/css" href="../css/aui-list-swipe.css" />
+</head>
+<body>
+	<section class="aui-content" id="banner">
+		<ul class="aui-list-view">
+            <li class="aui-user-view-cell aui-img" tapmode onclick="showMsg(this);">
+            	<div class="aui-swipe-handle">
+	                <img class="aui-img-object aui-pull-left" src="../image/liulangnan.png">
+	                <div class="aui-img-body">
+	                    <span>流浪男<em>11.1KM</em></span>
+	                    <p class='aui-ellipsis-1'>山东 潍坊</p>
+	                </div>
+                </div>
+            	<div class="aui-swipe-right-btn aui-bg-warning"><i class="aui-iconfont aui-icon-favor"></i></div>
+            	<div class="aui-swipe-right-btn aui-bg-danger"><i class="aui-iconfont aui-icon-comment"></i></div>
+            	<div class="aui-swipe-right-btn"><i class="aui-iconfont aui-icon-delete"></i></div>
+            </li>
+            <li class="aui-user-view-cell aui-img">
+            	<div class="aui-swipe-handle">
+	                <img class="aui-img-object aui-pull-left" src="../image/demo6.png">
+	                <div class="aui-img-body">
+	                    <span class="aui-text-danger">淡淡的忧伤<em>11.1KM</em></span>
+	                    <p class='aui-ellipsis-1'>山东 潍坊</p>
+	                </div>
+                </div>
+
+                <div class="aui-swipe-right-btn aui-bg-warning"><i class="aui-iconfont aui-icon-favor"></i></div>
+            	<div class="aui-swipe-right-btn aui-bg-danger">删除</i></div>
+            </li>
+        </ul>
+        <ul class="aui-list-view aui-in">
+            <li class="aui-list-view-cell">
+            	<div class="aui-swipe-right-btn aui-bg-success"><i class="aui-iconfont aui-icon-comment"></i></div>
+            	<div class="aui-swipe-right-btn aui-bg-info"><i class="aui-iconfont aui-icon-favor"></i></div>
+				<div class="aui-swipe-handle">左滑显示两个按钮</div>
+            </li>
+            <li class="aui-list-view-cell">
+                <div class="aui-swipe-handle">左滑显示一个按钮</div>
+                <div class="aui-swipe-right-btn aui-bg-info">删除</div>
+            </li>
+            <li class="aui-list-view-cell">
+                <div class="aui-swipe-handle">单行列表标题效果</div>
+                <div class="aui-swipe-right-btn aui-bg-danger">会话</div>
+            </li>
+            <li class="aui-list-view-cell">
+                <div class="aui-swipe-handle"><i class="aui-iconfont aui-icon-like aui-bg-warning"></i>单行列表标题效果</div>
+                <div class="aui-swipe-right-btn aui-bg-info">删除</div>
+            </li>
+            <li class="aui-list-view-cell">
+                <div class="aui-swipe-handle"><i class="aui-iconfont aui-icon-shop aui-bg-success"></i>单行列表标题效果</div>
+                <div class="aui-swipe-right-btn aui-bg-danger">删除</div>
+            </li>
+        </ul>
+        <ul class="aui-list-view">
+			<li class="aui-list-view-cell aui-img">
+				<div class="aui-swipe-handle">
+	                <img class="aui-img-object aui-pull-left" src="../image/demo2.png">
+	                <div class="aui-img-body">
+	                    滑动列表菜单
+	                    <p>按钮数量可以根据需求任何添加，滑动菜单支持aui所有列表项</p>
+	                </div>
+                </div>
+                <div class="aui-swipe-right-btn aui-bg-danger"><i class="aui-iconfont aui-icon-delete"></i></div>
+            	<div class="aui-swipe-right-btn aui-bg-warning"><i class="aui-iconfont aui-icon-favor"></i></div>
+            	<div class="aui-swipe-right-btn aui-bg-primary"><i class="aui-iconfont aui-icon-comment"></i></div>
+            </li>
+            <li class="aui-list-view-cell aui-img">
+				<div class="aui-swipe-handle">
+	                <img class="aui-img-object aui-pull-left" src="../image/demo3.png">
+	                <div class="aui-img-body">
+	                    滑动列表菜单
+	                    <p>按钮数量可以根据需求任何添加</p>
+	                </div>
+                </div>
+                <div class="aui-swipe-right-btn aui-bg-warning"><i class="aui-iconfont aui-icon-delete"></i></div>
+            	<div class="aui-swipe-right-btn aui-bg-danger"><i class="aui-iconfont aui-icon-favor"></i></div>
+            	<div class="aui-swipe-right-btn aui-bg-success"><i class="aui-iconfont aui-icon-comment"></i></div>
+            </li>
+            <li class="aui-list-view-cell aui-img">
+				<div class="aui-swipe-handle">
+	                <img class="aui-img-object aui-pull-left" src="../image/demo4.png">
+	                <div class="aui-img-body">
+	                    滑动列表菜单
+	                    <p>按钮数量可以根据需求任何添加，滑动菜单支持aui所有列表项</p>
+	                </div>
+                </div>
+                <div class="aui-swipe-right-btn aui-bg-danger"><i class="aui-iconfont aui-icon-delete"></i></div>
+            	<div class="aui-swipe-right-btn aui-bg-info"><i class="aui-iconfont aui-icon-favor"></i></div>
+            	<div class="aui-swipe-right-btn aui-bg-success"><i class="aui-iconfont aui-icon-comment"></i></div>
+            </li>
+            <li class="aui-list-view-cell aui-img">
+				<div class="aui-swipe-handle">
+	                <img class="aui-img-object aui-pull-left" src="../image/demo5.png">
+	                <div class="aui-img-body">
+	                    滑动列表菜单
+	                    <p>按钮数量可以根据需求任何添加</p>
+	                </div>
+                </div>
+                <div class="aui-swipe-right-btn aui-bg-danger"><i class="aui-iconfont aui-icon-delete"></i></div>
+            	<div class="aui-swipe-right-btn aui-bg-info"><i class="aui-iconfont aui-icon-favor"></i></div>
+            	<div class="aui-swipe-right-btn aui-bg-success"><i class="aui-iconfont aui-icon-comment"></i></div>
+            </li>
+        </ul>
+	</section>
+
+</body>
+<script type="text/javascript" src="../script/aui-list-swipe.js"></script>
+<script type="text/javascript">
+
+	apiready = function(){
+	    api.parseTapmode();
+	}
+	// 初始化
+	var swipe = new ListSwipe();
+	function showMsg(el){
+		if(!el.classList.contains("aui-swipe-enable")){
+			api.alert({
+			    title: '提示消息',
+			    msg: '正常点击操作'
+			});
+			// 复位
+			swipe.resetSwipe();
+		}
+	}
+
+</script>
+</html>

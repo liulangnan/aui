@@ -11,6 +11,20 @@
 .active {
     background-color: #f4f4f4;
 }
+img.wx {
+    /*display: inline-block;*/
+    /*display: block;*/
+    /*display: list-item;*/
+    display: inline;
+    float: left;
+    width: 27px;
+    /*height: 24px;*/
+    line-height: 27px;
+    margin-right: 10px;
+    background-color: #f4f4f4;
+    border-radius: 3px;
+    /*border: 1px solid #ccc;*/
+}
 </style>
 <body>
     <div class="aui-content">
@@ -18,35 +32,57 @@
             <li class="aui-list-view-cell" tapmode onclick="openTplIndexWin()">
                 <div class="aui-arrow-right">
                     <i class="aui-iconfont aui-icon-clothes aui-bg-warning"></i>模板
+                    <span class="aui-badge aui-badge-danger">新增</span>
                 </div>
             </li>
             <li class="aui-list-view-cell" tapmode onclick="openWin('explain')">
                 <div class="aui-arrow-right aui-text-danger">
                     <i class="aui-iconfont aui-icon-sort aui-bg-danger"></i>更新说明
-                    <span class="aui-badge aui-badge-danger aui-pull-right">V 1.1.9</span>
+                    <span class="aui-badge aui-badge-danger aui-pull-right">V 1.2.0</span>
+                </div>
+            </li>
+            <li class="aui-list-view-cell" tapmode onclick="share()" id="share">
+                <div class="aui-arrow-right aui-text-primary">
+                    <img src="../image/wx.png" class="wx aui-border">
+                    <span>分享至朋友圈</span>
                 </div>
             </li>
         </ul>
     </div>
     <div class="aui-content">
         <ul class="aui-list-view">
+            <li class="aui-list-view-cell" tapmode onclick="openWin('pull_refresh')">
+                <a class="aui-arrow-right">下拉刷新组件（一）<span class="aui-badge aui-badge-danger">新增</span></a>
+            </li>
+            <li class="aui-list-view-cell" tapmode onclick="openWin('pull_refresh_2')">
+                <a class="aui-arrow-right">下拉刷新组件（二）<span class="aui-badge aui-badge-danger">新增</span></a>
+            </li>
+            <li class="aui-list-view-cell" tapmode onclick="openWin('slide')">
+                <a class="aui-arrow-right">轮播组件<span class="aui-badge aui-badge-danger">新增</span></a>
+            </li>
+            <li class="aui-list-view-cell" tapmode onclick="openWin('list_swipe')">
+                <a class="aui-arrow-right">列表右滑显示菜单<span class="aui-badge aui-badge-danger">新增</span></a>
+            </li>
+            <li class="aui-list-view-cell" tapmode onclick="openWin('accordion')">
+                <a class="aui-arrow-right">手风琴折叠面板<span class="aui-badge aui-badge-danger">新增</span></a>
+            </li>
             <li class="aui-list-view-cell" tapmode onclick="openWin('flex')">
-                <a class="aui-arrow-right">AUI Flex<span class="aui-badge aui-badge-danger">重要发布</span></a>
+                <a class="aui-arrow-right">AUI Flex<span class="aui-badge aui-badge-warning">优化</span></a>
             </li>
             <li class="aui-list-view-cell" tapmode onclick="openWin('border')">
-                <a class="aui-arrow-right">边框样式<span class="aui-badge aui-badge-danger">新增</span></a>
+                <a class="aui-arrow-right">边框样式</a>
             </li>
             <li class="aui-list-view-cell" tapmode onclick="openWin('indexed_list')">
-                <a class="aui-arrow-right">索引列表<span class="aui-badge aui-badge-danger">新增</span></a>
+                <a class="aui-arrow-right">索引列表<span class="aui-badge aui-badge-success">优化</span></a>
             </li>
             <li class="aui-list-view-cell" tapmode onclick="openSlider()">
                 <a class="aui-arrow-right">上下滑动全屏展示</a>
             </li>
             <li class="aui-list-view-cell" tapmode onclick="openWin('calendar')">
-                <a class="aui-arrow-right">日历<span class="aui-badge aui-badge-warning">优化css</span></a>
+                <a class="aui-arrow-right">日历</a>
             </li>
             <li class="aui-list-view-cell" tapmode onclick="openWin('calendar_slide')">
-                <a class="aui-arrow-right">日历上下滑动展示<span class="aui-badge aui-badge-warning">优化css</span></a>
+                <a class="aui-arrow-right">日历上下滑动展示</a>
             </li>
             <li class="aui-list-view-cell" tapmode onclick="openWin('button')">
                 <a class="aui-arrow-right">按钮</a>
@@ -141,6 +177,21 @@
 </body>
 <script type="text/javascript" src="../script/api.js" ></script>
 <script type="text/javascript">
+    function share(argument) {
+        var wx = api.require('wx');
+        wx.shareWebpage({
+            apiKey: '',
+            scene: 'timeline',
+            title: 'AUI 一个靠谱的跨平台移动前端框架',
+            description: '',
+            thumb: 'widget://image/aui-icon.png',
+            contentUrl: 'http://www.auicss.com'
+        }, function(ret, err){
+            if(ret.status){
+                alert('分享成功');
+            }
+        });
+    }
     apiready = function () {
         api.parseTapmode();
         // api.openWin({
@@ -153,6 +204,9 @@
         //         type:"fade"
         //     }
         // });
+        if(api.systemType=='ios'){
+            document.getElementById("share").style.display = "none";
+        }
     }
     function openWin(name){
         var delay = 0;
@@ -163,7 +217,9 @@
             name: ''+name+'',
             url: ''+name+'_win.html',
             bounces:false,
-            delay: delay
+            delay: delay,
+            slidBackEnabled:true,
+            vScrollBarEnabled:false
         });
     }
     function openSlider(){

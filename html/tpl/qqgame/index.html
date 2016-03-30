@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+	<meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+	<title>QQ游戏社区</title>
+	<link rel="stylesheet" type="text/css" href="../../../css/aui.css" />
+	<style type="text/css">
+	.bg-white { background: #ffffff; }
+	.aui-bar { background: #12b7f5; }
+	</style>
+</head>
+<body>
+	<header class="aui-bar aui-bar-nav" id="aui-header">
+		<a class="aui-pull-left" tapmode onclick="closeWin()">
+			<i class="aui-iconfont aui-icon-left"></i>返回
+		</a>
+	    <div class="aui-title">QQ游戏中心</div>
+	    <a class="aui-pull-right">搜索</a>
+	</header>
+</body>
+<script type="text/javascript" src="../../../script/api.js"></script>
+<script type="text/javascript">
+	function closeWin(){
+        api.closeWin();
+    }
+    apiready = function(){
+        api.parseTapmode();
+        var header = $api.byId('aui-header');
+        $api.fixStatusBar(header);
+        var headerPos = $api.offset(header);
+        var body_h = $api.offset($api.dom('body')).h;
+        api.openFrame({
+            name: 'qq_game_frm',
+            url: 'qq_game_frm.html',
+            bounces: true,
+            rect: {
+                x: 0,
+                y: headerPos.h,
+                w: 'auto',
+                h: 'auto'
+            }
+        });
+    }
+
+</script>
+</html>

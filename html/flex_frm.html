@@ -43,10 +43,10 @@
         visibility: hidden;
     }
     .img-list {
-        padding: 2px;
+        padding: 2px 2px 0 2px;
     }
     .img-list > div {
-        padding: 2px;
+        padding: 2px 2px 0 2px;
     }
     .img-list img {
         display: block;
@@ -57,9 +57,9 @@
     <p class="aui-padded-10"><span class="aui-text-danger">AUI Flex</span>(aui-flex.css)采用12个栅格进行布局，与aui-col-xs-*相比更灵活性，可以快速布局出自己所需要的框架结构。结合aui.css，能彻底解决布局＋样式的问题。</p>
     <p class="aui-padded-10">在AUI Flex中，使用了aui-flex-col(横向)和aui-flex-row(纵向)两种容器，只需要把栅格放入容器中即可。AUI Flex所有类支持嵌套布局，可任意进行排列。</p>
     <p class="aui-padded-10">使用AUI Flex可以方便解决垂直居中，多栏等高，等宽布局，任意对齐等。</p>
+    <p class="aui-padded-10"><span class="aui-text-danger">注意：</span>考虑到Android4.2.2对flex的兼容性问题，对aui-flex-item-*加了position:relative属性，但是不支持换行，行排列时如果有换行每行可以加入aui-flex-col</p>
     <div class="aui-line-x"></div>
     <p class="aui-padded-10">下面先来看一个使用AUI Flex仿淘宝的布局案例：</p>
-
     <div class="box bottom nobg ">
         <div class="aui-flex-col aui-flex-center aui-border-tb">
             <div class="aui-flex-item-4 aui-flex-row aui-flex-middle aui-padded-10">
@@ -67,9 +67,9 @@
                 <p>可爱的你会喜欢</p>
                 <img src="../image/f0.png">
             </div>
-            <div class="aui-flex-item-8 aui-flex-col aui-border-l">
-                <div class="aui-flex-item-12 aui-padded-10 aui-border-b">
-                    <div class="aui-flex-col">
+            <div class="aui-flex-item-8 aui-border-l">
+                <div class="aui-flex-col aui-padded-10 aui-border-b">
+                    <div class="aui-flex-item-12">
                         <div class="aui-flex-item-9">
                             <h3 class="aui-text-info">有好货</h3>
                             <p>好品味从挑剔开始</p>
@@ -77,17 +77,20 @@
                         <div class="aui-flex-item-3 aui-text-right"><img src="../image/f3.png"></div>
                     </div>
                 </div>
-                <div class="aui-flex-item-6 aui-padded-10">
-                    <h5 class="aui-text-warning">爱逛街</h5>
-                    <p>疯狂赛车来袭</p>
-                    <img src="../image/f1.png">
-                </div>
-                <div class="aui-flex-item-6 aui-padded-10 aui-border-l">
-                    <h5 class="aui-text-success">必买清单</h5>
-                    <p>都帮你整理好啦</p>
-                    <img src="../image/f2.png">
+                <div class="aui-flex-col">
+                    <div class="aui-flex-item-6 aui-padded-10" style="position: relative;">
+                        <h5 class="aui-text-warning">爱逛街</h5>
+                        <p>疯狂赛车来袭</p>
+                        <img src="../image/f1.png">
+                    </div>
+                    <div class="aui-flex-item-6 aui-padded-10 aui-border-l">
+                        <h5 class="aui-text-success">必买清单</h5>
+                        <p>都帮你整理好啦</p>
+                        <img src="../image/f2.png">
+                    </div>
                 </div>
             </div>
+
         </div>
     </div>
     <p class="aui-padded-10 aui-text-center">AUI Flex语法详解：</p>
@@ -122,6 +125,8 @@
             <div class="aui-flex-item-4">
                 <img src="../image/demo3.png">
             </div>
+        </div>
+        <div class="aui-flex-col img-list">
             <div class="aui-flex-item-4">
                 <img src="../image/demo4.png">
             </div>

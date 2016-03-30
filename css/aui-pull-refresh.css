@@ -1,0 +1,81 @@
+/**
+ * aui-pull-refresh.css 下拉刷新
+ * verson 0.0.1
+ * @author 流浪男 && Beck
+ * http://www.auicss.com
+ * @todo more things to abstract, e.g. Loading css etc.
+ * Licensed under the MIT license.
+ * http://www.opensource.org/licenses/mit-license.php
+ */
+.aui-load-container {
+	position: relative;
+	height: 200%;
+	-webkit-transform: translate3d(0,-70px,0);
+			transform: translate3d(0,-70px,0);
+}
+.container-reset {
+	-webkit-transition: -webkit-transform 0.5s;
+			transition: transform 0.5s;
+}
+.aui-load-wrap {
+	width: 100%;
+	height: 70px;
+	position: relative;
+}
+.aui-loading-dot {
+	width: 1em;
+	height: 1em;
+	background: #3498db;
+	border-radius: 0.5em;
+	position: absolute;
+	left: 50%;
+	top: 16px;
+	margin-left: -0.5em;
+	z-index: 1;
+}
+.aui-loading-circle {
+	width: 2em;
+	height: 2em;
+	background: none;
+	border: 1px solid #3498db;
+	border-radius: 2em;
+	position: absolute;
+	left: 50%;
+	top: 0px;
+	margin-left: -1em;
+	-webkit-transform: translate3d(0,-100%,0);
+			transform: translate3d(0,-100%,0);
+	z-index: 0;
+}
+.aui-loading-title {
+	width: 100%;
+	font-size: 12px;
+	text-align: center;
+	position: absolute;
+	bottom: 8px;
+	height: 20px;
+	color: #999999;
+	line-height: 20px;
+}
+.aui-loading-circle.loading {
+	position: absolute;
+	top: 8px;
+ 	-webkit-animation: rotateplane .8s infinite linear;
+  		animation: rotateplane .8s infinite linear;
+}
+
+@-webkit-keyframes rotateplane {
+	0% { -webkit-transform: perspective(100px) }
+	100% { -webkit-transform: perspective(100px) rotateY(180deg) }
+}
+@keyframes rotateplane {
+	0% {
+		-webkit-transform: perspective(100px) rotateY(0deg);
+				transform: perspective(100px) rotateY(0deg);
+
+	}
+	100% {
+		-webkit-transform: perspective(100px) rotateY(180deg);
+				transform: perspective(100px) rotateY(180deg);
+	}
+}

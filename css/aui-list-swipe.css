@@ -1,0 +1,55 @@
+/**
+ * aui-list-swipe.css 列表页滑动菜单
+ * verson 0.0.1
+ * @author 流浪男 && Beck
+ * http://www.auicss.com
+ * @todo more things to abstract, e.g. Loading css etc.
+ * Licensed under the MIT license.
+ * http://www.opensource.org/licenses/mit-license.php
+ */
+.aui-swipe-handle {
+    width: 100%;
+    height: 100%;
+    -webkit-transition: -webkit-transform 0ms ease;
+            transition: transform 0ms ease;
+     -webkit-transform: translate3d(0,0,0);
+            transform: translateX(0,0,0);
+}
+.aui-swipe-right-btn {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+            align-items: center;
+    height: 100%;
+    text-align: center;
+    padding: 0 20px;
+    background: #c7c7cc;
+    color: #ffffff;
+    position: absolute;
+    top: 0;
+    right: 0;
+    -webkit-transition: -webkit-transform 0ms ease;
+            transition: transform 0ms ease;
+    -webkit-transform: translate3d(100%,0,0);
+            transform: translate3d(100%,0,0);
+}
+.aui-swipe-right-btn:after {
+    font-size: 1.5em;
+    position: absolute;
+    top: 0;
+    width: 600%;
+    height: 100%;
+    content: '';
+    background: inherit;
+}
+.aui-swipe-right-btn .aui-iconfont {
+    margin: 0 !important;
+    font-size: 1.2em;
+    color: #ffffff;
+}
+.aui-swipe-transition {
+    -webkit-transition: -webkit-transform 0.5s ;
+        transition: transform 0.5s ;
+}
