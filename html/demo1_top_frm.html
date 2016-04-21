@@ -1,0 +1,38 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <title>APP</title>
+    <link rel="stylesheet" type="text/css" href="../css/aui.css" />
+    <style type="text/css">
+    body {
+        background: transparent;
+    }
+    .aui-bar{
+        background: rgba(255,255,255,0.95);
+    }
+    </style>
+</head>
+<body>
+    <header class="aui-bar aui-bar-nav aui-border-b" id="aui-header">
+        <a class="aui-pull-left" tapmode onclick="closeWin();">
+            <span class="aui-iconfont aui-icon-left aui-text-danger"></span>
+        </a>
+        <div class="aui-title aui-text-danger">锄禾日当午</div>
+    </header>
+</body>
+<script type="text/javascript" src="../script/api.js" ></script>
+<script type="text/javascript">
+    function closeWin(){
+        api.closeWin({
+            name:'demo1_win'
+        });
+    }
+    apiready = function () {
+        api.parseTapmode();
+        var header = $api.byId('aui-header');
+        $api.fixStatusBar(header);
+    }
+</script>
+</html>

@@ -1,0 +1,55 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <link rel="stylesheet" type="text/css" href="../css/aui.css" />
+</head>
+<body>
+</body>
+<script type="text/javascript" src="../script/api.js"></script>
+<script type="text/javascript">
+    apiready = function(){
+        api.parseTapmode();
+        var header = $api.byId('aui-header');
+        $api.fixStatusBar(header);
+        var headerPos = $api.offset(header);
+        var body_h = $api.offset($api.dom('body')).h;
+        api.openFrame({
+            name: 'demo1_content_frm',
+            url: 'demo1_content_frm.html',
+            bounces: true,
+            rect: {
+                x: 0,
+                y: 0,
+                w: 'auto',
+                h: 'auto'
+            }
+        })
+        api.openFrame({
+            name: 'demo1_top_frm',
+            url: 'demo1_top_frm.html',
+            bounces: false,
+            rect: {
+                x: 0,
+                y: 0,
+                w: 'auto',
+                h: '70'
+            }
+        })
+        api.openFrame({
+            name: 'demo1_footer_frm',
+            url: 'demo1_footer_frm.html',
+            bounces: false,
+            rect: {
+                x: 0,
+                y: body_h - 55,
+                w: 'auto',
+                h: '55'
+            }
+        })
+
+
+    };
+</script>
+</html>

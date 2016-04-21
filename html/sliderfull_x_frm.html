@@ -1,0 +1,61 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	 <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <link rel="stylesheet" href="../css/aui.css"/>
+	<link rel="stylesheet" href="../css/aui-slider-full.css" />
+	<link rel="stylesheet" href="../css/aui-flex.css" />
+	<style type="text/css">
+		.text h1 {
+			margin-top: 180px;
+			color: #ffffff;
+			font-size: 30px;
+		}
+		.text p {
+			color: #ffffff;
+		}
+	</style>
+</head>
+<body>
+	<div class="aui-slider-close" tapmode onclick="closeWin()">关闭</div>
+	<div class="aui-slider-full">
+		<!-- <ul> -->
+			<div class="aui-slider-list text aui-bg-primary aui-text-center">
+				<h1>AUI</h1>
+				<p>让移动布局更简单</p>
+				<p>—— { www.auicss.com } ——</p>
+			</div>
+			<div class="aui-slider-list aui-flex-col aui-flex-middle">
+				<img src="../image/2.png" alt=""/>
+			</div>
+			<div class="aui-slider-list aui-flex-col aui-flex-middle">
+				<img src="../image/1.png" alt=""/>
+			</div>
+		<!-- </ul> -->
+		<span class="aui-slider-right">
+			<i class="aui-iconfont aui-icon-right"></i>
+		</span>
+	</div>
+	<script src="../script/api.js"></script>
+	<script src="../script/aui-slider-full.js"></script>
+	<script type="text/javascript">
+		apiready = function(){
+			api.parseTapmode();
+		}
+		var sliderFull = new auiSliderFull({
+			direction:'x'
+		});
+		function closeWin(){
+	        api.closeWin({
+	        	name:'slider_full_win',
+	        	animation:{
+	        		type:'push',
+	                subType:'from_top'
+	            }
+	        });
+	    }
+	</script>
+</body>
+</html>

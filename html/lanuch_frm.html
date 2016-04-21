@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+	<meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+	<link rel="stylesheet" type="text/css" href="../css/aui.css" />
+	<link rel="stylesheet" type="text/css" href="../css/aui-slide.css" />
+	<style type="text/css">
+	body {
+		background: #ffffff;
+	}
+	.bg-dark {
+		background: #333333 !important;
+	}
+	.aui-slide-node {
+	   	color: #ffffff;
+	}
+	img.logo {
+		width: 30%;
+		border-radius: 10px;
+		margin-bottom: 15px;
+	}
+	img.icon {
+		width: 50%;
+		border-radius: 10px;
+	}
+	strong {
+		font-size: 2em;
+		font-weight: 400;
+	}
+	.bg1 {
+		background: #d9e2e5 !important;
+	}
+	.bg2 {
+		background: #eee9e0 !important;
+	}
+	.bg3 {
+		background: #80d3ee !important;
+	}
+	.bg4 {
+		background: #82dd47 !important;
+	}
+	strong.title {
+		color: #ffffff;
+	}
+	.desc {
+		color: #fff;
+		font-size: 0.875em;
+	}
+	.desc p {
+		color: #ffffff;
+	}
+	.close {
+		background: rgba(0,0,0,0.6);
+		padding: 4px 10px;
+		border-radius: 30px;
+		color: #fff;
+		font-size: 0.75em;
+		position: absolute;
+		right: 10px;
+		top: 30px;
+		z-index: 999;
+	}
+	.text-dark {
+		color: #333 !important;
+	}
+	.fadeInTop {
+		-webkit-animation: fadeInTop 1s;
+		        animation: fadeInTop 1s;
+	}
+	.fadeInBottom {
+		-webkit-animation: fadeInBottom 1s;
+		        animation: fadeInBottom 1s;
+	}
+	@-webkit-keyframes fadeInTop {
+	    from {
+	        opacity: 0.2;
+	        -webkit-transform: translate3d(0, -50px, 0);
+	        transform: translate3d(0, -50px, 0);
+	    }
+	    to {
+	        opacity: 1;
+	        -webkit-transform: none;
+	        transform: none;
+	    }
+	}
+	@-webkit-keyframes fadeInBottom {
+	    from {
+	        opacity: 0;
+	        -webkit-transform: translate3d(0, 50px, 0);
+	        transform: translate3d(0, 50px, 0);
+	    }
+	    to {
+	        opacity: 1;
+	        -webkit-transform: none;
+	        transform: none;
+	    }
+	}
+	</style>
+</head>
+<body>
+	<div class="close" tapmode onclick="closeWin()">关闭</div>
+	<div id="aui-slide">
+		<div class="aui-slide-wrap" >
+			<div class="aui-slide-node aui-slide-node-middle aui-slide-node-center">
+				<div class="aui-content aui-padded-15 aui-text-center aui-hide">
+					<img src="../image/aui-icon.png" class="logo" />
+					<div class="desc">
+						<p><strong class="aui-text-primary">AUI</strong></p>
+						<p class="aui-text-primary">跨平台布局优先解决方案</p>
+					</div>
+				</div>
+			</div>
+			<div class="aui-slide-node aui-slide-node-middle aui-slide-node-center bg1">
+				<div class="aui-content aui-padded-15 aui-text-center aui-hide">
+					<img src="../image/mokuai.png" class="icon" />
+					<div class="desc">
+						<p><strong class="title aui-text-info">组件丰富，模块化</strong></p>
+						<p class="text-dark">CSS3组件化写法，JS组件化，让用户更容易扩展使用；flex弹性布局更灵活。</p>
+					</div>
+				</div>
+			</div>
+			<div class="aui-slide-node aui-slide-node-middle aui-slide-node-center bg2">
+				<div class="aui-content aui-padded-15 aui-text-center aui-hide">
+					<img src="../image/yuansheng.png" class="icon" />
+					<div class="desc">
+						<p><strong class="title aui-text-primary">原生体验</strong></p>
+						<p class="text-dark">更细致的处理，让体验更接近原生效果，完美适配各个机型。</p>
+					</div>
+				</div>
+			</div>
+			<div class="aui-slide-node aui-slide-node-middle aui-slide-node-center bg3">
+				<div class="aui-content aui-padded-15 aui-text-center aui-hide">
+					<img src="../image/gaoxingneng.png" class="icon" />
+					<div class="desc">
+						<p><strong class="title">轻量级，高性能</strong></p>
+						<p>面向 HTML5 开发，使用 CSS3 来做动画交互，平滑、高效，更适合移动设备。</p>
+					</div>
+				</div>
+			</div>
+			<div class="aui-slide-node aui-slide-node-middle aui-slide-node-center bg4">
+				<div class="aui-content aui-padded-15 aui-text-center aui-hide">
+					<img src="../image/kaiyuan.png" class="icon" />
+					<div class="desc">
+						<p><strong class="title">MIT License</strong></p>
+						<p>AUI使用MIT协议，用户可以自由使用、复制、修改、合并、出版发行、散布、再授权及贩售 AUI 及其副本。</p>
+						<p class="aui-padded-15">
+							<div class="aui-btn aui-btn-success" tapmode onclick="closeWin()">立即体验</div>
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="aui-slide-page-wrap"><!--分页容器--></div>
+	</div>
+</body>
+<script type="text/javascript" src="../script/aui-slide.js"></script>
+<script type="text/javascript">
+	var slide = new auiSlide({
+		container:document.getElementById("aui-slide"),
+		// "width":300,
+		"height":window.innerHeight,
+		"speed":300,
+		"pageShow":true,
+		"pageStyle":'dot',
+		"loop":false,
+		'dotPosition':'center',
+		currentPage:currentFun
+	})
+	var pageCount = slide.pageCount();
+	function currentFun(index) {
+		var slideList = document.querySelectorAll(".aui-slide-node");
+		for (var i = 0; i < slideList.length; i++) {
+			if(index == i){
+				var thisDiv = slideList[i].querySelector("div");
+				setTimeout(function(){
+					if(thisDiv.classList.contains("aui-hide")){
+						thisDiv.classList.remove("aui-hide");
+					}
+					thisDiv.querySelector("img").classList.add("fadeInTop");
+					thisDiv.querySelector(".desc").classList.add("fadeInBottom");
+				}, 300)
+
+			}
+		}
+	}
+	console.log(slide.pageCount());
+	function closeWin(){
+		api.closeWin({
+		    name: 'lanuch_win'
+		});
+	}
+</script>
+</html>

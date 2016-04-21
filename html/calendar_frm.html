@@ -21,40 +21,20 @@
 <script type="text/javascript" src="../script/aui-calendar.js"></script>
 <script type="text/javascript">
     apiready = function(){
-        /**
-        * 日历
-        * $aui.calendar(el,opts,callback);
-        * startDate = '2016-03-20'开始日期，不传时为今天，当没有天传入时，默认从当月开始日期
-        * endDate = '2016-04-28' 结束日期
-        * beforeStartDateClick 默认false，开始日期之前的当月是否允许点击
-        * 当开始日期和结束日期都为空时,默认显示当月日历
-        * 返回数据为点击某天后结果，格式 {status:'success',date:'2016-01-01'}
-        **
-        $aui.calendar($api.byId("calendar"),{
-            startDate:'2016-03',
-            endDate:'2016-08',
-            beforeStartDateClick : false
-        },function(ret){
-            if(ret){
-                // 返回点击的日期
-                // alert(JSON.stringify(ret));
-            }
-        })
-        */
-        var todayDate = new Date();
-        var startDate = todayDate.getFullYear()+'-'+(todayDate.getMonth()+1)+'-'+todayDate.getDate();
-        var endDate = (todayDate.getFullYear())+'-'+(todayDate.getMonth()+5);
-        $aui.calendar($api.byId("calendar"),{
-            startDate : startDate,
-            endDate : endDate,
-            beforeStartDateClick : false // 是否允许开始日期之前的可以点击，默认为false
-        },function(ret){
-            if(ret){
-                // 返回点击的日期
-                // alert(JSON.stringify(ret));
-                $api.text($api.byId("result"),ret.date);
-            }
-        })
+    }
+    var todayDate = new Date();
+    var startDate = todayDate.getFullYear()+'-'+(todayDate.getMonth()+1)+'-'+todayDate.getDate();
+    var endDate = (todayDate.getFullYear())+'-'+(todayDate.getMonth()+5);
+    var calendar = new auiCalendar({
+        container:document.getElementById("calendar"),
+        startDate:startDate,
+        endDate:endDate,
+        lunarShow:true,
+        dateActive:dateActive,
+        beforeStartDateClick:false
+    });
+    function dateActive(date){
+        document.getElementById("result").textContent = date;
     }
 </script>
 </html>

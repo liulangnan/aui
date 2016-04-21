@@ -33,7 +33,7 @@
 		}
 	};
 	Accordion.prototype.demo = function(event){
-		console.log(event.currentTarget);
+		// console.log(event.currentTarget);
 		if(event.target.nextElementSibling && event.target.nextElementSibling.classList.contains(CLASS_FOLD_CONTENT)){
 			if(event.target.parentNode.classList.contains(CLASS_FOLD_ACTIVE)){
 				event.target.parentNode.classList.remove(CLASS_FOLD_ACTIVE);

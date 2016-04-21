@@ -14,7 +14,7 @@
             	<div class="aui-swipe-handle">
 	                <img class="aui-img-object aui-pull-left" src="../image/liulangnan.png">
 	                <div class="aui-img-body">
-	                    <span>流浪男<em>11.1KM</em></span>
+	                    <span>流浪男<em>11KM</em></span>
 	                    <p class='aui-ellipsis-1'>山东 潍坊</p>
 	                </div>
                 </div>
@@ -113,22 +113,18 @@
 </body>
 <script type="text/javascript" src="../script/aui-list-swipe.js"></script>
 <script type="text/javascript">
-
 	apiready = function(){
 	    api.parseTapmode();
 	}
 	// 初始化
 	var swipe = new ListSwipe();
 	function showMsg(el){
-		if(!el.classList.contains("aui-swipe-enable")){
+		if(!el.classList.contains("aui-swipe-selected")){
 			api.alert({
 			    title: '提示消息',
 			    msg: '正常点击操作'
 			});
-			// 复位
-			swipe.resetSwipe();
 		}
 	}
-
 </script>
 </html>

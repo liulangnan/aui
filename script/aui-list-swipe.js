@@ -1,6 +1,6 @@
 /**
  * aui-list-swipe.js 列表页滑动菜单
- * verson 0.0.1
+ * verson 0.0.2
  * @author 流浪男 && Beck
  * http://www.auicss.com
  * @todo more things to abstract, e.g. Loading css etc.
@@ -10,26 +10,33 @@
  (function(window) {
 	"use strict";
 	var translateVal,
-		friction = 2.5,
+		friction = 1,
 		firstTouchX,
 		firstTouchxy,
 		firstTouchY,
 		firstTouch,
+		firstTouchTime,
 		touchXDelta,
 		btnTranslateVal,
 		handleTranslateVal,
-		isMoved = false;
+		isOpened = false,
+		isMoveing = false;
 	var TranslateZero = "translate3d(0,0,0)",
 		TranslateCent = "translate3d(100%,0,0)",
-		CLASS_SWIPE_ENABLE = "aui-swipe-enable",
+		CLASS_SWIPE_ACTIVE = "aui-swipe-active",
 		CLASS_SWIPE_RIGHT_BTN = "aui-swipe-right-btn",
 		CLASS_SWIPE_HANDLE = "aui-swipe-handle",
-		CLASS_SWIPE_TRANSITION = "aui-swipe-transition";
+		CLASS_SWIPE_TRANSITION = "aui-swipe-transition",
+		CLASS_SWIPE_SELECTED = "aui-swipe-selected";
 
-	var __SWIPE_ENABLE = "."+CLASS_SWIPE_ENABLE,
+	var __SWIPE_ACTIVE = "."+CLASS_SWIPE_ACTIVE,
 		__SWIPE_RIGHT_BTN = "."+CLASS_SWIPE_RIGHT_BTN,
 		__SWIPE_HANDLE = "."+CLASS_SWIPE_HANDLE,
+		__SWIPE_SELECTED = "."+CLASS_SWIPE_SELECTED,
 		__SWIPE_TRANSITION = "."+CLASS_SWIPE_TRANSITION;
+	var swipeHandle = false,
+		btnWidth = false,
+		swipeBtnsRight = false;
 	var ListSwipe = function () {
 		var self = this;
 		self.init();
@@ -37,19 +44,29 @@
 	ListSwipe.prototype.init = function() {
 		var self = this;
 		window.addEventListener('touchstart', function(event){
-			if(isMoved){
-				// self.resetSwipe();
+			if(isOpened){
+				self.resetSwipe();
+				swipeHandle = false;
+				swipeBtnsRight = false;
+				isOpened = false;
 				event.stopPropagation();
+				return;
 			}
 			var target = event.target;
 			// 过滤点击
 			for(; target && target !== document; target = target.parentNode){
 				if (target.classList){
 					if (target.classList.contains(CLASS_SWIPE_HANDLE)) {
+						swipeHandle = target;
+						if(target.parentNode.querySelectorAll(__SWIPE_RIGHT_BTN)){
+							swipeBtnsRight = target.parentNode.querySelectorAll(__SWIPE_RIGHT_BTN);
+							btnWidth =  swipeBtnsRight[0].offsetWidth;
+						}
 						self.toggleEvents(target);
 						firstTouch = event.changedTouches[0];
-						firstTouchX = parseInt(firstTouch.clientX);
-						firstTouchY = parseInt(firstTouch.clientY);
+						firstTouchX = firstTouch.clientX;
+						firstTouchY = firstTouch.clientY;
+						firstTouchTime = event.timeStamp;
 						firstTouchxy = {
 							x: event.targetTouches[0].clientX || 0,
 							y: event.targetTouches[0].clientY || 0
@@ -57,141 +74,158 @@
 					}
 				}
 			}
+
 		})
-		// 阻止window左右滑动，防止上下滑动时造成意外
 		window.addEventListener('touchmove', function(event){
-			var windTouchMoveObj = event.changedTouches[0];
-			var winMoveX = parseInt(windTouchMoveObj.clientX) - firstTouchX;
-	        var winMoveY = parseInt(windTouchMoveObj.clientY) - firstTouchY;
-	        if(self.getDirection(winMoveX,winMoveY) == 'left'){
-	        	event.preventDefault();
-	        }
-	        if(self.getDirection(winMoveX,winMoveY) == 'right'){
-	        	if(isMoved){
-	        		event.preventDefault();
-	        	}
-	        }
+			if(!isOpened){
+				self.toggleActive(swipeHandle,true);
+			}
+		})
+		window.addEventListener('touchcancel', function(event){
+			self.toggleActive(swipeHandle,false);
 		})
 	};
-
 	ListSwipe.prototype.toggleEvents = function (element){
+		if(!swipeHandle){
+			return;
+		}
 		var self = this;
 		var handleWidth = element.offsetWidth;
-		var swipeBtnsRight = element.parentNode.querySelectorAll(__SWIPE_RIGHT_BTN);
-		var btnWidth =  swipeBtnsRight[0].offsetWidth ;
-		for (var i = 0; i < swipeBtnsRight.length; i++) {
-			if(swipeBtnsRight[i].classList.contains(CLASS_SWIPE_TRANSITION)){
-				swipeBtnsRight[i].classList.remove(CLASS_SWIPE_TRANSITION);
-			}
-		}
-		if(element.classList.contains(CLASS_SWIPE_TRANSITION)){
-			element.classList.remove(CLASS_SWIPE_TRANSITION);
-		}
 		element.addEventListener('touchmove', function(event){
-
-			if(element.parentNode.classList.contains(CLASS_SWIPE_ENABLE)){
-				element.parentNode.classList.remove(CLASS_SWIPE_ENABLE);
-				return;
-			}
-			if(document.querySelector(__SWIPE_ENABLE)){
-				document.querySelector(__SWIPE_ENABLE).classList.remove(CLASS_SWIPE_ENABLE);
-				self.resetSwipe();
-			}
-			if(isMoved){
-				return;
-			}
+			self.toggleActive(element,true);
+			// console.log(event.timeStamp);
+			// 列表触摸滑动时如果有已经显示的将其关闭，并退出。
 			var touchMoveObj = event.changedTouches[0],
-				touchX = parseInt(touchMoveObj.clientX);
+				touchX = touchMoveObj.clientX;
 			touchXDelta = touchX - firstTouchX;
-			btnTranslateVal = swipeBtnsRight[0].offsetWidth + touchXDelta/friction;
+
 			handleTranslateVal = touchXDelta/friction;
-
-	        var moveX = parseInt(touchMoveObj.clientX) - firstTouchX;
-	        var moveY = parseInt(touchMoveObj.clientY) - firstTouchY;
-
+	        var moveX = touchMoveObj.clientX - firstTouchX;
+	        var moveY = touchMoveObj.clientY - firstTouchY;
+	        var direction = self.getDirection(moveX,moveY);
+	        if(Math.abs(moveX) > 5){
+	        	isMoveing = true;
+	        }
 	        // 解决滑动屏幕返回时事件冲突，主要针对部分特殊机型
 	        if(touchMoveObj.screenX < 0){
 	        	firstTouchxy = '';
-	        	event.preventDefault();
 	        }
 	        // 加了屏幕坐标判断，防止在右滑关闭窗口时影响
-	        if( handleTranslateVal < 10 && touchMoveObj.screenX > 0 && (self.getDirection(moveX,moveY) == 'left' || self.getDirection(moveX,moveY) == 'right')){
-	        	self.setTranslate(element,handleTranslateVal);
-	        	if(swipeBtnsRight && swipeBtnsRight.length==1){
-	        		// 当按钮为一个时，滑动速度处理
-	        		swipeBtnsRight[0].style.zIndex = 999999;
-	        		self.setTranslate(swipeBtnsRight[0],btnTranslateVal);
-	        	}else{
-	        		// 多个按钮
-	        		for (var i = 0; i < swipeBtnsRight.length; i++) {
-		        		swipeBtnsRight[i].style.zIndex = 999999-i;
-		        		if(handleTranslateVal > -(btnWidth+30)){
-		        			self.setTranslate(swipeBtnsRight[i],''+((handleTranslateVal*(i+1))+btnWidth)+'');
+	        if(!isOpened && (event.timeStamp - firstTouchTime) >= 100 && touchXDelta > -250 && isMoveing){
+	        	if(touchMoveObj.screenX > 0 ){
+	        		event.preventDefault();
+		        	// 按钮类处理
+		        	if(swipeBtnsRight && swipeBtnsRight.length==1){
+		        		if(swipeBtnsRight){
+							btnTranslateVal = swipeBtnsRight[0].offsetWidth + touchXDelta/friction;
+						}
+		        		if(touchXDelta < 10){
+		        			self.setTransform(element,0);
+		        			self.setTranslate(element,""+handleTranslateVal+"px");
 		        		}
-		        	}
-	        	}
+		        		// 当按钮为一个时，滑动速度处理
+		        		swipeBtnsRight[0].style.zIndex = 999;
+		        		self.setTransform(swipeBtnsRight[0],0);
+		        		self.setTranslate(swipeBtnsRight[0],""+btnTranslateVal+"px");
+		        	}else{
+		        		handleTranslateVal = touchXDelta/swipeBtnsRight.length;
+		        		if(touchXDelta < 10 && handleTranslateVal > -(btnWidth+30)){
+		        			self.setTransform(element,0);
+		        			self.setTranslate(element,""+touchXDelta+"px");
+		        			// 多个按钮
+			        		for (var i = 0; i < swipeBtnsRight.length; i++) {
+				        		swipeBtnsRight[i].style.zIndex = 999-i;
+			        			self.setTransform(swipeBtnsRight[i],0);
+			        			self.setTranslate(swipeBtnsRight[i],''+((handleTranslateVal*(i+1))+btnWidth + 10)+'px');
+				        	}
+		        		}
 
+		        	}
+		        }else{
+		        	isMoveing = false;
+		        }
 	        }
 		})
 		element.addEventListener('touchend', function(event){
-			// 当滑动超出当前el时处理
-			if(!isMoved){
-				self.removeTranslate(element);
-			}
+
 			var touchEndObj = event.changedTouches[0];
 			var touchEndxy = {
 					x: touchEndObj.clientX || 0,
 					y: touchEndObj.clientY || 0
 				};
-			var toucheEndX = parseInt(touchEndObj.clientX) - firstTouchX;
-	        var toucheEndY = parseInt(touchEndObj.clientY) - firstTouchY;
-	        if(self.getDirection(toucheEndX,toucheEndY)=='left' && self.getDistance(firstTouchxy,touchEndxy) > btnWidth*1.5){
-	        	// 按钮显示
-				isMoved = true;
-				for (var i = 0; i < swipeBtnsRight.length; i++) {
-					self.setTranslate(swipeBtnsRight[i],''+-(btnWidth*i)+'');
-					swipeBtnsRight[i].classList.add(CLASS_SWIPE_TRANSITION);
-				}
-				self.setTranslate(element,''+-btnWidth+'');
-				element.classList.add(CLASS_SWIPE_TRANSITION);
-				// 菜单显示后在element父级元素增加aui-swipe-enable，用户可以判断当前class是否存在来判断onclick事件的触发
-				element.parentNode.classList.add(CLASS_SWIPE_ENABLE);
+			var toucheEndX = touchEndObj.clientX - firstTouchX;
+	        var toucheEndY = touchEndObj.clientY - firstTouchY;
+	        var direction = self.getDirection(toucheEndX,toucheEndY);
+        	if(direction=='left' && self.getDistance(firstTouchxy,touchEndxy) > (btnWidth*swipeBtnsRight.length)/2){
+        		self.swipeOpen(element);
 			}else{
-				isMoved = false;
-				self.removeTranslate(element);
-				setTimeout(function(){
-					element.parentNode.classList.remove(CLASS_SWIPE_ENABLE);
-				}, 300)
+				self.swipeClosed(element);
 			}
 		})
 	}
-	ListSwipe.prototype.resetSwipe = function (){
-		isMoved = false;
-		if(document.querySelectorAll(__SWIPE_RIGHT_BTN+__SWIPE_TRANSITION)){
-			var swipeBtnsRight = document.querySelectorAll(__SWIPE_RIGHT_BTN+__SWIPE_TRANSITION);
-			for (var i = 0; i < swipeBtnsRight.length; i++) {
-				swipeBtnsRight[i].style.webkitTransform = swipeBtnsRight[i].style.transform = TranslateCent;
-			}
+	// swipe打开
+	ListSwipe.prototype.swipeOpen= function (el){
+		var self = this;
+		self.setTransform(el,300);
+		self.setTranslate(el,''+-(btnWidth*swipeBtnsRight.length)+'px');
+		for (var i = 0; i < swipeBtnsRight.length; i++) {
+			self.setTransform(swipeBtnsRight[i],300);
+			self.setTranslate(swipeBtnsRight[i],''+-(btnWidth*i)+'px');
 		}
-		if(document.querySelectorAll(__SWIPE_HANDLE+__SWIPE_TRANSITION)){
-			var handle = document.querySelectorAll(__SWIPE_HANDLE+__SWIPE_TRANSITION);
-			for (var i = 0; i < handle.length; i++) {
-				handle[i].style.webkitTransform = handle[i].style.transform = TranslateZero;
-			}
+		// 菜单显示后在element父级元素增加aui-swipe-enable，用户可以判断当前class是否存在来判断onclick事件的触发
+		el.parentNode.classList.add(CLASS_SWIPE_SELECTED);
+		isOpened = true;
+		isMoveing = false;
+	}
+	// swipe关闭
+	ListSwipe.prototype.swipeClosed= function (el){
+		var self = this;
+		self.setTransform(el,300);
+		self.setTranslate(el,'0px');
+		for (var i = 0; i < swipeBtnsRight.length; i++) {
+			self.setTransform(swipeBtnsRight[i],300);
+			self.setTranslate(swipeBtnsRight[i],'100%');
 		}
+		if(el.querySelector(__SWIPE_ACTIVE)){
+			el.querySelector(__SWIPE_ACTIVE).classList.remove(CLASS_SWIPE_ACTIVE);
+		}
+		swipeHandle = false;
+		isOpened = false;
+		isMoveing = false;
+	}
+	// 当前正在滑动的list
+	ListSwipe.prototype.toggleActive= function (el,isActive){
+		var self = this;
+		if(!el){
+			return;
+		}
+		if(isActive){
+			el.classList.add(CLASS_SWIPE_ACTIVE);
+		}else{
+			el.classList.remove(CLASS_SWIPE_ACTIVE);
+			self.swipeClosed(el);
+		}
+	}
+	ListSwipe.prototype.setTransform= function (el,value){
+		el.style.webkitTransitionDuration = el.style.transitionDuration = value+'ms';
 	}
 	ListSwipe.prototype.setTranslate = function (el,value){
-		el.style.webkitTransform = el.style.transform = "translate3d("+value+"px,0,0)";
+		el.style.webkitTransform = el.style.transform = "translate3d("+value+",0,0)";
 	}
-	ListSwipe.prototype.removeTranslate = function(element){
-		var swipeBtnsRight = element.parentNode.querySelectorAll(__SWIPE_RIGHT_BTN);
-		for (var i = 0; i < swipeBtnsRight.length; i++) {
-			swipeBtnsRight[i].classList.add(CLASS_SWIPE_TRANSITION);
-			swipeBtnsRight[i].style.webkitTransform = swipeBtnsRight[i].style.transform = TranslateCent;
+	ListSwipe.prototype.resetSwipe = function (){
+		var self = this;
+		if(document.querySelector(__SWIPE_SELECTED)){
+			var selectDom = document.querySelector(__SWIPE_SELECTED);
+			selectDom.querySelector(__SWIPE_HANDLE).style.webkitTransform = selectDom.querySelector(__SWIPE_HANDLE).style.transform = TranslateZero;
+			var selectBtns = selectDom.querySelectorAll(__SWIPE_RIGHT_BTN);
+			for (var i = 0; i < selectBtns.length; i++) {
+				selectBtns[i].style.webkitTransform = selectBtns[i].style.transform = TranslateCent;
+			}
+			setTimeout(function(){
+				document.querySelector(__SWIPE_SELECTED).classList.remove(CLASS_SWIPE_SELECTED);
+			}, 300)
+			self.toggleActive(selectDom.querySelector(__SWIPE_HANDLE),false);
 		}
-		element.classList.add(CLASS_SWIPE_TRANSITION);
-		element.style.webkitTransform = element.style.transform = TranslateZero;
-    	return;
 	}
 	ListSwipe.prototype.getDistance = function(p1, p2, props) {
 		if (!props) { props = ['x', 'y'];}

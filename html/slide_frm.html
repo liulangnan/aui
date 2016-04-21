@@ -20,6 +20,9 @@
 	</style>
 </head>
 <body>
+	<div class="aui-content aui-padded-20">
+		<p>优化说明：新增当前页（currentPage）回调及总页数获取；优化图片显示</p>
+	</div>
 	<div id="aui-slide">
 		<div class="aui-slide-wrap" >
 			<div class="aui-slide-node">
@@ -52,24 +55,24 @@
 			</div>
 			<div class="aui-slide-node aui-slide-node-middle aui-slide-node-center">
 				<div class="aui-content aui-padded-15">
-					<span class="aui-text-danger">AUI Slide</span> 轮播组件不只局限于放置图片，可以自定义内容，分页样式有圆点(dot)，线条(line),使用 <mark>.aui-slide-node-middle</mark>控制内容垂直居中，<mark>.aui-slide-node-center</mark>控制内容水平居中
+					<span class="aui-text-danger">AUI Slide</span> 轮播组件不只局限于放置图片，可以自定义内容，分页样式有圆点(dot)，线条(line),结合AUI Flex来实现图片及内容的水平、垂直居中
 				</div>
 			</div>
 			<div class="aui-slide-node aui-bg-warning aui-slide-node-middle aui-slide-node-center">
 				<div class="aui-content aui-padded-15">
-					<span class="aui-text-danger">AUI Slide</span>提供了常用的配置属性，可以自定义宽度，高度，自动播放，分页器样式等
+					<span class="aui-text-danger">AUI Slide</span>提供了常用的配置属性，可以自定义宽度，高度，自动播放，分页器样式等，支持无缝循环轮播
 				</div>
 			</div>
-			<div class="aui-slide-node bg-dark aui-slide-node-middle aui-slide-node-center">
+			<div class="aui-slide-node bg-dark">
 				<img src="../image/l1.png" />
 			</div>
-			<div class="aui-slide-node bg-dark aui-slide-node-middle aui-slide-node-center">
+			<div class="aui-slide-node bg-dark">
 				<img src="../image/l2.png" />
 			</div>
-			<div class="aui-slide-node bg-dark aui-slide-node-middle aui-slide-node-center">
+			<div class="aui-slide-node bg-dark">
 				<img src="../image/l3.png" />
 			</div>
-			<div class="aui-slide-node aui-bg-warning aui-slide-node-middle aui-slide-node-center">
+			<div class="aui-slide-node aui-bg-warning">
 				<img src="../image/demo5.png" />
 			</div>
 		</div>
@@ -107,13 +110,13 @@
 	</div>
 	<div id="aui-slide3">
 		<div class="aui-slide-wrap" >
-			<div class="aui-slide-node bg-dark aui-slide-node-middle aui-slide-node-center">
+			<div class="aui-slide-node bg-dark">
 				<img src="../image/l1.png" />
 			</div>
-			<div class="aui-slide-node bg-dark aui-slide-node-middle aui-slide-node-center">
+			<div class="aui-slide-node bg-dark">
 				<img src="../image/l2.png" />
 			</div>
-			<div class="aui-slide-node bg-dark aui-slide-node-middle aui-slide-node-center">
+			<div class="aui-slide-node bg-dark">
 				<img src="../image/l3.png" />
 			</div>
 		</div>
@@ -130,8 +133,13 @@
 		"pageShow":true,
 		"pageStyle":'dot',
 		"loop":true,
-		'dotPosition':'center'
+		'dotPosition':'center',
+		currentPage:currentFun
 	})
+
+	function currentFun(index) {
+		console.log(index);
+	}
 	var slide2 = new auiSlide({
 		container:document.getElementById("aui-slide2"),
 		// "width":300,
@@ -154,5 +162,6 @@
 		"pageStyle":'line',
 		'dotPosition':'center'
 	})
+	console.log(slide3.pageCount());
 </script>
 </html>

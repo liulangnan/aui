@@ -1,19 +1,15 @@
 /*
  * =========================================================================
  * APIClud - AUI UI 框架    流浪男  QQ：343757327  http://www.auicss.com
- * 全屏上下滑动组件
- * Verson 0.0.1
+ * 全屏滑动组件
+ * Verson 0.0.2
  * =========================================================================
  */
-.aui-slider-nav {
+.aui-slider-full {
 	position: relative;
 	background: #000;
 }
-.aui-slider-nav ul {
-	position: relative;
-}
-.aui-slider-nav ul,
-.aui-slider-nav li {
+.aui-slider-full > .aui-slider-list {
 	list-style: none;
 	margin: 0;
 	padding: 0;
@@ -23,27 +19,40 @@
 	background: #000000;
 	color: #ffffff;
 }
-.aui-slider-nav li {
+.aui-slider-full > .aui-slider-list {
 	position: absolute;
 	-webkit-backface-visibility: hidden;
 }
-.aui-slider-nav li img {
+.aui-slider-full > .aui-slider-list img {
 	width: 100%;
-	height: 100%;
+	height: auto;
 }
-.aui-up-slide {
+.aui-slider-up {
 	position: absolute;
 	bottom: 10px;
 	left: 50%;
 	width: 20px;
 	height: 20px;
-	z-index: 999999999;
+	z-index: 9999;
 	margin-left: -10px;
 	color: #ffffff;
 	text-align: center;
 	font-weight: 700;
 }
-.aui-up-slide .aui-iconfont {
+.aui-silder-right {
+	position: absolute;
+	right: 10px;
+	top: 50%;
+	width: 20px;
+	height: 20px;
+	z-index: 9999;
+	margin-top: -10px;
+	color: #ffffff;
+	text-align: center;
+	font-weight: 700;
+}
+.aui-slider-up .aui-iconfont,
+.aui-slider-right .aui-iconfont {
 	font-size: 28px;
 }
 .aui-slider-close {

@@ -1,0 +1,49 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <title>APP</title>
+    <link rel="stylesheet" type="text/css" href="../css/aui.css" />
+    <style type="text/css">
+    body {
+        background: transparent;
+    }
+    .aui-nav {
+        background: transparent;
+    }
+    .aui-nav .aui-bar-tab {
+
+        background: rgba(255,255,255,0.95);
+    }
+    </style>
+</head>
+<body>
+    <footer class="aui-nav aui-border-t" id="aui-footer">
+        <ul class="aui-bar-tab">
+            <li class="active-warning" id="tabbar1" tapmode onclick="randomSwitchBtn(this,'栏目1',0)">
+                <span class="aui-iconfont aui-icon-favor"></span>
+                <p>栏目1</p>
+            </li>
+            <li id="tabbar2" tapmode onclick="randomSwitchBtn(this,'栏目2',1)">
+                <span class="aui-iconfont aui-icon-mark"></span>
+                <p>栏目2</p>
+            </li>
+            <li id="tabbar3" tapmode onclick="randomSwitchBtn(this,'栏目3',2)">
+                <span class="aui-iconfont aui-icon-like"></span>
+                <p>栏目3</p>
+            </li>
+            <li id="tabbar4" tapmode onclick="randomSwitchBtn(this,'栏目4',3)">
+                <span class="aui-iconfont aui-icon-my"></span>
+                <p>栏目4</p>
+            </li>
+        </ul>
+    </footer>
+</body>
+<script type="text/javascript" src="../script/api.js" ></script>
+<script type="text/javascript">
+    apiready = function () {
+        api.parseTapmode();
+    }
+</script>
+</html>

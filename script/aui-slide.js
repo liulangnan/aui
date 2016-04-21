@@ -42,7 +42,9 @@
 		pageStyle: 'dot',
 		dotPosition: 'center',
 		friction:1, //阻力
-		loop:true
+		loop:true,
+		currentPage:false,
+		PageCount:false
 	};
 	Slide.prototype._init = function(options) {
 		extend(this.options, options);
@@ -65,6 +67,7 @@
 		if(!element || !this.slideNodeList){
 			return;
 		}
+		// this.options.pageCount(this.slideNodeList.length);
 		this.slideWrapWidth = this.slideWrap.offsetWidth;
 		this.slideNodeListLength = this.slideNodeList.length;
 
@@ -114,6 +117,9 @@
 	// 设置当前分页
 	Slide.prototype.setPaginationActive = function(index){
 		var self = this;
+		if(self.options.currentPage){
+			self.options.currentPage(index);
+		}
 		if(!this.container.querySelector(__SLIDE_PAGE_WRAP)){
 			return;
 		}
@@ -172,6 +178,11 @@
 				break;
 		}
 	};
+	// 总页数
+	Slide.prototype.pageCount = function() {
+		var self = this;
+		return self.slideNodeList.length;
+	};
 	Slide.prototype.touchStart = function(event) {
 		touchStartTime = new Date() * 1;
 		firstTouchX = parseInt(event.changedTouches[0].pageX);
@@ -186,38 +197,36 @@
 		//  滑动位移
 		offsetX = parseInt(touchMoveObj.pageX) - firstTouchX;
         offsetY = parseInt(touchMoveObj.pageY) - firstTouchY;
-
+        var direction = this.getDirection(offsetX,offsetY);
         if ( typeof isScrolling == 'undefined') {
 			isScrolling = !!( isScrolling || Math.abs(offsetX) < Math.abs(offsetY) );
 		}
 		if(!isScrolling){
 			event.preventDefault();
-			// console.log(this.index)
-			if(!this.loop){
-				// if(!this.continuous && this.index==1){
-				// 	return;
-				// }
-				if(!this.continuous && this.index==1 && this.getDirection(offsetX,offsetY)=='left'){
+			if(!this.loop){ //不循环
+				if(!this.continuous && this.index==1 && direction=='left'){
 					return;
 				}
-				if(!this.continuous && this.index==0 && this.getDirection(offsetX,offsetY)=='right'){
+				if(!this.continuous && this.index==0 && direction=='right'){
 					return;
 				}
-				if(this.index == this.slideNodeList.length-1 && this.getDirection(offsetX,offsetY)=='left'){
-
+				if(this.index == this.slideNodeList.length-1){
+					if(handleTranslateVal <= 0){
+						return;
+					}
 					this.setTranslate(this.getCircle(this.index-1), handleTranslateVal - this.slideWrapWidth, 0);
-					// this.setTranslate(this.index, handleTranslateVal , 0);
-					return;
-				}else if(this.index == 0 && this.getDirection(offsetX,offsetY)=='right'){
-					// this.setTranslate(this.index, handleTranslateVal , 0);
-					this.setTranslate(this.getCircle(this.index+1), handleTranslateVal + this.slideWrapWidth, 0);
-					return;
+				}else if(this.index == 0){
+					if(handleTranslateVal >= 0){
+						return;
+					}
+					this.setTranslate(this.getCircle(this.index+1), this.slideWrapWidth, 0);
 				}
 			}
 
 			this.setTranslate(this.getCircle(this.index-1), handleTranslateVal - this.slideWrapWidth, 0);
 			this.setTranslate(this.index, handleTranslateVal , 0);
 			this.setTranslate(this.getCircle(this.index+1), handleTranslateVal + this.slideWrapWidth, 0);
+
 		}
 	};
 	Slide.prototype.touchEnd = function(event) {
@@ -236,18 +245,8 @@
 			return;
 		}
         if(isValid){
-   //      	if(this.index == this.slideNodeList.length-1){
-			// 	// this.setTranslate(this.getCircle(this.index-1), handleTranslateVal - this.slideWrapWidth, 0);
-			// 	// this.setTranslate(this.index, handleTranslateVal , 0);
-			// 	return;
-			// }else if(this.index == 0){
-			// 	// this.setTranslate(this.index, handleTranslateVal , 0);
-			// 	// this.setTranslate(this.getCircle(this.index+1), handleTranslateVal + this.slideWrapWidth, 0);
-			// 	return;
-			// }
 			if(offsetX < 0){
 				if(!this.loop && this.index == this.slideNodeList.length-1){
-
 					return;
 				}
 

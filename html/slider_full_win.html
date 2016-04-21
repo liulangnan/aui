@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <link rel="stylesheet" type="text/css" href="../css/aui-win.css" />
+</head>
+<body>
+</body>
+<script type="text/javascript" src="../script/api.js"></script>
+<script type="text/javascript">
+    function closeWin(){
+        api.closeWin();
+    }
+    apiready = function(){
+        api.parseTapmode();
+        if(api.pageParam.direction=="x"){
+            api.openFrame({
+                name: 'sliderfull_x_frm',
+                url: 'sliderfull_x_frm.html',
+                bounces: false,
+                rect: {
+                    x: 0,
+                    y: '0',
+                    w: 'auto',
+                    h: 'auto'
+                }
+            })
+        }else{
+            api.openFrame({
+                name: 'sliderfull_y_frm',
+                url: 'sliderfull_y_frm.html',
+                bounces: false,
+                rect: {
+                    x: 0,
+                    y: '0',
+                    w: 'auto',
+                    h: 'auto'
+                }
+            })
+        }
+
+    };
+</script>
+</html>

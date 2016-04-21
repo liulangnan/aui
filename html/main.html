@@ -38,7 +38,7 @@ img.wx {
             <li class="aui-list-view-cell" tapmode onclick="openWin('explain')">
                 <div class="aui-arrow-right aui-text-danger">
                     <i class="aui-iconfont aui-icon-sort aui-bg-danger"></i>更新说明
-                    <span class="aui-badge aui-badge-danger aui-pull-right">V 1.2.0</span>
+                    <span class="aui-badge aui-badge-danger aui-pull-right">V 1.2.1</span>
                 </div>
             </li>
             <li class="aui-list-view-cell" tapmode onclick="share()" id="share">
@@ -47,42 +47,58 @@ img.wx {
                     <span>分享至朋友圈</span>
                 </div>
             </li>
+            <li class="aui-list-view-cell" tapmode onclick="openClub()" id="share">
+                <div class="aui-arrow-right">
+                    <i class="aui-iconfont aui-icon-markfill aui-bg-warning"></i>
+                    <span class="aui-text-info">社区问答</span>
+                </div>
+            </li>
         </ul>
     </div>
     <div class="aui-content">
         <ul class="aui-list-view">
+            <!-- <li class="aui-list-view-cell" tapmode onclick="openWin('demo1')">
+                <a class="aui-arrow-right">测试<span class="aui-badge aui-badge-danger">新增</span></a>
+            </li> -->
+            <li class="aui-list-view-cell" tapmode onclick="openWin('lanuch')">
+                <a class="aui-arrow-right">引导页(基于轮播组件)<span class="aui-badge aui-badge-warning">新增</span></a>
+            </li>
             <li class="aui-list-view-cell" tapmode onclick="openWin('pull_refresh')">
-                <a class="aui-arrow-right">下拉刷新组件（一）<span class="aui-badge aui-badge-danger">新增</span></a>
+                <a class="aui-arrow-right">下拉刷新组件（一）</a>
             </li>
             <li class="aui-list-view-cell" tapmode onclick="openWin('pull_refresh_2')">
-                <a class="aui-arrow-right">下拉刷新组件（二）<span class="aui-badge aui-badge-danger">新增</span></a>
+                <a class="aui-arrow-right">下拉刷新组件（二）</a>
             </li>
             <li class="aui-list-view-cell" tapmode onclick="openWin('slide')">
-                <a class="aui-arrow-right">轮播组件<span class="aui-badge aui-badge-danger">新增</span></a>
+                <a class="aui-arrow-right">轮播组件<span class="aui-badge aui-badge-warning">优化</span></a>
             </li>
             <li class="aui-list-view-cell" tapmode onclick="openWin('list_swipe')">
-                <a class="aui-arrow-right">列表右滑显示菜单<span class="aui-badge aui-badge-danger">新增</span></a>
+                <a class="aui-arrow-right">列表右滑显示菜单<span class="aui-badge aui-badge-warning">优化</span></a>
             </li>
             <li class="aui-list-view-cell" tapmode onclick="openWin('accordion')">
-                <a class="aui-arrow-right">手风琴折叠面板<span class="aui-badge aui-badge-danger">新增</span></a>
+                <a class="aui-arrow-right">手风琴折叠面板</a>
             </li>
             <li class="aui-list-view-cell" tapmode onclick="openWin('flex')">
-                <a class="aui-arrow-right">AUI Flex<span class="aui-badge aui-badge-warning">优化</span></a>
+                <a class="aui-arrow-right">AUI Flex</a>
             </li>
             <li class="aui-list-view-cell" tapmode onclick="openWin('border')">
                 <a class="aui-arrow-right">边框样式</a>
             </li>
             <li class="aui-list-view-cell" tapmode onclick="openWin('indexed_list')">
-                <a class="aui-arrow-right">索引列表<span class="aui-badge aui-badge-success">优化</span></a>
+                <a class="aui-arrow-right">索引列表</a>
             </li>
-            <li class="aui-list-view-cell" tapmode onclick="openSlider()">
-                <a class="aui-arrow-right">上下滑动全屏展示</a>
+            <li class="aui-list-view-cell" tapmode onclick="openSlider('x')">
+                <a class="aui-arrow-right">左右滑动全屏展示<span class="aui-badge aui-badge-info">优化新增</span></a>
+
+            </li>
+            <li class="aui-list-view-cell" tapmode onclick="openSlider('y')">
+                <a class="aui-arrow-right">上下滑动全屏展示<span class="aui-badge aui-badge-info">优化新增</span></a>
             </li>
             <li class="aui-list-view-cell" tapmode onclick="openWin('calendar')">
-                <a class="aui-arrow-right">日历</a>
+                <a class="aui-arrow-right">日历<span class="aui-badge aui-badge-warning">优化</span></a>
             </li>
             <li class="aui-list-view-cell" tapmode onclick="openWin('calendar_slide')">
-                <a class="aui-arrow-right">日历上下滑动展示</a>
+                <a class="aui-arrow-right">日历上下滑动展示<span class="aui-badge">待优化</span></a>
             </li>
             <li class="aui-list-view-cell" tapmode onclick="openWin('button')">
                 <a class="aui-arrow-right">按钮</a>
@@ -188,7 +204,10 @@ img.wx {
             contentUrl: 'http://www.auicss.com'
         }, function(ret, err){
             if(ret.status){
-                alert('分享成功');
+                api.alert({
+                    title: 'AUI',
+                    msg: '分享成功'
+                });
             }
         });
     }
@@ -204,9 +223,23 @@ img.wx {
         //         type:"fade"
         //     }
         // });
-        if(api.systemType=='ios'){
-            document.getElementById("share").style.display = "none";
+        // if(api.systemType=='ios'){
+        //     document.getElementById("share").style.display = "none";
+        // }
+    }
+    function openClub(){
+        var delay = 0;
+        if(api.systemType != 'ios'){
+            delay = 300;
         }
+        api.openWin({
+            name: 'club_win',
+            url: 'club_win.html',
+            bounces:false,
+            delay: delay,
+            slidBackEnabled:true,
+            vScrollBarEnabled:false
+        });
     }
     function openWin(name){
         var delay = 0;
@@ -214,7 +247,7 @@ img.wx {
             delay = 300;
         }
         api.openWin({
-            name: ''+name+'',
+            name: ''+name+'_win',
             url: ''+name+'_win.html',
             bounces:false,
             delay: delay,
@@ -222,16 +255,19 @@ img.wx {
             vScrollBarEnabled:false
         });
     }
-    function openSlider(){
+    function openSlider(direction){
         var delay = 0;
         if(api.systemType != 'ios'){
             delay = 300;
         }
         api.openWin({
-            name: 'slider_up_win',
-            url: 'slider_up_win.html',
+            name: 'slider_full_win',
+            url: 'slider_full_win.html',
             bounces:false,
             delay: delay,
+            pageParam:{
+                direction:direction
+            },
             animation:{
                 type:'push',
                 subType:'from_bottom'

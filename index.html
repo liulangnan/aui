@@ -39,6 +39,26 @@
                 h: 'auto'
             }
         });
+        var ajpush = api.require('ajpush');
+
+        ajpush.init(function(ret) {
+            if (ret && ret.status){
+            }
+        });
+        ajpush.setListener(
+            function(ret) {
+                var id = ret.id;
+                var title = ret.title;
+                var content = ret.content;
+                var extra = ret.extra;
+                api.notification({
+                    notify: {
+                        content: content
+                    }
+                }, function( ret, err ){
+                });
+            }
+        );
     }
     function about() {
         var html = '<p>当前版本 <span class="aui-text-info">V1.1.8</span></p><p>AUI是专门为APICloud用户打造的一款前端UI框架</p>';
