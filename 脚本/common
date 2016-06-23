@@ -1,0 +1,33 @@
+window.apiready = function() {
+	var arrDom = $api.domAll('a');
+	for (var i = 0, len = arrDom.length; i < len; i++) {
+		$api.addEvt(arrDom[i], 'click', function() {
+			var path = this.getAttribute("data-path");
+			var title = this.getAttribute("data-title");
+			goto_subpage(path, title);
+		});
+	}
+}
+
+function goto_subpage(href, title, extras, parent, page_id, srcipt) {
+	var page, url = "../../html/common-subpage.html";
+	if (parent && parent != "")
+		url = parent;
+	extras = typeof extras == "object" ? extras : {};
+	if (page_id)
+		url = url + "?page_id=" + page_id;
+	page_id = page_id ? page_id : "common-subpage";
+	srcipt && (extras.script = srcipt);
+
+	api.openWin({
+		name : page_id,
+		url : url,
+		allowEdit : true,
+		pageParam : {
+			title : title,
+			page : href,
+			page_id : page_id,
+			data : extras
+		}
+	})
+}
