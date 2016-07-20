@@ -3,20 +3,15 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
-    <title>Hello APP</title>
-    <link rel="stylesheet" type="text/css" href="../css/aui-win.css" />
-    <style type="text/css">
-    .aui-bar,
-    .aui-bar .aui-btn {
-        background: #ffffff;
-    }
-    </style>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <link rel="stylesheet" type="text/css" href="../css/aui.2.0.css" />
 </head>
 <body>
-    <header class="aui-bar aui-bar-nav aui-border-b" id="aui-header">
+    <header class="aui-bar aui-bar-nav" id="aui-header">
         <a class="aui-btn aui-pull-left" tapmode onclick="closeWin()">
-            <span class="aui-iconfont aui-icon-close aui-text-info"></span>
+            <span class="aui-iconfont aui-icon-left"></span>
         </a>
+        <div class="aui-title">社区问答</div>
     </header>
 </body>
 <script type="text/javascript" src="../script/api.js"></script>
@@ -35,16 +30,13 @@
             url: 'http://www.auicss.com/club',
             bounces: false,
             progress:{
-                type:"page",
-                title:"加载中",               //type为default时显示的加载框标题
-                text:"请稍候",                //type为default时显示的加载框内容
-                color:""
+                type:"page"
             },
             rect: {
                 x: 0,
                 y: headerPos.h,
-                w: headerPos.w,
-                h: body_h - headerPos.h
+                w: 'auto',
+                h: 'auto'
             }
         })
     };

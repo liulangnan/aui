@@ -4,136 +4,122 @@
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
-		<link rel="stylesheet" type="text/css" href="../css/aui.css" />
+		<link rel="stylesheet" type="text/css" href="../css/aui.2.0.css" />
 		<link rel="stylesheet" type="text/css" href="../css/aui-pull-refresh.css" />
 	</head>
 	<body>
-		<div class="aui-load-container">
-			<div class="aui-load-wrap">
-				<div class="aui-loading-dot"></div>
-				<div class="aui-loading-circle"></div>
-				<div class="aui-loading-title"></div>
-			</div>
+		<section class="aui-refresh-content">
 			<div class="aui-content">
-		        <ul class="aui-list-view" id="list">
-		            <li class="aui-list-view-cell">
-		                单行列表标题效果
-		            </li>
-		            <li class="aui-list-view-cell">
-		                单行列表标题效果
-		            </li>
-		            <li class="aui-list-view-cell">
-		                单行列表标题效果
-		            </li>
-		            <li class="aui-list-view-cell">
-		                单行列表标题效果
-		            </li>
-		            <li class="aui-list-view-cell">
-		                单行列表标题效果
-		            </li>
-		        </ul>
-		    </div>
-		    <p class="aui-text-center">新增 下划线缩进 15px .aui-in</p>
-		    <div class="aui-content">
-		        <ul class="aui-list-view aui-in">
-		            <li class="aui-list-view-cell">
-		                单行列表标题效果
-		            </li>
-		            <li class="aui-list-view-cell">
-		                单行列表标题效果
-		            </li>
-		        </ul>
-		    </div>
-		    <p class="aui-text-center">新增 i.aui-iconfont</p>
-		    <div class="aui-content">
-		        <ul class="aui-list-view aui-in">
-		            <li class="aui-list-view-cell">
-		                <i class="aui-iconfont aui-icon-edit aui-bg-info"></i>单行列表标题效果
-		            </li>
-		            <li class="aui-list-view-cell">
-		                <i class="aui-iconfont aui-icon-emoji aui-bg-success"></i>单行列表标题效果
-		            </li>
-		            <li class="aui-list-view-cell">
-		                <i class="aui-iconfont aui-icon-favor aui-bg-danger"></i>单行列表标题效果
-		            </li>
-		            <li class="aui-list-view-cell">
-		                <i class="aui-iconfont aui-icon-like aui-bg-warning"></i>单行列表标题效果
-		            </li>
-		            <li class="aui-list-view-cell">
-		                <i class="aui-iconfont aui-icon-shop aui-bg-success"></i>单行列表标题效果
-		            </li>
-		        </ul>
-		    </div>
-		    <p class="aui-text-center">一条数据列表效果</p>
-		    <div class="aui-content">
-		        <ul class="aui-list-view">
-		            <li class="aui-list-view-cell" data-win="list_arrow">
-		                单行列表标题效果
-		            </li>
-		        </ul>
-		    </div>
-		    <p class="aui-text-center">.aui-content-padded</p>
-		    <div class="aui-content-padded">
-		        <ul class="aui-list-view">
-		            <li class="aui-list-view-cell" data-win="list_arrow">
-		                卡片式单行列表标题效果
-		            </li>
-		            <li class="aui-list-view-cell" data-win="list_thumb">
-		                卡片式单行列表标题效果
-		            </li>
-		            <li class="aui-list-view-cell" data-win="list-image">
-		                卡片式单行列表标题效果
-		            </li>
-		        </ul>
-		    </div>
-		    <p class="aui-text-center">.aui-card 圆角卡片有边框</p>
-		    <div class="aui-card">
-		        <ul class="aui-list-view">
-		            <li class="aui-list-view-cell" data-win="list_arrow">
-		                卡片式单行列表标题效果
-		            </li>
-		            <li class="aui-list-view-cell" data-win="list_thumb">
-		                卡片式单行列表标题效果
-		            </li>
-		            <li class="aui-list-view-cell" data-win="list-image">
-		                卡片式单行列表标题效果
-		            </li>
-		        </ul>
-		    </div>
-		    <p class="aui-text-center">.aui-card .aui-noborder 圆角卡片无边框</p>
-		    <div class="aui-card aui-noborder">
-		        <ul class="aui-list-view">
-		            <li class="aui-list-view-cell" data-win="list_arrow">
-		                卡片式单行列表标题效果
-		            </li>
-		            <li class="aui-list-view-cell" data-win="list_thumb">
-		                卡片式单行列表标题效果
-		            </li>
-		            <li class="aui-list-view-cell" data-win="list-image">
-		                卡片式单行列表标题效果
-		            </li>
-		        </ul>
-		    </div>
-		</div>
+				<div id="demo">
+			        <div class="aui-card-list">
+			            <div class="aui-card-list-header">
+			                卡片布局头部区域
+			            </div>
+			            <div class="aui-card-list-content-padded">
+			                内容区域，卡片列表布局样式可以实现APP中常见的各类样式
+			            </div>
+			            <div class="aui-card-list-footer">
+			                底部区域
+			            </div>
+			        </div>
+			        <div class="aui-card-list">
+			            <div class="aui-card-list-header">
+			                卡片布局头部区域
+			            </div>
+			            <div class="aui-card-list-content-padded">
+			                内容区域，卡片列表布局样式可以实现APP中常见的各类样式
+			            </div>
+			            <div class="aui-card-list-footer">
+			                底部区域
+			            </div>
+			        </div>
+			        <div class="aui-card-list">
+			            <div class="aui-card-list-header">
+			                卡片布局头部区域
+			            </div>
+			            <div class="aui-card-list-content-padded">
+			                内容区域，卡片列表布局样式可以实现APP中常见的各类样式
+			            </div>
+			            <div class="aui-card-list-footer">
+			                底部区域
+			            </div>
+			        </div>
+			        <div class="aui-card-list">
+			            <div class="aui-card-list-header">
+			                卡片布局头部区域
+			            </div>
+			            <div class="aui-card-list-content-padded">
+			                内容区域，卡片列表布局样式可以实现APP中常见的各类样式
+			            </div>
+			            <div class="aui-card-list-footer">
+			                底部区域
+			            </div>
+			        </div>
+			        <div class="aui-card-list">
+			            <div class="aui-card-list-header">
+			                卡片布局头部区域
+			            </div>
+			            <div class="aui-card-list-content-padded">
+			                内容区域，卡片列表布局样式可以实现APP中常见的各类样式
+			            </div>
+			            <div class="aui-card-list-footer">
+			                底部区域
+			            </div>
+			        </div>
+			        <div class="aui-card-list">
+			            <div class="aui-card-list-header">
+			                卡片布局头部区域
+			            </div>
+			            <div class="aui-card-list-content-padded">
+			                内容区域，卡片列表布局样式可以实现APP中常见的各类样式
+			            </div>
+			            <div class="aui-card-list-footer">
+			                底部区域
+			            </div>
+			        </div>
+			        <div class="aui-card-list">
+			            <div class="aui-card-list-header">
+			                卡片布局头部区域
+			            </div>
+			            <div class="aui-card-list-content-padded">
+			                内容区域，卡片列表布局样式可以实现APP中常见的各类样式
+			            </div>
+			            <div class="aui-card-list-footer">
+			                底部区域
+			            </div>
+			        </div>
+		        </div>
+	        </div>
+	    </section>
 	</body>
+	<script src="../script/api.js"></script>
 	<script src="../script/aui-pull-refresh.js"></script>
 	<script type="text/javascript">
 		var pullRefresh = new auiPullToRefresh({
-			callback: loadingCallback,
-			textDown:'下拉刷新'
-		})
-		function loadingCallback(status) {
-			if(status=='success'){
+			container: document.querySelector('.aui-refresh-content'),
+			triggerDistance: 100
+		},function(ret){
+			if(ret.status=="success"){
 				setTimeout(function(){
-					var wrap = document.getElementById("list")
-					var lis = wrap.querySelectorAll('li');
+					var wrap = document.getElementById("demo")
+					var lis = wrap.querySelectorAll('.aui-card-list');
 					for (var i = lis.length, length = i + 10; i < length; i++) {
-						var html = '<li class="aui-list-view-cell">新加载'+(i+1)+'</li>';
+						var html = '<div class="aui-card-list">'+
+					            '<div class="aui-card-list-header">'+
+					                '卡片布局头部区域'+(i+1)+''+
+					            '</div>'+
+					            '<div class="aui-card-list-content-padded">'+
+					                '内容区域，卡片列表布局样式可以实现APP中常见的各类样式'+
+					            '</div>'+
+					            '<div class="aui-card-list-footer">'+
+					                '底部区域'+
+					            '</div>'+
+					        '</div>';
 						wrap.insertAdjacentHTML('afterbegin', html);
 					}
 					pullRefresh.cancelLoading(); //刷新成功后调用此方法隐藏
 				},1500)
 			}
-		}
+		})
 	</script>
 </html>

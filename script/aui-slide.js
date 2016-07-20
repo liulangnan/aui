@@ -1,6 +1,5 @@
 /**
  * aui-slide.js 轮播组件
- * verson 0.0.1
  * @author 流浪男 && Beck
  * http://www.auicss.com
  * @todo more things to abstract, e.g. Loading css etc.
@@ -32,7 +31,7 @@
 		__SLIDE_PAGE = "."+CLASS_SLIDE_PAGE,
 		__SLIDE_PAGE_ACTIVE = "."+CLASS_SLIDE_PAGE_ACTIVE;
 
-	Slide.prototype.options = {
+	auiSlide.prototype.options = {
 		container:'',
 		width:'auto',
 		height:'auto',
@@ -46,7 +45,7 @@
 		currentPage:false,
 		PageCount:false
 	};
-	Slide.prototype._init = function(options) {
+	auiSlide.prototype._init = function(options) {
 		extend(this.options, options);
 		if(!this.options.container){
 			return;
@@ -97,13 +96,13 @@
 		}
 	};
 	// 当分页器为圆点时位置设置
-	Slide.prototype.setPageDotPosition = function(){
+	auiSlide.prototype.setPageDotPosition = function(){
 		var self = this;
 		var pageDotPosition = self.options.dotPosition;
 		this.container.querySelector(__SLIDE_PAGE_WRAP).style.textAlign = pageDotPosition;
 	};
 	// 自动播放
-	Slide.prototype.autoPlay = function (index) {
+	auiSlide.prototype.autoPlay = function (index) {
 		var self = this;
 		setInterval(function(){
 			self.slideTo(self.getCircle(self.index-1), -self.slideWrapWidth, 0);
@@ -115,7 +114,7 @@
 		}, self.options.autoPlay)
 	};
 	// 设置当前分页
-	Slide.prototype.setPaginationActive = function(index){
+	auiSlide.prototype.setPaginationActive = function(index){
 		var self = this;
 		if(self.options.currentPage){
 			self.options.currentPage(index);
@@ -141,7 +140,7 @@
 
 	};
 	// 创建分页器
-	Slide.prototype.createPagination = function(index){
+	auiSlide.prototype.createPagination = function(index){
 		var self = this;
 		var pageWrap = this.container.querySelector(__SLIDE_PAGE_WRAP);
 		if(!pageWrap){
@@ -179,17 +178,17 @@
 		}
 	};
 	// 总页数
-	Slide.prototype.pageCount = function() {
+	auiSlide.prototype.pageCount = function() {
 		var self = this;
 		return self.slideNodeList.length;
 	};
-	Slide.prototype.touchStart = function(event) {
+	auiSlide.prototype.touchStart = function(event) {
 		touchStartTime = new Date() * 1;
 		firstTouchX = parseInt(event.changedTouches[0].pageX);
 		firstTouchY = parseInt(event.changedTouches[0].pageY);
 		isScrolling = undefined;
 	};
-	Slide.prototype.touchMove = function(event) {
+	auiSlide.prototype.touchMove = function(event) {
 		var touchMoveObj = event.changedTouches[0],
 				touchX = parseInt(touchMoveObj.pageX);
 			touchXDelta = touchX - firstTouchX;
@@ -229,7 +228,7 @@
 
 		}
 	};
-	Slide.prototype.touchEnd = function(event) {
+	auiSlide.prototype.touchEnd = function(event) {
 		var touchEndObj = event.changedTouches[0];
 		var touchEndX = parseInt(touchEndObj.pageX) - firstTouchX;
         var touchEndY = parseInt(touchEndObj.pageY) - firstTouchY;
@@ -296,7 +295,7 @@
         }
         this.setPaginationActive(this.index);
 	};
-	Slide.prototype.setTranslate = function (index,dist,speed){
+	auiSlide.prototype.setTranslate = function (index,dist,speed){
 		if(this.slideNodeList[index]){
 			this.slideNodeList[index].style.webkitTransitionDuration =
 	    	this.slideNodeList[index].style.transitionDuration = speed + 'ms';
@@ -304,14 +303,14 @@
 	    	this.slideNodeList[index].style.transform = "translate3d("+dist+"px,0,0)";
 		}
 	};
-	Slide.prototype.slideTo = function (index, dist, speed) {
+	auiSlide.prototype.slideTo = function (index, dist, speed) {
 		this.setTranslate(index, dist, speed);
 		// index = dist;
 	};
-	Slide.prototype.getCircle = function (index) {
+	auiSlide.prototype.getCircle = function (index) {
 	    return (this.slideNodeListLength + (index % this.slideNodeListLength)) % this.slideNodeListLength;
 	};
-	Slide.prototype.getDirection = function(x, y) {
+	auiSlide.prototype.getDirection = function(x, y) {
 		if (x === y) { return '';}
 		if (Math.abs(x) >= Math.abs(y)) {
             return x > 0 ? 'right' : 'left';
@@ -327,8 +326,8 @@
 	  	}
 	  	return a;
 	}
-	function Slide (options) {
+	function auiSlide (options) {
 		this._init(options);
 	}
-	window.auiSlide = Slide;
+	window.auiSlide = auiSlide;
 })(window);

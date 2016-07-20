@@ -1,0 +1,53 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>AUI快速完成布局</title>
+    <link rel="stylesheet" type="text/css" href="../css/aui.2.0.css" />
+</head>
+<body>
+    <section class="aui-content-padded">
+        <p>标签</p>
+        默认：<div class="aui-label">标签</div>
+        <Br />
+        info：<div class="aui-label aui-label-info">标签</div>
+        <Br />
+        primay：<div class="aui-label aui-label-primary">标签</div>
+        <Br />
+        danger：<div class="aui-label aui-label-danger">标签</div>
+        <Br />
+        success：<div class="aui-label aui-label-success">标签</div>
+        <Br />
+        warning：<div class="aui-label aui-label-warning">标签</div>
+        <Br />
+        outlined：<div class="aui-label aui-label-outlined"><i class="aui-iconfont aui-icon-my"></i> 线条样式的标签</div>
+        <Br />
+        outlined：<div class="aui-label aui-label-danger aui-label-outlined">标签</div>
+    </section>
+    <section class="aui-content-padded">
+        <p>角标</p>
+        <div class="aui-badge"></div><Br />
+        <div class="aui-badge">8</div><Br />
+        <div class="aui-badge">88</div><Br />
+    </section>
+    <section class="aui-content-padded">
+        <p>红点</p>
+        dot：<div class="aui-dot"></div>
+    </section>
+</body>
+<script type="text/javascript" src="../script/api.js" ></script>
+<script type="text/javascript">
+    apiready = function(){
+        api.parseTapmode();
+    }
+    var tab = document.querySelectorAll(".aui-bar-tab-item");
+    for(var i in tab){
+        tab[i].onclick = function(e){
+            document.querySelector(".aui-bar-tab-item.aui-active").classList.remove("aui-active");
+            this.classList.add("aui-active");
+        }
+    }
+</script>
+</html>

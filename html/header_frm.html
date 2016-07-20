@@ -1,0 +1,67 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>AUI快速完成布局</title>
+    <link rel="stylesheet" type="text/css" href="../css/aui.2.0.css" />
+    <style>
+        header {
+            margin-top: 0.75rem;
+        }
+    </style>
+</head>
+<body>
+    <header class="aui-bar aui-bar-nav">顶部导航栏</header>
+    <header class="aui-bar aui-bar-nav" style="padding-top:25px;">
+        <a class="aui-pull-left">
+            <span class="aui-iconfont aui-icon-left"></span>
+        </a>
+        <div class="aui-title">fixStatusBar效果</div>
+    </header>
+    <header class="aui-bar aui-bar-nav">
+        <a class="aui-pull-left aui-btn">
+            <span class="aui-iconfont aui-icon-left"></span>
+        </a>
+        <div class="aui-title">Title</div>
+    </header>
+    <header class="aui-bar aui-bar-nav aui-bar-light">
+        <a class="aui-pull-left aui-btn">
+            <span class="aui-iconfont aui-icon-left"></span>
+        </a>
+        <div class="aui-title">Title</div>
+    </header>
+    <header class="aui-bar aui-bar-nav aui-bar-light">
+        <a class="aui-pull-left aui-btn">
+            <span class="aui-iconfont aui-icon-left"></span>
+        </a>
+        <div class="aui-title">Title</div>
+        <a class="aui-pull-right aui-btn aui-btn-outlined">
+            <span class="aui-iconfont aui-icon-search"></span>
+        </a>
+    </header>
+    <header class="aui-bar aui-bar-nav">
+        <a class="aui-pull-left aui-btn">
+            <span class="aui-iconfont aui-icon-left"></span>返回
+        </a>
+        <div class="aui-title">Title</div>
+    </header>
+    <header class="aui-bar aui-bar-nav">
+        <a class="aui-pull-left aui-btn aui-btn-outlined">
+            <span class="aui-iconfont aui-icon-menu"></span>
+        </a>
+        <div class="aui-title">Title</div>
+        <a class="aui-pull-right aui-btn aui-btn-outlined">
+            <span class="aui-iconfont aui-icon-search"></span>
+        </a>
+    </header>
+</body>
+<script type="text/javascript" src="../script/api.js" ></script>
+<script type="text/javascript">
+    apiready = function(){
+        api.parseTapmode();
+    }
+
+</script>
+</html>

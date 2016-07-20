@@ -1,0 +1,119 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,aItemress=no">
+    <title>AUI快速完成布局</title>
+    <link rel="stylesheet" type="text/css" href="../css/aui.2.0.css" />
+    <style type="text/css">
+        .aui-bar {
+            margin-top: 0.75rem;
+        }
+        #demo .aui-bar-btn-item.aui-active {
+            background-color: transparent;
+            color: #212121;
+        }
+    </style>
+</head>
+<body>
+    <div class="aui-bar aui-bar-btn aui-bar-btn-full">
+        <div class="aui-bar-btn-item aui-active">Item</div>
+        <div class="aui-bar-btn-item">Item</div>
+        <div class="aui-bar-btn-item">Item</div>
+    </div>
+    <div class="aui-bar aui-bar-btn aui-bar-btn-sm aui-bar-btn-full">
+        <div class="aui-bar-btn-item aui-active">Item</div>
+        <div class="aui-bar-btn-item">Item</div>
+        <div class="aui-bar-btn-item">Item</div>
+    </div>
+    <div class="aui-bar aui-bar-btn" style="width:80%;">
+        <div class="aui-bar-btn-item aui-active">Item</div>
+        <div class="aui-bar-btn-item">Item</div>
+        <div class="aui-bar-btn-item">Item</div>
+    </div>
+    <div class="aui-bar aui-bar-btn" style="width:80%;" type="count" id="demo">
+        <div class="aui-bar-btn-item aui-font-size-20">
+            <i class="aui-iconfont aui-icon-minus"></i>
+        </div>
+        <div class="aui-bar-btn-item">
+            <input type="number" class="aui-input aui-text-center" id="count" value="1">
+        </div>
+        <div class="aui-bar-btn-item aui-font-size-20">
+            <i class="aui-iconfont aui-icon-plus"></i>
+        </div>
+    </div>
+    <div class="aui-bar aui-bar-btn aui-bar-btn-round" style="width:45%;">
+        <div class="aui-bar-btn-item aui-active">Item</div>
+        <div class="aui-bar-btn-item">Item</div>
+    </div>
+    <header class="aui-bar aui-bar-nav aui-margin-b-15">
+        <a class="aui-pull-left aui-btn">
+            <span class="aui-iconfont aui-icon-left"></span>
+        </a>
+        <div class="aui-title">
+            <div class="aui-bar aui-bar-btn aui-bar-btn-round">
+                <div class="aui-bar-btn-item aui-active">Item</div>
+                <div class="aui-bar-btn-item">Item</div>
+            </div>
+        </div>
+    </header>
+    <header class="aui-bar aui-bar-nav aui-bar-light">
+        <a class="aui-pull-left aui-btn">
+            <span class="aui-iconfont aui-icon-left"></span>
+        </a>
+        <div class="aui-title">
+            <div class="aui-bar aui-bar-btn aui-bar-btn-round">
+                <div class="aui-bar-btn-item aui-active">Item</div>
+                <div class="aui-bar-btn-item">Item</div>
+            </div>
+        </div>
+    </header>
+    <header class="aui-bar aui-bar-nav" style="padding-top:25px;">
+        <div class="aui-bar aui-bar-btn aui-bar-btn-round">
+            <div class="aui-bar-btn-item aui-active">Item</div>
+            <div class="aui-bar-btn-item">Item</div>
+        </div>
+    </header>
+    <header class="aui-bar aui-bar-nav" style="padding-top:25px;">
+        <a class="aui-pull-left">
+            <span class="aui-iconfont aui-icon-left"></span>
+        </a>
+        <div class="aui-title">
+            <div class="aui-bar aui-bar-btn aui-bar-btn-round">
+                <div class="aui-bar-btn-item aui-active">Item</div>
+                <div class="aui-bar-btn-item">Item</div>
+            </div>
+        </div>
+    </header>
+</body>
+<script type="text/javascript" src="../script/api.js" ></script>
+<script type="text/javascript" src="../script/aui-tab.js" ></script>
+<script type="text/javascript">
+    apiready = function(){
+        api.parseTapmode();
+    }
+    var bar = document.querySelectorAll(".aui-bar-btn");
+    if(bar){
+        for(var i=0; i<bar.length;i++){
+            var d = bar[i];
+            var tab = new auiTab({
+                element:bar[i],
+                repeatClick:true
+            },function(ret){
+                if(ret.dom.parentNode.getAttribute("type") && ret.dom.parentNode.getAttribute("type")=="count"){
+                    var count = parseInt(document.getElementById("count").value);
+                    if(ret.index==2)return;
+                    if(ret.index==1){
+                        document.getElementById("count").value = count-1;
+                    }
+                    if(ret.index==3){
+                        document.getElementById("count").value = count+1;
+                    }
+                }
+            });
+
+        }
+    }
+</script>
+</html>

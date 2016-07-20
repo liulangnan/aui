@@ -3,59 +3,45 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
-    <title>APP</title>
-    <link rel="stylesheet" type="text/css" href="../css/aui.css" />
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>AUI快速完成布局</title>
+    <link rel="stylesheet" type="text/css" href="../css/aui.2.0.css" />
+    <style type="text/css">
+    .aui-content-padded {
+        padding: 0.75rem;
+        background-color: #ffffff;
+        margin-top: 0.75rem;
+    }
+    </style>
 </head>
-<style type="text/css">
-.aui-list-view-cell { line-height: 22px;}
-</style>
 <body>
-    <p class="aui-padded-10">
-        radio效果，新版本中定义在了.aui-form里面，可以通过.aui-pull-right控制位置
-    </p>
-    <div class="aui-content">
-        <div class="aui-form">
-            <div class="aui-input-row">
-                <label class="aui-input-addon">radio</label>
-                <div class="aui-pull-right">
-                    <input class="aui-radio" type="radio" name="demo1" checked><div class="aui-radio-name">选项一</div>
-                    <input class="aui-radio" type="radio" name="demo1"><div class="aui-radio-name">选项二</div>
-                </div>
-            </div>
-            <div class="aui-input-row">
-                <label class="aui-input-addon">radio</label>
-                <input class="aui-pull-right aui-radio aui-radio-info" type="radio" name="demo">
-            </div>
-            <div class="aui-input-row">
-                <label class="aui-input-addon">radio</label>
-                <input class="aui-pull-right aui-radio aui-radio-success" type="radio" name="demo" checked>
-            </div>
-            <div class="aui-input-row">
-                <input class="aui-radio aui-radio-danger" type="radio" name="demo">
-                <label class="aui-input-addon">radio</label>
-            </div>
-            <div class="aui-input-row">
-                <input class="aui-radio aui-radio-warning" type="radio" name="demo">
-                <label class="aui-input-addon">radio</label>
-            </div>
-        </div>
+    <div class="aui-content-padded">
+        <label><input class="aui-radio" type="radio" name="demo" checked=""> 选项一</label>
+        <label><input class="aui-radio" type="radio" name="demo"> 选项二</label>
+        <label><input class="aui-radio" type="radio" name="demo" disabled=""> 禁止</label>
     </div>
-    <div class="aui-content aui-card">
-        <div class="aui-form">
-            <div class="aui-input-row">
-                <label class="aui-input-addon">radio</label>
-                <div class="aui-pull-right"><input class="aui-radio" type="radio" name="demo1"></div>
-            </div>
-            <div class="aui-input-row">
-                <label class="aui-input-addon">radio</label>
-                <div class="aui-pull-right"><input class="aui-radio" type="radio" name="demo2" disabled></div>
-            </div>
-        </div>
+    <div class="aui-content-padded">
+        <label><input class="aui-checkbox" type="checkbox" name="demo1" checked=""> 选项一</label>
+        <label><input class="aui-checkbox" type="checkbox" name="demo1"> 选项二</label>
+        <label><input class="aui-checkbox" type="checkbox" name="demo1" disabled=""> 禁止</label>
+    </div>
+    <div class="aui-content-padded">
+        <input class="aui-switch" type="checkbox" name="demo2" checked=""> 开
+        <input class="aui-switch" type="checkbox" name="demo2"> 关
+        <input class="aui-switch" type="checkbox" name="demo2" disabled=""> 禁止
     </div>
 </body>
 <script type="text/javascript" src="../script/api.js" ></script>
 <script type="text/javascript">
-    apiready = function () {
+    apiready = function(){
+        api.parseTapmode();
+    }
+    var tab = document.querySelectorAll(".aui-tab-item");
+    for(var i in tab){
+        tab[i].onclick = function(e){
+            document.querySelector(".aui-tab-item.aui-active").classList.remove("aui-active");
+            e.target.classList.add("aui-active");
+        }
     }
 </script>
 </html>

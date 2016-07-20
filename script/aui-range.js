@@ -1,50 +1,53 @@
 /*
  * AUI JAVASCRIPT PLUGIN
  * 滑动 aui-range
- * v 0.0.1
  * Copyright (c) 2015 auicss.com @流浪男  QQ：343757327  群：344869952
  */
-(function(window){
-    var aui = {};
-    aui.range = function(element,callback){
-        var time=null;
-        var distince,offsetLeft,tooltipWidth;
-        var _init = function(){
-            distance = Math.abs(element.max - element.min);
-            offsetLeft = element.offsetLeft;
-            tooltipWidth = element.offsetWidth - 28;
-            element.insertAdjacentHTML('afterend','<div class="aui-range-tip aui-hide">'+element.value+'</div>');
-            var scaleWidth = (tooltipWidth / distance) * Math.abs(element.value - element.min);
-            element.nextSibling.style.left = (offsetLeft + scaleWidth - 11)+'px';
-            element.addEventListener("input",function(){
-                _showTip();
+ (function( window, undefined ) {
+    "use strict";
+    var auiRange = function(params,callback) {
+        this._init(params,callback);
+    };
+    var time=null;
+    var distance,offsetLeft,tooltipWidth;
+    auiRange.prototype = {
+        _init: function(params,callback) {
+            var self = this;
+            distance = Math.abs(params.element.max - params.element.min);
+            offsetLeft = params.element.offsetLeft;
+            tooltipWidth = params.element.offsetWidth - 28;
+            params.element.insertAdjacentHTML('afterend','<div class="aui-range-tip aui-hide">'+params.element.value+'</div>');
+            var scaleWidth = (tooltipWidth / distance) * Math.abs(params.element.value - params.element.min);
+            params.element.nextSibling.style.left = (offsetLeft + scaleWidth - 11)+'px';
+            params.element.addEventListener("input",function(){
+                self._showTip(params.element,callback);
             });
-            element.addEventListener("touchmove",function(){
-                _showTip();
+            params.element.addEventListener("touchmove",function(){
+                self._showTip(params.element,callback);
             });
-            element.addEventListener("touchend",function(){
-                _hideTip();
+            params.element.addEventListener("touchend",function(){
+                self._hideTip(params.element);
             });
-        }
-        var _showTip = function(){
-            element.nextSibling.classList.remove("aui-hide");
-            var scaleWidth = (tooltipWidth / distance) * Math.abs(element.value - element.min);
-            element.nextSibling.style.left = (offsetLeft + scaleWidth - 11)+'px';
-            element.nextSibling.innerText = element.value;
-            callback(element.value);
-        }
-        var _hideTip = function(){
+        },
+        _showTip: function(el,callback){
+            el.nextSibling.classList.remove("aui-hide");
+            var scaleWidth = (tooltipWidth / distance) * Math.abs(el.value - el.min);
+            el.nextSibling.style.left = (offsetLeft + scaleWidth - 11)+'px';
+            el.nextSibling.innerText = el.value;
+            callback({
+                value:el.value
+            });
+        },
+        _hideTip : function(el){
             if (time) {
                 clearTimeout(time);
             }
             time = setTimeout(function() {
-                element.nextSibling.classList.add("aui-hide");
+                el.nextSibling.classList.add("aui-hide");
             }, 1500);
         }
-        _init();
     }
-    window.$aui = aui;
-
+    window.auiRange = auiRange;
 })(window);
 
 

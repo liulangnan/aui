@@ -1,0 +1,189 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>AUI快速完成布局</title>
+    <link rel="stylesheet" type="text/css" href="../css/aui.2.0.css" />
+</head>
+<body>
+
+    <div class="aui-content">
+        <ul class="aui-list aui-list-in aui-list-noborder">
+            <li class="aui-list-item" tapmode onclick="openWin('text_win')">
+                <div class="aui-list-item-inner aui-list-item-arrow">
+                    文本
+                </div>
+            </li>
+            <li class="aui-list-item" tapmode onclick="openWin('button_win')">
+                <div class="aui-list-item-inner aui-list-item-arrow">
+                    按钮
+                </div>
+            </li>
+            <li class="aui-list-item" tapmode onclick="openWin('label_win')">
+                <div class="aui-list-item-inner aui-list-item-arrow">
+                    标签、角标、红点
+                </div>
+            </li>
+            <li class="aui-list-item" tapmode onclick="openWin('header_win')">
+                <div class="aui-list-item-inner aui-list-item-arrow">
+                    顶部导航栏
+                </div>
+            </li>
+            <li class="aui-list-item" tapmode onclick="openWin('btn_bar_win')">
+                <div class="aui-list-item-inner aui-list-item-arrow">
+                    按钮组工具栏
+                </div>
+            </li>
+            <li class="aui-list-item" tapmode onclick="openWin('footer_bar_win')">
+                <div class="aui-list-item-inner aui-list-item-arrow">
+                    底部工具栏
+                </div>
+            </li>
+            <li class="aui-list-item" tapmode onclick="openWin('tab_win')">
+                <div class="aui-list-item-inner aui-list-item-arrow">
+                    tab切换栏
+                </div>
+            </li>
+            <li class="aui-list-item" tapmode onclick="openWin('info_win')">
+                <div class="aui-list-item-inner aui-list-item-arrow">
+                    信息条
+                </div>
+            </li>
+            <li class="aui-list-item" tapmode onclick="openWin('radio_win')">
+                <div class="aui-list-item-inner aui-list-item-arrow">
+                    radio\checkbox\switch
+                </div>
+            </li>
+            <li class="aui-list-item" tapmode onclick="openWin('range_win')">
+                <div class="aui-list-item-inner aui-list-item-arrow">
+                    滑块
+                </div>
+            </li>
+            <li class="aui-list-item" tapmode onclick="openWin('list_win')">
+                <div class="aui-list-item-inner aui-list-item-arrow">
+                    列表
+                </div>
+            </li>
+            <li class="aui-list-item" tapmode onclick="openWin('card_list_win')">
+                <div class="aui-list-item-inner aui-list-item-arrow">
+                    卡片列表
+                </div>
+            </li>
+            <li class="aui-list-item" tapmode onclick="openWin('from_win')">
+                <div class="aui-list-item-inner aui-list-item-arrow">
+                    表单
+                </div>
+            </li>
+            <li class="aui-list-item" tapmode onclick="openWin('popup_win')">
+                <div class="aui-list-item-inner aui-list-item-arrow">
+                    弹出菜单
+                </div>
+            </li>
+            <li class="aui-list-item" tapmode onclick="openWin('progress_win')">
+                <div class="aui-list-item-inner aui-list-item-arrow">
+                    进度条
+                </div>
+            </li>
+
+            <li class="aui-list-item" tapmode onclick="openWin('searchbar_win')">
+                <div class="aui-list-item-inner aui-list-item-arrow">
+                    搜索条
+                </div>
+            </li>
+            <li class="aui-list-item" tapmode onclick="openWin('tips_win')">
+                <div class="aui-list-item-inner aui-list-item-arrow">
+                    提示条
+                </div>
+            </li>
+            <li class="aui-list-item" tapmode onclick="openWin('grid_win')">
+                <div class="aui-list-item-inner aui-list-item-arrow">
+                    宫格布局
+                </div>
+            </li>
+            <li class="aui-list-item" tapmode onclick="openWin('toast_win')">
+                <div class="aui-list-item-inner aui-list-item-arrow">
+                    Toast
+                </div>
+            </li>
+            <li class="aui-list-item" tapmode onclick="openWin('dialog_win')">
+                <div class="aui-list-item-inner aui-list-item-arrow">
+                    对话框
+                </div>
+            </li>
+            <li class="aui-list-item" tapmode onclick="openWin('chat_win')">
+                <div class="aui-list-item-inner aui-list-item-arrow">
+                    聊天气泡
+                </div>
+            </li>
+            <li class="aui-list-item" tapmode onclick="openWin('pull_refresh_win')">
+                <div class="aui-list-item-inner aui-list-item-arrow">
+                    下拉刷新
+                </div>
+            </li>
+            <li class="aui-list-item" tapmode onclick="openWin('slide_win')">
+                <div class="aui-list-item-inner aui-list-item-arrow">
+                    轮播组件
+                </div>
+            </li>
+            <li class="aui-list-item" tapmode onclick="openWin('scroll_win')">
+                <div class="aui-list-item-inner aui-list-item-arrow">
+                    滚动监听
+                </div>
+            </li>
+            <li class="aui-list-item" tapmode onclick="openWin('iconfont_win')">
+                <div class="aui-list-item-inner aui-list-item-arrow">
+                    图标
+                </div>
+            </li>
+            <li class="aui-list-item" tapmode onclick="openWin('list_night_win')">
+                <div class="aui-list-item-inner aui-list-item-arrow">
+                    自定义主题样式
+                </div>
+            </li>
+            <li class="aui-list-item" tapmode onclick="openWin('demo_wechat_win')">
+                <div class="aui-list-item-inner aui-list-item-arrow">
+                    微信
+                </div>
+            </li>
+            <li class="aui-list-item" tapmode onclick="openWin('demo_wechat_circle_win')">
+                <div class="aui-list-item-inner aui-list-item-arrow">
+                    朋友圈
+                </div>
+            </li>
+            <li class="aui-list-item" tapmode onclick="openWin('demo_news_today_win')">
+                <div class="aui-list-item-inner aui-list-item-arrow">
+                    今日头条
+                </div>
+            </li>
+            <li class="aui-list-item" tapmode onclick="openWin('demo_zhihu_win')">
+                <div class="aui-list-item-inner aui-list-item-arrow">
+                    知乎首页
+                </div>
+            </li>
+        </ul>
+    </div>
+</body>
+<script type="text/javascript" src="../script/api.js" ></script>
+<script type="text/javascript">
+    apiready = function(){
+        api.parseTapmode();
+    }
+    function openWin(name){
+        var delay = 0;
+        if(api.systemType != 'ios'){
+            delay = 300;
+        }
+        api.openWin({
+            name: ''+name+'',
+            url: ''+name+'.html',
+            bounces:false,
+            delay: delay,
+            slidBackEnabled:true,
+            vScrollBarEnabled:false
+        });
+    }
+
+</script>
+</html>

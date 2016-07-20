@@ -3,146 +3,31 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
-    <title>APP</title>
-    <link rel="stylesheet" type="text/css" href="../css/aui.css" />
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>AUI快速完成布局</title>
+    <link rel="stylesheet" type="text/css" href="../css/aui.2.0.css" />
 </head>
-<style>
-p {
-    margin-bottom: 15px;
-}
-.aui-content-padded {
-    margin-top: 10px;
-}
-.aui-tab {
-    margin-bottom: 15px;
-}
-</style>
 <body>
-    <p class="aui-text-center">默认配色</p>
-    <div class="aui-tab">
-        <ul class="aui-tab-nav" id="demo1">
-            <li class="active">标签一</li>
-            <li>标签二</li>
-            <li>标签三</li>
-        </ul>
-    </div>
-    
-    <div class="aui-content-padded">
-        <div class="aui-tab">
-            <ul class="aui-tab-nav aui-tab-border" id="demo2">
-                <li class="active">标签一</li>
-                <li>标签二</li>
-                <li>标签三</li>
-                <li>标签四</li>
-            </ul>
-        </div>
-    </div>
-    <p class="aui-text-center">其他配色</p>
-    <div class="aui-tab aui-tab-success">
-        <ul class="aui-tab-nav">
-            <li class="active">标签一</li>
-            <li>标签二</li>
-            <li>标签三</li>
-        </ul>
-    </div>
-    <div class="aui-tab aui-tab-danger">
-        <ul class="aui-tab-nav">
-            <li class="active">标签一</li>
-            <li>标签二</li>
-            <li>标签三</li>
-        </ul>
-    </div>
-    <div class="aui-tab aui-tab-warning">
-        <ul class="aui-tab-nav">
-            <li class="active">标签一</li>
-            <li>标签二</li>
-            <li>标签三</li>
-        </ul>
-    </div>
-    <div class="aui-tab aui-tab-info">
-        <ul class="aui-tab-nav">
-            <li class="active">标签一</li>
-            <li>标签二</li>
-            <li>标签三</li>
-        </ul>
-    </div>
-    <div class="aui-tab aui-tab-dark">
-        <ul class="aui-tab-nav">
-            <li class="active">标签一</li>
-            <li>标签二</li>
-            <li>标签三</li>
-        </ul>
-    </div>
-
-    <div class="aui-content-padded">
-        <div class="aui-tab aui-tab-success">
-            <ul class="aui-tab-nav aui-tab-border">
-                <li class="active">标签一</li>
-                <li>标签二</li>
-                <li>标签三</li>
-                <li>标签四</li>
-            </ul>
-        </div>
-    </div>
-    <div class="aui-content-padded">
-        <div class="aui-tab aui-tab-info">
-            <ul class="aui-tab-nav aui-tab-border">
-                <li class="active">标签一</li>
-                <li>标签二</li>
-                <li>标签三</li>
-                <li>标签四</li>
-            </ul>
-        </div>
-    </div>
-    <div class="aui-content-padded">
-        <div class="aui-tab aui-tab-danger">
-            <ul class="aui-tab-nav aui-tab-border">
-                <li class="active">标签一</li>
-                <li>标签二</li>
-                <li>标签三</li>
-                <li>标签四</li>
-            </ul>
-        </div>
-    </div>
-    <div class="aui-content-padded">
-        <div class="aui-tab aui-tab-warning">
-            <ul class="aui-tab-nav aui-tab-border">
-                <li class="active">标签一</li>
-                <li>标签二</li>
-                <li>标签三</li>
-                <li>标签四</li>
-            </ul>
-        </div>
-    </div>
-    <div class="aui-content-padded">
-        <div class="aui-tab aui-tab-dark">
-            <ul class="aui-tab-nav aui-tab-border">
-                <li class="active">标签一</li>
-                <li>标签二</li>
-                <li>标签三</li>
-                <li>标签四</li>
-            </ul>
-        </div>
+    <div class="aui-tab" id="tab">
+        <div class="aui-tab-item aui-active">Item1</div>
+        <div class="aui-tab-item"><div></div>Item2</div>
+        <div class="aui-tab-item">Item3</div>
+        <div class="aui-tab-item">Item4</div>
     </div>
 </body>
 <script type="text/javascript" src="../script/api.js" ></script>
+<script type="text/javascript" src="../script/aui-tab.js" ></script>
 <script type="text/javascript">
-    apiready = function () {
+    apiready = function(){
         api.parseTapmode();
-        var demo1 = $api.domAll("#demo1 li");
-        for(var i in demo1){
-            $api.addEvt(demo1[i], 'click', function(){
-                $api.removeCls($api.dom("#demo1 li.active"),'active');
-                $api.addCls(this,'active');
-            });
-        }
-        var demo2 = $api.domAll("#demo2 li");
-        for(var i in demo2){
-            $api.addEvt(demo2[i], 'click', function(){
-                $api.removeCls($api.dom("#demo2 li.active"),'active');
-                $api.addCls(this,'active');
-            });
-        }
     }
+    var tab = new auiTab({
+        element:document.getElementById("tab"),
+        // callback:function(o,dom){
+        //     console.log(o);
+        // }
+    },function(ret){
+        console.log(ret)
+    });
 </script>
 </html>

@@ -3,55 +3,49 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
-    <title>APP</title>
-    <link rel="stylesheet" type="text/css" href="../css/aui.css" />
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>AUI快速完成布局</title>
+    <link rel="stylesheet" type="text/css" href="../css/aui.2.0.css" />
+    <style type="text/css">
+    .aui-content-padded {
+        padding: 0.75rem;
+        background-color: #ffffff;
+        margin-top: 0.75rem;
+    }
+    </style>
 </head>
 <body>
-	<div class="aui-searchbar-wrap demo" id="search">
-        <div class="aui-searchbar aui-border-radius" tapmode onclick="doSearch()">
+    <div class="aui-searchbar" id="search">
+        <div class="aui-searchbar-input aui-border-radius" tapmode onclick="doSearch()">
             <i class="aui-iconfont aui-icon-search"></i>
-            <div class="aui-searchbar-text">请输入搜索内容</div>
-            <div class="aui-searchbar-input">
-            	<form action="javascript:search();">
-            	<input type="text" placeholder="请输入搜索内容" id="search-input">
-            	</form>
-            </div>
-            <i class="aui-iconfont aui-icon-roundclosefill" tapmode onclick="clearInput()"></i>
+            <form action="javascript:search();">
+                <input type="search" placeholder="请输入搜索内容" id="search-input">
+            </form>
         </div>
-        <div class="aui-searchbar-cancel aui-text-info" tapmode onclick="cancelSearch()">取消</div>
+        <div class="aui-searchbar-cancel" tapmod>取消</div>
     </div>
 </body>
 <script type="text/javascript" src="../script/api.js" ></script>
 <script type="text/javascript">
-	apiready = function(){
-		api.parseTapmode();
-	}
-	function doSearch(){
-		$api.addCls($api.dom(".aui-searchbar-wrap"),"focus");
-		$api.dom('.aui-searchbar-input input').focus();
-	}
-	function cancelSearch(){
-		$api.removeCls($api.dom(".aui-searchbar-wrap.focus"),"focus");
-		$api.val($api.byId("search-input"),'');
-		$api.dom('.aui-searchbar-input input').blur();
-	}
-	function clearInput(){
-		$api.val($api.byId("search-input"),'');
-	}
-	function search(){
-		var content = $api.val($api.byId("search-input"));
-		if(content){
-			api.alert({
-			    title: '搜索提示',
-			    msg: '您输入的内容为：'+content
-			});
-		}else{
-			api.alert({
-			    title: '搜索提示',
-			    msg: '您没有输入任何内容'
-			});
-		}
-		cancelSearch();
-	}
+    apiready = function(){
+        api.parseTapmode();
+    }
+    var searchBar = document.querySelector(".aui-searchbar-input");
+    if(searchBar){
+        searchBar.onclick = function(){
+            document.querySelector(".aui-searchbar-cancel").style.marginRight = 0;
+        }
+    }
+    document.querySelector(".aui-searchbar-cancel").onclick = function(){
+        this.style.marginRight = "-"+this.offsetWidth+"px";
+        document.getElementById("search-input").value = '';
+        document.getElementById("search-input").blur();
+    }
+    function doSearch(){
+        var searchValue = document.getElementById("search-input").value;
+        if(searchValue){
+            alert("您输入的内容是:"+searchValue);
+        }
+    }
 </script>
 </html>

@@ -3,8 +3,9 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
-    <title>APP</title>
-    <link rel="stylesheet" type="text/css" href="../css/aui.css" />
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>AUI快速完成布局</title>
+    <link rel="stylesheet" type="text/css" href="../css/aui.2.0.css" />
     <style type="text/css">
     .aui-btn {
         margin: 20px 0;
@@ -15,37 +16,58 @@
     </style>
 </head>
 <body>
-    <div class="aui-toast" style="display:none" id="default">
-        <i class="aui-iconfont aui-icon-check"></i>
-        <div class="aui-toast-content">提交成功</div>
-    </div>
-    <div class="aui-toast"  style="display:none" id="loading">
-        <div class="aui-toast-loading"></div>
-        <div class="aui-toast-content">加载中</div>
-    </div>
     <p class="aui-text-center">TOAST</p>
     <div class="aui-content-padded">
-        <div class="aui-btn aui-btn-block aui-btn-success" tapmode onclick="showDefault()">默认样式（toast）</div>
-        <div class="aui-btn aui-btn-block aui-btn-success" tapmode onclick="showLoading()">弹出loading样式（toast）</div>
+        <div class="aui-btn aui-btn-block aui-btn-info" tapmode onclick="showDefault('success')">默认样式（toast）</div>
+        <div class="aui-btn aui-btn-block aui-btn-success" tapmode onclick="showDefault('fail')">失败（toast）</div>
+        <div class="aui-btn aui-btn-block aui-btn-success" tapmode onclick="showDefault('custom')">自定义</div>
+        <div class="aui-btn aui-btn-block aui-btn-warning" tapmode onclick="showDefault('loading')">弹出loading样式（toast）</div>
     </div>
 </body>
 <script type="text/javascript" src="../script/api.js" ></script>
+<script type="text/javascript" src="../script/aui-toast.js" ></script>
 <script type="text/javascript">
     apiready = function(){
         api.parseTapmode();
     }
-    function showDefault(){
-        $api.css($api.byId("default"),"display:block");
-        setTimeout(function(){
-            $api.css($api.byId("default"),"display:none");
-        },2000)
+    var toast = new auiToast();
+    function showDefault(type){
+        switch (type) {
+            case "success":
+                toast.success({
+                    title:"提交成功",
+                    duration:2000
+                });
+                break;
+            case "fail":
+                toast.fail({
+                    title:"提交失败",
+                    duration:2000
+                });
+                break;
+            case "custom":
+                toast.custom({
+                    title:"提交成功",
+                    html:'<i class="aui-iconfont aui-icon-laud"></i>',
+                    duration:2000
+                });
+                break;
+            case "loading":
+                toast.loading({
+                    title:"加载中",
+                    duration:2000
+                },function(ret){
+                    console.log(ret);
+                    setTimeout(function(){
+                        toast.hide();
+                    }, 3000)
+                });
+                break;
+            default:
+                // statements_def
+                break;
+        }
     }
-    function showLoading(){
-        $api.css($api.byId("loading"),"display:block");
-        setTimeout(function(){
-            $api.css($api.byId("loading"),"display:none");
-        },2000)
-    }
-        
+
 </script>
 </html>

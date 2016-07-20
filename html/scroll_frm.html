@@ -1,0 +1,398 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>AUI快速完成布局</title>
+    <link rel="stylesheet" type="text/css" href="../css/aui.2.0.css" />
+    <style type="text/css">
+        #demo {
+            position: fixed;
+            padding: 0.5rem 0.2rem;
+            right: 0;
+            bottom: 0.75rem;
+            background-color: #e0e0e0;
+            color: #212121;
+            z-index: 999;
+        }
+    </style>
+</head>
+<body>
+    <div class="aui-content-padded">
+        aui-scroll.js是一个监听滚动的插件。实时返回滚动高度和自定义到达底部的距离，开发者可以扩展实现上拉加载更多功能。
+    </div>
+    <div id="demo">滚动高度：</div>
+    <div class="aui-content aui-margin-b-15">
+        <ul class="aui-list aui-list-in">
+            <li class="aui-list-header">
+                简单的列表布局
+            </li>
+            <li class="aui-list-item">
+                <div class="aui-list-item-inner">
+                    Item1
+                </div>
+            </li>
+            <li class="aui-list-item">
+                <div class="aui-list-item-inner">
+                    Item2
+                </div>
+            </li>
+            <li class="aui-list-item">
+                <div class="aui-list-item-inner">
+                    <div class="aui-list-item-title">Item3</div>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="aui-content aui-margin-b-15">
+        <ul class="aui-list aui-list-in">
+            <li class="aui-list-header">
+                带有右侧箭头
+            </li>
+            <li class="aui-list-item aui-list-item-middle">
+                <div class="aui-list-item-inner aui-list-item-arrow">
+                    Item1
+            </li>
+            <li class="aui-list-item">
+                <div class="aui-list-item-inner aui-list-item-arrow">
+                    Item2
+                </div>
+            </li>
+            <li class="aui-list-item">
+                <div class="aui-list-item-inner aui-list-item-arrow">
+                    Item3
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="aui-content aui-margin-b-15">
+        <ul class="aui-list aui-list-in">
+            <li class="aui-list-header">
+                带有其他元素的列表
+            </li>
+            <li class="aui-list-item">
+                <div class="aui-list-item-inner">
+                    <div class="aui-list-item-title">text</div>
+                    <div class="aui-list-item-right">信息</div>
+                </div>
+            </li>
+            <li class="aui-list-item">
+                <div class="aui-list-item-inner">
+                    <div class="aui-list-item-title">label</div>
+                    <div class="aui-list-item-right">
+                        <div class="aui-label aui-label-info">标签</div>
+                    </div>
+                </div>
+            </li>
+            <li class="aui-list-item">
+                <div class="aui-list-item-inner aui-list-item-arrow">
+                    <div class="aui-list-item-title">dot</div>
+                    <div class="aui-list-item-right">
+                        <div class="aui-dot" style="position:relative;top:0; right:0"></div>
+                    </div>
+                </div>
+            </li>
+            <li class="aui-list-item">
+                <div class="aui-list-item-inner aui-list-item-arrow">
+                    <div class="aui-list-item-title">badge</div>
+                    <div class="aui-list-item-right">
+                        <div class="aui-badge" style="position:relative;top:0; left:0">88</div>
+                    </div>
+                </div>
+            </li>
+            <li class="aui-list-item">
+                <div class="aui-list-item-inner aui-list-item-arrow">
+                    <div class="aui-list-item-title">badge</div>
+                    <div class="aui-list-item-right">
+                        <div class="aui-badge" style="position:relative;top:0; left:0"></div>
+                    </div>
+                </div>
+            </li>
+            <li class="aui-list-item">
+                <div class="aui-list-item-inner aui-list-item-arrow">
+                    <div class="aui-list-item-title">progress</div>
+                    <div class="aui-list-item-right">
+                        <div class="aui-progress aui-progress aui-progress-xxs" style="width:5rem;">
+                            <div class="aui-progress-bar" style="width: 60%;"></div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li class="aui-list-item">
+                <div class="aui-list-item-inner aui-list-item-arrow">
+                    <div class="aui-list-item-title">range</div>
+                    <div class="aui-list-item-right">
+                        <div class="aui-range">
+                            <input type="range" class="aui-range" value="30" max="100" min="1" step="1" id="range" />
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li class="aui-list-item">
+                <div class="aui-list-item-inner">
+                    <div class="aui-list-item-title">switch</div>
+                    <div class="aui-list-item-right">
+                        <input type="checkbox" class="aui-switch" checked>
+                    </div>
+                </div>
+            </li>
+            <li class="aui-list-item">
+                <div class="aui-list-item-inner">
+                    <div class="aui-list-item-title">radio</div>
+                    <div class="aui-list-item-right">
+                        <input type="radio" class="aui-radio" checked>
+                    </div>
+                </div>
+            </li>
+            <li class="aui-list-item">
+                <div class="aui-list-item-inner">
+                    <div class="aui-list-item-title">checkbox</div>
+                    <div class="aui-list-item-right">
+                        <input type="checkbox" class="aui-checkbox" checked>
+                    </div>
+                </div>
+            </li>
+            <li class="aui-list-item">
+                <div class="aui-list-item-inner">
+                    <div class="aui-list-item-title">bar-btn</div>
+                    <div class="aui-list-item-right">
+                        <div class="aui-bar aui-bar-btn aui-bar-btn-sm" style="width:60%;float:right">
+                            <div class="aui-bar-btn-item">
+                                <i class="aui-iconfont aui-icon-minus"></i>
+                            </div>
+                            <div class="aui-bar-btn-item">
+                                <input type="number" class="aui-input aui-text-center" value="1" >
+                            </div>
+                            <div class="aui-bar-btn-item">
+                                <i class="aui-iconfont aui-icon-plus"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="aui-content aui-margin-b-15">
+        <ul class="aui-list aui-list-in">
+            <li class="aui-list-header">带有图标、底线缩进</li>
+            <li class="aui-list-item">
+                <div class="aui-list-item-label-icon">
+                    <i class="aui-iconfont aui-icon-home"></i>
+                </div>
+                <div class="aui-list-item-inner">
+                    这是一个列表项
+                </div>
+            </li>
+            <li class="aui-list-item">
+                <div class="aui-list-item-label-icon">
+                    <i class="aui-iconfont aui-icon-edit"></i>
+                </div>
+                <div class="aui-list-item-inner">
+                    这是一个列表项
+                </div>
+            </li>
+            <li class="aui-list-item">
+                <div class="aui-list-item-label-icon">
+                    <i class="aui-iconfont aui-icon-camera"></i>
+                </div>
+                <div class="aui-list-item-inner">
+                    这是一个列表项
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="aui-content aui-margin-b-15">
+        <ul class="aui-list aui-media-list">
+            <li class="aui-list-header">
+                图文列表
+            </li>
+            <li class="aui-list-item aui-list-item-arrow">
+                <div class="aui-media-list-item-inner">
+                    <div class="aui-list-item-inner">
+                        <div class="aui-list-item-text">
+                            <div class="aui-list-item-title">带有媒体的列表一</div>
+                            <div class="aui-list-item-right">08:00</div>
+                        </div>
+                        <div class="aui-list-item-text aui-ellipsis-2">
+                            这里是内容区域，新版中的列表布局可以很轻松的帮助开发者完成常见列表样式。
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li class="aui-list-item">
+                <div class="aui-media-list-item-inner">
+                    <div class="aui-list-item-media">
+                        <img src="../image/demo1.png">
+                    </div>
+                    <div class="aui-list-item-inner">
+                        <div class="aui-list-item-text">
+                            <div class="aui-list-item-title">带有媒体的列表二</div>
+                            <div class="aui-list-item-right">08:00</div>
+                        </div>
+                        <div class="aui-list-item-text">
+                            在下方我们加入了aui-info信息条
+                        </div>
+                    </div>
+                </div>
+                <div class="aui-info" style="padding-top:0">
+                    <div class="aui-info-item">
+                        <img src="../image/liulangnan.png" style="width:1rem" class="aui-img-round" /><span class="aui-margin-l-5">流浪男</span>
+                        </div>
+                    <div class="aui-info-item">2015-07-14 10:31</div>
+                </div>
+            </li>
+            <li class="aui-list-item">
+                <div class="aui-media-list-item-inner">
+                    <div class="aui-list-item-media">
+                        <img src="../image/demo1.png">
+                    </div>
+                    <div class="aui-list-item-inner">
+                        <div class="aui-list-item-text">
+                            <div class="aui-list-item-title">带有媒体的列表二</div>
+                            <div class="aui-list-item-right">08:00</div>
+                        </div>
+                        <div class="aui-list-item-text">
+                            这里是内容区域，新版中的列表布局可以很轻松的帮助开发者完成常见列表样式。
+                        </div>
+                        <div class="aui-info aui-margin-t-5" style="padding:0">
+                            <div class="aui-info-item">
+                                <img src="../image/liulangnan.png" style="width:1rem" class="aui-img-round" /><span class="aui-margin-l-5">流浪男</span>
+                                </div>
+                            <div class="aui-info-item">2015-07-14 10:31</div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li class="aui-list-item">
+                <div class="aui-media-list-item-inner">
+                    <div class="aui-list-item-inner">
+                        <div class="aui-list-item-title">媒体项右侧显示</div>
+                        <div class="aui-list-item-text">
+                            这里是内容区域，新版中的列表布局可以很轻松的帮助开发者完成常见列表样式。
+                        </div>
+                    </div>
+                    <div class="aui-list-item-media">
+                        <img src="../image/demo4.png">
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="aui-content aui-margin-b-15">
+        <ul class="aui-list aui-media-list">
+            <li class="aui-list-item">
+                <div class="aui-list-item-inner">
+                    <div class="aui-list-item-title">多张图片列表一</div>
+                    <p>借助栅格来实现图片列表</p>
+                    <div class="aui-row aui-row-padded">
+                        <div class="aui-col-xs-4">
+                            <img src="../image/demo1.png"/>
+                        </div>
+                        <div class="aui-col-xs-4">
+                            <img src="../image/demo2.png" />
+                        </div>
+                        <div class="aui-col-xs-4">
+                            <img src="../image/demo3.png" />
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li class="aui-list-item">
+                <div class="aui-list-item-inner">
+                    <div class="aui-list-item-title">多张图片列表一</div>
+                    <p>借助栅格来实现图片列表</p>
+                    <div class="aui-row aui-row-padded">
+                        <div class="aui-col-xs-4">
+                            <img src="../image/demo1.png"/>
+                        </div>
+                        <div class="aui-col-xs-4">
+                            <img src="../image/demo2.png" />
+                        </div>
+                        <div class="aui-col-xs-4">
+                            <img src="../image/demo3.png" />
+                        </div>
+                        <div class="aui-col-xs-4">
+                            <img src="../image/demo1.png" />
+                        </div>
+                        <div class="aui-col-xs-4">
+                            <img src="../image/demo2.png" />
+                        </div>
+                        <div class="aui-col-xs-4">
+                            <img src="../image/demo3.png" />
+                        </div>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="aui-content aui-margin-b-15">
+        <ul class="aui-list aui-media-list">
+            <li class="aui-list-header">
+                通讯录样式列表
+            </li>
+            <li class="aui-list-item aui-list-item-middle">
+                <div class="aui-media-list-item-inner">
+                    <div class="aui-list-item-media" style="width: 3rem;">
+                        <img src="../image/demo5.png" class="aui-img-round aui-list-img-sm">
+                    </div>
+                    <div class="aui-list-item-inner aui-list-item-arrow">
+                        <div class="aui-list-item-text">
+                            <div class="aui-list-item-title aui-font-size-14">AUI</div>
+                            <div class="aui-list-item-right">08:00</div>
+                        </div>
+                        <div class="aui-list-item-text">
+                            www.auicss.com
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li class="aui-list-item aui-list-item-middle">
+                <div class="aui-media-list-item-inner">
+                    <div class="aui-list-item-media" style="width: 3rem;">
+                        <img src="../image/liulangnan.png" class="aui-img-round aui-list-img-sm">
+                    </div>
+                    <div class="aui-list-item-inner aui-list-item-arrow">
+                        流浪男
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="aui-content-padded">
+        <ul class="aui-list">
+            <li class="aui-list-header">aui-content-padded</li>
+            <li class="aui-list-item aui-arrow-right">
+                <div class="aui-list-item-inner">
+                    这是一个列表项
+                </div>
+            </li>
+            <li class="aui-list-item aui-arrow-right">
+                <div class="aui-list-item-inner">
+                    这是一个列表项
+                </div>
+            </li>
+            <li class="aui-list-item aui-arrow-right">
+                <div class="aui-list-item-inner">
+                    这是一个列表项
+                </div>
+            </li>
+        </ul>
+    </div>
+</body>
+<script type="text/javascript" src="../script/api.js" ></script>
+<script type="text/javascript" src="../script/aui-scroll.js" ></script>
+<script type="text/javascript">
+    var scroll = new auiScroll({
+        listen:true,
+        distance:200 //判断到达底部的距离，isToBottom为true
+    },function(ret){
+        if(ret.isToBottom){
+            document.getElementById("demo").textContent = "已到达底部";
+        }else{
+            document.getElementById("demo").textContent = "滚动高度："+ret.scrollTop;
+        }
+
+    });
+</script>
+</html>
