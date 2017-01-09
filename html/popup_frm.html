@@ -5,213 +5,58 @@
     <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
     <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
     <title>AUI快速完成布局</title>
-    <link rel="stylesheet" type="text/css" href="../css/aui.2.0.css" />
+    <link rel="stylesheet" type="text/css" href="../css/aui.css" />
 </head>
 <body>
     <section class="aui-content-padded">
-        <div class="aui-btn aui-btn-primary" aui-popup-for="top-left">左上角</div>
-        <div class="aui-btn aui-btn-primary" aui-popup-for="top">顶部中间</div>
-        <div class="aui-btn aui-btn-primary" aui-popup-for="top-right">右上角</div>
+        <div class="aui-btn aui-btn-primary" tapmode onclick="showPopup('top-left')">左上角</div>
+        <div class="aui-btn aui-btn-primary" tapmode onclick="showPopup('top')">顶部中间</div>
+        <div class="aui-btn aui-btn-primary" tapmode onclick="showPopup('top-right')">右上角</div>
     </section>
     <section class="aui-content-padded">
-        <div class="aui-btn aui-btn-info" aui-popup-for="bottom-left">左下角</div>
-        <div class="aui-btn aui-btn-info" aui-popup-for="bottom">底部中间</div>
-        <div class="aui-btn aui-btn-info" aui-popup-for="bottom-right">右下角</div>
+        <div class="aui-btn aui-btn-info" tapmode onclick="showPopup('bottom-left')">左下角</div>
+        <div class="aui-btn aui-btn-info" tapmode onclick="showPopup('bottom')">底部中间</div>
+        <div class="aui-btn aui-btn-info" tapmode onclick="showPopup('bottom-right')">右下角</div>
     </section>
-
-    <div class="aui-popup aui-popup-top-left" id="top-left">
-        <div class="aui-popup-arrow"></div>
-        <div class="aui-popup-content">
-            <ul class="aui-list aui-list-noborder">
-                <li class="aui-list-item">
-                    <div class="aui-list-item-label-icon">
-                        <i class="aui-iconfont aui-icon-my aui-text-warning"></i>
-                    </div>
-                    <div class="aui-list-item-inner aui-list-item-middle">
-                        会员中心
-                    </div>
-                </li>
-                <li class="aui-list-item">
-                    <div class="aui-list-item-label-icon">
-                        <i class="aui-iconfont aui-icon-mail aui-text-info"></i>
-                    </div>
-                    <div class="aui-list-item-inner">
-                        会话消息
-                    </div>
-                </li>
-                <li class="aui-list-item">
-                    <div class="aui-list-item-label-icon">
-                        <i class="aui-iconfont aui-icon-star aui-text-danger"></i>
-                    </div>
-                    <div class="aui-list-item-inner">
-                        我的收藏
-                    </div>
-                </li>
-            </ul>
-        </div>
-    </div>
-    <div class="aui-popup aui-popup-top" id="top">
-        <div class="aui-popup-arrow"></div>
-        <div class="aui-popup-content">
-            <ul class="aui-list aui-list-noborder">
-                <li class="aui-list-item">
-                    <div class="aui-list-item-label-icon">
-                        <i class="aui-iconfont aui-icon-my aui-text-warning"></i>
-                    </div>
-                    <div class="aui-list-item-inner aui-list-item-middle">
-                        会员中心
-                    </div>
-                </li>
-                <li class="aui-list-item">
-                    <div class="aui-list-item-label-icon">
-                        <i class="aui-iconfont aui-icon-mail aui-text-info"></i>
-                    </div>
-                    <div class="aui-list-item-inner">
-                        会话消息
-                    </div>
-                </li>
-                <li class="aui-list-item">
-                    <div class="aui-list-item-label-icon">
-                        <i class="aui-iconfont aui-icon-star aui-text-danger"></i>
-                    </div>
-                    <div class="aui-list-item-inner">
-                        我的收藏
-                    </div>
-                </li>
-            </ul>
-        </div>
-    </div>
-    <div class="aui-popup aui-popup-top-right" id="top-right">
-        <div class="aui-popup-arrow"></div>
-        <div class="aui-popup-content">
-            <ul class="aui-list aui-list-noborder">
-                <li class="aui-list-item">
-                    <div class="aui-list-item-label-icon">
-                        <i class="aui-iconfont aui-icon-my aui-text-warning"></i>
-                    </div>
-                    <div class="aui-list-item-inner aui-list-item-middle">
-                        会员中心
-                    </div>
-                </li>
-                <li class="aui-list-item">
-                    <div class="aui-list-item-label-icon">
-                        <i class="aui-iconfont aui-icon-mail aui-text-info"></i>
-                    </div>
-                    <div class="aui-list-item-inner">
-                        会话消息
-                    </div>
-                </li>
-                <li class="aui-list-item">
-                    <div class="aui-list-item-label-icon">
-                        <i class="aui-iconfont aui-icon-star aui-text-danger"></i>
-                    </div>
-                    <div class="aui-list-item-inner">
-                        我的收藏
-                    </div>
-                </li>
-            </ul>
-        </div>
-    </div>
-    <div class="aui-popup aui-popup-bottom" id="bottom">
-        <div class="aui-popup-arrow"></div>
-        <div class="aui-popup-content">
-            <ul class="aui-list aui-list-noborder">
-                <li class="aui-list-item">
-                    <div class="aui-list-item-label-icon">
-                        <i class="aui-iconfont aui-icon-my aui-text-warning"></i>
-                    </div>
-                    <div class="aui-list-item-inner aui-list-item-middle">
-                        会员中心
-                    </div>
-                </li>
-                <li class="aui-list-item">
-                    <div class="aui-list-item-label-icon">
-                        <i class="aui-iconfont aui-icon-mail aui-text-info"></i>
-                    </div>
-                    <div class="aui-list-item-inner">
-                        会话消息
-                    </div>
-                </li>
-                <li class="aui-list-item">
-                    <div class="aui-list-item-label-icon">
-                        <i class="aui-iconfont aui-icon-star aui-text-danger"></i>
-                    </div>
-                    <div class="aui-list-item-inner">
-                        我的收藏
-                    </div>
-                </li>
-            </ul>
-        </div>
-    </div>
-    <div class="aui-popup aui-popup-bottom-left" id="bottom-left">
-        <div class="aui-popup-arrow"></div>
-        <div class="aui-popup-content">
-            <ul class="aui-list aui-list-noborder">
-                <li class="aui-list-item">
-                    <div class="aui-list-item-label-icon">
-                        <i class="aui-iconfont aui-icon-my aui-text-warning"></i>
-                    </div>
-                    <div class="aui-list-item-inner aui-list-item-middle">
-                        会员中心
-                    </div>
-                </li>
-                <li class="aui-list-item">
-                    <div class="aui-list-item-label-icon">
-                        <i class="aui-iconfont aui-icon-mail aui-text-info"></i>
-                    </div>
-                    <div class="aui-list-item-inner">
-                        会话消息
-                    </div>
-                </li>
-                <li class="aui-list-item">
-                    <div class="aui-list-item-label-icon">
-                        <i class="aui-iconfont aui-icon-star aui-text-danger"></i>
-                    </div>
-                    <div class="aui-list-item-inner">
-                        我的收藏
-                    </div>
-                </li>
-            </ul>
-        </div>
-    </div>
-    <div class="aui-popup aui-popup-bottom-right" id="bottom-right">
-        <div class="aui-popup-arrow"></div>
-        <div class="aui-popup-content">
-            <ul class="aui-list aui-list-noborder">
-                <li class="aui-list-item">
-                    <div class="aui-list-item-label-icon">
-                        <i class="aui-iconfont aui-icon-my aui-text-warning"></i>
-                    </div>
-                    <div class="aui-list-item-inner aui-list-item-middle">
-                        会员中心
-                    </div>
-                </li>
-                <li class="aui-list-item">
-                    <div class="aui-list-item-label-icon">
-                        <i class="aui-iconfont aui-icon-mail aui-text-info"></i>
-                    </div>
-                    <div class="aui-list-item-inner">
-                        会话消息
-                    </div>
-                </li>
-                <li class="aui-list-item">
-                    <div class="aui-list-item-label-icon">
-                        <i class="aui-iconfont aui-icon-star aui-text-danger"></i>
-                    </div>
-                    <div class="aui-list-item-inner">
-                        我的收藏
-                    </div>
-                </li>
-            </ul>
-        </div>
-    </div>
+    <section class="aui-content-padded">
+        <p>点击了第<strong class="aui-text-danger" id="button-index"></strong>个按钮（buttonIndex）</p>
+        <p>点击按钮的值为<strong class="aui-text-danger" id="button-value"></strong>(buttonValue)</p>
+    </section>
 </body>
 <script type="text/javascript" src="../script/api.js" ></script>
-<script type="text/javascript" src="../script/aui-popup.js" ></script>
+<script type="text/javascript" src="../script/aui-popup-new.js" ></script>
 <script type="text/javascript">
     var popup = new auiPopup();
-    function showPopup(){
-        popup.show(document.getElementById("top-right"))
+    function showPopup(location){
+        popup.init({
+            frameBounces:true,//当前页面是否弹动，（主要针对安卓端）
+            location:location,//位置，top(默认：顶部中间),top-left top-right,bottom,bottom-left,bottom-right
+            buttons:[{
+                image:'../image/share/wx.png',
+                text:'微信',
+                value:'wx'//可选
+            },{
+                image:'../image/share/wx-circle.png',
+                text:'朋友圈',
+                value:'wx-circle'
+            },{
+                image:'../image/share/qq.png',
+                text:'QQ好友',
+                value:'qq'
+            },{
+                image:'../image/share/qzone.png',
+                text:'QQ空间',
+                value:'qq-qzone'
+            },{
+                image:'../image/share/sina-weibo.png',
+                text:'新浪微博'
+            }],
+        },function(ret){
+            if(ret){
+                document.getElementById("button-index").textContent = ret.buttonIndex;
+                document.getElementById("button-value").textContent = ret.buttonValue;
+            }
+        })
     }
 </script>
 </html>

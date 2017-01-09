@@ -1,0 +1,136 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>AUI快速完成布局</title>
+    <link rel="stylesheet" type="text/css" href="../css/aui.css" />
+    <style type="text/css">
+        .goods-title {
+            color: #757575 !important;
+        }
+        .goods-price {
+            color: #666666 !important;
+            font-weight: 700;
+        }
+    </style>
+</head>
+<body>
+    <div class="aui-tips aui-bg-warning aui-margin-b-15" id="tips-1">
+        <i class="aui-iconfont aui-icon-info"></i>
+        <div class="aui-tips-title">消息提示条消息提示条消息提示</div>
+        <i class="aui-iconfont aui-icon-close" tapmode="" onclick="closeTips()"></i>
+    </div>
+    <section class="aui-content">
+        <div class="aui-card-list aui-border-t aui-border-b">
+            <div class="aui-card-list-header aui-card-list-user">
+                <div class="aui-card-list-user-avatar">
+                    <img src="../image/demo1.png">
+                </div>
+                <div class="aui-card-list-user-name">
+                    <div class="aui-font-size-16">陕十三肉夹馍 <i class="aui-iconfont aui-icon-right aui-font-size-12"></i></div>
+                    <small>订单已完成</small>
+                </div>
+                <div class="aui-card-list-user-info">5小时30分钟前</div>
+            </div>
+            <div class="aui-card-list-content aui-border-t" style="margin-left: 3.5rem;">
+                <ul class="aui-list aui-list-noborder">
+                    <div class="aui-list-item aui-padded-l-0">
+                        <div class="aui-list-item-inner">
+                            <div class="aui-list-item-title aui-font-size-14 goods-title">超值单人餐</div>
+                            <div class="aui-list-item-right goods-price">￥55</div>
+                        </div>
+                    </div>
+                    <div class="aui-list-item aui-padded-l-0">
+                        <div class="aui-list-item-inner">
+                            <div class="aui-list-item-title aui-font-size-14 goods-title">超值单人餐</div>
+                            <div class="aui-list-item-right goods-price">￥55</div>
+                        </div>
+                    </div>
+                </ul>
+            </div>
+            <div class="aui-card-list-footer aui-border-t">
+                <div></div>
+                <div>
+                    <div class="aui-btn aui-btn aui-btn-outlined aui-btn-info aui-margin-r-10">再来一单</div>
+                    <div class="aui-btn aui-btn aui-btn-outlined aui-btn-warning">评价得积分</div>
+                </div>
+            </div>
+        </div>
+        <div class="aui-card-list aui-border-t aui-border-b">
+            <div class="aui-card-list-header aui-card-list-user">
+                <div class="aui-card-list-user-avatar">
+                    <img src="../image/demo1.png">
+                </div>
+                <div class="aui-card-list-user-name">
+                    <div class="aui-font-size-16">陕十三肉夹馍 <i class="aui-iconfont aui-icon-right aui-font-size-12"></i></div>
+                    <small>订单已完成</small>
+                </div>
+                <div class="aui-card-list-user-info">5小时30分钟前</div>
+            </div>
+            <div class="aui-card-list-content aui-border-t" style="margin-left: 3.5rem;">
+                <ul class="aui-list aui-list-noborder">
+                    <div class="aui-list-item aui-padded-l-0">
+                        <div class="aui-list-item-inner">
+                            <div class="aui-list-item-title aui-font-size-14 goods-title">超值单人餐</div>
+                            <div class="aui-list-item-right goods-price">￥55</div>
+                        </div>
+                    </div>
+                    <div class="aui-list-item aui-padded-l-0">
+                        <div class="aui-list-item-inner">
+                            <div class="aui-list-item-title aui-font-size-14 goods-title">超值单人餐</div>
+                            <div class="aui-list-item-right goods-price">￥55</div>
+                        </div>
+                    </div>
+                </ul>
+            </div>
+            <div class="aui-card-list-footer aui-border-t">
+                <div></div>
+                <div>
+                    <div class="aui-btn aui-btn aui-btn-outlined aui-btn-warning">评价得积分</div>
+                </div>
+            </div>
+        </div>
+        <div class="aui-card-list aui-border-t aui-border-b">
+            <div class="aui-card-list-header aui-card-list-user">
+                <div class="aui-card-list-user-avatar">
+                    <img src="../image/demo1.png">
+                </div>
+                <div class="aui-card-list-user-name">
+                    <div class="aui-font-size-16">陕十三肉夹馍 <i class="aui-iconfont aui-icon-right aui-font-size-12"></i></div>
+                    <small>订单已完成</small>
+                </div>
+                <div class="aui-card-list-user-info">5小时30分钟前</div>
+            </div>
+            <div class="aui-card-list-content aui-border-t" style="margin-left: 3.5rem;">
+                <ul class="aui-list aui-list-noborder">
+                    <div class="aui-list-item aui-padded-l-0">
+                        <div class="aui-list-item-inner">
+                            <div class="aui-list-item-title aui-font-size-14 goods-title">超值单人餐</div>
+                            <div class="aui-list-item-right goods-price">￥55</div>
+                        </div>
+                    </div>
+                    <div class="aui-list-item aui-padded-l-0">
+                        <div class="aui-list-item-inner">
+                            <div class="aui-list-item-title aui-font-size-14 goods-title">超值单人餐</div>
+                            <div class="aui-list-item-right goods-price">￥55</div>
+                        </div>
+                    </div>
+                </ul>
+            </div>
+            <div class="aui-card-list-footer aui-border-t">
+                <div></div>
+                <div>
+                    <div class="aui-btn aui-btn aui-btn-outlined aui-btn-warning">评价得积分</div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+<script type="text/javascript" src="../script/api.js" ></script>
+<script type="text/javascript">
+    apiready = function () {
+    }
+</script>
+</html>

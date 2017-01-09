@@ -1,0 +1,104 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>AUI快速完成布局</title>
+    <link rel="stylesheet" type="text/css" href="../css/aui.css" />
+</head>
+<body>
+    <div id="parent">111</div>
+    <div id="content" style="width: 200px;height: 2000px; background: #ff9900;">22</div>
+</body>
+<script type="text/javascript" src="../script/api.js" ></script>
+<script type="text/javascript">
+    /**
+ * 这里只实现垂直滚动
+ */
+var parent = document.getElementById('parent');
+var content = document.getElementById('content')
+var startY = 0; // 初始位置
+var lastY = 0; // 上一次位置
+
+/**
+ * 用于缓动的变量
+ */
+var lastMoveTime = 0;
+var lastMoveStart = 0;
+var stopInertiaMove = false; // 是否停止缓动
+
+content.addEventListener('touchstart', function(e) {
+    lastY = startY = e.touches[0].pageY;
+
+    /**
+     * 缓动代码
+     */
+    lastMoveStart = lastY;
+    lastMoveTime = e.timeStamp || Date.now();
+    stopInertiaMove = true;
+});
+content.addEventListener('touchmove', function(e) {
+    var nowY = e.touches[0].pageY;
+    var moveY = nowY - lastY;
+    var contentTop = content.style.top.replace('px', '');
+    // 设置top值移动content
+    content.style.top = (parseInt(contentTop) + moveY) + 'px';
+    lastY = nowY;
+
+    /**
+     * 缓动代码
+     */
+    var nowTime = e.timeStamp || Date.now();
+    stopInertiaMove = true;
+    if(nowTime - lastMoveTime > 300) {
+        lastMoveTime = nowTime;
+        lastMoveStart = nowY;
+    }
+});
+content.addEventListener('touchend', function(e) {
+    // console.log(e)
+    // do touchend
+    var nowY = e.changedTouches[0].pageY;
+    var moveY = nowY - lastY;
+    var contentTop = content.style.top.replace('px', '');
+    var contentY = (parseInt(contentTop) + moveY);
+    // 设置top值移动content
+    content.style.top =  contentY + 'px';
+    lastY = nowY;
+
+    /**
+     * 缓动代码
+     */
+    var nowTime = e.timeStamp || Date.now();
+    var v = (nowY - lastMoveStart) / (nowTime - lastMoveTime); //最后一段时间手指划动速度
+    stopInertiaMove = false;
+    (function(v, startTime, contentY) {
+        var dir = v > 0 ? -1 : 1; //加速度方向
+        var deceleration = dir*0.0006;
+        var duration = v / deceleration; // 速度消减至0所需时间
+        var dist = v * duration / 2; //最终移动多少
+        function inertiaMove() {
+            if(stopInertiaMove) return;
+            var nowTime = e.timeStamp || Date.now();
+            var t = nowTime-startTime;
+            var nowV = v + t*deceleration;
+            // 速度方向变化表示速度达到0了
+            if(dir*nowV < 0) {
+                return;
+            }
+            var moveY = (v + nowV)/2 * t;
+            content.style.top = (contentY + moveY) + "px";
+            console.log(moveY)
+            setTimeout(inertiaMove, 10);
+        }
+        inertiaMove();
+    })(v, nowTime, contentY);
+});
+</script>
+
+
+
+
+
+</html>

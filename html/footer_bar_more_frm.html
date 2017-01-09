@@ -1,0 +1,81 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>AUI快速完成布局</title>
+    <link rel="stylesheet" type="text/css" href="../css/aui.css" />
+    <style type="text/css">
+        .aui-bar-tab {
+            position: static;
+        }
+        .search-input {
+            height: 1.6rem;
+            line-height: 1.6rem;
+            background: #f5f5f5;
+            border-radius: 30px;
+            position: relative;
+            font-family:"aui_iconfont" !important;
+            text-align: left;
+            padding-left: 1.5rem;
+            color: #999999;
+        }
+        .search-input:after {
+            position: absolute;
+            left: 0;
+            padding-left: 0.5rem;
+            content: "\e615";
+        }
+    </style>
+</head>
+<body>
+    <section class="aui-content-padded"><p>在购物页面经常出现的底部工具栏</p></section>
+    <footer class="aui-bar aui-bar-tab aui-margin-t-15 aui-margin-b-15">
+        <div class="aui-bar-tab-item aui-border-r" tapmode style="width: 3rem;">
+            <i class="aui-iconfont aui-icon-comment aui-text-info"></i>
+            <div class="aui-bar-tab-label aui-text-info">咨询</div>
+        </div>
+        <div class="aui-bar-tab-item" tapmode style="width: 3rem;">
+            <i class="aui-iconfont aui-icon-star aui-text-warning"></i>
+            <div class="aui-bar-tab-label aui-text-warning">收藏</div>
+        </div>
+        <div class="aui-bar-tab-item aui-bg-danger aui-text-white" tapmode style="width: auto;">立即购买</div>
+    </footer>
+    <section class="aui-content-padded"><p>左侧按钮没有线条分割，右侧两个大按钮</p></section>
+    <footer class="aui-bar aui-bar-tab aui-margin-t-15 aui-margin-b-15">
+        <div class="aui-bar-tab-item" tapmode style="width: 3rem;">
+            <i class="aui-iconfont aui-icon-comment aui-text-info"></i>
+            <div class="aui-bar-tab-label aui-text-info">咨询</div>
+        </div>
+        <div class="aui-bar-tab-item" tapmode style="width: 3rem;">
+            <i class="aui-iconfont aui-icon-star aui-text-warning"></i>
+            <div class="aui-bar-tab-label aui-text-warning">收藏</div>
+        </div>
+        <div class="aui-bar-tab-item aui-bg-warning aui-text-white" tapmode style="width: auto;">加入购物车</div>
+        <div class="aui-bar-tab-item aui-bg-danger aui-text-white" tapmode style="width: auto;">立即购买</div>
+    </footer>
+    <section class="aui-content-padded"><p>这个很多项目貌似都经常用到</p></section>
+    <footer class="aui-bar aui-bar-tab aui-margin-t-15 aui-margin-b-15">
+        <div class="aui-bar-tab-item aui-padded-l-15 aui-padded-r-15" tapmode style="width: auto;">
+            <div class="search-input aui-font-size-14">请输入评论内容</div>
+        </div>
+        <div class="aui-bar-tab-item" tapmode style="width: 2.2rem;">
+            <i class="aui-iconfont aui-icon-comment"></i>
+        </div>
+        <div class="aui-bar-tab-item" tapmode style="width: 2.2rem;">
+            <i class="aui-iconfont aui-icon-star"></i>
+        </div>
+        <div class="aui-bar-tab-item" tapmode style="width: 2.2rem;">
+            <i class="aui-iconfont aui-icon-share"></i>
+        </div>
+    </footer>
+</body>
+<script type="text/javascript" src="../script/api.js" ></script>
+<script type="text/javascript" src="../script/aui-tab.js" ></script>
+<script type="text/javascript">
+    apiready = function(){
+        api.parseTapmode();
+    }
+</script>
+</html>

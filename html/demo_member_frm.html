@@ -1,0 +1,93 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>AUI快速完成布局</title>
+    <link rel="stylesheet" type="text/css" href="../css/aui.css" />
+    <style type="text/css">
+        .user-info {
+            background-color: #ffffff;
+            padding: 0.75rem 0;
+        }
+        img.avatar {
+            display: block;
+            margin: 0 auto;
+            width: 20%;
+        }
+        .aui-list .aui-list-header {
+            background-color: #ffffff;
+            line-height: 1.2rem;
+        }
+        .aui-list .aui-list-item {
+            background-color: #f8f6ef;
+        }
+    </style>
+</head>
+<body>
+    <section class="aui-content user-info aui-text-center aui-margin-b-15">
+        <img src="../image/liulangnan.png" class="avatar aui-img-round">
+        <h2 class="aui-margin-t-15">A000 牧峰户外运动 <small><i class="aui-iconfont aui-icon-cert aui-text-danger"></i></small></h2>
+        <div class="aui-row aui-margin-t-15">
+            <div class="aui-col-xs-6 aui-text-right aui-border-r aui-padded-r-10">
+                <div class="aui-label aui-label-info">LV 6</div>
+            </div>
+            <div class="aui-col-xs-6 aui-text-left aui-padded-l-10">
+                学分:1000
+            </div>
+        </div>
+        <div class="aui-row aui-margin-t-15">
+            <div class="aui-col-xs-6 aui-text-right aui-border-r aui-padded-r-10">
+                <span class="aui-text-danger aui-margin-r-5">0人</span>关注我
+            </div>
+            <div class="aui-col-xs-6 aui-text-left aui-padded-l-10">
+                我关注<span class="aui-text-danger aui-margin-l-5">100人</span>
+            </div>
+        </div>
+    </section>
+    <section class="aui-content">
+        <ul class="aui-list aui-list-noborder">
+            <div class="aui-list-header">
+                <div>
+                    <i class="aui-iconfont aui-icon-my aui-text-danger"></i>
+                    个人中心
+                </div>
+            </div>
+            <li class="aui-list-item">
+                <div class="aui-list-item-inner aui-list-item-arrow">
+                    <div class="aui-list-item-title">我的帖子</div>
+                    <div class="aui-list-item-right">共888贴</div>
+                </div>
+            </li>
+            <li class="aui-list-item">
+                <div class="aui-list-item-inner aui-list-item-arrow">
+                    <div class="aui-list-item-title">常用联系人</div>
+                </div>
+            </li>
+            <div class="aui-list-header">
+                <div>
+                    <i class="aui-iconfont aui-icon-my aui-text-danger"></i>
+                    个人中心
+                </div>
+            </div>
+            <li class="aui-list-item">
+                <div class="aui-list-item-inner aui-list-item-arrow">
+                    <div class="aui-list-item-title">我的帖子</div>
+                    <div class="aui-list-item-right">共888贴</div>
+                </div>
+            </li>
+            <li class="aui-list-item">
+                <div class="aui-list-item-inner aui-list-item-arrow">
+                    <div class="aui-list-item-title">常用联系人</div>
+                </div>
+            </li>
+        </ul>
+    </section>
+</body>
+<script type="text/javascript" src="../script/api.js" ></script>
+<script type="text/javascript">
+    apiready = function () {
+    }
+</script>
+</html>

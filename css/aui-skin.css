@@ -66,7 +66,7 @@ a {
     background-color: #ffffff;
 }
 /*tab选中时样式*/
-.aui-tab .aui-tab-item.active {
+.aui-tab .aui-tab-item.aui-active {
     color: #039be5;
     border-bottom: 2px solid #039be5;
 }
@@ -133,7 +133,7 @@ a {
 	color: #757575;
 }
 /*底部工具栏选中时颜色*/
-.aui-bar-tab .active {
+.aui-bar-tab .aui-active {
 	color: #039be5;
 }
 /*按钮工具栏*/
@@ -141,7 +141,7 @@ a {
 	border-color: #03a9f4;
 	color: #212121;
 }
-.aui-bar-btn .aui-bar-btn-item.active {
+.aui-bar-btn .aui-bar-btn-item.aui-active {
     background-color: #03a9f4;
     color: #ffffff;
 }
@@ -154,12 +154,12 @@ a {
     border-color: #03a9f4;
 }
 /*顶部导航存在按钮组工具栏时选中样式*/
-.aui-bar-nav .aui-bar-btn .aui-bar-btn-item.active {
+.aui-bar-nav .aui-bar-btn .aui-bar-btn-item.aui-active {
     background-color: #ffffff;
     color: #03a9f4;
 }
 /*浅色顶部导航存在按钮组工具栏时选中样式*/
-.aui-bar-nav.aui-bar-light .aui-bar-btn .aui-bar-btn-item.active {
+.aui-bar-nav.aui-bar-light .aui-bar-btn .aui-bar-btn-item.aui-active {
     background-color: #03a9f4;
     color: #ffffff;
 }

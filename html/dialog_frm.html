@@ -5,7 +5,7 @@
     <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
     <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
     <title>AUI快速完成布局</title>
-    <link rel="stylesheet" type="text/css" href="../css/aui.2.0.css" />
+    <link rel="stylesheet" type="text/css" href="../css/aui.css" />
 </head>
 <body>
     <p class="aui-padded-10 aui-text-center">Dialog样式</p>
@@ -57,6 +57,7 @@
                 dialog.prompt({
                     title:"弹出提示",
                     text:'默认内容',
+                    type:'number',
                     buttons:['取消','确定']
                 },function(ret){
                     if(ret.buttonIndex == 2){

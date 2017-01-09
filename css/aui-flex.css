@@ -1,0 +1,272 @@
+/*
+ * =========================================================================
+ * APIClud - AUI UI 框架    流浪男  QQ：343757327  http://www.auicss.com
+ * Verson 1.0
+ * =========================================================================
+ */
+@charset "UTF-8";
+html{
+    font-family: "Helvetica Neue", Helvetica, sans-serif;
+    font-size: 20px;
+}
+html,body {
+    -webkit-touch-callout:none;
+    -webkit-text-size-adjust:none;
+    -webkit-tap-highlight-color:rgba(0, 0, 0, 0);
+    -webkit-user-select:none;
+    width: 100%;
+}
+body {
+    line-height: 1.5;
+    font-size: 0.8rem;
+    color: #212121;
+    background-color: #f5f5f5;
+    outline: 0;
+}
+html,body,header,section,footer,div,ul,ol,li,img,a,span,em,del,legend,center,strong,var,fieldset,form,label,dl,dt,dd,cite,input,hr,time,mark,code,figcaption,figure,textarea,h1,h2,h3,h4,h5,h6,p{
+    margin:0;
+    border:0;
+    padding:0;
+    font-style:normal;
+}
+* {
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    -webkit-user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    outline: none;
+}
+@media only screen and (min-width: 400px) {
+    html {
+        font-size: 21.33333333px !important;
+    }
+}
+@media only screen and (min-width: 414px) {
+    html {
+        font-size: 21px !important;
+    }
+}
+@media only screen and (min-width: 480px) {
+    html {
+        font-size: 25.6px !important;
+    }
+}
+.aui-flex-col,
+.aui-flex-row {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+            flex-wrap: wrap;
+}
+.aui-flex-col:before,
+.aui-flex-row:before,
+.aui-flex-col:after,
+.aui-flex-row:after {
+    content: " ";
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    box-sizing: border-box;
+}
+.aui-flex-col:after,
+.aui-flex-row:after {
+  clear: both;
+}
+.aui-flex-col {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: row;
+            flex-direction: row;
+}
+.aui-flex-row {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+            flex-direction: column;
+}
+/*栅格*/
+.aui-flex-item-1 {
+    float: left;
+    width: 8.33333333%;
+}
+.aui-flex-offset-1 {
+    margin-left: 8.33333333%;
+}
+.aui-flex-item-2 {
+    float: left;
+    width: 16.66666667%;
+}
+.aui-flex-offset-2 {
+    margin-left: 16.66666667%;
+}
+.aui-flex-item-3 {
+    float: left;
+    width: 25%;
+}
+.aui-flex-offset-3 {
+    margin-left: 25%;
+}
+.aui-flex-item-4 {
+    float: left;
+    width: 33.33333333%;
+}
+.aui-flex-offset-4 {
+    margin-left: 33.33333333%;
+}
+.aui-flex-item-5 {
+    float: left;
+    width: 41.66666667%;
+}
+.aui-flex-offset-5 {
+    margin-left: 41.66666667%;
+}
+.aui-flex-item-6 {
+    float: left;
+    width: 50%;
+}
+.aui-flex-offset-6 {
+    margin-left: 50%;
+}
+.aui-flex-item-7 {
+    float: left;
+    width: 58.33333333%;
+}
+.aui-flex-offset-7 {
+    margin-left: 58.33333333%;
+}
+.aui-flex-item-8 {
+    float: left;
+    width: 66.66666667%;
+}
+.aui-flex-offset-8 {
+    margin-left: 66.66666667%;
+}
+.aui-flex-item-9 {
+    float: left;
+    width: 75%;
+}
+.aui-flex-offset-9 {
+    margin-left: 75%;
+}
+.aui-flex-item-10 {
+    float: left;
+    width: 83.33333333%;
+}
+.aui-flex-offset-10 {
+    margin-left: 83.33333333%;
+}
+.aui-flex-order-10 {
+    -webkit-box-ordinal-group: 11;
+    -webkit-order: 10;
+            order: 10;
+}
+.aui-flex-item-11 {
+    float: left;
+    width: 91.66666667%;
+}
+.aui-flex-offset-11 {
+    margin-left: 91.66666667%;
+}
+.aui-flex-item-12 {
+    float: left;
+    width: 100%;
+}
+.aui-flex-offset-12 {
+    margin-left: 100%;
+}
+.aui-flex-auto {
+    float: left;
+    -webkit-box-flex: 1;
+    -webkit-flex-grow: 1;
+            flex-grow: 1;
+}
+.aui-flex-between {
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+            justify-content: space-between;
+}
+/*对齐*/
+.aui-flex-col.aui-flex-left {
+    -webkit-box-pack: start;
+    -webkit-justify-content: flex-start;
+            justify-content: flex-start;
+}
+.aui-flex-col.aui-flex-right {
+    -webkit-box-pack: end;
+    -webkit-justify-content: flex-end;
+            justify-content: flex-end;
+}
+.aui-flex-col.aui-flex-top {
+    -webkit-box-align: start;
+    -webkit-align-items: flex-start;
+            align-items: flex-start;
+}
+.aui-flex-col.aui-flex-bottom {
+    -webkit-box-align: end;
+    -webkit-align-items: flex-end;
+            align-items: flex-end;
+}
+.aui-flex-col.aui-flex-center {
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+            justify-content: center;
+}
+.aui-flex-col.aui-flex-middle {
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+            align-items: center;
+}
+.aui-flex-row.aui-flex-left {
+    -webkit-box-align: start;
+    -webkit-align-items: flex-start;
+            align-items: flex-start;
+}
+.aui-flex-row.aui-flex-right {
+    -webkit-box-align: end;
+    -webkit-align-items: flex-end;
+            align-items: flex-end;
+}
+.aui-flex-row.aui-flex-top {
+    -webkit-box-pack: start;
+    -webkit-justify-content: flex-start;
+            justify-content: flex-start;
+}
+.aui-flex-row.aui-flex-bottom {
+    -webkit-box-pack: end;
+    -webkit-justify-content: flex-end;
+            justify-content: flex-end;
+}
+.aui-flex-row.aui-flex-center {
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+            align-items: center;
+}
+.aui-flex-row.aui-flex-middle {
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+            justify-content: center;
+}
+[class*=aui-flex-item-]{
+    position: relative;
+}
+[class*=aui-flex-auto].aui-flex-left {
+    margin-right: auto;
+}
+[class*=aui-flex-auto].aui-flex-right {
+    margin-left: auto;
+}
+[class*=aui-flex-auto].aui-flex-top {
+    margin-bottom: auto;
+}
+[class*=aui-flex-auto].aui-flex-bottom {
+    margin-top: auto;
+}
+[class*=aui-flex-auto].aui-flex-center {
+    margin-left: auto;
+    margin-right: auto;
+}
+[class*=aui-flex-auto].aui-flex-middle {
+    margin-top: auto;
+    margin-bottom: auto;
+}

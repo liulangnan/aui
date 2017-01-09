@@ -1,0 +1,66 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>AUI快速完成布局</title>
+    <link rel="stylesheet" type="text/css" href="../css/aui.css" />
+</head>
+<body>
+    <section class="aui-content-padded">
+        <div class="aui-btn" tapmode onclick="openSharebox()">打开分享</div>
+    </section>
+    <section class="aui-content-padded">
+        <p>点击了第<strong class="aui-text-danger" id="button-index"></strong>个按钮（buttonIndex）</p>
+        <p>点击按钮的值为<strong class="aui-text-danger" id="button-value"></strong>(buttonValue)</p>
+    </section>
+</body>
+<script type="text/javascript" src="../script/api.js" ></script>
+<script type="text/javascript" src="../script/aui-sharebox.js" ></script>
+<script type="text/javascript">
+    apiready = function(){
+        api.parseTapmode();
+    }
+    var sharebox = new auiSharebox();
+    function openSharebox(){
+        sharebox.init({
+            frameBounces:true,//当前页面是否弹动，（主要针对安卓端）
+            buttons:[{
+                image:'../image/share/wx.png',
+                text:'微信',
+                value:'wx'//可选
+            },{
+                image:'../image/share/wx-circle.png',
+                text:'朋友圈',
+                value:'wx-circle'
+            },{
+                image:'../image/share/qq.png',
+                text:'QQ好友',
+                value:'qq'
+            },{
+                image:'../image/share/qzone.png',
+                text:'QQ空间',
+                value:'qq-qzone'
+            },{
+                image:'../image/share/qq-weibo.png',
+                text:'QQ微博'
+            },{
+                image:'../image/share/sina-weibo.png',
+                text:'新浪微博'
+            },{
+                image:'../image/share/message.png',
+                text:'短信'
+            }],
+            col:5,
+            cancelTitle:'关闭'//可选,当然也可以采用下面的方式使用图标
+            // cancelTitle:'<i class="aui-iconfont aui-icon-close aui-font-size-16"></i>'//可选
+        },function(ret){
+            if(ret){
+                document.getElementById("button-index").textContent = ret.buttonIndex;
+                document.getElementById("button-value").textContent = ret.buttonValue;
+            }
+        })
+    }
+</script>
+</html>

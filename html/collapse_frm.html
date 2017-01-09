@@ -1,0 +1,127 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>AUI快速完成布局</title>
+    <link rel="stylesheet" type="text/css" href="../css/aui.css" />
+</head>
+<body>
+    <section class="aui-content-padded">
+        <ul class="aui-list aui-collapse aui-border">
+            <div class="aui-collapse-item">
+                <li class="aui-list-item aui-collapse-header" tapmode>
+                    <div class="aui-list-item-inner">
+                        <div class="aui-list-item-title">参数说明</div>
+                        <div class="aui-list-item-right">
+                            <i class="aui-iconfont aui-icon-down aui-collapse-arrow"></i>
+                        </div>
+                    </div>
+                </li>
+                <div class="aui-collapse-content aui-padded-15 aui-border-b">
+                    配置autoHide可以控制是否自动隐藏已经展开的容器
+                </div>
+            </div>
+            <div class="aui-collapse-item">
+                <li class="aui-list-item aui-collapse-header" tapmode>
+                    <div class="aui-list-item-inner">
+                        <div class="aui-list-item-title">折叠菜单标题</div>
+                        <div class="aui-list-item-right">
+                            <i class="aui-iconfont aui-icon-down aui-collapse-arrow"></i>
+                        </div>
+                    </div>
+                </li>
+                <div class="aui-collapse-content">
+                    <li class="aui-list-item">
+                        <div class="aui-list-item-inner">
+                            <div class="aui-list-item-title">Item1</div>
+                        </div>
+                    </li>
+                    <li class="aui-list-item">
+                        <div class="aui-list-item-inner">
+                            <div class="aui-list-item-title">Item2</div>
+                        </div>
+                    </li>
+                </div>
+            </div>
+            <div class="aui-collapse-item">
+                <li class="aui-list-item aui-collapse-header" tapmode>
+                    <div class="aui-list-item-inner">
+                        <div class="aui-list-item-title">图文混排</div>
+                        <div class="aui-list-item-right">
+                            <i class="aui-iconfont aui-icon-down aui-collapse-arrow"></i>
+                        </div>
+                    </div>
+                </li>
+                <div class="aui-collapse-content">
+                    <li class="aui-list-item" style="display: block;">
+                        <div class="aui-media-list-item-inner">
+                            <div class="aui-list-item-media">
+                                <img src="../image/demo1.png">
+                            </div>
+                            <div class="aui-list-item-inner aui-padded-t-10 aui-padded-b-10" style="display: block;">
+                                <div class="aui-list-item-text">
+                                    <div class="aui-list-item-title">带有媒体的列表二</div>
+                                    <div class="aui-list-item-right">08:00</div>
+                                </div>
+                                <div class="aui-list-item-text">
+                                    <div class="aui-ellipsis-2">这里是内容区域，新版中的列表布局可以很轻松的帮助开发者完成常见列表样式。</div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="aui-list-item">
+                        <div class="aui-list-item-inner aui-padded-t-10 aui-padded-b-10" style="display: block;">
+                            <div class="aui-list-item-title">多张图片列表一</div>
+                            <p>借助栅格来实现图片列表</p>
+                            <div class="aui-row aui-row-padded">
+                                <div class="aui-col-xs-4">
+                                    <img src="../image/demo1.png"/>
+                                </div>
+                                <div class="aui-col-xs-4">
+                                    <img src="../image/demo2.png" />
+                                </div>
+                                <div class="aui-col-xs-4">
+                                    <img src="../image/demo3.png" />
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </div>
+            </div>
+        </ul>
+    </section>
+    <section class="aui-content-padded">
+        <div class="aui-card-list">
+            <div class="aui-card-list-header aui-collapse-header" tapmode>
+                <div>卡片布局中使用折叠菜单</div>
+                <i class="aui-iconfont aui-icon-down aui-collapse-arrow"></i>
+            </div>
+            <div class="aui-card-list-content-padded aui-collapse-content">
+                <div class="aui-row aui-row-padded">
+                    <div class="aui-col-xs-4">
+                        <img src="../image/demo1.png" />
+                    </div>
+                    <div class="aui-col-xs-4">
+                        <img src="../image/demo2.png" />
+                    </div>
+                    <div class="aui-col-xs-4">
+                        <img src="../image/demo3.png" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+<script type="text/javascript" src="../script/api.js" ></script>
+<script type="text/javascript" src="../script/aui-collapse.js" ></script>
+<script type="text/javascript">
+    apiready = function () {
+        api.parseTapmode();
+    }
+    var collapse = new auiCollapse({
+        autoHide:false //是否自动隐藏已经展开的容器
+    });
+</script>
+</html>

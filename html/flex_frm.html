@@ -1,0 +1,75 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>AUI快速完成布局</title>
+    <link rel="stylesheet" type="text/css" href="../css/aui.css" />
+    <link rel="stylesheet" type="text/css" href="../css/aui-flex.css" />
+    <style type="text/css">
+        img {
+            display: block;
+            max-width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <p class="aui-padded-10"><span class="aui-text-danger">AUI Flex</span>(aui-flex.css)采用12个栅格进行布局，与aui-col-xs-*相比更灵活性，可以快速布局出自己所需要的框架结构。结合aui.css，能彻底解决布局＋样式的问题。</p>
+    <p class="aui-padded-10">在AUI Flex中，使用了aui-flex-col(横向)和aui-flex-row(纵向)两种容器，只需要把栅格放入容器中即可。AUI Flex所有类支持嵌套布局，可任意进行排列。</p>
+    <p class="aui-padded-10">使用AUI Flex可以方便解决垂直居中，多栏等高，等宽布局，任意对齐等。</p>
+    <p class="aui-padded-10"><span class="aui-text-danger">注意：</span>考虑到Android4.2.2对flex的兼容性问题，对aui-flex-item-*加了position:relative属性，但是不支持换行，行排列时如果有换行每行可以加入aui-flex-col</p>
+    <section class="aui-content" style="background-color: #fff;">
+        <div class="aui-flex-col aui-flex-center aui-border-tb">
+            <div class="aui-flex-item-4 aui-flex-row aui-flex-middle aui-padded-10">
+                <h3 class="aui-text-danger">淘抢购</h3>
+                <p>可爱的你会喜欢</p>
+                <img src="../image/f1.jpg">
+            </div>
+            <div class="aui-flex-item-8 aui-border-l">
+                <div class="aui-flex-col aui-padded-10 aui-border-b">
+                    <div class="aui-flex-item-12">
+                        <div class="aui-flex-item-9">
+                            <h3 class="aui-text-info">有好货</h3>
+                            <p>好品味从挑剔开始</p>
+                        </div>
+                        <div class="aui-flex-item-3 aui-text-right"><img src="../image/f2.jpg"></div>
+                    </div>
+                </div>
+                <div class="aui-flex-col">
+                    <div class="aui-flex-item-6 aui-padded-10" style="position: relative;">
+                        <h5 class="aui-text-warning">爱逛街</h5>
+                        <p>疯狂赛车来袭</p>
+                        <img src="../image/f3.jpg">
+                    </div>
+                    <div class="aui-flex-item-6 aui-padded-10 aui-border-l">
+                        <h5 class="aui-text-success">必买清单</h5>
+                        <p>都帮你整理好啦</p>
+                        <img src="../image/f5.jpg">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <p class="aui-padded-10 aui-text-center">AUI Flex语法详解：</p>
+    <div class="aui-hr"></div>
+    <div class="aui-content-padded" style="padding-top: 15px;">
+        <p class="aui-text-danger">A.容器类</p>
+        <p><mark>.aui-flex-col</mark> 横向排列</p>
+        <p><mark>.aui-flex-row</mark> 纵向排列</p>
+        <p class="aui-text-danger">B.栅格类</p>
+        <p><mark>.aui-flex-item-*</mark>   *为从1-12数字，默认将屏幕进行12等分进行排列</p>
+        <p><mark>.aui-flex-offset-*</mark>   *为从1-12数字，向左偏移量</p>
+        <p><mark>.aui-flex-auto</mark>  自动填充宽度</p>
+        <p class="aui-text-danger">C.对齐类</p>
+        <p><mark>.aui-flex-top</mark> 顶端对齐</p>
+        <p><mark>.aui-flex-bottom</mark> 底部对齐</p>
+        <p><mark>.aui-flex-left</mark> 左对齐</p>
+        <p><mark>.aui-flex-right</mark> 右对齐</p>
+        <p><mark>.aui-flex-middle</mark> 垂直居中</p>
+        <p><mark>.aui-flex-center</mark> 水平居中</p>
+        <p><mark>.aui-flex-between</mark> 等宽对齐</p>
+    </div>
+</body>
+<script type="text/javascript" src="../script/api.js" ></script>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,aItemress=no">
+    <title>AUI快速完成布局</title>
+    <link rel="stylesheet" type="text/css" href="../css/aui.css" />
+    <style type="text/css">
+        .userinfo-header {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            overflow: hidden;
+            padding-right: 0.75rem;
+            z-index: 1;
+        }
+        .userinfo-header .aui-info {
+            padding: 0;
+        }
+        .userinfo-header + .aui-card-list-content-padded {
+            padding: 0.75rem;
+            padding-top: 3rem;
+        }
+    </style>
+</head>
+<body>
+    <section class="aui-content-padded">
+        <div class="aui-card-list">
+            <div class="aui-card-list-content">
+
+            </div>
+            <div class="userinfo-header">
+                <div class="aui-info">
+                    <div class="aui-info-item">
+                        <img src="../image/demo2.png" style="width:2.2rem"/>
+                        <span class="aui-margin-l-10 aui-margin-r-10">AUI</span>
+                        <i class="aui-iconfont aui-icon-laud aui-text-info "></i>
+                    </div>
+                    <div class="aui-info-item">11km</div>
+                </div>
+            </div>
+            <div class="aui-card-list-content-padded">
+                只工作不玩耍，聪明的孩子要变傻
+            </div>
+            <div class="aui-card-list-footer aui-border-t">
+                <div><i class="aui-iconfont aui-icon-note"></i> 聊一下</div>
+                <div><i class="aui-iconfont aui-icon-laud"></i> 888</div>
+                <div><i class="aui-iconfont aui-icon-star"></i> 888</div>
+            </div>
+        </div>
+        <div class="aui-card-list">
+            <div class="userinfo-header">
+                <div class="aui-info">
+                    <div class="aui-info-item">
+                        <img src="../image/demo2.png" style="width:2.4rem"/>
+                        <span class="aui-margin-l-10">AUI</span>
+                    </div>
+                    <div class="aui-info-item">11km</div>
+                </div>
+            </div>
+            <div class="aui-card-list-content-padded">
+                内容区域，卡片列表布局样式可以实现APP中常见的各类样式
+            </div>
+            <div class="aui-card-list-footer aui-border-t">
+                <div><i class="aui-iconfont aui-icon-note"></i> 聊一下</div>
+                <div><i class="aui-iconfont aui-icon-laud"></i> 888</div>
+                <div><i class="aui-iconfont aui-icon-star"></i> 888</div>
+            </div>
+        </div>
+    </section>
+
+</body>
+<script type="text/javascript" src="../script/api.js" ></script>
+<script type="text/javascript">
+    apiready = function(){
+        api.parseTapmode();
+    }
+
+</script>
+</html>

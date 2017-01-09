@@ -5,10 +5,9 @@
     <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
     <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
     <title>AUI快速完成布局</title>
-    <link rel="stylesheet" type="text/css" href="../css/aui.2.0.css" />
+    <link rel="stylesheet" type="text/css" href="../css/aui.css" />
 </head>
 <body>
-
     <div class="aui-content">
         <ul class="aui-list aui-list-in aui-list-noborder">
             <li class="aui-list-item" tapmode onclick="openWin('text_win')">
@@ -29,6 +28,9 @@
             <li class="aui-list-item" tapmode onclick="openWin('header_win')">
                 <div class="aui-list-item-inner aui-list-item-arrow">
                     顶部导航栏
+                    <div class="aui-list-item-right">
+                        <div class="aui-dot" style="position:relative;top:0; right:0"></div>
+                    </div>
                 </div>
             </li>
             <li class="aui-list-item" tapmode onclick="openWin('btn_bar_win')">
@@ -39,6 +41,14 @@
             <li class="aui-list-item" tapmode onclick="openWin('footer_bar_win')">
                 <div class="aui-list-item-inner aui-list-item-arrow">
                     底部工具栏
+                </div>
+            </li>
+            <li class="aui-list-item" tapmode onclick="openWin('footer_bar_more_win')">
+                <div class="aui-list-item-inner aui-list-item-arrow">
+                    底部工具栏扩展
+                    <div class="aui-list-item-right">
+                        <div class="aui-dot" style="position:relative;top:0; right:0"></div>
+                    </div>
                 </div>
             </li>
             <li class="aui-list-item" tapmode onclick="openWin('tab_win')">
@@ -76,9 +86,60 @@
                     表单
                 </div>
             </li>
+            <li class="aui-list-item" tapmode onclick="openWin('flex_win')">
+                <div class="aui-list-item-inner aui-list-item-arrow">
+                    弹性布局(aui-flex.css)
+                    <div class="aui-list-item-right">
+                        <div class="aui-dot" style="position:relative;top:0; right:0"></div>
+                    </div>
+                </div>
+            </li>
+            <li class="aui-list-item" tapmode onclick="openWin('timeline_win')">
+                <div class="aui-list-item-inner aui-list-item-arrow">
+                    时间轴(timeline)
+                    <div class="aui-list-item-right">
+                        <div class="aui-dot" style="position:relative;top:0; right:0"></div>
+                    </div>
+                </div>
+            </li>
             <li class="aui-list-item" tapmode onclick="openWin('popup_win')">
                 <div class="aui-list-item-inner aui-list-item-arrow">
-                    弹出菜单
+                    弹出菜单(popup)
+                    <div class="aui-list-item-right">
+                        <div class="aui-dot" style="position:relative;top:0; right:0"></div>
+                    </div>
+                </div>
+            </li>
+            <li class="aui-list-item" tapmode onclick="openWin('actionsheet_win')">
+                <div class="aui-list-item-inner aui-list-item-arrow">
+                    底部弹出框(actionsheet)
+                    <div class="aui-list-item-right">
+                        <div class="aui-dot" style="position:relative;top:0; right:0"></div>
+                    </div>
+                </div>
+            </li>
+            <li class="aui-list-item" tapmode onclick="openWin('sharebox_win')">
+                <div class="aui-list-item-inner aui-list-item-arrow">
+                    底部分享盒子(sharebox)
+                    <div class="aui-list-item-right">
+                        <div class="aui-dot" style="position:relative;top:0; right:0"></div>
+                    </div>
+                </div>
+            </li>
+            <li class="aui-list-item" tapmode onclick="openWin('collapse_win')">
+                <div class="aui-list-item-inner aui-list-item-arrow">
+                    折叠面板(collapse)
+                    <div class="aui-list-item-right">
+                        <div class="aui-dot" style="position:relative;top:0; right:0"></div>
+                    </div>
+                </div>
+            </li>
+            <li class="aui-list-item" tapmode onclick="openWin('lazyload_win')">
+                <div class="aui-list-item-inner aui-list-item-arrow">
+                    图片懒加载(lazyload)
+                    <div class="aui-list-item-right">
+                        <div class="aui-dot" style="position:relative;top:0; right:0"></div>
+                    </div>
                 </div>
             </li>
             <li class="aui-list-item" tapmode onclick="openWin('progress_win')">
@@ -90,6 +151,9 @@
             <li class="aui-list-item" tapmode onclick="openWin('searchbar_win')">
                 <div class="aui-list-item-inner aui-list-item-arrow">
                     搜索条
+                    <div class="aui-list-item-right">
+                        <div class="aui-dot" style="position:relative;top:0; right:0"></div>
+                    </div>
                 </div>
             </li>
             <li class="aui-list-item" tapmode onclick="openWin('tips_win')">
@@ -127,6 +191,7 @@
                     轮播组件
                 </div>
             </li>
+
             <li class="aui-list-item" tapmode onclick="openWin('scroll_win')">
                 <div class="aui-list-item-inner aui-list-item-arrow">
                     滚动监听
@@ -160,6 +225,30 @@
             <li class="aui-list-item" tapmode onclick="openWin('demo_zhihu_win')">
                 <div class="aui-list-item-inner aui-list-item-arrow">
                     知乎首页
+                </div>
+            </li>
+            <li class="aui-list-item" tapmode onclick="openWin('demo_moubao_win')">
+                <div class="aui-list-item-inner aui-list-item-arrow">
+                    某宝首页
+                    <div class="aui-list-item-right">
+                        <div class="aui-dot" style="position:relative;top:0; right:0"></div>
+                    </div>
+                </div>
+            </li>
+            <li class="aui-list-item" tapmode onclick="openWin('demo_my_win')">
+                <div class="aui-list-item-inner aui-list-item-arrow">
+                    会员中心首页
+                    <div class="aui-list-item-right">
+                        <div class="aui-dot" style="position:relative;top:0; right:0"></div>
+                    </div>
+                </div>
+            </li>
+            <li class="aui-list-item" tapmode onclick="openWin('demo_order_win')">
+                <div class="aui-list-item-inner aui-list-item-arrow">
+                    订单列表首页
+                    <div class="aui-list-item-right">
+                        <div class="aui-dot" style="position:relative;top:0; right:0"></div>
+                    </div>
                 </div>
             </li>
         </ul>

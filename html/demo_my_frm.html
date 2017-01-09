@@ -1,0 +1,125 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>AUI快速完成布局</title>
+    <link rel="stylesheet" type="text/css" href="../css/aui.css" />
+    <style type="text/css">
+        .text-white {
+            color: #ffffff !important;
+        }
+        .aui-grid [class*=aui-col-] {
+            padding: 0.75rem 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- 顶部 -->
+    <section class="aui-content" id="user-info">
+        <div class="aui-list aui-media-list aui-list-noborder aui-bg-info">
+            <div class="aui-list-item aui-list-item-middle">
+                <div class="aui-media-list-item-inner ">
+                    <div class="aui-list-item-media" style="width:3rem;">
+                        <img src="../image/demo1.png" class="aui-img-round" >
+                    </div>
+                    <div class="aui-list-item-inner aui-list-item-arrow">
+                        <div class="aui-list-item-text text-white aui-font-size-18">38dd4ef6d</div>
+                        <div class="aui-list-item-text text-white">
+                           <div><i class="aui-iconfont aui-icon-mobile aui-font-size-14"></i>152****0989</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="aui-content aui-grid aui-margin-b-15">
+        <div class="aui-row">
+            <div class="aui-col-xs-4 aui-border-r">
+                <big class="aui-text-warning">0.00<small> 元</small></big>
+                <div class="aui-gird-lable aui-font-size-12">余额</div>
+            </div>
+            <div class="aui-col-xs-4 aui-border-r">
+                <big class="aui-text-danger">0.00<small> 个</small></big>
+                <div class="aui-gird-lable aui-font-size-12">优惠</div>
+            </div>
+            <div class="aui-col-xs-4">
+                <big class="aui-text-success">0.00<small> 分</small></big>
+                <div class="aui-gird-lable aui-font-size-12">积分</div>
+            </div>
+        </div>
+    </section>
+    <section class="aui-content">
+        <ul class="aui-list aui-list-in aui-margin-b-15">
+            <li class="aui-list-item">
+                <div class="aui-list-item-label-icon">
+                    <i class="aui-iconfont aui-icon-location aui-text-info"></i>
+                </div>
+                <div class="aui-list-item-inner aui-list-item-arrow">
+                    <div class="aui-list-item-title">收货地址</div>
+                </div>
+            </li>
+            <li class="aui-list-item">
+                <div class="aui-list-item-label-icon">
+                    <i class="aui-iconfont aui-icon-like aui-text-danger"></i>
+                </div>
+                <div class="aui-list-item-inner aui-list-item-arrow">
+                    <div class="aui-list-item-title">我的收藏</div>
+                </div>
+            </li>
+            <li class="aui-list-item">
+                <div class="aui-list-item-label-icon">
+                    <i class="aui-iconfont aui-icon-image aui-text-info"></i>
+                </div>
+                <div class="aui-list-item-inner aui-list-item-arrow">
+                    <div class="aui-list-item-title">美食相册</div>
+                </div>
+            </li>
+        </ul>
+        <ul class="aui-list aui-list-in">
+            <li class="aui-list-item">
+                <div class="aui-list-item-label-icon">
+                    <i class="aui-iconfont aui-icon-cart aui-text-info"></i>
+                </div>
+                <div class="aui-list-item-inner aui-list-item-arrow">
+                    <div class="aui-list-item-title">积分商城</div>
+                    <div class="aui-list-item-right">0元好物在这里</div>
+                </div>
+            </li>
+            <li class="aui-list-item">
+                <div class="aui-list-item-label-icon">
+                    <i class="aui-iconfont aui-icon-cert aui-text-warning"></i>
+                </div>
+                <div class="aui-list-item-inner aui-list-item-arrow">
+                    <div class="aui-list-item-title">会员卡</div>
+                    <div class="aui-list-item-right">未开通</div>
+                </div>
+            </li>
+        </ul>
+    </section>
+    <footer class="aui-bar aui-bar-tab">
+        <div class="aui-bar-tab-item">
+            <i class="aui-iconfont aui-icon-paper"></i>
+            <div class="aui-bar-tab-label">外卖</div>
+        </div>
+        <div class="aui-bar-tab-item">
+            <i class="aui-iconfont aui-icon-menu"></i>
+            <div class="aui-bar-tab-label">订单</div>
+        </div>
+        <div class="aui-bar-tab-item">
+            <i class="aui-iconfont aui-icon-location"></i>
+            <div class="aui-bar-tab-label">发现</div>
+        </div>
+        <div class="aui-bar-tab-item aui-active">
+            <i class="aui-iconfont aui-icon-my"></i>
+            <div class="aui-bar-tab-label">我的</div>
+        </div>
+    </footer>
+</body>
+<script type="text/javascript" src="../script/api.js" ></script>
+<script type="text/javascript">
+    apiready = function () {
+    }
+</script>
+</html>

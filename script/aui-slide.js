@@ -1,6 +1,6 @@
 /**
  * aui-slide.js 轮播组件
- * @author 流浪男 && Beck
+ * @author 流浪男
  * http://www.auicss.com
  * @todo more things to abstract, e.g. Loading css etc.
  * Licensed under the MIT license.

@@ -5,7 +5,7 @@
     <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
     <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
     <title>AUI快速完成布局</title>
-    <link rel="stylesheet" type="text/css" href="../css/aui.2.0.css" />
+    <link rel="stylesheet" type="text/css" href="../css/aui.css" />
     <style type="text/css">
     .aui-content-padded {
         padding: 0.75rem;
@@ -16,35 +16,62 @@
 </head>
 <body>
     <div class="aui-searchbar" id="search">
-        <div class="aui-searchbar-input aui-border-radius" tapmode onclick="doSearch()">
+        <div class="aui-searchbar-input aui-border-radius">
             <i class="aui-iconfont aui-icon-search"></i>
-            <form action="javascript:search();">
-                <input type="search" placeholder="请输入搜索内容" id="search-input">
-            </form>
+            <input type="search" placeholder="请输入搜索内容" id="search-input">
+            <div class="aui-searchbar-clear-btn">
+                <i class="aui-iconfont aui-icon-close"></i>
+            </div>
         </div>
-        <div class="aui-searchbar-cancel" tapmod>取消</div>
+        <div class="aui-searchbar-btn" tapmode>取消</div>
     </div>
+    <section class="aui-content-padded">
+        更新说明：取消了搜索条的绝对定位。增加清除按钮
+    </section>
+    <section class="aui-content-padded">
+        要搜索的内容为：<span class="aui-text-info" id="search-keywords"></span>
+    </section>
 </body>
 <script type="text/javascript" src="../script/api.js" ></script>
 <script type="text/javascript">
     apiready = function(){
         api.parseTapmode();
     }
-    var searchBar = document.querySelector(".aui-searchbar-input");
+    var searchBar = document.querySelector(".aui-searchbar");
+    var searchBarInput = document.querySelector(".aui-searchbar input");
+    var searchBarBtn = document.querySelector(".aui-searchbar .aui-searchbar-btn");
+    var searchBarClearBtn = document.querySelector(".aui-searchbar .aui-searchbar-clear-btn");
     if(searchBar){
-        searchBar.onclick = function(){
-            document.querySelector(".aui-searchbar-cancel").style.marginRight = 0;
+        searchBarInput.onclick = function(){
+            searchBarBtn.style.marginRight = 0;
+        }
+        searchBarInput.oninput = function(){
+            if(this.value.length){
+                searchBarClearBtn.style.display = 'block';
+                searchBarBtn.classList.add("aui-text-info");
+                searchBarBtn.textContent = "搜索";
+            }else{
+                searchBarClearBtn.style.display = 'none';
+                searchBarBtn.classList.remove("aui-text-info");
+                searchBarBtn.textContent = "取消";
+            }
         }
     }
-    document.querySelector(".aui-searchbar-cancel").onclick = function(){
-        this.style.marginRight = "-"+this.offsetWidth+"px";
-        document.getElementById("search-input").value = '';
-        document.getElementById("search-input").blur();
+    searchBarClearBtn.onclick = function(){
+        this.style.display = 'none';
+        searchBarInput.value = '';
+        searchBarBtn.classList.remove("aui-text-info");
+        searchBarBtn.textContent = "取消";
     }
-    function doSearch(){
-        var searchValue = document.getElementById("search-input").value;
-        if(searchValue){
-            alert("您输入的内容是:"+searchValue);
+    searchBarBtn.onclick = function(){
+        var keywords = searchBarInput.value;
+        if(keywords.length){
+            searchBarInput.blur();
+            document.getElementById("search-keywords").textContent = keywords;
+        }else{
+            this.style.marginRight = "-"+this.offsetWidth+"px";
+            searchBarInput.value = '';
+            searchBarInput.blur();
         }
     }
 </script>

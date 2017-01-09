@@ -1,6 +1,6 @@
 /**
  * aui-scroll.js
- * @author Beck && 流浪男
+ * @author  流浪男
  * @todo more things to abstract, e.g. Loading css etc.
  * Licensed under the MIT license.
  * http://www.opensource.org/licenses/mit-license.php
