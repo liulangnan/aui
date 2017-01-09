@@ -716,7 +716,7 @@ textarea {
     border-radius: 0;
     box-shadow: none;
     display: block;
-    padding: 0;
+    padding: 0.5rem 0;
     margin: 0;
     width: 100%;
     min-height: 2.2rem;
