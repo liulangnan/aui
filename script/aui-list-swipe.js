@@ -98,9 +98,9 @@
 				if(!element.nextSibling)return;
 			},false)
 			element.addEventListener('touchmove', function(event){
-				event.preventDefault();
+				// event.preventDefault();
 				if(document.querySelector(".aui-swipe-opened")){
-					event.preventDefault();
+					// event.preventDefault();
 					if(swipeHandle != document.querySelector(".aui-swipe-opened")){
 						self.setTranslate(document.querySelector(".aui-swipe-opened"),"0px");
 			        	document.querySelector(".aui-swipe-opened").classList.remove("aui-swipe-opened");
