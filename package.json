@@ -1,0 +1,25 @@
+{
+  "name": "auicss",
+  "version": "2.0.0",
+  "description": "AUI是为APICloud而打造的一个单纯UI框架，体积小，方便用户扩展和自由组合，摆脱繁琐的html标签布局。",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/liulangnan/aui.git"
+  },
+  "keywords": [
+    "aui",
+    "apicloud",
+    "css",
+    "app"
+  ],
+  "author": "liulangnan",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/liulangnan/aui/issues"
+  },
+  "homepage": "http://auicss.com/"
+}
