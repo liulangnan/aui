@@ -25,6 +25,7 @@
 		winfactor= 0.2,
 		translateVal,
 		isMoved = false,
+	    	allowSample = true,
 		firstTouchY, initialScroll;
 	auiPullToRefresh.prototype = {
 		params: {
@@ -89,7 +90,7 @@
 					self.params.container.classList.remove("aui-refresh-pull-up");
 				}
 			};
-			this.throttle(moving(), 20);
+			this.throttle(moving, 20)();
 		},
 		touchEnd : function (ev,callback) {
 			var self =this;
@@ -145,7 +146,6 @@
 			return window.pageYOffset || docElem.scrollTop;
 		},
 		throttle : function(fn, delay) {
-			var allowSample = true;
 			return function(e) {
 				if (allowSample) {
 					allowSample = false;
