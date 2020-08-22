@@ -15,28 +15,45 @@
             title:'',
             msg:'',
             buttons: ['取消','确定'],
-            input:false
+            input:false,
+            endtxt:'', // 提示文本
+            id : '',
+            autoclose: true,
+            text:'', // 输入框的placehoder
+            value:'', // 输入框的默认值
+            msgObj: '', // 弹出框中直接显示指定对象
+            type: 'text' // input type值
         },
         create: function(params,callback) {
-        	var self = this;
+            var self = this;
             var dialogHtml = '';
             var buttonsHtml = '';
-            var headerHtml = params.title ? '<div class="aui-dialog-header">' + params.title + '</div>' : '<div class="aui-dialog-header">' + self.params.title + '</div>';
+            params.autoclose = typeof(params.autoclose) == 'undefined' ? self.params.autoclose : params.autoclose;
+            var headerHtml = '<div class="aui-dialog-header">' + (params.title || self.params.title) + '</div>';
+            //var headerHtml = params.title ? '<div class="aui-dialog-header">' + params.title + '</div>' : '<div class="aui-dialog-header">' + self.params.title + '</div>';
             if(params.input){
-                params.text = params.text ? params.text: '';
-                var msgHtml = '<div class="aui-dialog-body"><input type="text" placeholder="'+params.text+'"></div>';
+                var msgHtml = '<div class="aui-dialog-body"><input type="' + (params.type || self.params.type) + '" value="' + (params.value || self.params.value) + '" placeholder="' + (params.text || '') + '">' + (params.endtxt || '') + '</div>';
             }else{
-                var msgHtml = params.msg ? '<div class="aui-dialog-body">' + params.msg + '</div>' : '<div class="aui-dialog-body">' + self.params.msg + '</div>';
+                var msgHtml = '<div class="aui-dialog-body">' + (params.msg || self.params.msg) + (params.endtxt || '') + '</div>';
             }
-            var buttons = params.buttons ? params.buttons : self.params.buttons;
+
+            var buttons = params.buttons || self.params.buttons;
             if (buttons && buttons.length > 0) {
                 for (var i = 0; i < buttons.length; i++) {
                     buttonsHtml += '<div class="aui-dialog-btn" tapmode button-index="'+i+'">'+buttons[i]+'</div>';
                 }
             }
+            var id = params.id || self.params.id;
             var footerHtml = '<div class="aui-dialog-footer">'+buttonsHtml+'</div>';
-            dialogHtml = '<div class="aui-dialog">'+headerHtml+msgHtml+footerHtml+'</div>';
+            dialogHtml = '<div class="aui-dialog" ' + (id ? ' id="' + id + '"' : '') + '>'+headerHtml+msgHtml+footerHtml+'</div>';
             document.body.insertAdjacentHTML('beforeend', dialogHtml);
+
+            // 支持弹出框中直接显示指定对象
+            if(typeof(params.msgObj) == 'object')
+            {
+                document.querySelector(".aui-dialog-body").appendChild(params.msgObj);
+            }
+
             // listen buttons click
             var dialogButtons = document.querySelectorAll(".aui-dialog-btn");
             if(dialogButtons && dialogButtons.length > 0){
@@ -46,46 +63,69 @@
                             if(params.input){
                                 callback({
                                     buttonIndex: parseInt(this.getAttribute("button-index"))+1,
-                                    text: document.querySelector("input").value
+                                    text: document.querySelector(".aui-dialog-body").querySelector("input").value,
+                                    params: self.params
                                 });
                             }else{
                                 callback({
-                                    buttonIndex: parseInt(this.getAttribute("button-index"))+1
+                                    buttonIndex: parseInt(this.getAttribute("button-index"))+1,
+                                    params: self.params
                                 });
                             }
                         };
-                        self.close();
+                        params.autoclose && self.close();
                         return;
                     }
                 }
             }
-            self.open();
+            self.open(params);
         },
-        open: function(){
+
+        open: function(params){
+            //open: function(params){
             if(!document.querySelector(".aui-dialog"))return;
             var self = this;
-            document.querySelector(".aui-dialog").style.marginTop =  "-"+Math.round(document.querySelector(".aui-dialog").offsetHeight/2)+"px";
+            // 用css3实现了居中
             if(!document.querySelector(".aui-mask")){
                 var maskHtml = '<div class="aui-mask"></div>';
                 document.body.insertAdjacentHTML('beforeend', maskHtml);
             }
-            // document.querySelector(".aui-dialog").style.display = "block";
             setTimeout(function(){
                 document.querySelector(".aui-dialog").classList.add("aui-dialog-in");
                 document.querySelector(".aui-mask").classList.add("aui-mask-in");
                 document.querySelector(".aui-dialog").classList.add("aui-dialog-in");
             }, 10)
+            // 阻止滚动事件
             document.querySelector(".aui-mask").addEventListener("touchmove", function(e){
                 e.preventDefault();
             })
-            document.querySelector(".aui-dialog").addEventListener("touchmove", function(e){
+            document.querySelector(".aui-dialog-header").addEventListener("touchmove", function(e){
                 e.preventDefault();
             })
+            document.querySelector(".aui-dialog-footer").addEventListener("touchmove", function(e){
+                e.preventDefault();
+            })
+
+            // 可通过点击遮盖层来关闭弹出框
+            // 此处可能造成多次执行
+            //document.querySelector(".aui-mask").addEventListener("click", function(e){
+            document.querySelector(".aui-mask").onclick = function(e){
+                // 支持弹出框中直接显示指定对象
+                if(typeof(params.msgObj) == 'object')
+                {
+                    (params.msgPobj || document.body).appendChild(params.msgObj);
+                }
+
+                self.close();
+            };
+
             return;
         },
         close: function(){
             var self = this;
-            document.querySelector(".aui-mask").classList.remove("aui-mask-in");
+            if (document.querySelector(".aui-mask")) {
+                document.querySelector(".aui-mask").classList.remove("aui-mask-in");
+            }
             document.querySelector(".aui-dialog").classList.remove("aui-dialog-in");
             document.querySelector(".aui-dialog").classList.add("aui-dialog-out");
             if (document.querySelector(".aui-dialog:not(.aui-dialog-out)")) {
@@ -95,7 +135,9 @@
                     return true;
                 },200)
             }else{
-                document.querySelector(".aui-mask").classList.add("aui-mask-out");
+                if (document.querySelector(".aui-mask")) {
+                    document.querySelector(".aui-mask").classList.add("aui-mask-out");
+                }
                 document.querySelector(".aui-dialog").addEventListener("webkitTransitionEnd", function(){
                     self.remove();
                 })
@@ -112,7 +154,7 @@
             return true;
         },
         alert: function(params,callback){
-        	var self = this;
+            var self = this;
             return self.create(params,callback);
         },
         prompt:function(params,callback){
@@ -121,5 +163,5 @@
             return self.create(params,callback);
         }
     };
-	window.auiDialog = auiDialog;
+    window.auiDialog = auiDialog;
 })(window);
